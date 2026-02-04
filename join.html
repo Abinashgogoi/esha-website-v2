@@ -209,7 +209,6 @@
                                     <option value="+1">US +1</option>
                                     <option value="+44">UK +44</option>
                                     <option disabled>──────────</option>
-                                    <!-- Common Codes -->
                                     <option value="+93">AF +93</option>
                                     <option value="+61">AU +61</option>
                                     <option value="+880">BD +880</option>
@@ -244,7 +243,7 @@
                             <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Current Background</label>
                             <select id="background" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esha-green outline-none bg-white">
                                 <option value="" disabled selected>Select Background...</option>
-                                <!-- Values kept as per your UI Preference (Synced in Zoho) -->
+                                <!-- Values from your previous preference -->
                                 <option value="Student">Student</option>
                                 <option value="Researcher">Researcher</option>
                                 <option value="Professional">Working Professional</option>
@@ -263,19 +262,23 @@
                         <input type="text" id="address" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esha-green outline-none" placeholder="City, State, Country">
                     </div>
 
-                    <!-- Core Questions (Values are Full Text for Zoho) -->
+                    <!-- Portfolio Links (New Field) -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Portfolio / Social Links (Optional)</label>
+                        <input type="text" id="portfolio-links" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esha-green outline-none" placeholder="LinkedIn, GitHub, or Website URL">
+                    </div>
+
+                    <!-- Core Questions - Values MATCH ZOHO TEXT FILE -->
                     <div>
                         <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Primary Interest Area</label>
                         <select id="interest" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esha-green outline-none bg-white">
                             <option value="" disabled selected>Select Interest Area...</option>
-                            <option value="Artificial Intelligence">Artificial Intelligence & ML</option>
-                            <option value="Space Exploration">Space Technology</option>
-                            <option value="Health Research">HealthTech</option>
-                            <option value="Biotechnology">Biotech & Genomics</option>
-                            <option value="Sustainable Energy">Environment & Energy</option>
-                            <option value="Financial Technology">Blockchain & FinTech</option>
-                            <option value="Robotics">Robotics & Automation</option>
-                            <option value="Cybersecurity">Cybersecurity</option>
+                            <option value="Artifical Intelligence">Artifical Intelligence</option>
+                            <option value="Space Exploration">Space Exploration</option>
+                            <option value="Health Technology">Health Technology</option>
+                            <option value="Biotechnology">Biotechnology</option>
+                            <option value="Sustainable Energy">Sustainable Energy</option>
+                            <option value="Financial Technology">Financial Technology</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
@@ -346,6 +349,11 @@
                         </div>
                     </div>
                     
+                    <div>
+                        <span class="block text-xs text-gray-400 uppercase mb-1">Portfolio Links</span>
+                        <p id="prev-portfolio" class="text-gray-700 italic bg-white p-3 rounded border border-gray-100">...</p>
+                    </div>
+
                     <div>
                         <span class="block text-xs text-gray-400 uppercase mb-1">Motivation</span>
                         <p id="prev-motivation" class="text-gray-700 italic bg-white p-3 rounded border border-gray-100">...</p>
@@ -444,7 +452,7 @@
     <!-- JAVASCRIPT LOGIC -->
     <script>
         // --- CONFIGURATION ---
-        // Updated to your deployed Cloudflare Worker URL
+        // Your Verified Cloudflare Worker URL
         const ZOHO_WORKER_BASE = "https://esha-hub-api.abinashgogoi506.workers.dev"; 
         const ENDPOINT_CREATE = "/apply";
         const ENDPOINT_UPLOAD = "/upload";
@@ -462,7 +470,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             initSignaturePad();
             
-            // Step 1 Checkbox Logic
             const agreeBox = document.getElementById('agree-checkbox');
             const nextBtn1 = document.getElementById('btn-next-1');
             
@@ -500,10 +507,10 @@
             // Update Stepper UI
             updateStepperUI(step);
             
-            // If going to Preview (3), populate data
+            // Populate Preview
             if(step === 3) populatePreview();
             
-            // If going to Signature (5), adjust canvas
+            // Signature Resize
             if(step === 5) resizeCanvas();
 
             appState.step = step;
@@ -516,20 +523,16 @@
                 const circle = el.querySelector('div');
                 const label = el.querySelector('span');
                 
-                // Reset
                 circle.className = "w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold text-sm transition-all duration-300";
                 label.className = "text-[10px] uppercase mt-2 font-semibold tracking-wider transition-colors duration-300";
                 
                 if(i < currentStep) {
-                    // Completed
                     circle.classList.add('bg-esha-green', 'border-esha-green', 'text-white');
                     label.classList.add('text-esha-green');
                 } else if(i === currentStep) {
-                    // Active
                     circle.classList.add('border-esha-accent', 'text-esha-accent', 'bg-white', 'ring-2', 'ring-offset-2', 'ring-esha-accent');
                     label.classList.add('text-esha-accent');
                 } else {
-                    // Inactive
                     circle.classList.add('border-gray-300', 'text-gray-400');
                     label.classList.add('text-gray-400');
                 }
@@ -565,7 +568,6 @@
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     appState.profileImageSrc = e.target.result;
-                    // Update small preview in Step 2
                     const img = document.getElementById('profile-preview-sm');
                     const icon = document.getElementById('profile-placeholder-icon');
                     img.src = e.target.result;
@@ -577,7 +579,6 @@
         }
 
         function populatePreview() {
-            // Gather data from form
             appState.formData = {
                 'full-name': document.getElementById('full-name').value,
                 'email': document.getElementById('email').value,
@@ -588,25 +589,25 @@
                 'address': document.getElementById('address').value,
                 'interest': document.getElementById('interest').value,
                 'motivation': document.getElementById('motivation').value,
-                'vision': document.getElementById('vision').value
+                'vision': document.getElementById('vision').value,
+                // NEW: Portfolio Links
+                'portfolio_links': document.getElementById('portfolio-links').value
             };
 
-            // Update Preview Text
             document.getElementById('prev-name-display').textContent = appState.formData['full-name'];
             document.getElementById('prev-role-display').textContent = appState.formData['background'] + " • " + appState.formData['interest'];
             document.getElementById('prev-email-display').textContent = appState.formData['email'];
             
-            // Standard Fields
             document.getElementById('prev-phone').textContent = appState.formData['phone'];
             document.getElementById('prev-dob').textContent = appState.formData['dob'];
             document.getElementById('prev-gender').textContent = appState.formData['gender'];
             document.getElementById('prev-background').textContent = appState.formData['background'];
             document.getElementById('prev-interest').textContent = appState.formData['interest'];
             document.getElementById('prev-address').textContent = appState.formData['address'];
+            document.getElementById('prev-portfolio').textContent = appState.formData['portfolio_links'] || "N/A";
             document.getElementById('prev-motivation').textContent = appState.formData['motivation'];
             document.getElementById('prev-vision').textContent = appState.formData['vision'];
 
-            // Update Profile Image in Preview
             const prevImg = document.getElementById('prev-profile-img');
             const prevPlace = document.getElementById('prev-profile-placeholder');
             
@@ -626,22 +627,18 @@
             const originalContent = btn.innerHTML;
             
             try {
-                // UI Loading State
                 btn.disabled = true;
                 btn.innerHTML = '<span class="loader mr-2"></span> Processing...';
                 hideError();
 
                 const endpoint = `${ZOHO_WORKER_BASE}${ENDPOINT_CREATE}`;
 
-                // STRICT REAL-TIME CONNECTION
-                // NO Simulation / NO Demo Fallback
                 const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(appState.formData)
                 });
                 
-                // If response is NOT OK (like 404, 500), Throw Error immediately
                 if (!response.ok) {
                     const errText = await response.text();
                     throw new Error(`Server Error (${response.status}): ${errText || response.statusText}`);
@@ -651,12 +648,8 @@
 
                 if (data.success && data.Application_ID) {
                     appState.applicationId = data.Application_ID;
-                    
-                    // Update Step 4 UI
                     document.getElementById('display-app-id').textContent = appState.applicationId;
-                    document.getElementById('upload-ref-id').textContent = appState.applicationId;
                     
-                    // Enable Next Button
                     const nextBtn = document.getElementById('btn-to-upload');
                     nextBtn.disabled = false;
                     nextBtn.classList.remove('bg-gray-300', 'cursor-not-allowed');
@@ -669,7 +662,6 @@
 
             } catch (error) {
                 console.error("Submission Error:", error);
-                // SHOW REAL ERROR TO USER
                 showError("Connection Failed: " + error.message);
                 btn.disabled = false;
                 btn.innerHTML = originalContent;
@@ -693,7 +685,6 @@
                 const formData = new FormData();
                 formData.append('Application_ID', appState.applicationId);
                 
-                // Append Files
                 const videoFile = document.getElementById('video-upload').files[0];
                 const docFile = document.getElementById('docs-upload').files[0];
                 const profileFile = document.getElementById('profile-pic').files[0];
@@ -702,14 +693,12 @@
                 if (docFile) formData.append('agreement', docFile);
                 if (profileFile) formData.append('profile_picture', profileFile);
 
-                // Append Signature
                 if (appState.signatureBlob) {
                     formData.append('signature', appState.signatureBlob, 'signature.png');
                 }
 
                 const endpoint = `${ZOHO_WORKER_BASE}${ENDPOINT_UPLOAD}`;
 
-                // STRICT REAL-TIME UPLOAD
                 const response = await fetch(endpoint, {
                     method: 'POST',
                     body: formData
@@ -743,8 +732,6 @@
         function initSignaturePad() {
             canvas = document.getElementById('signature-pad');
             ctx = canvas.getContext('2d');
-            
-            // Handle resizing
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
 
@@ -781,22 +768,19 @@
                 };
             }
 
-            // Mouse Events
             canvas.addEventListener('mousedown', startDraw);
             canvas.addEventListener('mouseup', endDraw);
             canvas.addEventListener('mousemove', draw);
             canvas.addEventListener('mouseleave', endDraw);
 
-            // Touch Events (Mobile)
             canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startDraw(e); }, { passive: false });
             canvas.addEventListener('touchend', (e) => { e.preventDefault(); endDraw(); }, { passive: false });
             canvas.addEventListener('touchmove', (e) => { e.preventDefault(); draw(e); }, { passive: false });
         }
 
         function resizeCanvas() {
-            // High DPI scaling
             const container = document.getElementById('signature-container');
-            if(!container) return; // Guard if on other steps
+            if(!container) return;
             
             const ratio = Math.max(window.devicePixelRatio || 1, 1);
             canvas.width = container.offsetWidth * ratio;
@@ -813,7 +797,6 @@
             appState.signatureBlob = null;
         }
 
-        // --- UTILS ---
         function handleFileSelect(input, labelId) {
             const label = document.getElementById(labelId);
             if (input.files && input.files[0]) {
