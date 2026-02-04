@@ -204,11 +204,11 @@
                             <div class="col-span-1">
                                 <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Code</label>
                                 <select id="country-code" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esha-green outline-none bg-white text-sm">
-                                    <option value="" disabled selected>Code...</option>
                                     <option value="+91">IN +91</option>
                                     <option value="+1">US +1</option>
                                     <option value="+44">UK +44</option>
                                     <option disabled>──────────</option>
+                                    <!-- Common Codes -->
                                     <option value="+93">AF +93</option>
                                     <option value="+61">AU +61</option>
                                     <option value="+880">BD +880</option>
@@ -243,7 +243,7 @@
                             <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Current Background</label>
                             <select id="background" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esha-green outline-none bg-white">
                                 <option value="" disabled selected>Select Background...</option>
-                                <!-- Values from your previous preference -->
+                                <!-- Values kept as per your UI Preference (Synced in Zoho) -->
                                 <option value="Student">Student</option>
                                 <option value="Researcher">Researcher</option>
                                 <option value="Professional">Working Professional</option>
@@ -273,12 +273,14 @@
                         <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Primary Interest Area</label>
                         <select id="interest" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esha-green outline-none bg-white">
                             <option value="" disabled selected>Select Interest Area...</option>
-                            <option value="Artifical Intelligence">Artifical Intelligence</option>
+                            <option value="Artificial Intelligence">Artificial Intelligence</option>
                             <option value="Space Exploration">Space Exploration</option>
-                            <option value="Health Technology">Health Technology</option>
+                            <option value="Health Research">Health Research</option>
                             <option value="Biotechnology">Biotechnology</option>
                             <option value="Sustainable Energy">Sustainable Energy</option>
                             <option value="Financial Technology">Financial Technology</option>
+                            <option value="Robotics">Robotics</option>
+                            <option value="Cybersecurity">Cybersecurity</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
@@ -350,7 +352,7 @@
                     </div>
                     
                     <div>
-                        <span class="block text-xs text-gray-400 uppercase mb-1">Portfolio Links</span>
+                        <span class="block text-xs text-gray-400 uppercase mb-1">Portfolio</span>
                         <p id="prev-portfolio" class="text-gray-700 italic bg-white p-3 rounded border border-gray-100">...</p>
                     </div>
 
@@ -404,23 +406,24 @@
                 <h2 class="text-2xl font-bold text-esha-dark mb-6">Final Verification</h2>
                 
                 <div class="space-y-6">
-                    <!-- Upload Grid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Video Upload -->
+                        <!-- Video Upload with Validation -->
                         <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-esha-accent transition bg-gray-50 group">
                             <i class="ph ph-video-camera text-4xl text-gray-400 group-hover:text-esha-accent mb-2"></i>
                             <h4 class="font-bold text-sm text-gray-700">Intro Video (Required)</h4>
-                            <p class="text-xs text-gray-500 mb-3">Max 1 min. Introduce yourself.</p>
-                            <input type="file" id="video-upload" accept="video/*" class="hidden" onchange="handleFileSelect(this, 'video-label')">
+                            <p class="text-xs text-gray-500 mb-3">Max 10MB. Introduce yourself.</p>
+                            <!-- UPDATED: onchange now passes 'video' type -->
+                            <input type="file" id="video-upload" accept="video/*" class="hidden" onchange="handleFileSelect(this, 'video-label', 'video')">
                             <label for="video-upload" id="video-label" class="cursor-pointer text-xs bg-white border border-gray-300 px-3 py-1.5 rounded hover:bg-gray-50 text-gray-600">Choose File</label>
                         </div>
 
-                        <!-- Document Upload -->
+                        <!-- Document Upload with Validation -->
                         <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-esha-accent transition bg-gray-50 group">
                             <i class="ph ph-file-pdf text-4xl text-gray-400 group-hover:text-esha-accent mb-2"></i>
                             <h4 class="font-bold text-sm text-gray-700">Resume/CV (Required)</h4>
-                            <p class="text-xs text-gray-500 mb-3">PDF format preferred.</p>
-                            <input type="file" id="docs-upload" accept=".pdf,.doc,.docx" class="hidden" onchange="handleFileSelect(this, 'docs-label')">
+                            <p class="text-xs text-gray-500 mb-3">Max 2MB. PDF format preferred.</p>
+                            <!-- UPDATED: onchange now passes 'doc' type -->
+                            <input type="file" id="docs-upload" accept=".pdf,.doc,.docx" class="hidden" onchange="handleFileSelect(this, 'docs-label', 'doc')">
                             <label for="docs-upload" id="docs-label" class="cursor-pointer text-xs bg-white border border-gray-300 px-3 py-1.5 rounded hover:bg-gray-50 text-gray-600">Choose File</label>
                         </div>
                     </div>
@@ -440,79 +443,46 @@
 
                 <div class="mt-8 flex justify-between items-center">
                     <span class="text-xs text-gray-400">ID: <span id="upload-ref-id" class="font-mono">...</span></span>
-                    <button id="btn-final-submit" onclick="submitFinalUploads()" class="px-8 py-3 bg-esha-green text-white font-bold rounded-lg hover:bg-opacity-90 shadow-lg transition">
-                        Submit Final
-                    </button>
+                    <button id="btn-final-submit" onclick="submitFinalUploads()" class="px-8 py-3 bg-esha-green text-white font-bold rounded-lg hover:bg-opacity-90 shadow-lg transition">Submit Final</button>
                 </div>
             </div>
-
         </div>
     </div>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- CONFIGURATION ---
-        // Your Verified Cloudflare Worker URL
         const ZOHO_WORKER_BASE = "https://esha-hub-api.abinashgogoi506.workers.dev"; 
         const ENDPOINT_CREATE = "/apply";
         const ENDPOINT_UPLOAD = "/upload";
 
-        // --- STATE MANAGEMENT ---
-        let appState = {
-            step: 1,
-            applicationId: null,
-            formData: {},
-            signatureBlob: null,
-            profileImageSrc: null
-        };
+        let appState = { step: 1, applicationId: null, formData: {}, signatureBlob: null, profileImageSrc: null };
 
-        // --- INIT ---
         document.addEventListener('DOMContentLoaded', () => {
             initSignaturePad();
-            
             const agreeBox = document.getElementById('agree-checkbox');
             const nextBtn1 = document.getElementById('btn-next-1');
-            
             if(agreeBox.checked) enableStep1Btn(nextBtn1);
-
             agreeBox.addEventListener('change', (e) => {
-                if(e.target.checked) {
-                    enableStep1Btn(nextBtn1);
-                } else {
-                    disableStep1Btn(nextBtn1);
-                }
+                if(e.target.checked) enableStep1Btn(nextBtn1);
+                else disableStep1Btn(nextBtn1);
             });
         });
 
         function enableStep1Btn(btn) {
-            btn.removeAttribute('disabled');
-            btn.classList.remove('bg-gray-300', 'cursor-not-allowed');
+            btn.removeAttribute('disabled'); btn.classList.remove('bg-gray-300', 'cursor-not-allowed');
             btn.classList.add('bg-esha-green', 'hover:bg-opacity-90', 'shadow-lg');
         }
-
         function disableStep1Btn(btn) {
-            btn.setAttribute('disabled', 'true');
-            btn.classList.add('bg-gray-300', 'cursor-not-allowed');
+            btn.setAttribute('disabled', 'true'); btn.classList.add('bg-gray-300', 'cursor-not-allowed');
             btn.classList.remove('bg-esha-green', 'hover:bg-opacity-90', 'shadow-lg');
         }
 
-        // --- NAVIGATION ---
         function goToStep(step) {
-            // Hide all contents
             document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
-            
-            // Show target
             document.getElementById(`step-content-${step}`).classList.remove('hidden');
-            
-            // Update Stepper UI
             updateStepperUI(step);
-            
-            // Populate Preview
             if(step === 3) populatePreview();
-            
-            // Signature Resize
             if(step === 5) resizeCanvas();
-
             appState.step = step;
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -522,59 +492,78 @@
                 const el = document.getElementById(`step-ind-${i}`);
                 const circle = el.querySelector('div');
                 const label = el.querySelector('span');
-                
                 circle.className = "w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold text-sm transition-all duration-300";
                 label.className = "text-[10px] uppercase mt-2 font-semibold tracking-wider transition-colors duration-300";
-                
-                if(i < currentStep) {
-                    circle.classList.add('bg-esha-green', 'border-esha-green', 'text-white');
-                    label.classList.add('text-esha-green');
-                } else if(i === currentStep) {
-                    circle.classList.add('border-esha-accent', 'text-esha-accent', 'bg-white', 'ring-2', 'ring-offset-2', 'ring-esha-accent');
-                    label.classList.add('text-esha-accent');
-                } else {
-                    circle.classList.add('border-gray-300', 'text-gray-400');
-                    label.classList.add('text-gray-400');
-                }
+                if(i < currentStep) { circle.classList.add('bg-esha-green', 'border-esha-green', 'text-white'); label.classList.add('text-esha-green'); }
+                else if(i === currentStep) { circle.classList.add('border-esha-accent', 'text-esha-accent', 'bg-white', 'ring-2', 'ring-offset-2', 'ring-esha-accent'); label.classList.add('text-esha-accent'); }
+                else { circle.classList.add('border-gray-300', 'text-gray-400'); label.classList.add('text-gray-400'); }
             }
         }
 
-        // --- VALIDATION & PREVIEW ---
         function validateStep2() {
             const requiredIds = ['full-name', 'email', 'phone', 'dob', 'motivation', 'vision', 'background', 'interest', 'gender', 'country-code'];
             let isValid = true;
-            
             requiredIds.forEach(id => {
                 const el = document.getElementById(id);
-                if(!el.value.trim()) {
-                    el.classList.add('border-red-500');
-                    isValid = false;
-                } else {
-                    el.classList.remove('border-red-500');
-                }
+                if(!el.value.trim()) { el.classList.add('border-red-500'); isValid = false; }
+                else { el.classList.remove('border-red-500'); }
             });
-
-            if(!isValid) {
-                showError("Please fill in all required fields.");
-                return;
-            }
-            
-            hideError();
-            goToStep(3);
+            if(!isValid) { showError("Please fill in all required fields."); return; }
+            hideError(); goToStep(3);
         }
 
+        // NEW: Profile Picture with Size Limit (Max 2MB)
         function handleProfileSelect(input) {
             if (input.files && input.files[0]) {
+                const file = input.files[0];
+                const limit = 2 * 1024 * 1024; // 2MB
+                
+                if (file.size > limit) {
+                    showError("Profile Picture is too large! Max 2MB allowed.");
+                    input.value = ""; // Clear file
+                    return;
+                }
+                
+                hideError(); // Clear any previous errors
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     appState.profileImageSrc = e.target.result;
                     const img = document.getElementById('profile-preview-sm');
                     const icon = document.getElementById('profile-placeholder-icon');
-                    img.src = e.target.result;
-                    img.classList.remove('hidden');
-                    icon.classList.add('hidden');
+                    img.src = e.target.result; img.classList.remove('hidden'); icon.classList.add('hidden');
                 }
-                reader.readAsDataURL(input.files[0]);
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // NEW: General File Select with Size Limit (Max 10MB for Video, 2MB for Docs)
+        function handleFileSelect(input, labelId, type) {
+            const label = document.getElementById(labelId);
+            const file = input.files[0];
+            
+            if (file) {
+                let limit = 2 * 1024 * 1024; // Default 2MB
+                let typeMsg = "File";
+                
+                if (type === 'video') {
+                    limit = 10 * 1024 * 1024; // 10MB for Video
+                    typeMsg = "Video";
+                } else {
+                    typeMsg = "Document";
+                }
+
+                if (file.size > limit) {
+                    showError(`${typeMsg} is too large! Max ${type === 'video' ? '10MB' : '2MB'} allowed.`);
+                    input.value = ""; // Clear file
+                    label.textContent = "Choose File"; // Reset label
+                    label.classList.remove('bg-green-100', 'text-green-700', 'border-green-300');
+                    return;
+                }
+
+                // If valid
+                hideError();
+                label.textContent = file.name;
+                label.classList.add('bg-green-100', 'text-green-700', 'border-green-300');
             }
         }
 
@@ -590,14 +579,11 @@
                 'interest': document.getElementById('interest').value,
                 'motivation': document.getElementById('motivation').value,
                 'vision': document.getElementById('vision').value,
-                // NEW: Portfolio Links
                 'portfolio_links': document.getElementById('portfolio-links').value
             };
-
             document.getElementById('prev-name-display').textContent = appState.formData['full-name'];
             document.getElementById('prev-role-display').textContent = appState.formData['background'] + " • " + appState.formData['interest'];
             document.getElementById('prev-email-display').textContent = appState.formData['email'];
-            
             document.getElementById('prev-phone').textContent = appState.formData['phone'];
             document.getElementById('prev-dob').textContent = appState.formData['dob'];
             document.getElementById('prev-gender').textContent = appState.formData['gender'];
@@ -610,222 +596,72 @@
 
             const prevImg = document.getElementById('prev-profile-img');
             const prevPlace = document.getElementById('prev-profile-placeholder');
-            
-            if (appState.profileImageSrc) {
-                prevImg.src = appState.profileImageSrc;
-                prevImg.classList.remove('hidden');
-                prevPlace.classList.add('hidden');
-            } else {
-                prevImg.classList.add('hidden');
-                prevPlace.classList.remove('hidden');
-            }
+            if (appState.profileImageSrc) { prevImg.src = appState.profileImageSrc; prevImg.classList.remove('hidden'); prevPlace.classList.add('hidden'); }
+            else { prevImg.classList.add('hidden'); prevPlace.classList.remove('hidden'); }
         }
 
-        // --- ZOHO INTEGRATION (CREATE) ---
         async function submitToZoho() {
-            const btn = document.getElementById('btn-submit-app');
-            const originalContent = btn.innerHTML;
-            
+            const btn = document.getElementById('btn-submit-app'); const originalContent = btn.innerHTML;
             try {
-                btn.disabled = true;
-                btn.innerHTML = '<span class="loader mr-2"></span> Processing...';
-                hideError();
-
-                const endpoint = `${ZOHO_WORKER_BASE}${ENDPOINT_CREATE}`;
-
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(appState.formData)
+                btn.disabled = true; btn.innerHTML = '<span class="loader mr-2"></span> Processing...'; hideError();
+                const response = await fetch(`${ZOHO_WORKER_BASE}${ENDPOINT_CREATE}`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(appState.formData)
                 });
-                
-                if (!response.ok) {
-                    const errText = await response.text();
-                    throw new Error(`Server Error (${response.status}): ${errText || response.statusText}`);
-                }
-                
+                if (!response.ok) { const errText = await response.text(); throw new Error(`Server Error (${response.status}): ${errText || response.statusText}`); }
                 const data = await response.json();
-
                 if (data.success && data.Application_ID) {
                     appState.applicationId = data.Application_ID;
                     document.getElementById('display-app-id').textContent = appState.applicationId;
-                    
-                    const nextBtn = document.getElementById('btn-to-upload');
-                    nextBtn.disabled = false;
-                    nextBtn.classList.remove('bg-gray-300', 'cursor-not-allowed');
-                    nextBtn.classList.add('bg-esha-green', 'hover:bg-opacity-90');
-                    
+                    document.getElementById('upload-ref-id').textContent = appState.applicationId;
+                    const nextBtn = document.getElementById('btn-to-upload'); nextBtn.disabled = false;
+                    nextBtn.classList.remove('bg-gray-300', 'cursor-not-allowed'); nextBtn.classList.add('bg-esha-green', 'hover:bg-opacity-90');
                     goToStep(4);
-                } else {
-                    throw new Error(data.error || "Failed to generate Application ID from Zoho.");
-                }
-
-            } catch (error) {
-                console.error("Submission Error:", error);
-                showError("Connection Failed: " + error.message);
-                btn.disabled = false;
-                btn.innerHTML = originalContent;
-            }
+                } else { throw new Error(data.error || "Failed to generate Application ID from Zoho."); }
+            } catch (error) { console.error("Submission Error:", error); showError("Connection Failed: " + error.message); btn.disabled = false; btn.innerHTML = originalContent; }
         }
 
-        // --- ZOHO INTEGRATION (UPLOAD) ---
         async function submitFinalUploads() {
-            if (!appState.applicationId) {
-                showError("Missing Application ID. Please refresh and try again.");
-                return;
-            }
-
-            const btn = document.getElementById('btn-final-submit');
-            const originalContent = btn.innerHTML;
-
+            if (!appState.applicationId) { showError("Missing Application ID. Please refresh and try again."); return; }
+            const btn = document.getElementById('btn-final-submit'); const originalContent = btn.innerHTML;
             try {
-                btn.disabled = true;
-                btn.innerHTML = '<span class="loader mr-2"></span> Uploading...';
-
+                btn.disabled = true; btn.innerHTML = '<span class="loader mr-2"></span> Uploading...';
                 const formData = new FormData();
                 formData.append('Application_ID', appState.applicationId);
-                
                 const videoFile = document.getElementById('video-upload').files[0];
                 const docFile = document.getElementById('docs-upload').files[0];
                 const profileFile = document.getElementById('profile-pic').files[0];
-                
                 if (videoFile) formData.append('video', videoFile);
                 if (docFile) formData.append('agreement', docFile);
                 if (profileFile) formData.append('profile_picture', profileFile);
+                if (appState.signatureBlob) formData.append('signature', appState.signatureBlob, 'signature.png');
 
-                if (appState.signatureBlob) {
-                    formData.append('signature', appState.signatureBlob, 'signature.png');
-                }
-
-                const endpoint = `${ZOHO_WORKER_BASE}${ENDPOINT_UPLOAD}`;
-
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (!response.ok) {
-                    const errText = await response.text();
-                    throw new Error(`Upload Server Error (${response.status}): ${errText}`);
-                }
-
+                const response = await fetch(`${ZOHO_WORKER_BASE}${ENDPOINT_UPLOAD}`, { method: 'POST', body: formData });
+                if (!response.ok) { const errText = await response.text(); throw new Error(`Upload Server Error (${response.status}): ${errText}`); }
                 const data = await response.json();
-
-                if (data.success) {
-                    alert("Application Complete! Your submission is under review.");
-                    location.reload();
-                } else {
-                    throw new Error(data.error || "Upload failed from Zoho side.");
-                }
-
-            } catch (error) {
-                console.error("Upload Error:", error);
-                showError("Upload Failed: " + error.message);
-                btn.disabled = false;
-                btn.innerHTML = originalContent;
-            }
+                if (data.success) { alert("Application Complete! Your submission is under review."); location.reload(); }
+                else { throw new Error(data.error || "Upload failed from Zoho side."); }
+            } catch (error) { console.error("Upload Error:", error); showError("Upload Failed: " + error.message); btn.disabled = false; btn.innerHTML = originalContent; }
         }
 
-        // --- SIGNATURE CANVAS ---
         let canvas, ctx;
-
         function initSignaturePad() {
-            canvas = document.getElementById('signature-pad');
-            ctx = canvas.getContext('2d');
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
-
+            canvas = document.getElementById('signature-pad'); ctx = canvas.getContext('2d');
+            window.addEventListener('resize', resizeCanvas); resizeCanvas();
             let drawing = false;
-
-            function startDraw(e) {
-                drawing = true;
-                ctx.beginPath();
-                const pos = getPos(e);
-                ctx.moveTo(pos.x, pos.y);
-            }
-            
-            function endDraw() {
-                if(drawing) {
-                    drawing = false;
-                    canvas.toBlob(blob => appState.signatureBlob = blob);
-                }
-            }
-
-            function draw(e) {
-                if (!drawing) return;
-                const pos = getPos(e);
-                ctx.lineTo(pos.x, pos.y);
-                ctx.stroke();
-            }
-
-            function getPos(e) {
-                const rect = canvas.getBoundingClientRect();
-                const clientX = e.clientX || e.touches[0].clientX;
-                const clientY = e.clientY || e.touches[0].clientY;
-                return {
-                    x: (clientX - rect.left) * (canvas.width / rect.width),
-                    y: (clientY - rect.top) * (canvas.height / rect.height)
-                };
-            }
-
-            canvas.addEventListener('mousedown', startDraw);
-            canvas.addEventListener('mouseup', endDraw);
-            canvas.addEventListener('mousemove', draw);
-            canvas.addEventListener('mouseleave', endDraw);
-
+            function startDraw(e) { drawing = true; ctx.beginPath(); const pos = getPos(e); ctx.moveTo(pos.x, pos.y); }
+            function endDraw() { if(drawing) { drawing = false; canvas.toBlob(blob => appState.signatureBlob = blob); } }
+            function draw(e) { if (!drawing) return; const pos = getPos(e); ctx.lineTo(pos.x, pos.y); ctx.stroke(); }
+            function getPos(e) { const rect = canvas.getBoundingClientRect(); const clientX = e.clientX || e.touches[0].clientX; const clientY = e.clientY || e.touches[0].clientY; return { x: (clientX - rect.left) * (canvas.width / rect.width), y: (clientY - rect.top) * (canvas.height / rect.height) }; }
+            canvas.addEventListener('mousedown', startDraw); canvas.addEventListener('mouseup', endDraw); canvas.addEventListener('mousemove', draw); canvas.addEventListener('mouseleave', endDraw);
             canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startDraw(e); }, { passive: false });
             canvas.addEventListener('touchend', (e) => { e.preventDefault(); endDraw(); }, { passive: false });
             canvas.addEventListener('touchmove', (e) => { e.preventDefault(); draw(e); }, { passive: false });
         }
-
-        function resizeCanvas() {
-            const container = document.getElementById('signature-container');
-            if(!container) return;
-            
-            const ratio = Math.max(window.devicePixelRatio || 1, 1);
-            canvas.width = container.offsetWidth * ratio;
-            canvas.height = container.offsetHeight * ratio;
-            ctx.scale(ratio, ratio);
-            
-            ctx.lineWidth = 2;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = '#000';
-        }
-
-        function clearSignature() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            appState.signatureBlob = null;
-        }
-
-        function handleFileSelect(input, labelId) {
-            const label = document.getElementById(labelId);
-            if (input.files && input.files[0]) {
-                label.textContent = input.files[0].name;
-                label.classList.add('bg-green-100', 'text-green-700', 'border-green-300');
-            }
-        }
-
-        function showError(msg) {
-            const el = document.getElementById('global-error');
-            el.textContent = msg;
-            el.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function hideError() {
-            document.getElementById('global-error').classList.add('hidden');
-        }
-
-        function printAgreement() {
-            const printContent = document.getElementById('agreement-text').innerHTML;
-            const win = window.open('', '', 'height=700,width=700');
-            win.document.write('<html><head><title>Agreement</title>');
-            win.document.write('</head><body style="font-family: sans-serif; padding: 20px;">');
-            win.document.write(printContent);
-            win.document.write('</body></html>');
-            win.document.close();
-            win.print();
-        }
+        function resizeCanvas() { const container = document.getElementById('signature-container'); if(!container) return; const ratio = Math.max(window.devicePixelRatio || 1, 1); canvas.width = container.offsetWidth * ratio; canvas.height = container.offsetHeight * ratio; ctx.scale(ratio, ratio); ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.strokeStyle = '#000'; }
+        function clearSignature() { ctx.clearRect(0, 0, canvas.width, canvas.height); appState.signatureBlob = null; }
+        function showError(msg) { const el = document.getElementById('global-error'); el.textContent = msg; el.classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        function hideError() { document.getElementById('global-error').classList.add('hidden'); }
+        function printAgreement() { const printContent = document.getElementById('agreement-text').innerHTML; const win = window.open('', '', 'height=700,width=700'); win.document.write('<html><head><title>Agreement</title></head><body style="font-family: sans-serif; padding: 20px;">' + printContent + '</body></html>'); win.document.close(); win.print(); }
     </script>
 </body>
 </html>
