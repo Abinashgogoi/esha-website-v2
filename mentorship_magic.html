@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WDJWQVWEK1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join ESHA Hub: Membership Application for Innovators and Researchers</title>
+    <meta name="description" content="ESHA Hub welcomes innovators, researchers, and dreamers! Apply now to access mentorship, innovation tools, and exclusive projects. Manual application review ensures quality. Join ESHA Hub today!">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="esha_crow_photo/esha_hub_logo.png" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.1 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --bs-font-sans-serif: 'Manrope', sans-serif;
+            --primary-color: #284b63;
+        }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Helper for Video Backgrounds */
+        .video-bg-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000; /* Fallback */
+        }
+        .video-bg-iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        /* Make iframe cover screen while maintaining aspect ratio (CSS trick) */
+        @media (min-aspect-ratio: 16/9) {
+            .video-bg-iframe { height: 56.25vw; }
+        }
+        @media (max-aspect-ratio: 16/9) {
+            .video-bg-iframe { width: 177.78vh; }
+        }
+        .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+        .content-overlay {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-link {
+            color: #333 !important;
+            font-weight: 700;
+        }
+        .navbar-brand img {
+            height: 3rem;
+            width: 3rem;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Sections */
+        section { padding: 5rem 0; }
+        .fullscreen-section { padding: 0; min-height: 100vh; }
+        
+        /* Parallax Image */
+        .parallax-section {
+            background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); /* Updated to Unsplash */
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            min-height: 60vh;
+        }
+
+        /* Cards */
+        .card { border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Marquee */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #284b63;
+            color: white;
+            padding: 20px 0;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 50px;
+            padding: 10px 30px;
+        }
+        
+        .gallery-img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .gallery-img:hover {
+            transform: scale(1.02);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR (menu2) -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" onerror="this.onerror=null; this.src='https://via.placeholder.com/50/284b63/ffffff?text=ESHA';">
+                <span>ESHA</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="research_hub.html">Research Hub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="innovation_zone.html">Innovation Zone</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mentorship_magic.html">Mentorship Magic</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community_connect.html">Community Connect</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="join.html">Join Us</a></li>
+                </ul>
+                <div class="ms-lg-3">
+                    <a href="https://mobiri.se" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO (header18) -->
+    <section class="fullscreen-section video-bg-container text-center text-white" id="header18-1">
+        <iframe class="video-bg-iframe" 
+            src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=1&loop=1&playlist=L_LUpnjgPso&mute=1&playsinline=1&controls=0&showinfo=0&autohide=1&allowfullscreen=true" 
+            frameborder="0" allow="autoplay; encrypted-media"></iframe>
+        <div class="bg-overlay"></div>
+        <div class="container content-overlay">
+            <h1 class="display-1 fw-bold mb-4">ESHA Hub</h1>
+            <p class="lead mb-5">Innovate, research, and dream with ESHA</p>
+            <a href="join.html" class="btn btn-light btn-lg rounded-pill px-5">Join Us</a>
+        </div>
+    </section>
+
+    <!-- SECTION 2: CALL TO ACTION (features035) -->
+    <section class="bg-light text-center" id="features035-1">
+        <div class="container">
+            <h2 class="mb-4">Get access to mentorship and tools!</h2>
+            <a href="join.html" class="btn btn-primary btn-lg">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FULLSCREEN PARALLAX IMAGE (image02) -->
+    <section class="parallax-section" id="image02-1">
+        <!-- Background image handled via CSS class parallax-section -->
+    </section>
+
+    <!-- SECTION 4: METRICS (features10) -->
+    <section id="features10-1">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h3 class="display-4 fw-bold text-primary">500+</h3>
+                        <p class="text-muted">Global Minds</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h3 class="display-4 fw-bold text-primary">1,200+</h3>
+                        <p class="text-muted">Ideas Shared</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h3 class="display-4 fw-bold text-primary">$5M+</h3>
+                        <p class="text-muted">Projects Funded</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: FAQ (list1) -->
+    <section class="bg-light" id="list1-1">
+        <div class="container">
+            <h2 class="text-center mb-5">Common Inquiries Answered</h2>
+            <div class="accordion" id="accordionFAQ">
+                <!-- Item 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            When do I get access?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            Access is granted post-approval, ensuring every member is ready to contribute actively and benefit from our resources.
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            What does application include?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            The application encompasses your background, motivations, goals, and areas of interest to align you with the perfect opportunities within ESHA Hub.
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                            What projects are accepted?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            We accept a wide array of project types, from AI advancements to space exploration initiatives. Show us your passion!
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                            How long is review process?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            Our review process is thorough yet efficient, designed to welcome dedicated individuals promptly.
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                            What is ESHA Hub about?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            ESHA Hub is committed to fostering innovation and collaboration across various sectors, creating a synergy that drives collective success.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: VIDEO BACKGROUND (header18) -->
+    <section class="fullscreen-section video-bg-container text-center text-white" id="header18-2">
+         <iframe class="video-bg-iframe" 
+            src="https://www.youtube.com/embed/80ob__zqAoc?autoplay=1&loop=1&playlist=80ob__zqAoc&mute=1&playsinline=1&controls=0&showinfo=0&autohide=1&allowfullscreen=true" 
+            frameborder="0" allow="autoplay; encrypted-media"></iframe>
+        <div class="bg-overlay"></div>
+    </section>
+
+    <!-- SECTION 7: ABOUT / ARTICLE (article4) -->
+    <section id="article4-1">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <!-- REPLACED: Unsplash image for 'Your Path Begins' -->
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow" alt="Mentorship Path" onerror="this.src='https://via.placeholder.com/600x400?text=ESHA+Path'">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Your Path Begins</h2>
+                    <p>Step into ESHA Hub, a vibrant community crafted for forward-thinkers, groundbreaking researchers, and ambitious visionaries. We are more than just a network; we are a launchpad for your aspirations.</p>
+                    <p>Apply today through our straightforward form. Each submission receives personalized attention from our review team, ensuring a fit that benefits both you and the community.</p>
+                    <p>Upon acceptance, gain immediate access to invaluable mentorship programs, cutting-edge innovation resources, and exclusive project opportunities designed to propel your career and ideas forward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: GALLERY SCROLL (gallery4) -->
+    <section id="gallery4-1">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 1">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 2">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 3">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 4">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 5">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 6">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 7">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: LOOP TEXT STRIP (gallery10) -->
+    <section class="p-0" id="gallery10-1">
+        <div class="marquee">
+            <div class="marquee-content display-4 fw-bold">
+                ESHA Hub: Innovate Together * Apply Today, Shape Tomorrow * ESHA Hub: Innovate Together * Apply Today, Shape Tomorrow * ESHA Hub: Innovate Together * Apply Today, Shape Tomorrow *
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: TESTIMONIALS (people02) -->
+    <section id="people02-1" class="bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Raves</h2>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="fst-italic">“ESHA Hub is a vibrant community.”</p>
+                        <h5 class="fw-bold">— Eleanor Vance</h5>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="fst-italic">“The resources are invaluable.”</p>
+                        <h5 class="fw-bold">— Caleb Rivers</h5>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="fst-italic">“I've made great connections.”</p>
+                        <h5 class="fw-bold">— Hazel Brook</h5>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="fst-italic">“My project got funding here.”</p>
+                        <h5 class="fw-bold">— Jasper Stone</h5>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="fst-italic">“Incredible support system.”</p>
+                        <h5 class="fw-bold">— Luna Wright</h5>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="fst-italic">“A true catalyst for innovation.”</p>
+                        <h5 class="fw-bold">— Owen Hayes</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: LATEST NEWS (features03) -->
+    <section id="features03-1">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest News</h2>
+            <div class="row">
+                <!-- News 1: AI Grant -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="AI Research" onerror="this.src='https://via.placeholder.com/400x300?text=AI+Grant'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">AI Grant Alert</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">June 19, 2025</h6>
+                            <p class="card-text">New AI research grants available. Apply now!</p>
+                            <a href="" class="btn btn-outline-primary rounded-pill">Join</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- News 2: BFECT Theory -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Space Theory" onerror="this.src='https://via.placeholder.com/400x300?text=BFECT+Theory'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">BFECT Theory Update</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">June 12, 2025</h6>
+                            <p class="card-text">Black Hole Fabric Energy Cycle Theory (BFECT): a collapse-force geometric framework exploring energy cycles through spacetime fabric behavior.</p>
+                            <a href="" class="btn btn-outline-primary rounded-pill">Join</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- News 3: Mentorship -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Mentorship Launch" onerror="this.src='https://via.placeholder.com/400x300?text=Mentorship'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Mentorship Launch</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">June 05, 2025</h6>
+                            <p class="card-text">New mentorship program for young innovators starts soon.</p>
+                            <a href="join.html" class="btn btn-outline-primary rounded-pill">Join</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- News 4: Voice Tech -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Voice Recording" onerror="this.src='https://via.placeholder.com/400x300?text=Voice+Tech'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Assamese Voice Contributors Needed</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">May 29, 2025</h6>
+                            <p class="card-text">We are seeking Assamese speakers to contribute voice recordings for a multi-language AI system.</p>
+                            <a href="" class="btn btn-outline-primary rounded-pill">Join</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12: FOLLOW US (social05) -->
+    <section class="bg-light text-center" id="social05-1">
+        <div class="container">
+            <h2 class="mb-4">Connect With Us</h2>
+            <div class="d-flex justify-content-center gap-4 fs-2">
+                <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT" target="_blank" class="text-dark"><i class="bi bi-facebook"></i></a>
+                <a href="https://x.com/EshaHub" target="_blank" class="text-dark"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.instagram.com/esha.hub?utm_source=qr&igsh=bGI1Z2tyMG80dHFl" target="_blank" class="text-dark"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/esha-hub-assam/" target="_blank" class="text-dark"><i class="bi bi-linkedin"></i></a>
+                <a href="#" target="_blank" class="text-dark"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 13: JOIN FORM (form5) -->
+    <section class="form-section"py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Join ESHA Today</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <!-- Web3Forms Integration Added Here -->
+                        <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="2f8034d9-d754-460c-9cce-4fdc22fc2ed0">
+                        
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg rounded-pill" name="name" placeholder="Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control form-control-lg rounded-pill" name="email" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control form-control-lg rounded-pill" name="phone" placeholder="Phone">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg rounded-pill" name="goal" placeholder="Goal">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Apply Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 14: CONTACTS + MAP (contacts03) -->
+    <section id="contacts03-1" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="mb-4">Contact Info</h2>
+                    <p class="mb-2"><strong>Note:</strong><p>Visits are conducted strictly by prior appointment. Registered members may access the workspace for sessions and project activities through prior coordination only. <br>
+                    <span style="display:block; text-indent : 16px;">This is an early-stage, community-run workspace operating from a registered location in Biswanath, Assam.</span></p>
+                    <p class="mb-2"><strong>Email:</strong> info@eshahub.com</p>
+                    <p class="mb-2"><strong>Address:</strong> Biswanath chariali,Biswanath Ghat Road,<br>near Gogoi Computer Zone,Assam - 784176</p>
+                    <p class="mb-0"><strong>Hours:</strong> Mon-Fri, 9am-5pm</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.1794414613942!2d93.16082369430468!3d26.676458986035595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37445f37256ba6f1%3A0x893c34485ae804b9!2sGogoi%20Computer%20Zone!5e1!3m2!1sen!2sus!4v1770108142621!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 15: FOOTER (footer3) -->
+    <footer class="bg-dark text-white text-center py-4" id="footer3-1">
+        <div class="container">
+            <ul class="nav justify-content-center mb-3">
+                <li class="nav-item"><a href="#" class="nav-link text-white px-3">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white px-3">Terms</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white px-3">Privacy</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white px-3">Contact</a></li>
+            </ul>
+            <div class="d-flex justify-content-center gap-3 mb-3">
+                <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT" target="_blank" class="text-white"><i class="bi bi-facebook"></i></a>
+                <a href="https://x.com/EshaHub" target="_blank" class="text-white"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.instagram.com/esha.hub?utm_source=qr&igsh=bGI1Z2tyMG80dHFl" target="_blank" class="text-white"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/esha-hub-assam/" target="_blank" class="text-white"><i class="bi bi-linkedin"></i></a>
+                <a href="#" target="_blank" class="text-white"><i class="bi bi-youtube"></i></a>
+            </div>
+            <p class="mb-0">© 2026 ESHA Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WDJWQVWEK1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESHA Hub | Igniting Innovation</title>
+    
+    <!-- Bootstrap 5.1 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts (Orbitron for headers, Roboto for body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-dark: #00180d;
+            --text-light: #ffffff;
+            --border-color: #aac7ca;
+            --accent: #bcfe1e;
+            --card-bg: #002413; /* Slightly lighter than body for contrast */
+            --gradient-overlay: linear-gradient(180deg, rgba(0,24,13,0) 0%, rgba(0,24,13,1) 100%);
+        }
+
+        /* --- GLOBAL STYLES --- */
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .navbar-brand {
+            font-family: 'Orbitron', sans-serif; /* Tech/Futuristic font */
+        }
+
+        a { text-decoration: none; color: var(--text-light); transition: 0.3s; }
+        a:hover { color: var(--accent); }
+
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* --- BUTTONS --- */
+        .btn-custom-primary {
+            background-color: var(--accent);
+            color: #000;
+            border: none;
+            padding: 10px 25px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(188, 254, 30, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-primary:hover {
+            background-color: #a3e600;
+            color: #000;
+            box-shadow: 0 0 20px var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-custom-secondary {
+            background-color: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-light);
+            padding: 10px 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 15px rgba(188, 254, 30, 0.2);
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background-color: rgba(0, 24, 13, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(170, 199, 202, 0.2);
+            padding: 15px 0;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            margin: 0 10px;
+            position: relative;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent) !important;
+        }
+
+        .navbar-toggler {
+            border-color: var(--border-color);
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(188, 254, 30, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 24, 13, 0.85), rgba(0, 24, 13, 0.85)), url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(188, 254, 30, 0.3);
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #d0d0d0;
+            line-height: 1.8;
+        }
+
+        /* --- CARDS (Why Choose Us) --- */
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            height: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* --- TABS SECTION --- */
+        .nav-pills .nav-link {
+            color: var(--text-light);
+            background: transparent;
+            border: 1px solid var(--border-color);
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: left;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+
+        .nav-pills .nav-link.active, .nav-pills .nav-link:hover {
+            background-color: var(--accent);
+            color: #000 !important;
+            border-color: var(--accent);
+        }
+        
+        .tab-content img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            margin-top: 20px;
+            filter: brightness(0.8);
+            transition: 0.3s;
+        }
+
+        .tab-content img:hover {
+            filter: brightness(1);
+            border-color: var(--accent);
+        }
+
+        .side-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            opacity: 0.8;
+            min-height: 400px;
+        }
+
+        /* --- MEDIA SECTION --- */
+        .media-container {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 8px;
+            background: #000;
+            box-shadow: 0 0 20px rgba(188, 254, 30, 0.1);
+        }
+
+        /* --- PROFESSIONAL CONTENT (New Sections) --- */
+        .sector-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(170, 199, 202, 0.3);
+            border-radius: 0; /* Brutalist/Tech look */
+            padding: 2rem;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .sector-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent);
+        }
+        .sector-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .stat-box {
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+        }
+        .stat-box:last-child { border-right: none; }
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ccc;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0;
+            margin-top: 60px;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #000b05 100%);
+        }
+
+        .footer-link {
+            display: inline-block;
+            margin: 0 10px;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .footer-link { text-align: center; display: block; margin: 10px 0; }
+            .text-md-end { text-align: center !important; }
+            .text-md-start { text-align: center !important; }
+            .side-image { display: none; }
+            .stat-box { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- A) STICKY NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <!-- Placeholder Image -->
+                <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" onerror="this.onerror=null; this.src='https://via.placeholder.com/50/bcfe1e/000000?text=ESHA';">
+                ESHA Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="research_hub.html">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="innovation_zone.html">Innovation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mentorship_magic.html">Mentorship</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community_connect.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="join.html">Join Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- B) HERO SECTION -->
+    <section id="home" class="hero-section">
+        <div class="container fade-in">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title">Igniting Innovation</h1>
+                    <p class="hero-text">
+                        Welcome to ESHA Hub, the premier convergence point for visionary minds. We bridge the gap between abstract research and tangible technological breakthroughs. Dive into a collaborative ecosystem designed to engineer the future.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="innovation_zone.html" class="btn btn-custom-primary">Explore Projects</a>
+                        <a href="join.html" class="btn btn-custom-secondary">Become a Member</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- C) WHY CHOOSE US -->
+    <section id="choose-us" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 style="color: var(--accent);">Why Choose Us?</h2>
+                <p class="text-muted">Accelerating the path from concept to creation</p>
+            </div>
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="mb-3 fs-1">🤝</div>
+                        <h4>Dynamic Community</h4>
+                        <p>Connect with a network of engineers, scientists, and creators dedicated to mutual growth.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="mb-3 fs-1">🧠</div>
+                        <h4>Expert Mentorship</h4>
+                        <p>Gain insights from industry veterans who transform raw potential into professional excellence.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="mb-3 fs-1">🚀</div>
+                        <h4>Innovation First</h4>
+                        <p>Prioritizing hands-on experimentation in AI, robotics, and sustainable technologies.</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="mb-3 fs-1">🌍</div>
+                        <h4>Global Impact</h4>
+                        <p>Deploying solutions that address real-world challenges, starting from Assam to the world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- D) JOIN THE REVOLUTION (TABS) -->
+    <section id="community" class="py-5" style="background-color: rgba(0,0,0,0.2);">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <!-- Left Column -->
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <h2 class="mb-4">Join the Revolution</h2>
+                    <p class="mb-4 text-muted">A multi-faceted ecosystem designed for every stage of your journey.</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <button class="nav-link active" id="v-pills-compete-tab" data-bs-toggle="pill" data-bs-target="#v-pills-compete" type="button" role="tab">Compete & Collaborate</button>
+                                <button class="nav-link" id="v-pills-mentor-tab" data-bs-toggle="pill" data-bs-target="#v-pills-mentor" type="button" role="tab">Skill Growth</button>
+                                <button class="nav-link" id="v-pills-projects-tab" data-bs-toggle="pill" data-bs-target="#v-pills-projects" type="button" role="tab">Live Projects</button>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <!-- Tab 1 -->
+                                <div class="tab-pane fade show active" id="v-pills-compete" role="tabpanel">
+                                    <h4 style="color: var(--accent)">Connect & Conquer</h4>
+                                    <ul class="list-unstyled mt-3 text-muted">
+                                        <li class="mb-2">✅ Cross-functional team formation</li>
+                                        <li class="mb-2">✅ Regional and national hackathons</li>
+                                        <li class="mb-2">✅ Idea incubation labs</li>
+                                    </ul>
+                                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Team Collaboration">
+                                </div>
+                                <!-- Tab 2 -->
+                                <div class="tab-pane fade" id="v-pills-mentor" role="tabpanel">
+                                    <h4 style="color: var(--accent)">Technical Mastery</h4>
+                                    <p class="text-muted">Access curated resources and direct feedback from senior researchers.</p>
+                                    <ul class="list-unstyled mt-3 text-muted">
+                                        <li class="mb-2">✅ Advanced technical workshops</li>
+                                        <li class="mb-2">✅ Peer-to-peer code reviews</li>
+                                    </ul>
+                                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mentorship">
+                                </div>
+                                <!-- Tab 3 -->
+                                <div class="tab-pane fade" id="v-pills-projects" role="tabpanel">
+                                    <h4 style="color: var(--accent)">Build for Tomorrow</h4>
+                                    <p class="text-muted">Transition from theory to prototype. From AI security cores to environmental sensing grids.</p>
+                                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tech Projects">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column -->
+                <div class="col-lg-5 d-none d-lg-block">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="side-image" alt="Hub Atmosphere">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E) INNOVATION LIFECYCLE (Replaces Metrics for New Org) -->
+    <section class="py-5 bg-black border-top border-bottom" style="border-color: rgba(170,199,202,0.1) !important;">
+        <div class="container">
+            <div class="row text-center align-items-center justify-content-center">
+                <div class="col-md-3 stat-box">
+                    <div class="stat-number" style="font-size: 1.8rem;">INCUBATE</div>
+                    <div class="stat-label">From Concept to Core</div>
+                </div>
+                <div class="col-md-3 stat-box">
+                    <div class="stat-number" style="font-size: 1.8rem;">COLLABORATE</div>
+                    <div class="stat-label">Interdisciplinary Fusion</div>
+                </div>
+                <div class="col-md-3 stat-box">
+                    <div class="stat-number" style="font-size: 1.8rem;">ACCELERATE</div>
+                    <div class="stat-label">Rapid Prototyping</div>
+                </div>
+                <div class="col-md-3 stat-box">
+                    <div class="stat-number" style="font-size: 1.8rem;">ELEVATE</div>
+                    <div class="stat-label">Regional Growth Engine</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- F) STRATEGIC RESEARCH VECTORS (Replaces Contact Form) -->
+    <section class="py-5" id="research-vectors">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 style="color: var(--accent);">Strategic Frontiers</h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    Our community concentrates efforts on high-impact domains, ensuring that ESHA Hub remains at the cutting edge of global technological evolution.
+                </p>
+            </div>
+            <div class="row g-4">
+                <!-- Vector 1 -->
+                <div class="col-lg-4">
+                    <div class="sector-card">
+                        <div class="sector-icon">⚡</div>
+                        <h4>Sustainable Energy</h4>
+                        <p class="text-muted mb-4">
+                            Pioneering micro-grid solutions and renewable energy optimization algorithms tailored for developing infrastructures.
+                        </p>
+                        <a href="research_hub.html" class="btn-custom-secondary btn-sm">View Research</a>
+                    </div>
+                </div>
+                <!-- Vector 2 -->
+                <div class="col-lg-4">
+                    <div class="sector-card">
+                        <div class="sector-icon">🤖</div>
+                        <h4>Autonomous Systems</h4>
+                        <p class="text-muted mb-4">
+                            Developing next-generation robotics for agriculture and disaster response, integrating edge AI for real-time decision making.
+                        </p>
+                        <a href="research_hub.html" class="btn-custom-secondary btn-sm">View Research</a>
+                    </div>
+                </div>
+                <!-- Vector 3 -->
+                <div class="col-lg-4">
+                    <div class="sector-card">
+                        <div class="sector-icon">🧬</div>
+                        <h4>Bio-Informatics</h4>
+                        <p class="text-muted mb-4">
+                            Leveraging data science to solve biological challenges, from localized healthcare analytics to environmental DNA sequencing.
+                        </p>
+                        <a href="research_hub.html" class="btn-custom-secondary btn-sm">View Research</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- G) MEDIA / VIDEO SECTION -->
+    <section class="py-5 text-center" style="background: rgba(0,0,0,0.3);">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">See Innovation in Action</h2>
+                    <div class="media-container ratio ratio-16x9 mb-4">
+                        <iframe src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=0&mute=1&loop=1&playlist=L_LUpnjgPso" title="ESHA Hub Intro" allowfullscreen style="border:0;"></iframe>
+                    </div>
+                    <p class="text-muted mb-4">Ready to contribute to the next big thing?</p>
+                    <a href="join.html" class="btn btn-custom-primary btn-lg">Apply for Membership</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- H) FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h5 class="mb-2" style="font-family: 'Orbitron', sans-serif; color: var(--text-light);">ESHA Hub</h5>
+                    <p class="mb-0 text-muted">&copy; 2026 ESHA Hub. All rights reserved.</p>
+                    <small style="color: var(--border-color); opacity: 0.6;">Cultivating Genius in Assam, India</small>
+                </div>
+                <div class="col-md-6">
+                    <nav class="d-flex justify-content-center justify-content-md-end gap-3 mt-3 mt-md-0">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="about.html" class="footer-link">About</a>
+                        <a href="innovation_zone.html" class="footer-link">Projects</a>
+                        <a href="join.html" class="footer-link">Join</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.1 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').style.boxShadow = '0 4px 10px rgba(0,0,0,0.5)';
+                document.querySelector('.navbar').style.background = 'rgba(0, 24, 13, 0.98)';
+            } else {
+                document.querySelector('.navbar').style.boxShadow = 'none';
+                document.querySelector('.navbar').style.background = 'rgba(0, 24, 13, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WDJWQVWEK1');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESHA Hub: Empowering Innovators and Changemakers for a Brighter Future</title>
+  <meta name="description" content="ESHA Hub, a student-led initiative, fosters innovation and connects dreamers with resources.">
+  
+  <!-- Favicon (Using URL) -->
+  <link rel="shortcut icon" href="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=64&h=64" type="image/x-icon">
+
+  <!-- Bootstrap 5 CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- PROFESSIONAL THEME VARIABLES --- */
+    :root {
+        --esha-blue: #284b63;
+        --esha-dark: #1a3244;
+        --esha-accent: #3c6e71;
+        --esha-light: #f8f9fa;
+        --esha-card-bg: #ffffff;
+    }
+
+    /* --- BASE STYLES --- */
+    body {
+        font-family: 'Source Serif 4', serif;
+        color: #4a5568;
+        background-color: var(--esha-light);
+        line-height: 1.7;
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6, .btn, .nav-link {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* --- NAVIGATION --- */
+    .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        padding: 15px 0;
+    }
+    .navbar-brand {
+        font-weight: 800;
+        color: var(--esha-blue) !important;
+        font-size: 1.5rem;
+    }
+    .nav-link {
+        color: var(--esha-dark) !important;
+        font-weight: 600;
+        margin: 0 10px;
+        transition: color 0.3s;
+    }
+    .nav-link:hover {
+        color: var(--esha-accent) !important;
+    }
+    .btn-nav {
+        background-color: var(--esha-blue);
+        color: white !important;
+        border-radius: 50px;
+        padding: 8px 25px;
+    }
+
+    /* --- HERO VIDEO BACKGROUND --- */
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: white;
+        text-align: center;
+        background: #000;
+    }
+    .video-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        opacity: 0.6;
+        z-index: 0;
+        pointer-events: none;
+    }
+    /* Fallback for video if iframe fails */
+    .video-fallback {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80') center/cover;
+        z-index: -1;
+    }
+    .hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* --- SECTIONS --- */
+    section {
+        padding: 80px 0;
+    }
+    
+    .section-title {
+        font-weight: 800;
+        color: var(--esha-blue);
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    /* --- CARDS --- */
+    .feature-card, .news-card, .team-card, .testimonial-card, .value-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
+    .feature-card:hover, .news-card:hover, .team-card:hover, .value-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .card-body { padding: 2rem; }
+    
+    /* Images */
+    .news-img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .team-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 4px solid var(--esha-light);
+    }
+    .testimonial-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+
+    /* --- FAQ --- */
+    .accordion-item {
+        border: none;
+        margin-bottom: 10px;
+        border-radius: 10px !important;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .accordion-button:not(.collapsed) {
+        background-color: var(--esha-light);
+        color: var(--esha-blue);
+        box-shadow: none;
+    }
+    .accordion-button:focus {
+        box-shadow: none;
+    }
+
+    /* --- METRICS --- */
+    .metric-item {
+        text-align: center;
+        padding: 20px;
+    }
+    .metric-num {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--esha-accent);
+        line-height: 1;
+    }
+
+    /* --- GALLERY --- */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    .gallery-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+    .gallery-img:hover {
+        transform: scale(1.03);
+    }
+
+    /* --- MARQUEE --- */
+    .marquee-container {
+        background: var(--esha-blue);
+        color: white;
+        padding: 30px 0;
+        overflow: hidden;
+    }
+    .marquee-content {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scroll 30s linear infinite;
+        font-family: 'Inter', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
+    /* --- PARALLAX IMAGE --- */
+    .parallax-section {
+        height: 500px;
+        background-image: url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=1920&q=80');
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+        background: var(--esha-dark);
+        color: rgba(255,255,255,0.7);
+        padding: 50px 0;
+        text-align: center;
+    }
+    .footer a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" width="50" height="50" class="d-inline-block align-text-top rounded-circle me-2">
+        ESHA
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="research_hub.html">Research Hub</a></li>
+          <li class="nav-item"><a class="nav-link" href="innovation_zone.html">Innovation Zone</a></li>
+          <li class="nav-item"><a class="nav-link" href="mentorship_magic.html">Mentorship Magic</a></li>
+          <li class="nav-item"><a class="nav-link" href="community_connect.html">Community Connect</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-nav" href="about.html">About</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-nav" href="join.html">Join Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO VIDEO SECTION -->
+  <div class="hero-section">
+    <div class="video-fallback"></div> <!-- Fallback image -->
+    <iframe class="video-bg" src="https://www.youtube.com/embed/B2sjfPE9-mk?autoplay=1&mute=1&loop=1&playlist=B2sjfPE9-mk&controls=0&showinfo=0&rel=0&playsinline=1" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+        <h1 class="display-1 fw-bold mb-4">ESHA Hub</h1>
+        <p class="lead fs-3 mb-4">Ideas Take Flight</p>
+        <a href="join.html" class="btn btn-outline-light btn-lg rounded-pill px-5">Join Us</a>
+    </div>
+  </div>
+
+  <!-- SECOND VIDEO BANNER -->
+  <div class="hero-section" style="height: 60vh;">
+    <div class="video-fallback" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80');"></div>
+    <iframe class="video-bg" src="https://www.youtube.com/embed/E9HYQnN251A?autoplay=1&mute=1&loop=1&playlist=E9HYQnN251A&controls=0&showinfo=0&rel=0&playsinline=1" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    <div class="hero-overlay" style="background: rgba(0,0,0,0.3);"></div>
+  </div>
+
+  <!-- ABOUT TEXT -->
+  <section class="bg-white">
+    <div class="container text-center">
+        <h6 class="text-uppercase text-primary fw-bold mb-4">ESHA Hub: Sparking innovation.</h6>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <p class="lead">ESHA Hub, a student-driven force, unites innovators and visionaries, providing a launchpad for ideas and dreams.</p>
+                <p>Born from the desire to bridge the gap between inspiration and opportunity, we empower the next generation of changemakers.</p>
+                <p>Together, we're shaping a future where innovation knows no bounds, fostering collaboration and driving progress across diverse fields.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="bg-light">
+    <div class="container">
+        <h2 class="section-title">Hub FAQs</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="h1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">What does ESHA Hub do?</button>
+                        </h2>
+                        <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">ESHA Hub connects bright minds with the resources they need to transform ideas into reality, fostering a collaborative ecosystem of innovation.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="h2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">What fields do you support?</button>
+                        </h2>
+                        <div id="c2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">We champion ethical and forward-thinking advancements in AI, healthtech, space, and other cutting-edge domains, ensuring a better tomorrow.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="h3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3">Who is on the team?</button>
+                        </h2>
+                        <div id="c3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Our team comprises young researchers, engineers, and creators dedicated to pushing boundaries and making a tangible impact on the world.</div>
+                        </div>
+                    </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="h4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c4">Who are your supporters?</button>
+                        </h2>
+                        <div id="c4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">We collaborate with organizations like Atmanirbhar Assam (CMAAA 2.0) to amplify our reach and support groundbreaking initiatives.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- TECH FOCUS -->
+  <section class="bg-white">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-lg-5 mb-4 mb-lg-0">
+                  <h2 class="display-4 fw-bold">Tech Focus</h2>
+                  <p class="lead text-muted">Exploring the frontiers of technology.</p>
+              </div>
+              <div class="col-lg-7">
+                  <div class="row g-4">
+                      <div class="col-md-4">
+                          <div class="feature-card p-4 text-center">
+                              <i class="bi bi-cpu fs-1 text-primary mb-3"></i>
+                              <h5>AI Edge</h5>
+                              <p class="small text-muted">AI drives efficiency gains</p>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="feature-card p-4 text-center">
+                              <i class="bi bi-heart-pulse fs-1 text-danger mb-3"></i>
+                              <h5>Cure Forward</h5>
+                              <p class="small text-muted">Healthtech improves care</p>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="feature-card p-4 text-center">
+                              <i class="bi bi-stars fs-1 text-warning mb-3"></i>
+                              <h5>Cosmic Link</h5>
+                              <p class="small text-muted">Space tech connects world</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- METRICS -->
+  <section class="bg-light">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4 metric-item">
+                  <div class="metric-num">47K</div>
+                  <h4>Users Active</h4>
+              </div>
+              <div class="col-md-4 metric-item">
+                  <div class="metric-num">125</div>
+                  <h4>Projects Funded</h4>
+              </div>
+              <div class="col-md-4 metric-item">
+                  <div class="metric-num">2K</div>
+                  <h4>Innovators Inspired</h4>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="bg-white">
+      <div class="container-fluid px-4">
+          <div class="gallery-grid">
+              <img src="https://images.unsplash.com/photo-1511352015382-902404d75843?auto=format&fit=crop&w=600&q=80" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?auto=format&fit=crop&w=600&q=80" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1589828994379-7a8869c4f519?auto=format&fit=crop&w=600&q=80" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&w=600&q=80" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&fit=crop&w=600&q=80" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1480944657103-7fed22359e1d?auto=format&fit=crop&w=600&q=80" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1495420378468-78588a508652?auto=format&fit=crop&w=600&q=80" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&fit=crop&w=600&q=80" class="gallery-img">
+          </div>
+      </div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section class="bg-light">
+      <div class="container">
+          <h2 class="section-title">Latest News</h2>
+          <p class="text-muted small">
+            Updates reflect ongoing research, prototyping, and planned initiatives under ESHA Hub.
+          </p>
+          <div class="row g-4">
+              <!-- News 1 -->
+              <div class="col-md-6 col-lg-3">
+                  <div class="news-card">
+                      <img src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?auto=format&fit=crop&w=600&q=80" class="news-img">
+                      <div class="card-body">
+                          <h5>AI Boosts Efficiency</h5>
+                          <h6 class="text-muted small mb-3">Prototype Phase</h6>
+                          <p class="small">New AI model boosts efficiency for Sarah's startup, streamlining operations.</p>
+                          <a href="innovation_zone.html" class="btn btn-outline-dark btn-sm rounded-pill mt-2">More</a>
+                      </div>
+                  </div>
+              </div>
+              <!-- News 2 -->
+              <div class="col-md-6 col-lg-3">
+                  <div class="news-card">
+                      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" class="news-img">
+                      <div class="card-body">
+                          <h5>Health Device Wins</h5>
+                          <h6 class="text-muted small mb-3">Prototype Phase</h6>
+                          <p class="small">Dr. Chen's healthtech device improves patient outcomes significantly.</p>
+                          <a href="research_hub.html" class="btn btn-outline-dark btn-sm rounded-pill mt-2">More</a>
+                      </div>
+                  </div>
+              </div>
+              <!-- News 3 -->
+              <div class="col-md-6 col-lg-3">
+                  <div class="news-card">
+                      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" class="news-img">
+                      <div class="card-body">
+                          <h5>BFECT Theory Update</h5>
+                          <h6 class="text-muted small mb-3">Work in Progress</h6>
+                          <p class="small">Black Hole Fabric Energy Cycle Theory (BFECT): a collapse-force geometric framework exploring energy cycles through spacetime fabric behavior.</p>
+                          <a href="innovation_zone.html" class="btn btn-outline-dark btn-sm rounded-pill mt-2">More</a>
+                      </div>
+                  </div>
+              </div>
+              <!-- News 4 -->
+              <div class="col-md-6 col-lg-3">
+                  <div class="news-card">
+                      <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80" class="news-img">
+                      <div class="card-body">
+                          <h5>Assam Funds Projects</h5>
+                          <h6 class="text-muted small mb-3">Funding Initiative (In Progress)</h6>
+                          <p class="small">Atmanirbhar Assam supports local innovation, funding new projects.</p>
+                          <a href="community_connect.html" class="btn btn-outline-dark btn-sm rounded-pill mt-2">More</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- PARALLAX IMAGE -->
+  <section class="parallax-section"></section>
+
+  <!-- MARQUEE LOOP -->
+  <div class="marquee-container">
+      <div class="marquee-content">
+          Our Story * Mission * Our Team * Supporters * Milestones * Impact * Our Story * Mission * Our Team * Supporters * Milestones * Impact *
+      </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-white">
+      <div class="container">
+          <h2 class="section-title">Raves</h2>
+          <div class="row g-4">
+              <div class="col-md-4">
+                  <div class="testimonial-card p-4">
+                      <p class="fst-italic">"ESHA Hub is a vibrant community."</p>
+                      <div class="d-flex align-items-center mt-3">
+                          <img src="https://images.unsplash.com/photo-1489980791458-937dcbaf1d5b?auto=format&fit=crop&w=100&q=80" class="testimonial-img">
+                          <h6 class="mb-0 fw-bold">Ethan Patel</h6>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="testimonial-card p-4">
+                      <p class="fst-italic">"The resources are invaluable."</p>
+                      <div class="d-flex align-items-center mt-3">
+                          <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?auto=format&fit=crop&w=100&q=80" class="testimonial-img">
+                          <h6 class="mb-0 fw-bold">Sofia Rossi</h6>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="testimonial-card p-4">
+                      <p class="fst-italic">"I've made great connections."</p>
+                      <div class="d-flex align-items-center mt-3">
+                          <img src="https://images.unsplash.com/photo-1591084728795-1149f32d9866?auto=format&fit=crop&w=100&q=80" class="testimonial-img">
+                          <h6 class="mb-0 fw-bold">Caleb Nguyen</h6>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- EMAIL CTA (Subscription) -->
+  <section class="bg-primary text-white">
+      <div class="container text-center">
+          <h2 class="display-4 fw-bold mb-4">Ideas Take Flight Here</h2>
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="2f8034d9-d754-460c-9cce-4fdc22fc2ed0">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" id="email" name="name" placeholder="Enter your email" required>
+                        <button class="btn btn-light" type="submit">Join The Movement</button>
+                    </div>
+                </div>
+            </div>
+          </form>
+       </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="bg-light">
+      <div class="container">
+          <section id="team" class="container py-5"></section>
+          <h2 class="section-title">Our Crew</h2>
+          <div class="row g-4 text-center">
+              <div class="col-6 col-lg-3">
+                  <div class="team-card p-4">
+                      <img src="esha_crow_photo/Abinash.jpg" class="team-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/120?text=A';">
+                      <h5>Abinash</h5>
+                      <p class="small text-muted">AI Innovator</p>
+                  </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                  <div class="team-card p-4">
+                      <img src="esha_crow_photo/Bishambar.jpeg" class="team-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/120?text=B';">
+                      <h5> Bishambar</h5>
+                      <p class="small text-muted">Electronics</p>
+                  </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                  <div class="team-card p-4">
+                      <img src="esha_crow_photo/Geolong.jpg" class="team-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/120?text=G';">
+                      <h5>Geolong</h5>
+                      <p class="small text-muted">Science Team</p>
+                  </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                  <div class="team-card p-4">
+                      <img src="esha_crow_photo/Hatorkhi.jpg" class="team-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/120?text=H';">
+                      <h5>Hatorkhi</h5>
+                      <p class="small text-muted">Programmer</p>
+                  </div>  
+              </div>
+              <div class="col-6 col-lg-3">
+                  <div class="team-card p-4">
+                      <img src="esha_crow_photo/Lokhen.jpg" class="team-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/120?text=L';">
+                      <h5>Lokhen</h5>
+                      <p class="small text-muted">Programmer</p>
+                  </div>  
+              </div>
+              <div class="col-6 col-lg-3">
+                  <div class="team-card p-4">
+                      <img src="esha_crow_photo/Himangshu.jpeg" class="team-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/120?text=H';">
+                      <h5>Himangshu</h5>
+                      <p class="small text-muted">Creative Director</p>
+                  </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                  <div class="team-card p-4">
+                      <img src="esha_crow_photo/Anuj.jpg" class="team-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/120?text=A';">
+                      <h5>Anuj</h5>
+                      <p class="small text-muted">Treasurer</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- OUR GUIDING PRINCIPLES (Replaces Contact Form) -->
+  <section class="bg-white">
+      <div class="container">
+          <div class="text-center mb-5">
+              <h2 class="section-title">Our Guiding Principles</h2>
+              <p class="lead text-muted mx-auto" style="max-width: 600px;">
+                  We operate at the intersection of academic rigor and entrepreneurial spirit, ensuring every project at ESHA Hub delivers meaningful impact.
+              </p>
+          </div>
+          <div class="row g-4">
+              <!-- Value 1 -->
+              <div class="col-md-4">
+                  <div class="value-card p-4 text-center h-100 border">
+                      <div class="mb-3 text-primary">
+                          <i class="bi bi-journal-check fs-1"></i>
+                      </div>
+                      <h4 class="fw-bold mb-3">Scientific Rigor</h4>
+                      <p class="text-muted">We uphold strict methodologies in every project, ensuring data-driven results that stand up to peer review and real-world testing.</p>
+                  </div>
+              </div>
+              <!-- Value 2 -->
+              <div class="col-md-4">
+                  <div class="value-card p-4 text-center h-100 border">
+                      <div class="mb-3 text-primary">
+                          <i class="bi bi-globe-americas fs-1"></i>
+                      </div>
+                      <h4 class="fw-bold mb-3">Inclusive Innovation</h4>
+                      <p class="text-muted">Technology must serve everyone. We prioritize low-cost, scalable solutions that address challenges in developing regions and local communities.</p>
+                  </div>
+              </div>
+              <!-- Value 3 -->
+              <div class="col-md-4">
+                  <div class="value-card p-4 text-center h-100 border">
+                      <div class="mb-3 text-primary">
+                          <i class="bi bi-people-fill fs-1"></i>
+                      </div>
+                      <h4 class="fw-bold mb-3">Mentorship First</h4>
+                      <p class="text-muted">We believe in passing the torch. Every senior researcher at ESHA Hub mentors a junior member, creating a continuous cycle of knowledge transfer.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- MAP & INFO -->
+  <section class="bg-light">
+      <div class="container">
+          <section id="contact" class="container py-5"></section>
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="row g-5">
+              <div class="col-lg-8">
+                  <div class="google-map">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.1794414613942!2d93.16082369430468!3d26.676458986035595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37445f37256ba6f1%3A0x893c34485ae804b9!2sGogoi%20Computer%20Zone!5e1!3m2!1sen!2sus!4v1770108142621!5m2!1sen!2sus" width="100%" height="450" style="border:0; border-radius: 16px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <h5 class="text-primary fw-bold">Note</h5>
+                  <p>Visits are conducted strictly by prior appointment. Registered members may access the workspace for sessions and project activities through prior coordination only. <br>
+                    <span style="display:block; text-indent : 16px;">This is an early-stage, community-run workspace operating from a registered location in Biswanath, Assam.</span></p>
+                  <h5 class="text-primary fw-bold mt-4">Email</h5>
+                  <p>info@eshahub.com</p>
+                  <h5 class="text-primary fw-bold mt-4">Address</h5>
+                  <p>Biswanath chariali,Biswanath Ghat Road,<br>near Gogoi Computer Zone,Assam - 784176</p>
+                  <h5 class="text-primary fw-bold mt-4">Work Hours</h5>
+                  <p>Mon-Fri: 9am - 5pm</p>
+                  
+                  <div class="social-row mt-4 d-flex gap-3">
+                      <div class="soc-item"><a href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT" class="text-dark fs-4"><i class="bi bi-facebook"></i></a></div>
+                      <div class="soc-item"><a href="https://x.com/EshaHub" class="text-dark fs-4"><i class="bi bi-twitter"></i></a></div>
+                      <div class="soc-item"><a href="https://www.instagram.com/esha.hub?utm_source=qr&igsh=bGI1Z2tyMG80dHFl" class="text-dark fs-4"><i class="bi bi-instagram"></i></a></div>
+                      <div class="soc-item"><a href="https://www.linkedin.com/company/esha-hub-assam/" class="text-dark fs-4"><i class="bi bi-linkedin"></i></a></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+      <div class="container">
+          <p class="mb-3">© 2026 ESHA Hub. All rights reserved.</p>
+          <div>
+              <a href="about.html">About</a>
+              <a href="innovation_zone.html">Projects</a>
+              <a href="#team">Team</a>
+              <a href="#contact">Contact</a>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
