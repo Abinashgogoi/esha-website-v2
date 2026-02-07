@@ -119,7 +119,7 @@
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(40, 75, 99, 0.7);
+            background-color: rgba(40, 75, 99, 0.85); /* Darkened for better readability of disclaimer */
             z-index: 1;
         }
         .hero-content {
@@ -144,10 +144,19 @@
             margin-bottom: 1.5rem;
         }
         .hero-text {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             margin-bottom: 2rem;
             font-weight: 300;
             line-height: 1.6;
+        }
+        .disclaimer-box {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            font-weight: 400;
         }
         .btn-hero {
             background-color: white;
@@ -179,7 +188,7 @@
         .marquee-content {
             display: flex;
             width: max-content;
-            animation: marquee 30s linear infinite;
+            animation: marquee 40s linear infinite; /* Slowed down slightly for readability */
         }
         .marquee-item {
             font-size: 1.1rem;
@@ -217,9 +226,21 @@
             margin-bottom: 1rem;
         }
         .split-subtext {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #555;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+        }
+        .status-badge {
+            display: inline-block;
+            background-color: #6c757d;
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .btn-outline-esha {
             border: 2px solid var(--esha-blue);
@@ -399,10 +420,15 @@
             <div class="container hero-content">
                 <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA Research Logo" class="hero-logo" onerror="this.style.display='index.html'">
                 <h1 class="hero-title">Research Hub</h1>
+                
+                <div class="disclaimer-box">
+                    <strong>Notice:</strong> All research listed here is in pilot, experimental, or review stage. Access to datasets and prototypes is limited and not publicly downloadable. Collaboration is available via approval or invitation only.
+                </div>
+
                 <p class="hero-text">
-                    Welcome to the ESHA Research Hub! Here, we empower students and thinkers to tackle audacious topics that will redefine our world. From AI to space science, your ideas can take flight!
+                    Welcome to the ESHA Research Hub. We provide a platform for students and thinkers to engage with advanced topics. 
                 </p>
-                <a href="about.html" class="btn btn-hero">Get Started</a>
+                <a href="about.html" class="btn btn-hero">Learn More</a>
             </div>
         </header>
 
@@ -410,10 +436,10 @@
         <section class="marquee-section">
             <div class="marquee-content">
                 <!-- Duplicated text for smooth loop -->
-                <span class="marquee-item">Interdisciplinary Research Opportunities * Safe Collaboration Environment * Support for Innovative Ideas *</span>
-                <span class="marquee-item">Interdisciplinary Research Opportunities * Safe Collaboration Environment * Support for Innovative Ideas *</span>
-                <span class="marquee-item">Interdisciplinary Research Opportunities * Safe Collaboration Environment * Support for Innovative Ideas *</span>
-                <span class="marquee-item">Interdisciplinary Research Opportunities * Safe Collaboration Environment * Support for Innovative Ideas *</span>
+                <span class="marquee-item">Pilot Stage Initiatives * Experimental Research * Restricted Access Data * Conceptual Frameworks *</span>
+                <span class="marquee-item">Pilot Stage Initiatives * Experimental Research * Restricted Access Data * Conceptual Frameworks *</span>
+                <span class="marquee-item">Pilot Stage Initiatives * Experimental Research * Restricted Access Data * Conceptual Frameworks *</span>
+                <span class="marquee-item">Pilot Stage Initiatives * Experimental Research * Restricted Access Data * Conceptual Frameworks *</span>
             </div>
         </section>
 
@@ -422,12 +448,13 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Scientific Research" class="split-img" onerror="this.src='https://via.placeholder.com/600x400?text=Research+Image'" alt="Research Hub" class="split-img" onerror="this.src='https://via.placeholder.com/600x400?text=Research+Image'">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Scientific Research" class="split-img" onerror="this.src='https://via.placeholder.com/600x400?text=Research+Image'">
                     </div>
                     <div class="col-lg-6 split-content">
-                        <h2 class="split-header">Research Hub</h2>
-                        <p class="split-subtext">Fueling ideas that shape tomorrow's world.</p>
-                        <a href="about.html" class="btn btn-outline-esha">Get Started</a>
+                        <h2 class="split-header">Pilot Research Initiatives</h2>
+                        <span class="status-badge">Status: Conceptual / Pilot</span>
+                        <p class="split-subtext">This hub serves as a testing ground for early-stage academic inquiry. Projects listed are currently under conceptual development or initial pilot testing. Data is preliminary and subject to peer review.</p>
+                        <a href="about.html" class="btn btn-outline-esha">Review Methodology</a>
                     </div>
                 </div>
             </div>
@@ -438,13 +465,14 @@
             <div class="container">
                 <div class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Bold Ideas and Technology" class="split-img" onerror="this.src='https://via.placeholder.com/600x400?text=Innovation+Image'" alt="Bold Ideas" class="split-img" onerror="this.src='https://via.placeholder.com/600x400?text=Innovation+Image'">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Bold Ideas and Technology" class="split-img" onerror="this.src='https://via.placeholder.com/600x400?text=Innovation+Image'">
                     </div>
                     <div class="col-lg-6 split-content">
                         <div class="mb-3 text-esha-blue"><i class="bi bi-lightbulb fs-2"></i></div>
-                        <h2 class="split-header">Research Hub</h2>
-                        <p class="split-subtext">Fueling Bold Ideas</p>
-                        <a href="join.html" class="btn btn-outline-esha">Join Us</a>
+                        <h2 class="split-header">Innovation Prototypes</h2>
+                        <span class="status-badge">Status: Prototype / Under Review</span>
+                        <p class="split-subtext">We support the development of experimental prototypes. Please note that these models are not final releases. Access to technical documentation is restricted to approved collaborators.</p>
+                        <a href="join.html" class="btn btn-outline-esha">Request Collaboration</a>
                     </div>
                 </div>
             </div>
@@ -454,34 +482,34 @@
         <section class="features-section">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="fw-bold text-esha-blue">Research Hub Features</h2>
+                    <h2 class="fw-bold text-esha-blue">Research Hub Framework</h2>
                 </div>
                 <div class="row g-4">
                     <!-- Card 1 -->
                     <div class="col-md-4">
                         <div class="feature-card text-center">
                             <div class="feature-icon"><i class="bi bi-globe2"></i></div>
-                            <h4 class="feature-title">Diverse Topics</h4>
-                            <p class="feature-desc">Explore a range of advanced subjects, from AI to space science. Your curiosity is the limit!</p>
-                            <a href="about.html" class="btn-link-esha">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                            <h4 class="feature-title">Experimental Topics</h4>
+                            <p class="feature-desc">Explore a range of subjects currently in the review phase, from AI ethics to space science. All findings are preliminary.</p>
+                            <a href="about.html" class="btn-link-esha">Read Overview <i class="bi bi-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                     <!-- Card 2 -->
                     <div class="col-md-4">
                         <div class="feature-card text-center">
                             <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
-                            <h4 class="feature-title">Collaborative Environment</h4>
-                            <p class="feature-desc">Work alongside brilliant minds in a space designed for creativity and innovation. Your ideas deserve the best company!</p>
-                            <a href="about.html" class="btn-link-esha">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                            <h4 class="feature-title">Invitation-Only Collaboration</h4>
+                            <p class="feature-desc">Work alongside researchers in a controlled environment. Participation is by invitation to ensure focused academic rigor.</p>
+                            <a href="about.html" class="btn-link-esha">Check Eligibility <i class="bi bi-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                     <!-- Card 3 -->
                     <div class="col-md-4">
                         <div class="feature-card text-center">
                             <div class="feature-icon"><i class="bi bi-shield-lock-fill"></i></div>
-                            <h4 class="feature-title">Secure Research Space</h4>
-                            <p class="feature-desc">Conduct your research in a private setting. We value your ideas and protect them fiercely!</p>
-                            <a href="about.html" class="btn-link-esha">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                            <h4 class="feature-title">Restricted Data Access</h4>
+                            <p class="feature-desc">Datasets and research outcomes are stored securely. Public download is not available; access is granted upon specific approval.</p>
+                            <a href="about.html" class="btn-link-esha">Access Policy <i class="bi bi-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -499,12 +527,12 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                        What is the Research Hub?
+                                        Is the research published here final?
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        A space for students to tackle advanced topics and collaborate on innovative ideas.
+                                        No. All research listed is in pilot, experimental, or review stages. Content is subject to change and validation.
                                     </div>
                                 </div>
                             </div>
@@ -512,12 +540,12 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                        Who can join the Research Hub?
+                                        Can I download the datasets?
                                     </button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        We welcome students, researchers, and innovative thinkers from all disciplines who are eager to contribute to meaningful projects.
+                                        Access to datasets and prototypes is limited and not publicly downloadable. Access may be granted for collaboration purposes upon approval.
                                     </div>
                                 </div>
                             </div>
@@ -525,12 +553,12 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                        Are my ideas protected?
+                                        How do I join a project?
                                     </button>
                                 </h2>
                                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        Absolutely. We provide a secure research space where intellectual property and privacy are strictly prioritized.
+                                        Collaboration happens via approval or invitation. Please contact us to discuss potential eligibility for ongoing pilot studies.
                                     </div>
                                 </div>
                             </div>
@@ -543,7 +571,7 @@
         <!-- SECTION 7: VIDEO SECTION -->
         <section class="video-section">
             <div class="container text-center">
-                <h2 class="mb-5">Research Hub</h2>
+                <h2 class="mb-5">Research Hub Overview</h2>
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
                         <div class="ratio ratio-16x9 video-container">

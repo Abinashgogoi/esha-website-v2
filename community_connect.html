@@ -174,7 +174,7 @@
             background-color: rgba(40, 75, 99, 0.1);
         }
 
-        /* Testimonials Slider */
+        /* Testimonials/Mindset Slider */
         .testimonials-section {
             padding: 5rem 0;
             background-color: white;
@@ -185,6 +185,12 @@
             padding: 2rem;
             border-radius: 12px;
             margin: 10px;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
         /* Article Section */
@@ -269,9 +275,10 @@
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content container">
+            <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase">Pilot Operations</span>
             <h1 class="hero-title">Community Connect</h1>
-            <p class="lead mb-4">Uniting innovators, creators, and visionaries to build a better future together.</p>
-            <a href="join.html" class="btn btn-hero">Join the Network</a>
+            <p class="lead mb-4">A space for observation, discussion, and connection as we build our foundation.</p>
+            <a href="join.html" class="btn btn-hero">Join the Discussion</a>
         </div>
     </section>
 
@@ -282,22 +289,22 @@
                 <div class="col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
-                        <h4>Global Network</h4>
-                        <p class="text-muted">Connect with like-minded individuals from across the globe sharing ideas.</p>
+                        <h4>Global Observation</h4>
+                        <p class="text-muted">Observe how ideas take shape and connect with others in our open discussion channels.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="bi bi-calendar-event"></i></div>
-                        <h4>Exclusive Events</h4>
-                        <p class="text-muted">Participate in hackathons, webinars, and meetups designed for growth.</p>
+                        <h4>Community Events</h4>
+                        <p class="text-muted">Participate in webinars and open meetups designed for knowledge sharing and growth.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="bi bi-lightbulb-fill"></i></div>
-                        <h4>Collaboration</h4>
-                        <p class="text-muted">Find partners for your projects and mentors to guide your journey.</p>
+                        <h4>Open Dialogue</h4>
+                        <p class="text-muted">Engage in moderated discussions to share thoughts without formal project commitment.</p>
                     </div>
                 </div>
             </div>
@@ -326,31 +333,31 @@
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#communityAccordion">
                                 <div class="accordion-body">
-                                    Simply click the "Join Us" button, fill out the application form, and our team will review your profile.
+                                    Simply click the "Join Us" button to enter our discussion spaces. Please note that membership is for community interaction and observation.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                    Is there a membership fee?
+                                    Does joining the community give me access to projects?
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#communityAccordion">
                                 <div class="accordion-body">
-                                    Basic membership is free for students and researchers. Premium tiers are available for advanced resources.
+                                    <strong>Community presence ≠ project access.</strong> While we value open discussion, access to active research projects and core team resources is handled separately and is not automatic upon joining the community.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                    Can I host an event?
+                                    Are discussions moderated?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#communityAccordion">
                                 <div class="accordion-body">
-                                    Yes! Active members are encouraged to propose and host workshops or discussion groups.
+                                    Yes. Community interactions are moderated during pilot operations to ensure constructive and relevant dialogue.
                                 </div>
                             </div>
                         </div>
@@ -360,27 +367,30 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS SLIDER -->
+    <!-- THE ESHA MINDSET (Replaces Testimonials) -->
     <section class="testimonials-section">
         <div class="container">
-            <h2 class="mb-5 fw-bold">What Members Say</h2>
-            <div class="row">
+            <h2 class="mb-5 fw-bold">The ESHA Mindset</h2>
+            <div class="row g-4">
                 <div class="col-md-4">
                     <div class="testimonial-card">
-                        <p class="fst-italic">"Finding ESHA Hub was a turning point for my research career."</p>
-                        <h6 class="fw-bold mt-3">- Sarah Jenkins</h6>
+                        <i class="bi bi-compass fs-1 text-primary mb-3"></i>
+                        <h5 class="fw-bold">Bold Exploration</h5>
+                        <p class="text-muted mb-0">"We don't just follow trends; we dissect them to understand the core mechanics of innovation. Curiosity is our compass."</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-card">
-                        <p class="fst-italic">"The community support here is unlike anything else I've experienced."</p>
-                        <h6 class="fw-bold mt-3">- Michael Chen</h6>
+                        <i class="bi bi-exclude fs-1 text-primary mb-3"></i>
+                        <h5 class="fw-bold">Collective Wisdom</h5>
+                        <p class="text-muted mb-0">"Every perspective adds a pixel to the bigger picture. We believe that your unique view matters in solving complex puzzles."</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-card">
-                        <p class="fst-italic">"A true hub for innovation and genuine connection."</p>
-                        <h6 class="fw-bold mt-3">- Priya Patel</h6>
+                        <i class="bi bi-graph-up-arrow fs-1 text-primary mb-3"></i>
+                        <h5 class="fw-bold">Resilient Growth</h5>
+                        <p class="text-muted mb-0">"Failure is just data collection. In this pilot phase, we celebrate the attempts as much as the successes."</p>
                     </div>
                 </div>
             </div>
@@ -395,6 +405,21 @@
                     <h2 class="fw-bold mb-4">Building Bridges</h2>
                     <p class="lead text-muted">We believe that isolation is the enemy of innovation.</p>
                     <p>By bringing together diverse perspectives from engineering, arts, and sciences, we create a melting pot where revolutionary ideas can form. Our community platform provides the digital infrastructure needed for these connections to flourish.</p>
+                    
+                    <!-- PILOT PHASE NOTICE -->
+                    <div class="alert alert-light border mt-4 p-4 shadow-sm" role="alert" style="border-left: 5px solid var(--esha-accent) !important;">
+                        <h5 class="alert-heading fw-bold"><i class="bi bi-info-circle-fill text-primary me-2"></i>Pilot Operations</h5>
+                        <p class="mb-2">Community interactions are moderated during pilot operations.</p>
+                        <hr>
+                        <p class="mb-0 small text-muted">
+                            To ensure a productive environment:
+                            <ul class="mb-0 mt-2 small text-muted ps-3">
+                                <li><strong>Discussion Only:</strong> Participation in discussions does not imply formal approval or active roles in projects.</li>
+                                <li><strong>Access Limits:</strong> Community presence is distinct from project access. Sensitive data remains restricted.</li>
+                            </ul>
+                        </p>
+                    </div>
+
                 </div>
                 <div class="col-lg-6 mt-4 mt-lg-0">
                     <img src="https://images.unsplash.com/photo-1517181875630-f72350452109?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
@@ -409,26 +434,43 @@
     <!-- GALLERY SECTION -->
     <section class="gallery-section">
         <div class="container">
-            <h3 class="text-center mb-4">Community Moments</h3>
-            <div class="row">
+            <div class="text-center mb-5">
+                <h3 class="fw-bold">Community Moments</h3>
+                <p class="mt-2 text-muted mb-4">
+                    <span class="fst-italic">Visualizing the vibrant ecosystem we are building together.</span>
+                </p>
+                
+                <!-- NEW DISCLAIMER NOTE -->
+                <div class="mx-auto p-3 bg-light rounded-3 border" style="max-width: 650px; border-style: dashed !important; border-color: #cbd5e0 !important;">
+                    <p class="mb-0 small text-secondary">
+                        <i class="bi bi-camera me-2 text-primary"></i>
+                        <strong>The Frame Awaits You:</strong> These images are illustrative placeholders representing our vision. 
+                        As the Pilot Phase unfolds and members like you start collaborating, 
+                        <span class="text-dark fw-bold">we will replace these with your real stories and successes.</span>
+                        Join us and be the first face of ESHA.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
                 <div class="col-6 col-md-3">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 1">
+                    <div class="gallery-item position-relative">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 1" style="opacity: 0.8;">
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 2">
+                    <div class="gallery-item position-relative">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 2" style="opacity: 0.8;">
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 3">
+                    <div class="gallery-item position-relative">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 3" style="opacity: 0.8;">
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 4">
+                    <div class="gallery-item position-relative">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 4" style="opacity: 0.8;">
                     </div>
                 </div>
             </div>
@@ -459,6 +501,7 @@
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-light rounded-pill px-5 fw-bold text-primary">Send Message</button>
+                                <p class="text-white-50 mt-3 small">By submitting, you acknowledge that community presence is moderated and distinct from formal project access.</p>
                             </div>
                         </div>
                     </form>

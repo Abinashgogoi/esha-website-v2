@@ -1,225 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access Grant | ESHA Hub</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .prose-custom ul { list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem; }
-        .prose-custom li { margin-bottom: 0.25rem; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Grant | ESHA Hub</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose-custom ul { list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+    .prose-custom li { margin-bottom: 0.25rem; }
+    /* Optional: smoother anchor jump */
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- Navigation Bar -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <!-- Logo Placeholder -->
-                    <div class="flex-shrink-0 flex items-center gap-2">
-                        <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold">E</div>
-                        <span class="font-bold text-xl tracking-tight text-gray-900">ESHA Hub</span>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="index.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="access_grant.html" class="text-teal-600 font-semibold px-3 py-2 text-sm">Access Grant</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Header / Title Section -->
-    <header class="bg-white shadow-sm">
-        <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <span class="inline-block py-1 px-3 rounded-full bg-teal-50 text-teal-700 text-xs font-semibold tracking-wide uppercase mb-2">Policy & Information</span>
-                <h1 class="text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
-                    Access Grants
-                </h1>
-                <p class="mt-4 max-w-2xl mx-auto text-lg leading-7 text-gray-500">
-                    Bridging the gap between curiosity and capability. Innovation, Research, and Learning Support for Assam.
-                </p>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-        
-        <!-- 1. Introduction -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
-            <div class="prose-custom text-gray-600 leading-relaxed space-y-4">
-                <p>
-                    At ESHA Hub, we believe that innovation and research should not be limited by a lack of resources or opportunities. An <strong>Access Grant</strong> is our mechanism to open doors for learners, creators, and researchers across Assam and beyond.
-                </p>
-                <p>
-                    Unlike traditional grants that focus primarily on monetary disbursement, the ESHA Hub Access Grant focuses on providing <em>access to the ecosystem</em>. It is an authorization and support system designed to remove barriers for individuals who demonstrate a genuine willingness to learn, build, and solve problems.
-                </p>
-            </div>
-        </section>
-
-        <!-- 2. Purpose and Philosophy -->
-        <section class="mb-12 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Purpose and Philosophy</h2>
-            <p class="text-gray-600 mb-4">
-                The core philosophy of ESHA Hub is that human potential is defined by skill, ethics, and intent, not by age or background. We serve a community ranging from school children to senior citizens.
-            </p>
-            <div class="grid md:grid-cols-3 gap-6 mt-6">
-                <div class="p-4 bg-blue-50 rounded-lg">
-                    <h3 class="font-semibold text-blue-900 mb-2">Enable Learning</h3>
-                    <p class="text-sm text-blue-800">Deep dive into subjects without commercial pressure.</p>
-                </div>
-                <div class="p-4 bg-teal-50 rounded-lg">
-                    <h3 class="font-semibold text-teal-900 mb-2">Support Research</h3>
-                    <p class="text-sm text-teal-800">Test theoretical knowledge in a practical environment.</p>
-                </div>
-                <div class="p-4 bg-indigo-50 rounded-lg">
-                    <h3 class="font-semibold text-indigo-900 mb-2">Foster Innovation</h3>
-                    <p class="text-sm text-indigo-800">Reduce friction for starting new projects with tools & guidance.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. What It Includes -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">3. What Access Grants May Include</h2>
-            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
-                <ul class="divide-y divide-gray-200">
-                    <li class="p-4 hover:bg-gray-50 flex items-start">
-                        <span class="flex-shrink-0 h-6 w-6 text-teal-500 mr-3">📚</span>
-                        <div>
-                            <strong class="text-gray-900 block">Knowledge & Learning Resources</strong>
-                            <span class="text-gray-600 text-sm">Access to curated libraries, documentation, and proprietary learning modules.</span>
-                        </div>
-                    </li>
-                    <li class="p-4 hover:bg-gray-50 flex items-start">
-                        <span class="flex-shrink-0 h-6 w-6 text-teal-500 mr-3">🤝</span>
-                        <div>
-                            <strong class="text-gray-900 block">Mentorship & Guidance</strong>
-                            <span class="text-gray-600 text-sm">Direct access to mentors and industry experts for feedback.</span>
-                        </div>
-                    </li>
-                    <li class="p-4 hover:bg-gray-50 flex items-start">
-                        <span class="flex-shrink-0 h-6 w-6 text-teal-500 mr-3">🏢</span>
-                        <div>
-                            <strong class="text-gray-900 block">Infrastructure Access</strong>
-                            <span class="text-gray-600 text-sm">Usage of digital platforms, workspaces, or physical labs (where applicable).</span>
-                        </div>
-                    </li>
-                    <li class="p-4 hover:bg-gray-50 flex items-start">
-                        <span class="flex-shrink-0 h-6 w-6 text-teal-500 mr-3">💻</span>
-                        <div>
-                            <strong class="text-gray-900 block">Tooling & Software</strong>
-                            <span class="text-gray-600 text-sm">Access to development environments and software licenses.</span>
-                        </div>
-                    </li>
-                    <li class="p-4 hover:bg-gray-50 flex items-start">
-                        <span class="flex-shrink-0 h-6 w-6 text-teal-500 mr-3">⚠️</span>
-                        <div>
-                            <strong class="text-gray-900 block">Limited Financial Assistance</strong>
-                            <span class="text-gray-600 text-sm">Rare and highly conditional coverage of minor operational costs (e.g., materials). Never guaranteed.</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- 4. Eligibility -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Eligibility & Evaluation</h2>
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="flex-1">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Who can apply?</h3>
-                    <ul class="list-disc list-inside text-gray-600 space-y-1">
-                        <li>Learners of <strong>any age</strong> (Children, Youth, Adults, Seniors).</li>
-                        <li>Residents of Assam and the broader community.</li>
-                        <li>Individuals aligning with our ethical values.</li>
-                    </ul>
-                </div>
-                <div class="flex-1">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Evaluation Criteria</h3>
-                    <ul class="list-disc list-inside text-gray-600 space-y-1">
-                        <li><strong>Intent & Curiosity:</strong> Desire to learn/solve.</li>
-                        <li><strong>Effort:</strong> Evidence of self-learning.</li>
-                        <li><strong>Ethics:</strong> Responsible innovation.</li>
-                        <li><strong>Clear Purpose:</strong> Well-defined need for access.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. What Access Grants Are Not (Important) -->
-        <section class="mb-12">
-            <div class="bg-red-50 border-l-4 border-red-400 p-6 rounded-r-lg">
-                <h2 class="text-xl font-bold text-red-800 mb-4">5. What Access Grants Are Not</h2>
-                <div class="grid md:grid-cols-2 gap-4 text-red-700 text-sm">
-                    <div class="flex items-start">
-                        <span class="mr-2 font-bold">✕</span> No Guaranteed Funding
-                    </div>
-                    <div class="flex items-start">
-                        <span class="mr-2 font-bold">✕</span> No Salaries or Stipends
-                    </div>
-                    <div class="flex items-start">
-                        <span class="mr-2 font-bold">✕</span> No Entitlement-based Access
-                    </div>
-                    <div class="flex items-start">
-                        <span class="mr-2 font-bold">✕</span> No Permanent Support (Time-bound)
-                    </div>
-                </div>
-                <p class="mt-4 text-red-700 text-sm italic">
-                    This grant provides tools, not results. The effort must come from the individual.
-                </p>
-            </div>
-        </section>
-
-        <!-- 6 & 7 Availability & Responsibility -->
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <section>
-                <h2 class="text-xl font-bold text-gray-900 mb-3">6. Availability</h2>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                    ESHA Hub operates with finite resources. Grants are resource-dependent and subject to phased releases. We may limit active slots to ensure quality support.
-                </p>
-            </section>
-            <section>
-                <h2 class="text-xl font-bold text-gray-900 mb-3">7. Responsibility</h2>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                    Recipients become stewards of our resources. We expect transparent usage, community respect, and zero tolerance for misuse or unethical behavior.
-                </p>
-            </section>
+  <!-- Navigation Bar -->
+  <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <!-- Logo -->
+          <a href="index.html" class="flex-shrink-0 flex items-center gap-2" aria-label="Go to ESHA Hub Home">
+            <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold">E</div>
+            <span class="font-bold text-xl tracking-tight text-gray-900">ESHA Hub</span>
+          </a>
         </div>
 
-        <!-- 8. Future Development -->
-        <section class="mb-12 border-t border-gray-200 pt-8">
-            <h2 class="text-lg font-bold text-gray-900 mb-2">8. Future Development</h2>
-            <p class="text-gray-600 text-sm">
-                As ESHA Hub grows, the Access Grant will evolve. We encourage the community to view this as a living program that adapts to the needs of Assam’s innovation ecosystem.
-            </p>
-        </section>
+        <div class="flex items-center space-x-2 sm:space-x-4">
+          <a href="index.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
+          <!-- This page is the Access Grant info page -->
+          <a href="access_grant.html" class="text-teal-700 font-semibold px-3 py-2 text-sm">Access Grant</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-        <!-- 9. Disclaimer -->
-        <section class="bg-gray-100 p-6 rounded-lg mb-12 text-xs text-gray-500">
-            <strong class="block text-gray-700 mb-1">9. Disclaimer</strong>
-            <p>
-                No Guarantees: All information provided reflects current policies. ESHA Hub does not guarantee that every applicant will receive a grant, nor that a grant will lead to commercial success. ESHA Hub reserves the right to modify or terminate the program without prior notice.
-            </p>
-        </section>
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <span class="inline-block py-1 px-3 rounded-full bg-teal-50 text-teal-700 text-xs font-semibold tracking-wide uppercase mb-2">
+          Policy & Information
+        </span>
+        <h1 class="text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
+          Access Grants
+        </h1>
+        <p class="mt-4 max-w-2xl mx-auto text-lg leading-7 text-gray-500">
+          Bridging the gap between curiosity and capability. Innovation, Research, and Learning Support for Assam.
+        </p>
+      </div>
+    </div>
+  </header>
 
-        <!-- Footer / CTA -->
-        <footer class="text-center py-8">
-            <p class="text-gray-600 mb-6">Interested in applying for an Access Grant?</p>
-            <button class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-200 ease-in-out transform hover:-translate-y-1">
-                Check Current Availability
-            </button>
-            <p class="mt-4 text-xs text-gray-400">© 2024 ESHA Hub. All Rights Reserved.</p>
-        </footer>
+  <!-- Main -->
+  <main class="max-w-4xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
 
-    </main>
+    <!-- 1. Introduction -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
+      <div class="prose-custom text-gray-600 leading-relaxed space-y-4">
+        <p>
+          At ESHA Hub, we believe that innovation and research should not be limited by a lack of resources or opportunities.
+          An <strong>Access Grant</strong> is our mechanism to open doors for learners, creators, and researchers across Assam and beyond.
+        </p>
+        <p>
+          Unlike traditional grants that focus primarily on monetary disbursement, the ESHA Hub Access Grant focuses on providing
+          <em>access to the ecosystem</em>. It is an authorization and support system designed to remove barriers for individuals
+          who demonstrate a genuine willingness to learn, build, and solve problems.
+        </p>
+      </div>
+    </section>
 
+    <!-- 2. Purpose and Philosophy -->
+    <section class="mb-12 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Purpose and Philosophy</h2>
+      <p class="text-gray-600 mb-4">
+        The core philosophy of ESHA Hub is that human potential is defined by skill, ethics, and intent, not by age or background.
+        We serve a community ranging from school children to senior citizens.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div class="p-4 bg-blue-50 rounded-lg">
+          <h3 class="font-semibold text-blue-900 mb-2">Enable Learning</h3>
+          <p class="text-sm text-blue-800">Deep dive into subjects without commercial pressure.</p>
+        </div>
+        <div class="p-4 bg-teal-50 rounded-lg">
+          <h3 class="font-semibold text-teal-900 mb-2">Support Research</h3>
+          <p class="text-sm text-teal-800">Test theoretical knowledge in a practical environment.</p>
+        </div>
+        <div class="p-4 bg-indigo-50 rounded-lg">
+          <h3 class="font-semibold text-indigo-900 mb-2">Foster Innovation</h3>
+          <p class="text-sm text-indigo-800">Reduce friction for starting new projects with tools & guidance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. What It Includes -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">3. What Access Grants May Include</h2>
+
+      <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <ul class="divide-y divide-gray-200">
+          <li class="p-4 hover:bg-gray-50 flex items-start">
+            <span class="flex-shrink-0 h-6 w-6 mr-3" aria-hidden="true">📚</span>
+            <div>
+              <strong class="text-gray-900 block">Knowledge & Learning Resources</strong>
+              <span class="text-gray-600 text-sm">Access to curated libraries, documentation, and learning modules.</span>
+            </div>
+          </li>
+
+          <li class="p-4 hover:bg-gray-50 flex items-start">
+            <span class="flex-shrink-0 h-6 w-6 mr-3" aria-hidden="true">🤝</span>
+            <div>
+              <strong class="text-gray-900 block">Mentorship & Guidance</strong>
+              <span class="text-gray-600 text-sm">Guidance from mentors/experts (when available) for feedback.</span>
+            </div>
+          </li>
+
+          <li class="p-4 hover:bg-gray-50 flex items-start">
+            <span class="flex-shrink-0 h-6 w-6 mr-3" aria-hidden="true">🏢</span>
+            <div>
+              <strong class="text-gray-900 block">Infrastructure Access</strong>
+              <span class="text-gray-600 text-sm">Use of digital platforms, workspaces, or labs (where applicable).</span>
+            </div>
+          </li>
+
+          <li class="p-4 hover:bg-gray-50 flex items-start">
+            <span class="flex-shrink-0 h-6 w-6 mr-3" aria-hidden="true">💻</span>
+            <div>
+              <strong class="text-gray-900 block">Tooling & Software</strong>
+              <span class="text-gray-600 text-sm">Access to development tooling and software (as per availability).</span>
+            </div>
+          </li>
+
+          <li class="p-4 hover:bg-gray-50 flex items-start">
+            <span class="flex-shrink-0 h-6 w-6 mr-3" aria-hidden="true">⚠️</span>
+            <div>
+              <strong class="text-gray-900 block">Limited Financial Assistance</strong>
+              <span class="text-gray-600 text-sm">
+                Rare and highly conditional support for minor operational needs (e.g., materials). Never guaranteed.
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. Eligibility -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Eligibility & Evaluation</h2>
+
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Who can apply?</h3>
+          <ul class="list-disc list-inside text-gray-600 space-y-1">
+            <li>Learners of <strong>any age</strong> (Children, Youth, Adults, Seniors).</li>
+            <li>Residents of Assam and the broader community.</li>
+            <li>Individuals aligning with our ethical values.</li>
+          </ul>
+        </div>
+
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Evaluation Criteria</h3>
+          <ul class="list-disc list-inside text-gray-600 space-y-1">
+            <li><strong>Intent & Curiosity:</strong> Desire to learn/solve.</li>
+            <li><strong>Effort:</strong> Evidence of self-learning.</li>
+            <li><strong>Ethics:</strong> Responsible innovation.</li>
+            <li><strong>Clear Purpose:</strong> Well-defined need for access.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. What Access Grants Are Not -->
+    <section class="mb-12">
+      <div class="bg-red-50 border-l-4 border-red-400 p-6 rounded-r-lg">
+        <h2 class="text-xl font-bold text-red-800 mb-4">5. What Access Grants Are Not</h2>
+
+        <div class="grid md:grid-cols-2 gap-4 text-red-700 text-sm">
+          <div class="flex items-start"><span class="mr-2 font-bold" aria-hidden="true">✕</span> No Guaranteed Funding</div>
+          <div class="flex items-start"><span class="mr-2 font-bold" aria-hidden="true">✕</span> No Salaries or Stipends</div>
+          <div class="flex items-start"><span class="mr-2 font-bold" aria-hidden="true">✕</span> No Entitlement-based Access</div>
+          <div class="flex items-start"><span class="mr-2 font-bold" aria-hidden="true">✕</span> No Permanent Support (Time-bound)</div>
+        </div>
+
+        <p class="mt-4 text-red-700 text-sm italic">
+          This grant provides tools, not results. The effort must come from the individual.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6 & 7 -->
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">6. Availability</h2>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+          ESHA Hub operates with finite resources. Grants are resource-dependent and subject to phased releases.
+          We may limit active slots to ensure quality support.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">7. Responsibility</h2>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+          Recipients become stewards of our resources. We expect transparent usage, community respect,
+          and zero tolerance for misuse or unethical behavior.
+        </p>
+      </section>
+    </div>
+
+    <!-- 8. Future Development -->
+    <section class="mb-12 border-t border-gray-200 pt-8">
+      <h2 class="text-lg font-bold text-gray-900 mb-2">8. Future Development</h2>
+      <p class="text-gray-600 text-sm">
+        As ESHA Hub grows, the Access Grant will evolve. We encourage the community to view this as a living program
+        that adapts to the needs of Assam’s innovation ecosystem.
+      </p>
+    </section>
+
+    <!-- 9. Disclaimer -->
+    <section class="bg-gray-100 p-6 rounded-lg mb-12 text-xs text-gray-500">
+      <strong class="block text-gray-700 mb-1">9. Disclaimer</strong>
+      <p>
+        No Guarantees: All information provided reflects current policies. ESHA Hub does not guarantee that every applicant will receive a grant,
+        nor that a grant will lead to commercial success. ESHA Hub reserves the right to modify or terminate the program without prior notice.
+      </p>
+    </section>
+
+    <!-- 10. How to Apply (If maintenance/form not live) -->
+    <section class="bg-white border border-gray-200 rounded-xl p-6 mb-12">
+      <h2 class="text-xl font-bold text-gray-900 mb-2">10. How to Apply (If the Apply Form is Not Live Yet)</h2>
+      <p class="text-gray-600 text-sm leading-relaxed mb-4">
+        If you are ready to apply but the Apply button or form is currently under maintenance / coming soon,
+        you can still reach ESHA Hub using any of the options below. After you contact us, we will follow up via email
+        to understand your purpose and required details.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-4 bg-teal-50 rounded-lg">
+          <h3 class="font-semibold text-teal-900 mb-1">Apply via Email</h3>
+          <p class="text-sm text-teal-800">
+            Send your name, purpose, and brief background to:
+            <br><strong>info@eshahub.org</strong>
+          </p>
+        </div>
+
+        <div class="p-4 bg-blue-50 rounded-lg">
+          <h3 class="font-semibold text-blue-900 mb-1">Apply via Contact Form</h3>
+          <p class="text-sm text-blue-800">
+            Use any contact/comment form available on our website.
+            Write why you are contacting, and we will respond by email.
+          </p>
+        </div>
+
+        <div class="p-4 bg-indigo-50 rounded-lg">
+          <h3 class="font-semibold text-indigo-900 mb-1">Apply via Social Media</h3>
+          <p class="text-sm text-indigo-800">
+            You can also message us through our official social profiles linked on the website.
+          </p>
+        </div>
+      </div>
+
+      <p class="mt-4 text-xs text-gray-500">
+        Note: Access Grants are resource-dependent. Availability and response time may vary.
+      </p>
+    </section>
+
+    <!-- Footer / CTA -->
+    <footer class="text-center py-8">
+      <p class="text-gray-600 mb-2">Interested in applying for an Access Grant?</p>
+
+      <p class="text-xs text-gray-500 mb-6">
+        If the application is not live right now, you can still apply via Email / Contact Form / Social Media (Section 10).
+      </p>
+
+      <!-- CTA should go to maintenance.html (global under-construction page) -->
+      <a href="maintenance.html"
+         class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-200 ease-in-out transform hover:-translate-y-1"
+         aria-label="Check current availability (may open maintenance page)">
+        Check Current Availability
+      </a>
+
+      <p class="mt-4 text-xs text-gray-400">© 2024 ESHA Hub. All Rights Reserved.</p>
+    </footer>
+
+  </main>
 </body>
 </html>

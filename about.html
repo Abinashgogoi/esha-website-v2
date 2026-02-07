@@ -200,21 +200,42 @@
         line-height: 1;
     }
 
-    /* --- GALLERY --- */
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 15px;
+    /* --- SCROLLING GALLERY --- */
+    .scrolling-wrapper {
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 20px 0;
+        position: relative;
     }
-    .gallery-img {
-        width: 100%;
-        height: 250px;
+    
+    .gallery-track {
+        display: inline-block;
+        animation: scroll-gallery 40s linear infinite;
+    }
+
+    .gallery-track:hover {
+        animation-play-state: paused;
+    }
+
+    .gallery-img-scroll {
+        height: 300px;
+        width: 400px;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: 12px;
+        margin: 0 10px;
+        display: inline-block;
         transition: transform 0.3s;
     }
-    .gallery-img:hover {
-        transform: scale(1.03);
+    
+    .gallery-img-scroll:hover {
+        transform: scale(1.05);
+        z-index: 10;
+        position: relative;
+    }
+
+    @keyframes scroll-gallery {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
     }
 
     /* --- MARQUEE --- */
@@ -267,7 +288,7 @@
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" width="50" height="50" class="d-inline-block align-text-top rounded-circle me-2">
+        <img src="esha_crow_photo\esha_hub_logo.png" alt="ESHA" width="50" height="50" class="d-inline-block align-text-top rounded-circle me-2">
         ESHA
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -356,7 +377,7 @@
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c4">Who are your supporters?</button>
                         </h2>
                         <div id="c4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">We collaborate with organizations like Atmanirbhar Assam (CMAAA 2.0) to amplify our reach and support groundbreaking initiatives.</div>
+                            <div class="accordion-body">We are exploring collaboration opportunities (including CMAAA 2.0 / Assam initiatives) as we grow. to amplify our reach and support groundbreaking initiatives.</div>
                         </div>
                     </div>
                 </div>
@@ -402,38 +423,67 @@
       </div>
   </section>
 
-  <!-- METRICS -->
-  <section class="bg-light">
+  <!-- CORE PILLARS (Replaces "Not Just Numbers") -->
+  <section class="text-white py-5" style="background-color: var(--esha-dark);">
       <div class="container">
-          <div class="row">
-              <div class="col-md-4 metric-item">
-                  <div class="metric-num">47K</div>
-                  <h4>Users Active</h4>
-              </div>
-              <div class="col-md-4 metric-item">
-                  <div class="metric-num">125</div>
-                  <h4>Projects Funded</h4>
-              </div>
-              <div class="col-md-4 metric-item">
-                  <div class="metric-num">2K</div>
-                  <h4>Innovators Inspired</h4>
-              </div>
+          <div class="row align-items-center">
+             <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+                <h3 class="fw-bold mb-2">The ESHA Engine.</h3>
+                <h3 class="fw-bold text-info">Built to Last.</h3>
+                <p class="text-white-50 mt-3">We are defined by what we build. Our focus is on tangible outputs—proprietary research, functional prototypes, and products that solve hard problems.</p>
+             </div>
+             <div class="col-lg-8">
+                <div class="row g-4">
+                    <div class="col-md-4 text-center">
+                        <div class="p-4 border border-secondary rounded-3 bg-opacity-10 bg-white h-100">
+                             <i class="bi bi-microchip fs-2 text-warning"></i>
+                             <h5 class="fw-bold mt-3">Deep Tech</h5>
+                             <p class="small text-white-50 mb-0">Rigorous R&D driving core technological advancements.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="p-4 border border-secondary rounded-3 bg-opacity-10 bg-white h-100">
+                             <i class="bi bi-box-seam fs-2 text-danger"></i>
+                             <h5 class="fw-bold mt-3">Product First</h5>
+                             <p class="small text-white-50 mb-0">Turning complex theories into working, deployable products.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="p-4 border border-secondary rounded-3 bg-opacity-10 bg-white h-100">
+                             <i class="bi bi-shield-check fs-2 text-info"></i>
+                             <h5 class="fw-bold mt-3">Excellence</h5>
+                             <p class="small text-white-50 mb-0">Protecting innovation and maintaining high quality standards.</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
           </div>
       </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="bg-white">
-      <div class="container-fluid px-4">
-          <div class="gallery-grid">
-              <img src="https://images.unsplash.com/photo-1511352015382-902404d75843?auto=format&fit=crop&w=600&q=80" class="gallery-img">
-              <img src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?auto=format&fit=crop&w=600&q=80" class="gallery-img">
-              <img src="https://images.unsplash.com/photo-1589828994379-7a8869c4f519?auto=format&fit=crop&w=600&q=80" class="gallery-img">
-              <img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&w=600&q=80" class="gallery-img">
-              <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&fit=crop&w=600&q=80" class="gallery-img">
-              <img src="https://images.unsplash.com/photo-1480944657103-7fed22359e1d?auto=format&fit=crop&w=600&q=80" class="gallery-img">
-              <img src="https://images.unsplash.com/photo-1495420378468-78588a508652?auto=format&fit=crop&w=600&q=80" class="gallery-img">
-              <img src="https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&fit=crop&w=600&q=80" class="gallery-img">
+  <!-- SCROLLING GALLERY -->
+  <section class="bg-white overflow-hidden p-0">
+      <div class="scrolling-wrapper">
+          <div class="gallery-track">
+              <!-- Original Set -->
+              <img src="https://images.unsplash.com/photo-1511352015382-902404d75843?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1589828994379-7a8869c4f519?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1480944657103-7fed22359e1d?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1495420378468-78588a508652?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              
+              <!-- Duplicate Set for Infinite Scroll -->
+              <img src="https://images.unsplash.com/photo-1511352015382-902404d75843?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1589828994379-7a8869c4f519?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1480944657103-7fed22359e1d?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1495420378468-78588a508652?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
+              <img src="https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&fit=crop&w=600&q=80" class="gallery-img-scroll">
           </div>
       </div>
   </section>
@@ -508,36 +558,41 @@
       </div>
   </div>
 
-  <!-- TESTIMONIALS -->
-  <section class="bg-white">
-      <div class="container">
-          <h2 class="section-title">Raves</h2>
-          <div class="row g-4">
+  <!-- PILOT MODE STATUS (Replaces Testimonials) -->
+  <section class="bg-white position-relative overflow-hidden">
+      <div class="container text-center position-relative z-1">
+          <div class="badge bg-primary px-3 py-2 rounded-pill mb-3">CURRENT STATUS: PILOT PHASE</div>
+          <h2 class="section-title mb-4">Building the Future, Live.</h2>
+          <div class="row justify-content-center">
+              <div class="col-lg-8">
+                  <p class="lead mb-5 text-muted">
+                      ESHA Hub is currently a living prototype. We believe in "shipping to learn." 
+                      Instead of polished reviews from the past, we offer you a front-row seat to what's next. 
+                      We are testing, breaking, and rebuilding—and we want you involved.
+                  </p>
+              </div>
+          </div>
+          
+          <div class="row g-4 text-start">
               <div class="col-md-4">
-                  <div class="testimonial-card p-4">
-                      <p class="fst-italic">"ESHA Hub is a vibrant community."</p>
-                      <div class="d-flex align-items-center mt-3">
-                          <img src="https://images.unsplash.com/photo-1489980791458-937dcbaf1d5b?auto=format&fit=crop&w=100&q=80" class="testimonial-img">
-                          <h6 class="mb-0 fw-bold">Ethan Patel</h6>
-                      </div>
+                  <div class="p-4 border border-2 border-light rounded-4 h-100 bg-light">
+                      <div class="display-4 text-primary mb-3"><i class="bi bi-cone-striped"></i></div>
+                      <h4 class="fw-bold">Under Construction</h4>
+                      <p class="text-secondary">We are actively building the infrastructure for innovation. Expect dust, noise, and excitement as we lay the foundations.</p>
                   </div>
               </div>
               <div class="col-md-4">
-                  <div class="testimonial-card p-4">
-                      <p class="fst-italic">"The resources are invaluable."</p>
-                      <div class="d-flex align-items-center mt-3">
-                          <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?auto=format&fit=crop&w=100&q=80" class="testimonial-img">
-                          <h6 class="mb-0 fw-bold">Sofia Rossi</h6>
-                      </div>
+                  <div class="p-4 border border-2 border-light rounded-4 h-100 bg-light">
+                      <div class="display-4 text-warning mb-3"><i class="bi bi-flask"></i></div>
+                      <h4 class="fw-bold">Experimental Labs</h4>
+                      <p class="text-secondary">Every project here is a hypothesis. We don't just follow best practices; we aim to invent new ones through rapid experimentation.</p>
                   </div>
               </div>
               <div class="col-md-4">
-                  <div class="testimonial-card p-4">
-                      <p class="fst-italic">"I've made great connections."</p>
-                      <div class="d-flex align-items-center mt-3">
-                          <img src="https://images.unsplash.com/photo-1591084728795-1149f32d9866?auto=format&fit=crop&w=100&q=80" class="testimonial-img">
-                          <h6 class="mb-0 fw-bold">Caleb Nguyen</h6>
-                      </div>
+                  <div class="p-4 border border-2 border-light rounded-4 h-100 bg-light">
+                      <div class="display-4 text-success mb-3"><i class="bi bi-people"></i></div>
+                      <h4 class="fw-bold">Co-Creation</h4>
+                      <p class="text-secondary">There are no passive users here, only co-creators. Your feedback doesn't go to a suggestion box; it goes directly into our code.</p>
                   </div>
               </div>
           </div>
