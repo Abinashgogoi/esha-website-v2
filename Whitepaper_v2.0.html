@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESHA Hub White Paper – Version 2.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-pulse { animation: none !important; }
+            .transition-all, .transition-transform, .transition-colors { transition: none !important; }
+            html { scroll-behavior: auto !important; }
+        }
+
+        /* Print Styling */
+        @media print {
+            @page { 
+                margin: 12mm; 
+                size: auto;
+            }
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background-color: white !important;
+                padding: 0 !important;
+                color: black !important;
+                display: block !important; /* Reset Flexbox for Print */
+            }
+            a { 
+                color: #000 !important; 
+                text-decoration: underline; 
+            }
+            .paper-container {
+                box-shadow: none !important;
+                border: none !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                display: block !important; /* Reset Flexbox for Print */
+            }
+            
+            /* Smart Layout Control */
+            section {
+                break-inside: avoid; /* Prevents sections from splitting awkwardly */
+                margin-bottom: 2rem;
+            }
+            h2, h3 {
+                break-after: avoid; /* Keeps headings attached to their content */
+            }
+            p, li {
+                orphans: 3; 
+                widows: 3;
+            }
+
+            /* Footer Optimization for Print */
+            footer {
+                margin-top: 3rem !important; /* Controlled spacing instead of full push */
+                border-top: 1px solid #ccc !important;
+                padding-top: 1rem !important;
+                page-break-inside: avoid;
+            }
+            
+            /* Explicit Page Breaks only if needed */
+            .force-page-break {
+                break-before: page;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900 py-0 md:py-8 min-h-screen flex flex-col">
+
+    <!-- Action Bar (Home & Print) -->
+    <nav class="max-w-4xl mx-auto w-full px-4 md:px-0 mb-4 flex justify-between items-center no-print">
+        <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-600 rounded-lg shadow-sm border border-slate-200 hover:text-blue-600 hover:border-blue-400 hover:shadow-md transition-all text-sm font-medium group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Home
+        </a>
+
+        <div class="flex flex-col items-end">
+            <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-600 rounded-lg shadow-sm border border-slate-200 hover:text-slate-900 hover:border-slate-400 hover:shadow-md transition-all text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                Print / Save PDF
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Micro-note for Print Context (Visible on screen, hidden in print) -->
+    <p class="no-print text-[10px] text-slate-400 text-right max-w-4xl mx-auto px-4 md:px-0 -mt-2 mb-4 italic">
+        Note: Saved or printed copies may not reflect the latest version of this living document.
+    </p>
+
+    <!-- Document Container -->
+    <div class="paper-container max-w-4xl mx-auto bg-white shadow-xl border border-slate-200 md:rounded-xl overflow-hidden ring-1 ring-slate-900/5 flex-grow">
+        
+        <!-- Header / Cover Section -->
+        <header class="bg-slate-900 text-white p-10 md:p-16 mb-12 relative overflow-hidden">
+            <!-- Decorative circle -->
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+
+            <div class="relative z-10">
+                <!-- Logo -->
+                <img src="esha_crow_photo\esha_hub_logo_doc.png" alt="ESHA Hub Logo" class="w-24 md:w-32 mb-8 rounded-xl shadow-lg bg-white p-2 object-contain">
+
+                <div class="border-l-4 border-blue-400 pl-6">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">ESHA Hub White Paper</h1>
+                    <p class="text-xl text-blue-100 font-light">Version 2.0</p>
+                </div>
+                
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-5 gap-6 text-sm text-slate-300 font-mono border-t border-slate-700 pt-6">
+                    <div>
+                        <span class="block text-slate-500 uppercase text-[10px] tracking-wider mb-1">Document Type</span>
+                        Strategic Framework
+                    </div>
+                    <div>
+                        <span class="block text-slate-500 uppercase text-[10px] tracking-wider mb-1">Origin</span>
+                        Assam, India
+                    </div>
+                    <div>
+                        <span class="block text-slate-500 uppercase text-[10px] tracking-wider mb-1">Status</span>
+                        Active / Living
+                    </div>
+                    <div>
+                        <span class="block text-slate-500 uppercase text-[10px] tracking-wider mb-1">Focus</span>
+                        Operational Maturity
+                    </div>
+                    <div class="md:col-span-1 col-span-2">
+                         <span class="block text-slate-500 uppercase text-[10px] tracking-wider mb-1">Last Updated</span>
+                         Feb 2026
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="px-8 md:px-16 pb-16 space-y-16">
+
+            <!-- Table of Contents (NOW VISIBLE IN PRINT) -->
+            <section class="-mt-4 mb-12">
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Contents</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8 text-sm font-medium">
+                        <a class="text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all flex items-center" href="#introduction">
+                            <span class="w-6 text-slate-400 font-normal">01</span> Introduction & Background
+                        </a>
+                        <a class="text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all flex items-center" href="#evolution">
+                            <span class="w-6 text-slate-400 font-normal">02</span> Evolution
+                        </a>
+                        <a class="text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all flex items-center" href="#philosophy">
+                            <span class="w-6 text-slate-400 font-normal">03</span> Philosophy & Values
+                        </a>
+                        <a class="text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all flex items-center" href="#domains">
+                            <span class="w-6 text-slate-400 font-normal">04</span> Focus Areas
+                        </a>
+                        <a class="text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all flex items-center" href="#operational">
+                            <span class="w-6 text-slate-400 font-normal">05</span> Operational Model
+                        </a>
+                        <a class="text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all flex items-center" href="#ethics">
+                            <span class="w-6 text-slate-400 font-normal">06</span> Ethics & Safety
+                        </a>
+                        <a class="text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all flex items-center" href="#vision">
+                            <span class="w-6 text-slate-400 font-normal">07</span> Vision & Roadmap
+                        </a>
+                        <a class="text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all flex items-center" href="#disclaimer">
+                            <span class="w-6 text-slate-400 font-normal">08</span> Disclaimer
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1 -->
+            <section id="introduction">
+                <div class="flex items-baseline mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-slate-400 font-mono text-sm mr-4 select-none">01</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Introduction & Background</h2>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">1.1 The Context of Innovation</h3>
+                        <p class="leading-relaxed text-slate-600">
+                            In a rapidly changing world, the traditional definitions of education and research are undergoing significant transformation. While formal academic institutions provide essential foundations, there remains a disconnect between theoretical knowledge and practical, curious exploration. Often, the drive to acquire certificates overshadows the genuine pursuit of understanding.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">1.2 The ESHA Hub Initiative</h3>
+                        <p class="leading-relaxed text-slate-600">
+                            ESHA Hub was established in Assam, India, to bridge this gap. We are an open, community-driven innovation and research platform dedicated to fostering a culture of "learning by doing."
+                        </p>
+                        <p class="leading-relaxed text-slate-600 mt-3 border-l-2 border-blue-200 pl-4 italic">
+                            We exist to provide a space—primarily digital and community-supported—where individuals are defined not by their age or credentials, but by their curiosity, skill, and willingness to solve problems. ESHA Hub is not an institute that strictly teaches a syllabus; it is a collaborative ecosystem where members research, experiment, and build solutions that matter.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">1.3 The Mission</h3>
+                        <p class="leading-relaxed text-slate-600">
+                            Our mission is to democratize access to innovation and research. We aim to nurture a mindset where failure is viewed as a data point for improvement, and where ethical experimentation leads to sustainable solutions.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section id="evolution">
+                <div class="flex items-baseline mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-slate-400 font-mono text-sm mr-4 select-none">02</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Evolution: From Version 1.0 to Version 2.0</h2>
+                </div>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">2.1 Version 1.0: The Conceptual Foundation</h3>
+                        <p class="leading-relaxed text-slate-600">
+                            The initial phase of ESHA Hub (Version 1.0) was characterized by ideation and exploration. It served as a proof of concept—validating that a community of diverse learners could collaborate effectively outside traditional hierarchies. V1.0 was about enthusiasm, gathering early adopters, and establishing the core intent of the platform.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                            2.2 Version 2.0: Structure, Realism, and Maturity
+                            <span class="px-2 py-0.5 rounded text-[10px] uppercase font-bold bg-blue-100 text-blue-800 tracking-wide">Current</span>
+                        </h3>
+                        <p class="leading-relaxed text-slate-700 mb-4">
+                            This White Paper marks the transition to <strong>Version 2.0</strong>. While the core spirit remains unchanged, V2.0 introduces necessary structure and operational maturity.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mr-3 mt-0.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                </span>
+                                <span class="text-slate-700"><strong class="font-semibold text-slate-900">Structured Pathways:</strong> Moving from ad-hoc experimentation to defined research tracks and project lifecycles.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mr-3 mt-0.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                </span>
+                                <span class="text-slate-700"><strong class="font-semibold text-slate-900">Merit-Based Progression:</strong> Clearer metrics for how members advance from learners to contributors and mentors.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mr-3 mt-0.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </span>
+                                <span class="text-slate-700"><strong class="font-semibold text-slate-900">Sustainability:</strong> A focus on projects that are not just interesting, but resource-efficient and socially responsible.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mr-3 mt-0.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                </span>
+                                <span class="text-slate-700"><strong class="font-semibold text-slate-900">Scalable Collaboration:</strong> Improved digital workflows to manage remote collaboration effectively.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section id="philosophy">
+                <div class="flex items-baseline mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-slate-400 font-mono text-sm mr-4 select-none">03</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Core Philosophy & Values</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2 flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                            Learning Over Credentials
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed pl-4 border-l border-slate-200">
+                            We value what you can do and what you wish to understand over the degrees you hold. A school student with a genuine grasp of coding or mechanics is given the same respect and opportunity as a professional. We prioritize <strong>competence</strong> over certification.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2 flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                            Curiosity-Driven Research
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed pl-4 border-l border-slate-200">
+                            Rote memorization has no place here. We encourage "First Principles Thinking"—breaking problems down to their core truths rather than accepting established norms without question. We ask "Why?" and "How?" before we ask "What?".
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2 flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                            Age-Agnostic Collaboration
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed pl-4 border-l border-slate-200">
+                            Innovation has no age limit. ESHA Hub is an intergenerational platform where children, youth, adults, and seniors collaborate. A senior citizen’s experience is as vital as a young student’s fresh perspective.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2 flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                            Ethical & Human-Centric
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed pl-4 border-l border-slate-200">
+                            Technology and research must serve humanity, not exploit it. We stand firmly against the misuse of knowledge. Our approach is grounded in empathy, integrity, and the responsible use of resources.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section id="domains">
+                <div class="flex items-baseline mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-slate-400 font-mono text-sm mr-4 select-none">04</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Focus Areas & Domains</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-5 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all bg-white group cursor-default">
+                        <div class="mb-3 text-slate-400 group-hover:text-blue-500 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-800 mb-2">Technology & Digital Innovation</h3>
+                        <p class="text-slate-600 text-sm">Exploring software development, open-source technologies, data analysis, and automation. The focus is on creating tools that solve local and global efficiency problems.</p>
+                    </div>
+                    <div class="p-5 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all bg-white group cursor-default">
+                        <div class="mb-3 text-slate-400 group-hover:text-green-500 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-800 mb-2">Grassroots Research & Science</h3>
+                        <p class="text-slate-600 text-sm">Encouraging scientific thinking in daily life. This includes environmental studies, sustainable living experiments, and understanding local biodiversity or geography through a data-driven lens.</p>
+                    </div>
+                    <div class="p-5 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all bg-white group cursor-default">
+                        <div class="mb-3 text-slate-400 group-hover:text-purple-500 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-800 mb-2">Creative Problem Solving</h3>
+                        <p class="text-slate-600 text-sm">Applying design thinking to social challenges. This involves identifying community pain points and prototyping practical solutions, whether they are physical devices or process improvements.</p>
+                    </div>
+                    <div class="p-5 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all bg-white group cursor-default">
+                         <div class="mb-3 text-slate-400 group-hover:text-yellow-500 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-800 mb-2">Knowledge Archives</h3>
+                        <p class="text-slate-600 text-sm">Documenting indigenous knowledge, local history, and cultural insights, preserving them through modern digital means to ensure they are accessible to future generations.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5 -->
+            <section id="operational">
+                <div class="flex items-baseline mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-slate-400 font-mono text-sm mr-4 select-none">05</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Operational & Collaboration Model</h2>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">5.1 Open Entry, Merit-Based Growth</h3>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600 ml-2">
+                            <li><strong class="text-slate-800">Entry:</strong> Participation is open to anyone. There are no entrance exams, only an assessment of intent and willingness to learn.</li>
+                            <li><strong class="text-slate-800">Growth:</strong> Advancement within the hub—gaining access to complex projects or mentorship roles—is earned through contribution, consistency, and the demonstration of skill.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-4">5.2 The Mentorship Cycle</h3>
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <div class="flex-1 bg-gradient-to-br from-slate-50 to-slate-100 p-5 rounded-lg border border-slate-200 text-center relative">
+                                <span class="absolute top-2 right-3 text-3xl font-bold text-slate-100 select-none">1</span>
+                                <span class="block text-blue-600 font-bold mb-1">Learn</span>
+                                <span class="text-xs text-slate-500">Acquire skills via peers & resources</span>
+                            </div>
+                            <div class="hidden md:flex items-center text-slate-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </div>
+                            <div class="flex-1 bg-gradient-to-br from-slate-50 to-slate-100 p-5 rounded-lg border border-slate-200 text-center relative">
+                                <span class="absolute top-2 right-3 text-3xl font-bold text-slate-100 select-none">2</span>
+                                <span class="block text-blue-600 font-bold mb-1">Build</span>
+                                <span class="text-xs text-slate-500">Apply knowledge to live projects</span>
+                            </div>
+                            <div class="hidden md:flex items-center text-slate-300">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </div>
+                            <div class="flex-1 bg-gradient-to-br from-slate-50 to-slate-100 p-5 rounded-lg border border-slate-200 text-center relative">
+                                <span class="absolute top-2 right-3 text-3xl font-bold text-slate-100 select-none">3</span>
+                                <span class="block text-blue-600 font-bold mb-1">Teach</span>
+                                <span class="text-xs text-slate-500">Mentor others & document findings</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">5.3 Digital Collaboration</h3>
+                        <p class="leading-relaxed text-slate-600">
+                            As a digital-first entity, we utilize collaborative tools for code management, documentation, and communication. This ensures that a member in a remote village in Assam can collaborate seamlessly with a mentor in a different city or country.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Section 6 -->
+             <section id="ethics">
+                <div class="flex items-baseline mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-slate-400 font-mono text-sm mr-4 select-none">06</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Ethics, Responsibility & Safety</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="flex gap-5 p-5 rounded-lg bg-white border border-slate-100 shadow-sm items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500 font-bold text-lg">⚠</div>
+                        <div>
+                            <h3 class="font-semibold text-slate-800 mb-1">Responsible Innovation</h3>
+                            <p class="text-sm text-slate-600">We do not support the creation of technology designed to harm, deceive, or exploit others. All research is vetted for ethical implications.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 p-5 rounded-lg bg-white border border-slate-100 shadow-sm items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 font-bold text-lg">🛡</div>
+                        <div>
+                            <h3 class="font-semibold text-slate-800 mb-1">Data Privacy & IP</h3>
+                            <p class="text-sm text-slate-600">We respect intellectual effort. While advocating open-source, we give due credit. Plagiarism is not tolerated. We protect community data.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 p-5 rounded-lg bg-white border border-slate-100 shadow-sm items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-500 font-bold text-lg">♥</div>
+                        <div>
+                            <h3 class="font-semibold text-slate-800 mb-1">A Safe Space</h3>
+                            <p class="text-sm text-slate-600">Zero-tolerance for harassment. A psychological safe space where members can admit ignorance and make mistakes without judgment.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7 -->
+            <section id="vision">
+                <div class="flex items-baseline mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-slate-400 font-mono text-sm mr-4 select-none">07</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Long-Term Vision & Roadmap</h2>
+                </div>
+                <p class="text-slate-600 mb-8 italic text-lg">"We believe in organic, sustainable growth rather than rapid expansion."</p>
+
+                <div class="relative border-l-2 border-slate-200 ml-3 space-y-10">
+                    <div class="ml-6">
+                        <span class="absolute -left-2.5 mt-1.5 h-5 w-5 rounded-full border-4 border-white bg-blue-500 shadow-sm"></span>
+                        <h3 class="flex items-center mb-2 text-lg font-semibold text-slate-900">Phase 1: Consolidation <span class="ml-3 text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-bold">Current</span></h3>
+                        <ul class="text-slate-600 text-sm list-disc list-inside space-y-1">
+                            <li>Solidifying the V2.0 operational framework.</li>
+                            <li>Building a core group of consistent contributors and mentors.</li>
+                            <li>Documenting processes and early success stories.</li>
+                        </ul>
+                    </div>
+                    <div class="ml-6 opacity-80">
+                        <span class="absolute -left-2.5 mt-1.5 h-5 w-5 rounded-full border-4 border-white bg-slate-300"></span>
+                        <h3 class="flex items-center mb-2 text-lg font-semibold text-slate-900">Phase 2: Ecosystem Building</h3>
+                        <ul class="text-slate-600 text-sm list-disc list-inside space-y-1">
+                            <li>Establishing partnerships with like-minded educational institutions and independent research bodies.</li>
+                            <li>Creating a public repository of ESHA Hub’s research and project outputs.</li>
+                        </ul>
+                    </div>
+                    <div class="ml-6 opacity-60">
+                        <span class="absolute -left-2.5 mt-1.5 h-5 w-5 rounded-full border-4 border-white bg-slate-300"></span>
+                        <h3 class="flex items-center mb-2 text-lg font-semibold text-slate-900">Phase 3: Regional Impact</h3>
+                        <ul class="text-slate-600 text-sm list-disc list-inside space-y-1">
+                            <li>Becoming a recognized node for innovation in the North East India region.</li>
+                            <li>Facilitating offline workshops and innovation camps to complement the digital platform.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Section 8 -->
+             <section id="disclaimer" class="bg-slate-50 p-8 rounded-xl border border-slate-200">
+                <div class="flex items-baseline mb-4 border-b border-slate-200 pb-2">
+                    <span class="text-slate-400 font-mono text-sm mr-4 select-none">08</span>
+                    <h2 class="text-xl font-bold text-slate-900">Disclaimer & Living Document Note</h2>
+                </div>
+                <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                    <strong>This White Paper is a living document.</strong> The concepts, operational models, and focus areas outlined here represent the current strategic direction of ESHA Hub as of Version 2.0. As an organization rooted in agility and learning, we reserve the right to adapt our methods as we gather more data and experience.
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    While our methods may evolve, our core commitment—to provide an ethical, open, and merit-based platform for innovation—will remain unchanged.
+                </p>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-slate-900 text-slate-400 p-10 text-center text-sm border-t border-slate-800 mt-auto">
+            <p class="font-semibold text-white mb-2">Issued by: The ESHA Hub Core Team</p>
+            <p class="mb-6 text-slate-500">Location: Assam, India</p>
+            <div class="w-12 h-1 bg-blue-500 mx-auto rounded-full opacity-50 mb-6"></div>
+            <p class="text-xs text-slate-600">&copy; ESHA Hub. All rights reserved.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
