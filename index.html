@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-WDJWQVWEK1');
     </script>
 
@@ -18,563 +17,668 @@
     <!-- Bootstrap 5.1 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Google Fonts (Orbitron for headers, Roboto for body) -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
         /* --- THEME VARIABLES --- */
         :root {
-            --bg-dark: #00180d;
-            --text-light: #ffffff;
-            --border-color: #aac7ca;
-            --accent: #bcfe1e;
-            --card-bg: #002413; /* Slightly lighter than body for contrast */
-            --gradient-overlay: linear-gradient(180deg, rgba(0,24,13,0) 0%, rgba(0,24,13,1) 100%);
+            --bg-dark: #050a08;
+            --text-light: #e0fbfc;
+            --border-color: #2a4a4d;
+            --accent: #bcfe1e; /* Neon Green */
+            --accent-glow: rgba(188, 254, 30, 0.4);
+            --card-bg: rgba(10, 30, 20, 0.6);
+            --void-black: #000000;
         }
+
+        /* --- GENSHIN-STYLE LIGHT WARP TRANSITION --- */
+        #portal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #fff;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            pointer-events: none;
+            perspective: 1000px;
+            isolation: isolate;
+        }
+
+        #portal-overlay::after {
+            content: "";
+            position: absolute; inset: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(188,254,30,0.1) 50%, rgba(255,255,255,1) 90%);
+            opacity: 0;
+            z-index: 4;
+            pointer-events: none;
+        }
+        
+        #portal-overlay.portal-active::after {
+            animation: lightDepth 1.8s ease-out forwards;
+        }
+
+        .portal-tunnel {
+            position: absolute;
+            width: 200vw;
+            height: 200vh;
+            left: -50vw; top: -50vh;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,255,255,0.8) 20%, 
+                var(--accent) 100%);
+            opacity: 0;
+            transform: scale(0.1);
+            z-index: 1;
+        }
+
+        .portal-active .portal-tunnel {
+            animation: warp-tunnel-light 1.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+        }
+
+        .portal-active {
+            display: flex !important;
+            pointer-events: auto;
+        }
+
+        .cyber-debris {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            color: #333;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            white-space: nowrap;
+            text-shadow: 0 0 10px rgba(188, 254, 30, 0.8);
+            pointer-events: none;
+            z-index: 5;
+            letter-spacing: 2px;
+        }
+        
+        .cyber-debris img { 
+            width: 100px; height: 100px; 
+            border-radius: 50%; 
+            border: 3px solid #fff; 
+            box-shadow: 0 0 30px rgba(188, 254, 30, 0.6); 
+        }
+
+        .portal-active .cyber-debris {
+            animation: energy-fly 1.4s cubic-bezier(0.1, 0.7, 0.1, 1) forwards;
+        }
+
+        @keyframes warp-tunnel-light {
+            0% { opacity: 0; transform: scale(0.1); }
+            10% { opacity: 1; }
+            50% { opacity: 1; }
+            100% { opacity: 1; transform: scale(4); background: #fff; }
+        }
+
+        @keyframes energy-fly {
+            0% { 
+                transform: translate(-50%, -50%) scale(0) rotate(0deg); 
+                opacity: 0; 
+                filter: blur(0px); 
+            }
+            15% { 
+                opacity: 1; 
+                filter: blur(2px);
+            }
+            100% { 
+                transform: translate(var(--tx), var(--ty)) scale(5) rotate(var(--rot)); 
+                opacity: 0; 
+                filter: blur(10px); 
+            }
+        }
+
+        @keyframes lightDepth {
+            0% { opacity: 0; }
+            30% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        /* --- EXISTING SITE ANIMATIONS --- */
+        @keyframes float-y { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes scan-line { 0% { left: -100%; } 50%, 100% { left: 100%; } }
+        @keyframes pulse-ring { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(188, 254, 30, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(188, 254, 30, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(188, 254, 30, 0); } }
+        @keyframes glitch-skew { 0% { transform: skew(0deg); } 20% { transform: skew(-2deg); } 40% { transform: skew(2deg); } 60% { transform: skew(-1deg); } 80% { transform: skew(1deg); } 100% { transform: skew(0deg); } }
+        @keyframes sound-wave { 0%, 100% { height: 10px; opacity: 0.5; } 50% { height: 25px; opacity: 1; } }
+        @keyframes black-hole-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes heartbeat { 0% { transform: scale(1); } 15% { transform: scale(1.15); } 30% { transform: scale(1); } 45% { transform: scale(1.15); } 60% { transform: scale(1); } 100% { transform: scale(1); } }
 
         /* --- GLOBAL STYLES --- */
         body {
             background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 15% 50%, rgba(188, 254, 30, 0.03) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(188, 254, 30, 0.03) 0%, transparent 25%), radial-gradient(circle at 50% 50%, #0d1f16 0%, #000000 100%);
             color: var(--text-light);
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
+            font-size: 1.1rem;
+            cursor: default;
         }
-
-        h1, h2, h3, h4, h5, h6, .navbar-brand {
-            font-family: 'Orbitron', sans-serif; /* Tech/Futuristic font */
-        }
-
+        h1, h2, h3, h4, h5, h6, .navbar-brand, .stat-number { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
         a { text-decoration: none; color: var(--text-light); transition: 0.3s; }
-        a:hover { color: var(--accent); }
-
-        /* Smooth Scroll */
-        html { scroll-behavior: smooth; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* --- BUTTONS --- */
-        .btn-custom-primary {
-            background-color: var(--accent);
-            color: #000;
-            border: none;
-            padding: 10px 25px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(188, 254, 30, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .btn-custom-primary:hover {
-            background-color: #a3e600;
-            color: #000;
-            box-shadow: 0 0 20px var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .btn-custom-secondary {
-            background-color: transparent;
-            border: 2px solid var(--border-color);
-            color: var(--text-light);
-            padding: 10px 25px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .btn-custom-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            box-shadow: 0 0 15px rgba(188, 254, 30, 0.2);
-        }
+        .btn-custom-primary { background-color: var(--accent); color: #000; border: none; padding: 14px 35px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 0 15px var(--accent-glow); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; z-index: 1; clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%); }
+        .btn-custom-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent); transform: skewX(-25deg); transition: 0.5s; z-index: -1; }
+        .btn-custom-primary:hover::before { animation: scan-line 0.7s forwards; left: 150%; }
+        .btn-custom-primary:hover { background-color: #fff; color: #000; box-shadow: 0 0 40px var(--accent); transform: translateY(-3px) scale(1.02); }
+        .btn-custom-secondary { background: rgba(0,0,0,0.3); border: 1px solid var(--accent); color: var(--accent); padding: 14px 35px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; position: relative; overflow: hidden; transition: 0.3s; clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 80%); }
+        .btn-custom-secondary:hover { background-color: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); }
 
         /* --- NAVBAR --- */
-        .navbar {
-            background-color: rgba(0, 24, 13, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(170, 199, 202, 0.2);
-            padding: 15px 0;
-        }
+        .navbar { background-color: rgba(0, 5, 2, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(188, 254, 30, 0.1); padding: 20px 0; transition: 0.4s; }
+        .navbar-brand img { height: 50px; margin-right: 15px; border-radius: 50%; border: 2px solid var(--accent); box-shadow: 0 0 15px var(--accent-glow); animation: pulse-ring 3s infinite; }
+        .nav-link { color: #b0c4b1 !important; margin: 0 12px; position: relative; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; font-weight: 500; transition: 0.3s; }
+        .nav-link:hover { color: var(--accent) !important; text-shadow: 0 0 10px var(--accent-glow); transform: translateY(-2px); }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; background-color: var(--accent); transition: 0.3s; transform: translateX(-50%); }
+        .nav-link:hover::after { width: 100%; }
+        .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(188, 254, 30, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
 
-        .navbar-brand img {
-            height: 40px;
-            margin-right: 10px;
-            border-radius: 50%;
-        }
+        /* --- HERO --- */
+        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #000; }
+        .hero-bg { position: absolute; top: -5%; left: -5%; width: 110%; height: 110%; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; z-index: 0; transition: transform 0.1s linear; }
+        .hero-grid { content: ''; position: absolute; top: 0; left: 0; width: 200%; height: 200%; background-image: linear-gradient(rgba(188, 254, 30, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(188, 254, 30, 0.03) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: float-y 10s ease-in-out infinite alternate; z-index: 1; pointer-events: none; }
+        .hero-content { position: relative; z-index: 5; }
+        .hero-title { font-size: 5rem; font-weight: 900; margin-bottom: 1.5rem; text-transform: uppercase; color: #fff; text-shadow: 0 0 20px rgba(188, 254, 30, 0.3); position: relative; display: inline-block; }
+        .hero-title:hover { animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; color: var(--accent); }
+        .hero-text { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2.5rem auto; color: #d0d0d0; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; border-left: 3px solid var(--accent); backdrop-filter: blur(5px); }
 
-        .nav-link {
-            color: var(--text-light) !important;
-            margin: 0 10px;
-            position: relative;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
+        /* --- CARDS --- */
+        .card-container { perspective: 1000px; height: 100%; }
+        .sector-card { background: rgba(13, 26, 20, 0.4); backdrop-filter: blur(15px); border: 1px solid rgba(188, 254, 30, 0.15); border-radius: 16px; padding: 2.5rem 2rem; height: 100%; position: relative; overflow: hidden; transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease; transform-style: preserve-3d; }
+        .sector-card:hover { background: rgba(13, 26, 20, 0.8); border-color: var(--accent); box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(188, 254, 30, 0.15); }
+        .sector-card::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(188, 254, 30, 0.05), transparent); transform: skewX(-20deg); transition: 0.5s; pointer-events: none; }
+        .sector-card:hover::after { animation: scan-line 1.5s infinite linear; }
+        .card-content { transform: translateZ(20px); }
+        .sector-icon-wrapper { height: 80px; display: flex; align-items: center; justify-content: flex-start; margin-bottom: 1.5rem; transform: translateZ(30px); }
+        .sector-title { color: #fff; font-weight: 700; margin-bottom: 10px; }
+        .sector-meta { font-size: 0.8rem; color: var(--accent); font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent) !important;
-        }
+        /* --- ICONS --- */
+        .voice-bar { width: 6px; background: var(--accent); margin: 0 4px; border-radius: 10px; animation: sound-wave 1s infinite ease-in-out; box-shadow: 0 0 10px var(--accent); }
+        .v1 { animation-delay: 0.1s; height: 15px; } .v2 { animation-delay: 0.2s; height: 25px; } .v3 { animation-delay: 0.3s; height: 10px; } .v4 { animation-delay: 0.4s; height: 20px; }
+        .black-hole-svg { animation: black-hole-spin 8s linear infinite; transform-origin: center; filter: drop-shadow(0 0 8px var(--accent)); }
+        .med-icon { animation: heartbeat 2s infinite ease-in-out; transform-origin: center; filter: drop-shadow(0 0 5px #ff4444); }
 
-        .navbar-toggler {
-            border-color: var(--border-color);
+        /* --- STATS & FOOTER --- */
+        .stat-box { 
+            border-right: 1px solid rgba(255,255,255,0.05); 
+            padding: 40px 5px; 
+            transition: 0.3s; 
+            position: relative; 
+            overflow: hidden; 
         }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(188, 254, 30, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        /* --- HERO SECTION --- */
-        .hero-section {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0, 24, 13, 0.85), rgba(0, 24, 13, 0.85)), url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(188, 254, 30, 0.3);
-        }
-
-        .hero-text {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #d0d0d0;
-            line-height: 1.8;
-        }
-
-        /* --- CARDS (Why Choose Us) --- */
-        .feature-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            height: 100%;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border-color: var(--accent);
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-            transform-origin: left;
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-card h4 {
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        /* --- TABS SECTION --- */
-        .nav-pills .nav-link {
-            color: var(--text-light);
-            background: transparent;
-            border: 1px solid var(--border-color);
-            margin-bottom: 10px;
-            border-radius: 5px;
-            text-align: left;
-            padding: 15px;
-            transition: all 0.3s;
-        }
-
-        .nav-pills .nav-link.active, .nav-pills .nav-link:hover {
-            background-color: var(--accent);
-            color: #000 !important;
-            border-color: var(--accent);
+        .stat-box:hover { background: rgba(188, 254, 30, 0.05); }
+        
+        .stat-number { 
+            color: var(--accent); 
+            font-size: clamp(0.9rem, 1.5vw, 1.8rem); 
+            text-shadow: 0 0 10px var(--accent-glow); 
+            animation: float-y 3s ease-in-out infinite; 
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            word-wrap: break-word;
+            line-height: 1.2;
         }
         
-        .tab-content img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid var(--border-color);
-            margin-top: 20px;
-            filter: brightness(0.8);
-            transition: 0.3s;
-        }
-
-        .tab-content img:hover {
-            filter: brightness(1);
-            border-color: var(--accent);
-        }
-
-        .side-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            opacity: 0.8;
-            min-height: 400px;
-        }
-
-        /* --- MEDIA SECTION --- */
-        .media-container {
-            border: 1px solid var(--border-color);
-            padding: 10px;
-            border-radius: 8px;
-            background: #000;
-            box-shadow: 0 0 20px rgba(188, 254, 30, 0.1);
-        }
-
-        /* --- PROFESSIONAL CONTENT (New Sections) --- */
-        .sector-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(170, 199, 202, 0.3);
-            border-radius: 0; /* Brutalist/Tech look */
-            padding: 2rem;
-            height: 100%;
-            transition: 0.3s;
-        }
-        .sector-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: var(--accent);
-        }
-        .sector-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
+        .stat-box:hover .stat-number { transform: scale(1.1); animation: none; }
+        .video-wrapper { border: 1px solid var(--accent); box-shadow: 0 0 30px rgba(188, 254, 30, 0.1); transition: 0.5s; overflow: hidden; border-radius: 8px; }
+        .video-wrapper:hover { box-shadow: 0 0 60px rgba(188, 254, 30, 0.3); transform: scale(1.02); border-color: #fff; }
+        .footer-advanced { background: linear-gradient(180deg, #020202 0%, #0a1510 100%); border-top: 1px solid rgba(188, 254, 30, 0.1); position: relative; padding-top: 80px; overflow: hidden; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; }
+        .footer-col h5 { color: #fff; margin-bottom: 25px; font-size: 1.1rem; position: relative; display: inline-block; }
+        .footer-col h5::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 30px; height: 2px; background: var(--accent); }
+        .footer-links li { list-style: none; margin-bottom: 12px; }
+        .footer-links a { color: #889; font-size: 0.95rem; transition: 0.3s; display: inline-flex; align-items: center; }
+        .footer-links a:hover { color: var(--accent); transform: translateX(5px); text-shadow: 0 0 8px rgba(188, 254, 30, 0.3); }
+        .footer-links a::before { content: '>'; margin-right: 8px; color: var(--accent); opacity: 0; transition: 0.3s; font-family: monospace; }
+        .footer-links a:hover::before { opacity: 1; }
+        .newsletter-form { position: relative; margin-top: 20px; }
+        .newsletter-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid #333; padding: 12px 15px; color: #fff; border-radius: 4px; transition: 0.3s; }
+        .newsletter-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 15px rgba(188, 254, 30, 0.2); background: rgba(0,0,0,0.4); }
+        .newsletter-btn { position: absolute; right: 5px; top: 5px; background: var(--accent); border: none; width: 38px; height: 38px; border-radius: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .newsletter-btn:hover { background: #fff; transform: scale(1.05); }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icon { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; color: #aaa; }
+        .social-icon:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(188, 254, 30, 0.3); transform: translateY(-3px); }
+        .copyright-bar { border-top: 1px solid rgba(255,255,255,0.05); padding: 30px 0; text-align: center; font-size: 0.85rem; color: #555; background: #000; }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: rgba(188, 254, 30, 0.1); border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: 0.4s; z-index: 999; backdrop-filter: blur(5px); }
+        .back-to-top.show { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); transform: translateY(-5px); }
         
-        .stat-box {
-            border-right: 1px solid rgba(255,255,255,0.1);
-            padding: 20px;
-        }
-        .stat-box:last-child { border-right: none; }
-        .stat-number {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #ccc;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 60px 0;
-            margin-top: 60px;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, #000b05 100%);
-        }
-
-        .footer-link {
-            display: inline-block;
-            margin: 0 10px;
-            text-align: right;
-            font-size: 0.9rem;
-            color: #888;
-        }
-        .footer-link:hover {
-            color: var(--accent);
-        }
-
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .footer-link { text-align: center; display: block; margin: 10px 0; }
-            .text-md-end { text-align: center !important; }
-            .text-md-start { text-align: center !important; }
-            .side-image { display: none; }
+            .hero-title { font-size: 3rem; }
+            .sector-card { margin-bottom: 20px; }
             .stat-box { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
         }
     </style>
 </head>
 <body>
 
-    <!-- A) STICKY NAVBAR -->
+    <!-- PORTAL OVERLAY CONTAINER -->
+    <div id="portal-overlay">
+        <div class="portal-tunnel"></div>
+    </div>
+
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <!-- Placeholder Image -->
-                <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" onerror="this.onerror=null; this.src='https://via.placeholder.com/50/bcfe1e/000000?text=ESHA';">
-                ESHA Hub
+            <a class="navbar-brand d-flex align-items-center portal-link" href="index.html">
+                <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" onerror="this.onerror=null; this.src='https://via.placeholder.com/50/bcfe1e/000000?text=E';">
+                <span style="color: #fff; font-weight: bold;">ESHA <span style="color: var(--accent);">HUB</span></span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="research_hub.html">Research</a></li>
-                    <li class="nav-item"><a class="nav-link" href="innovation_zone.html">Innovation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mentorship_magic.html">Mentorship</a></li>
-                    <li class="nav-item"><a class="nav-link" href="community_connect.html">Community</a></li>
-                    <li class="nav-item"><a class="nav-link" href="join.html">Join Us</a></li>
+                    <li class="nav-item"><a class="nav-link portal-link" href="research_hub.html">Research Hub</a></li>
+                    <li class="nav-item"><a class="nav-link portal-link" href="innovation_zone.html">Innovation Zone</a></li>
+                    <li class="nav-item"><a class="nav-link portal-link" href="mentorship_magic.html">Mentorship Magic</a></li>
+                    <li class="nav-item"><a class="nav-link portal-link" href="community_connect.html">Community Connect</a></li>
+                    <li class="nav-item"><a class="nav-link portal-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-custom-secondary portal-link" style="color: var(--accent) !important;" href="join.html">JOIN PROTOCOL</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- B) HERO SECTION -->
-    <section id="home" class="hero-section">
-        <div class="container fade-in">
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg" id="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="container hero-content">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <h1 class="hero-title">Igniting Innovation</h1>
-                    <p class="hero-text">
-                        Welcome to ESHA Hub, the premier convergence point for visionary minds. We bridge the gap between abstract research and tangible technological breakthroughs. Dive into a collaborative ecosystem designed to engineer the future.
-                    </p>
-                    <div class="d-flex justify-content-center gap-3">
-                        <a href="innovation_zone.html" class="btn btn-custom-primary">Explore Projects</a>
-                        <a href="join.html" class="btn btn-custom-secondary">Become a Member</a>
+                    <h1 class="hero-title">Engineering The Future</h1>
+                    <div class="hero-text reveal">
+                        Welcome to the convergence point of biological intelligence and machine efficiency. ESHA Hub bridges abstract theory with tangible breakthroughs in Assamese Linguistics, Space-Time Geometry, and Rural IoT Healthcare.
+                    </div>
+                    <div class="d-flex justify-content-center gap-4 mt-5 reveal">
+                        <a href="innovation_zone.html" class="btn btn-custom-primary portal-link">Initialize Project</a>
+                        <a href="#research-vectors" class="btn btn-custom-secondary">Scan Research</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- C) WHY CHOOSE US -->
-    <section id="choose-us" class="py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h2 style="color: var(--accent);">Why Choose Us?</h2>
-                <p class="text-muted">Accelerating the path from concept to creation</p>
-            </div>
-            <div class="row g-4">
-                <!-- Card 1 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <div class="mb-3 fs-1">🤝</div>
-                        <h4>Dynamic Community</h4>
-                        <p>Connect with a network of engineers, scientists, and creators dedicated to mutual growth.</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <div class="mb-3 fs-1">🧠</div>
-                        <h4>Expert Mentorship</h4>
-                        <p>Gain insights from industry veterans who transform raw potential into professional excellence.</p>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <div class="mb-3 fs-1">🚀</div>
-                        <h4>Innovation First</h4>
-                        <p>Prioritizing hands-on experimentation in AI, robotics, and sustainable technologies.</p>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <div class="mb-3 fs-1">🌍</div>
-                        <h4>Global Impact</h4>
-                        <p>Deploying solutions that address real-world challenges, starting from Assam to the world.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- D) JOIN THE REVOLUTION (TABS) -->
-    <section id="community" class="py-5" style="background-color: rgba(0,0,0,0.2);">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <!-- Left Column -->
-                <div class="col-lg-7 mb-4 mb-lg-0">
-                    <h2 class="mb-4">Join the Revolution</h2>
-                    <p class="mb-4 text-muted">A multi-faceted ecosystem designed for every stage of your journey.</p>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <button class="nav-link active" id="v-pills-compete-tab" data-bs-toggle="pill" data-bs-target="#v-pills-compete" type="button" role="tab">Compete & Collaborate</button>
-                                <button class="nav-link" id="v-pills-mentor-tab" data-bs-toggle="pill" data-bs-target="#v-pills-mentor" type="button" role="tab">Skill Growth</button>
-                                <button class="nav-link" id="v-pills-projects-tab" data-bs-toggle="pill" data-bs-target="#v-pills-projects" type="button" role="tab">Live Projects</button>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="tab-content" id="v-pills-tabContent">
-                                <!-- Tab 1 -->
-                                <div class="tab-pane fade show active" id="v-pills-compete" role="tabpanel">
-                                    <h4 style="color: var(--accent)">Connect & Conquer</h4>
-                                    <ul class="list-unstyled mt-3 text-muted">
-                                        <li class="mb-2">✅ Cross-functional team formation</li>
-                                        <li class="mb-2">✅ Regional and national hackathons</li>
-                                        <li class="mb-2">✅ Idea incubation labs</li>
-                                    </ul>
-                                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Team Collaboration">
-                                </div>
-                                <!-- Tab 2 -->
-                                <div class="tab-pane fade" id="v-pills-mentor" role="tabpanel">
-                                    <h4 style="color: var(--accent)">Technical Mastery</h4>
-                                    <p class="text-muted">Access curated resources and direct feedback from senior researchers.</p>
-                                    <ul class="list-unstyled mt-3 text-muted">
-                                        <li class="mb-2">✅ Advanced technical workshops</li>
-                                        <li class="mb-2">✅ Peer-to-peer code reviews</li>
-                                    </ul>
-                                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mentorship">
-                                </div>
-                                <!-- Tab 3 -->
-                                <div class="tab-pane fade" id="v-pills-projects" role="tabpanel">
-                                    <h4 style="color: var(--accent)">Build for Tomorrow</h4>
-                                    <p class="text-muted">Transition from theory to prototype. From AI security cores to environmental sensing grids.</p>
-                                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tech Projects">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Right Column -->
-                <div class="col-lg-5 d-none d-lg-block">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="side-image" alt="Hub Atmosphere">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- E) INNOVATION LIFECYCLE (Replaces Metrics for New Org) -->
-    <section class="py-5 bg-black border-top border-bottom" style="border-color: rgba(170,199,202,0.1) !important;">
+    <!-- INNOVATION LIFECYCLE -->
+    <section class="py-5" style="background: rgba(0,0,0,0.5); border-bottom: 1px solid var(--border-color); position: relative; z-index: 2;">
         <div class="container">
             <div class="row text-center align-items-center justify-content-center">
-                <div class="col-md-3 stat-box">
-                    <div class="stat-number" style="font-size: 1.8rem;">INCUBATE</div>
-                    <div class="stat-label">From Concept to Core</div>
+                <div class="col-6 col-md-3 stat-box reveal">
+                    <div class="stat-number">INCUBATE</div>
+                    <div class="text-muted text-uppercase small mt-2">Concept to Core</div>
                 </div>
-                <div class="col-md-3 stat-box">
-                    <div class="stat-number" style="font-size: 1.8rem;">COLLABORATE</div>
-                    <div class="stat-label">Interdisciplinary Fusion</div>
+                <div class="col-6 col-md-3 stat-box reveal">
+                    <div class="stat-number">COLLABORATE</div>
+                    <div class="text-muted text-uppercase small mt-2">Neural Networking</div>
                 </div>
-                <div class="col-md-3 stat-box">
-                    <div class="stat-number" style="font-size: 1.8rem;">ACCELERATE</div>
-                    <div class="stat-label">Rapid Prototyping</div>
+                <div class="col-6 col-md-3 stat-box reveal">
+                    <div class="stat-number">ACCELERATE</div>
+                    <div class="text-muted text-uppercase small mt-2">Rapid Prototyping</div>
                 </div>
-                <div class="col-md-3 stat-box">
-                    <div class="stat-number" style="font-size: 1.8rem;">ELEVATE</div>
-                    <div class="stat-label">Regional Growth Engine</div>
+                <div class="col-6 col-md-3 stat-box reveal">
+                    <div class="stat-number">ELEVATE</div>
+                    <div class="text-muted text-uppercase small mt-2">Assam to Cosmos</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- F) STRATEGIC RESEARCH VECTORS (Replaces Contact Form) -->
-    <section class="py-5" id="research-vectors">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 style="color: var(--accent);">Strategic Frontiers</h2>
+    <!-- RESEARCH CARDS -->
+    <section class="py-5" id="research-vectors" style="position: relative; z-index: 2;">
+        <div class="container py-5">
+            <div class="text-center mb-5 reveal">
+                <h2 style="color: var(--accent); font-size: 2.5rem;">Active Research Frontiers</h2>
                 <p class="text-muted mx-auto" style="max-width: 600px;">
-                    Our community concentrates efforts on high-impact domains, ensuring that ESHA Hub remains at the cutting edge of global technological evolution.
+                    Current Priority Nodes. Status: <span style="color: #0f0; text-shadow: 0 0 10px #0f0; animation: pulse-ring 2s infinite;">ONLINE</span>
                 </p>
             </div>
             <div class="row g-4">
-                <!-- Vector 1 -->
-                <div class="col-lg-4">
+                <div class="col-lg-4 card-container reveal">
                     <div class="sector-card">
-                        <div class="sector-icon">⚡</div>
-                        <h4>Sustainable Energy</h4>
-                        <p class="text-muted mb-4">
-                            Pioneering micro-grid solutions and renewable energy optimization algorithms tailored for developing infrastructures.
-                        </p>
-                        <a href="research_hub.html" class="btn-custom-secondary btn-sm">View Research</a>
+                        <div class="card-content">
+                            <div class="sector-icon-wrapper">
+                                <div class="d-flex align-items-center h-100">
+                                    <div class="voice-bar v1"></div><div class="voice-bar v2"></div><div class="voice-bar v3"></div>
+                                    <div class="voice-bar v4"></div><div class="voice-bar v2"></div><div class="voice-bar v1"></div>
+                                </div>
+                            </div>
+                            <span class="sector-meta">Data Linguistics | Open Collaboration</span>
+                            <h4 class="sector-title">Polyglot Voice Neural Engine</h4>
+                            <p class="text-muted mb-4 small">
+                                Developing next-gen speech synthesis models focused on Indic languages. 
+                                Active learning on <strong>Assamese</strong> & <strong>Bodo</strong> datasets.
+                            </p>
+                            <a href="research_hub.html" class="btn-custom-secondary btn-sm text-decoration-none portal-link" style="font-size: 0.75rem;">Access Dataset</a>
+                        </div>
                     </div>
                 </div>
-                <!-- Vector 2 -->
-                <div class="col-lg-4">
+                <div class="col-lg-4 card-container reveal">
                     <div class="sector-card">
-                        <div class="sector-icon">🤖</div>
-                        <h4>Autonomous Systems</h4>
-                        <p class="text-muted mb-4">
-                            Developing next-generation robotics for agriculture and disaster response, integrating edge AI for real-time decision making.
-                        </p>
-                        <a href="research_hub.html" class="btn-custom-secondary btn-sm">View Research</a>
+                        <div class="card-content">
+                            <div class="sector-icon-wrapper">
+                                <svg class="med-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#bcfe1e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                    <rect x="2" y="6" width="20" height="12" rx="2" stroke-opacity="0.3" />
+                                </svg>
+                            </div>
+                            <span class="sector-meta">IoT Healthcare</span>
+                            <h4 class="sector-title">VitalSync Guardian</h4>
+                            <p class="text-muted mb-4 small">
+                                <strong>"Smart Medicine Box"</strong> re-imagined. An automated dispensing unit with cloud-connectivity for remote adherence tracking in rural areas.
+                            </p>
+                            <a href="research_hub.html" class="btn-custom-secondary btn-sm text-decoration-none portal-link" style="font-size: 0.75rem;">View Prototype</a>
+                        </div>
                     </div>
                 </div>
-                <!-- Vector 3 -->
-                <div class="col-lg-4">
+                <div class="col-lg-4 card-container reveal">
                     <div class="sector-card">
-                        <div class="sector-icon">🧬</div>
-                        <h4>Bio-Informatics</h4>
-                        <p class="text-muted mb-4">
-                            Leveraging data science to solve biological challenges, from localized healthcare analytics to environmental DNA sequencing.
-                        </p>
-                        <a href="research_hub.html" class="btn-custom-secondary btn-sm">View Research</a>
+                        <div class="card-content">
+                            <div class="sector-icon-wrapper">
+                                <svg class="black-hole-svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#bcfe1e" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10" stroke-opacity="0.2" stroke-dasharray="4 4"/>
+                                    <path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="0.5"/>
+                                    <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                    <path d="M12 12 m-6 0 a6 6 0 0 1 12 0" opacity="0.5" stroke-dasharray="2 4"/>
+                                </svg>
+                            </div>
+                            <span class="sector-meta">Spacetime Geometry | Work in Progress</span>
+                            <h4 class="sector-title">BFECT Theory Update</h4>
+                            <p class="text-muted mb-4 small">
+                                <strong>Black Hole Fabric Energy Cycle Theory:</strong> A collapse-force geometric framework exploring energy recycling through spacetime fabric manipulation.
+                            </p>
+                            <a href="research_hub.html" class="btn-custom-secondary btn-sm text-decoration-none portal-link" style="font-size: 0.75rem;">Read Paper</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- G) MEDIA / VIDEO SECTION -->
-    <section class="py-5 text-center" style="background: rgba(0,0,0,0.3);">
+    <!-- VIDEO SECTION -->
+    <section class="py-5 text-center" style="background: linear-gradient(0deg, #000 0%, rgba(13,26,20,0.8) 100%); position: relative; z-index: 2;">
         <div class="container py-4">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h2 class="mb-4">See Innovation in Action</h2>
-                    <div class="media-container ratio ratio-16x9 mb-4">
-                        <iframe src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=0&mute=1&loop=1&playlist=L_LUpnjgPso" title="ESHA Hub Intro" allowfullscreen style="border:0;"></iframe>
+                <div class="col-lg-8 reveal">
+                    <h2 class="mb-4">Innovation in Action</h2>
+                    <div class="ratio ratio-16x9 mb-4 video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=0&mute=1&loop=1&playlist=L_LUpnjgPso" title="ESHA Hub Intro" allowfullscreen style="border:0; filter: contrast(1.1);"></iframe>
                     </div>
-                    <p class="text-muted mb-4">Ready to contribute to the next big thing?</p>
-                    <a href="join.html" class="btn btn-custom-primary btn-lg">Apply for Membership</a>
+                    <p class="text-muted mb-4">Ready to contribute to the singularity?</p>
+                    <a href="join.html" class="btn btn-custom-primary portal-link">Execute Application</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- H) FOOTER -->
-    <footer>
+    <!-- ADVANCED FOOTER -->
+    <footer class="footer-advanced">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start">
-                    <h5 class="mb-2" style="font-family: 'Orbitron', sans-serif; color: var(--text-light);">ESHA Hub</h5>
-                    <p class="mb-0 text-muted">&copy; 2026 ESHA Hub. All rights reserved.</p>
-                    <small style="color: var(--border-color); opacity: 0.6;">Cultivating Genius in Assam, India</small>
+            <div class="footer-grid">
+                <div class="footer-col reveal">
+                    <a class="navbar-brand d-flex align-items-center mb-4 portal-link" href="index.html">
+                        <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" onerror="this.onerror=null; this.src='https://via.placeholder.com/50/bcfe1e/000000?text=E';" style="height: 40px; border-radius: 50%; border: 1px solid var(--accent);">
+                        <span style="color: #fff; font-weight: bold; font-family: 'Orbitron';">ESHA <span style="color: var(--accent);">HUB</span></span>
+                    </a>
+                    <p class="text-muted small" style="line-height: 1.8;">
+                        Empowering rural innovation through advanced technology. We are a collective of dreamers and doers based in Assam, pushing the boundaries of what's possible.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT" class="social-icon" title="Facebook" target="_blank" rel="noopener noreferrer">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9
+                              1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.3 0-1.7.8-1.7 1.6V12H17l-.4 3h-2.4v7A10 10 0 0 0 22 12z"/>
+                          </svg>
+                        </a>
+
+                        <a href="https://x.com/EshaHub" class="social-icon" title="Twitter" target="_blank" rel="noopener noreferrer">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                          </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <nav class="d-flex justify-content-center justify-content-md-end gap-3 mt-3 mt-md-0">
-                        <a href="index.html" class="footer-link">Home</a>
-                        <a href="about.html" class="footer-link">About</a>
-                        <a href="innovation_zone.html" class="footer-link">Projects</a>
-                        <a href="join.html" class="footer-link">Join</a>
-                    </nav>
+
+                <div class="footer-col reveal">
+                    <h5>Protocol Links</h5>
+                    <ul class="footer-links ps-0">
+                        <li><a href="index.html" class="portal-link">Main Terminal</a></li>
+                        <li><a href="research_hub.html" class="portal-link">Research Database</a></li>
+                        <li><a href="index.html" class="portal-link">Live Projects</a></li>
+                        <li><a href="mentorship_magic.html" class="portal-link">Mentorship Program</a></li>
+                        <li><a href="access_grant.html" class="portal-link">Access Grants</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col reveal">
+                    <h5>Documentation</h5>
+                    <ul class="footer-links ps-0">
+                        <li><a href="Whitepaper_v2.0.html" class="portal-link">Whitepaper v2.0</a></li>
+                        <li><a href="privacy_protocol.html" class="portal-link">Privacy Protocol</a></li>
+                        <li><a href="code_of_conduct.html" class="portal-link">Code of Conduct</a></li>
+                    </ul>
+                </div>
+
+                <!-- ✅ UPDATED: Web3Forms Newsletter Form -->
+                <div class="footer-col reveal">
+                    <h5>Stay Synced</h5>
+                    <p class="text-muted small">Subscribe for weekly updates.</p>
+
+                    <form class="newsletter-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="2f8034d9-d754-460c-9cce-4fdc22fc2ed0">
+                        <input type="hidden" name="subject" value="ESHA Hub Newsletter Subscription">
+                        <input type="hidden" name="from_name" value="ESHA Hub Website">
+
+                        <input
+                            type="email"
+                            class="newsletter-input"
+                            name="email"
+                            placeholder="Enter your email..."
+                            required
+                        >
+
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="copyright-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-md-start mb-2 mb-md-0">&copy; 2026 ESHA Hub. Built with <span style="color: #f00;">&hearts;</span> in India.</div>
+                    <div class="col-md-6 text-md-end"><span style="opacity: 0.5;">System Status:</span> <span style="color: #0f0;">Operational</span></div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap 5.1 JS Bundle -->
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </div>
+
+    <!-- Bootstrap 5.1 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Scroll Animation Script -->
+    <!-- Deep Animations & Portal Script -->
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                document.querySelector('.navbar').style.boxShadow = '0 4px 10px rgba(0,0,0,0.5)';
-                document.querySelector('.navbar').style.background = 'rgba(0, 24, 13, 0.98)';
-            } else {
-                document.querySelector('.navbar').style.boxShadow = 'none';
-                document.querySelector('.navbar').style.background = 'rgba(0, 24, 13, 0.95)';
+        const portalOverlay = document.getElementById('portal-overlay');
+        const portalLinks = document.querySelectorAll('.portal-link');
+        let portalLock = false; 
+
+        const keywords = ["ESHA HUB", "INNOVATION", "RESEARCH", "TECHNOLOGY", "ASSAM", "FUTURE"];
+
+        function playWarpSound() {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContext) return; 
+            const ctx = new AudioContext();
+            ctx.resume?.();
+
+            const bufferSize = ctx.sampleRate * 2; 
+            const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+
+            const noise = ctx.createBufferSource();
+            noise.buffer = buffer;
+
+            const noiseFilter = ctx.createBiquadFilter();
+            noiseFilter.type = 'lowpass';
+            noiseFilter.frequency.setValueAtTime(100, ctx.currentTime);
+            noiseFilter.frequency.exponentialRampToValueAtTime(5000, ctx.currentTime + 1.2);
+
+            const noiseGain = ctx.createGain();
+            noiseGain.gain.setValueAtTime(0, ctx.currentTime);
+            noiseGain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.1);
+            noiseGain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1.2);
+
+            noise.connect(noiseFilter);
+            noiseFilter.connect(noiseGain);
+            noiseGain.connect(ctx.destination);
+            noise.start();
+
+            const osc = ctx.createOscillator();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(200, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(2000, ctx.currentTime + 1.5);
+
+            const oscGain = ctx.createGain();
+            oscGain.gain.setValueAtTime(0, ctx.currentTime);
+            oscGain.gain.linearRampToValueAtTime(0.1, ctx.currentTime + 0.2);
+            oscGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.5);
+
+            osc.connect(oscGain);
+            oscGain.connect(ctx.destination);
+            osc.start();
+
+            setTimeout(() => { if (ctx.state !== 'closed') ctx.close(); }, 2000);
+        }
+
+        function createCyberDebris() {
+            portalOverlay.innerHTML = `<div class="portal-tunnel"></div>`;
+            const isMobile = window.innerWidth < 768;
+            const debrisCount = isMobile ? 12 : 25; 
+
+            for(let i=0; i<debrisCount; i++) {
+                const item = document.createElement('div');
+                item.className = 'cyber-debris';
+
+                if (Math.random() > 0.8) {
+                    const img = document.createElement('img');
+                    img.src = 'esha_crow_photo/esha_hub_logo.png';
+                    img.onerror = function() { this.src='https://via.placeholder.com/100/bcfe1e/000000?text=E'; };
+                    item.appendChild(img);
+                } else {
+                    const text = keywords[Math.floor(Math.random() * keywords.length)];
+                    item.innerText = text;
+                    item.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+                    item.style.opacity = Math.random() * 0.5 + 0.5;
+                }
+
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 1000 + Math.random() * 500; 
+                const tx = Math.cos(angle) * distance + 'px';
+                const ty = Math.sin(angle) * distance + 'px';
+                const rotation = (Math.random() * 60 - 30) + 'deg';
+
+                item.style.setProperty('--tx', tx);
+                item.style.setProperty('--ty', ty);
+                item.style.setProperty('--rot', rotation);
+                item.style.animationDelay = (Math.random() * 0.5) + 's';
+
+                portalOverlay.appendChild(item);
             }
+        }
+
+        portalLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (portalLock) return;
+                const targetUrl = this.getAttribute('href');
+                if(targetUrl.startsWith('#') || targetUrl === '#') return;
+                if (targetUrl.startsWith('http') || targetUrl.startsWith('mailto:') || targetUrl.startsWith('tel:')) return;
+
+                e.preventDefault();
+                portalLock = true;
+
+                playWarpSound();
+                createCyberDebris();
+                portalOverlay.classList.add('portal-active');
+
+                setTimeout(() => { window.location.href = targetUrl; }, 1700);
+                setTimeout(() => {
+                    portalOverlay.classList.remove('portal-active');
+                    portalLock = false;
+                }, 3500);
+            });
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+            revealElements.forEach((element) => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) element.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        const heroBg = document.getElementById('hero-bg');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth - e.pageX) / 90;
+            const y = (window.innerHeight - e.pageY) / 90;
+            if(heroBg) heroBg.style.transform = `translateX(${x}px) translateY(${y}px) scale(1.1)`;
+        });
+
+        const cards = document.querySelectorAll('.sector-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 20px rgba(188, 254, 30, 0.15)';
+                nav.style.background = 'rgba(0, 5, 2, 0.95)';
+                nav.style.padding = '10px 0';
+            } else {
+                nav.style.boxShadow = 'none';
+                nav.style.background = 'rgba(0, 5, 2, 0.8)';
+                nav.style.padding = '20px 0';
+            }
+            if (window.scrollY > 300) backToTopBtn.classList.add('show');
+            else backToTopBtn.classList.remove('show');
         });
     </script>
 </body>
