@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Current Availability | ESHA Hub</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-brand-600 selection:text-white">
+
+    <!-- Top Navigation -->
+    <nav class="bg-white border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-4">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-slate-900 rounded flex items-center justify-center text-white font-bold text-sm">
+                    EH
+                </div>
+                <span class="font-semibold text-slate-900 tracking-tight">ESHA Hub</span>
+            </div>
+            <a href="access_grant.html" class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                Return to Access Grant
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        
+        <!-- Hero Section -->
+        <header class="mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
+                Current Availability
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl">
+                Current status of selected opportunities, support pathways, and participation openings.
+            </p>
+        </header>
+
+        <!-- Quick Glance Dashboard -->
+        <section class="mb-16">
+            <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Overall Status</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                
+                <!-- Status Item -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <span class="font-medium text-slate-700 text-sm md:text-base">Applications</span>
+                    <span class="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Open</span>
+                </div>
+
+                <!-- Status Item -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <span class="font-medium text-slate-700 text-sm md:text-base">Mentorship</span>
+                    <span class="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Active</span>
+                </div>
+
+                <!-- Status Item -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <span class="font-medium text-slate-700 text-sm md:text-base">Research Collaboration</span>
+                    <span class="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Available</span>
+                </div>
+
+                <!-- Status Item -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <span class="font-medium text-slate-700 text-sm md:text-base">Project Contribution</span>
+                    <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Needed</span>
+                </div>
+
+                <!-- Status Item -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <span class="font-medium text-slate-700 text-sm md:text-base">Evaluation Flow</span>
+                    <span class="inline-flex items-center rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-700 ring-1 ring-inset ring-amber-600/20">In Review</span>
+                </div>
+
+                <!-- Status Item -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <span class="font-medium text-slate-700 text-sm md:text-base">Access Grant</span>
+                    <span class="inline-flex items-center rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-700 ring-1 ring-inset ring-amber-600/20">Limited</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Category-wise Detail Section -->
+        <section>
+            <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Detailed Breakdown</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Card: Mentorship -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-slate-100 text-slate-600 rounded-lg">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 text-lg">Mentorship</h3>
+                        </div>
+                        <span class="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Active</span>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
+                        Mentor guidance is currently being shaped and expanded. Active channels are open for prospective mentees.
+                    </p>
+                    <button class="w-full sm:w-auto inline-flex justify-center items-center px-4 py-2 bg-white border border-slate-300 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 transition-colors">
+                        Apply for Mentorship
+                    </button>
+                </div>
+
+                <!-- Card: Project Participation -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-slate-100 text-slate-600 rounded-lg">
+                                <i data-lucide="briefcase" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 text-lg">Project Participation</h3>
+                        </div>
+                        <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Needed</span>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
+                        Selected project areas are open for interested contributors. We are currently prioritizing specific developmental modules.
+                    </p>
+                    <button class="w-full sm:w-auto inline-flex justify-center items-center px-4 py-2 bg-white border border-slate-300 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 transition-colors">
+                        Apply to Contribute
+                    </button>
+                </div>
+
+                <!-- Card: Research Collaboration -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-slate-100 text-slate-600 rounded-lg">
+                                <i data-lucide="microscope" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 text-lg">Research Collaboration</h3>
+                        </div>
+                        <span class="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Available</span>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
+                        Collaboration interest may be reviewed depending on the specific topic, ongoing studies, and alignment of fit.
+                    </p>
+                    <button class="w-full sm:w-auto inline-flex justify-center items-center px-4 py-2 bg-white border border-slate-300 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 transition-colors">
+                        Express Interest
+                    </button>
+                </div>
+
+                <!-- Card: Learning Access -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-slate-100 text-slate-600 rounded-lg">
+                                <i data-lucide="library" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 text-lg">Learning Access</h3>
+                        </div>
+                        <span class="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Open</span>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
+                        Educational pathways and standard operational learning resources remain fully accessible at this time.
+                    </p>
+                    <button class="w-full sm:w-auto inline-flex justify-center items-center px-4 py-2 bg-white border border-slate-300 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 transition-colors">
+                        View Learning Resources
+                    </button>
+                </div>
+
+                <!-- Card: Evaluation / Review -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-slate-100 text-slate-600 rounded-lg">
+                                <i data-lucide="file-search" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 text-lg">Evaluation Flow</h3>
+                        </div>
+                        <span class="inline-flex items-center rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-700 ring-1 ring-inset ring-amber-600/20">In Review</span>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
+                        Current submissions and proposals are actively progressing through the standard internal review pipeline.
+                    </p>
+                    <!-- No button needed for a passive status -->
+                </div>
+
+                <!-- Card: Access Grant Status -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-slate-100 text-slate-600 rounded-lg">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 text-lg">Access Grant Status</h3>
+                        </div>
+                        <span class="inline-flex items-center rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-700 ring-1 ring-inset ring-amber-600/20">Limited</span>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
+                        Select support pathways are currently under managed review. Capacity is carefully regulated during this period.
+                    </p>
+                    <!-- Button omitted here intentionally to avoid repeating the previous page's CTA -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Important Note -->
+        <section class="mt-12">
+            <div class="bg-slate-100/80 border border-slate-200 rounded-xl p-5 flex items-start gap-4">
+                <i data-lucide="info" class="w-5 h-5 text-slate-500 mt-0.5 flex-shrink-0"></i>
+                <div>
+                    <h4 class="text-sm font-semibold text-slate-800 mb-1">Important Notice</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Please note that the statuses displayed above may change over time. Current visibility or an "Open" status does not guarantee approval. All applications, contributions, and support requests remain subject to formal internal review.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Clean Footer -->
+    <footer class="border-t border-slate-200 bg-white py-8 mt-8">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <p class="text-sm text-slate-500">
+                Status visibility page for selected opportunities and access pathways.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

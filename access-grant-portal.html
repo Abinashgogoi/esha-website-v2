@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Grant | ESHA Hub</title>
+    <!-- Tailwind CSS for clean, utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons for professional iconography -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom CSS adjustments for ultimate cleanliness */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAFA;
+            color: #1A1A1A;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: #F9FAFB;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4B5563;
+            box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.1);
+            background-color: #FFFFFF;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+        }
+        
+        /* Subdued professional color palette */
+        .badge-open { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
+        .badge-active { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; }
+        .badge-needed { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; }
+        .badge-limited { background: #F3F4F6; color: #374151; border: 1px solid #D1D5DB; }
+        .badge-review { background: #F5F3FF; color: #5B21B6; border: 1px solid #DDD6FE; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- 1. Hero / Top Section (Full-width Website Style) -->
+    <div class="w-full bg-white border-b border-gray-200">
+        <!-- Return Navigation -->
+        <div class="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-6">
+            <a href="access_grant.html" onclick="history.back(); return false;" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors group">
+                <i data-lucide="arrow-left" class="w-4 h-4 mr-2 text-gray-400 group-hover:text-gray-700 transition-colors"></i>
+                Return to Access Grant
+            </a>
+        </div>
+
+        <header class="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-16 md:pb-20 pt-10 md:pt-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-5">Access Grant</h1>
+            <p class="text-lg md:text-xl text-gray-600 font-medium mb-4">Structured support pathways for meaningful contribution.</p>
+            <p class="text-sm md:text-base text-gray-500 max-w-2xl mx-auto">This page is designated for support intent and contribution pathways related to ESHA Hub infrastructure and initiatives.</p>
+            
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+                <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200"><i data-lucide="file-text" class="w-3.5 h-3.5 mr-1.5 text-gray-400"></i> Support Intent Page</span>
+                <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200"><i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1.5 text-gray-400"></i> Reviewed Pathway</span>
+                <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200"><i data-lucide="shield" class="w-3.5 h-3.5 mr-1.5 text-gray-400"></i> ESHA Hub Internal System</span>
+            </div>
+        </header>
+    </div>
+
+    <!-- Main Container (Left/Grid layout preserved) -->
+    <main class="flex-grow max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        
+        <!-- 2. Support Pathways Section -->
+        <section class="mb-20">
+            <h2 class="text-xl font-semibold mb-8 text-gray-800 flex items-center">
+                <i data-lucide="layers" class="w-5 h-5 mr-3 text-gray-400"></i>
+                Support Pathways
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill -->
+                <div class="glass-card p-6 rounded-xl">
+                    <i data-lucide="brain-circuit" class="w-6 h-6 text-gray-700 mb-4"></i>
+                    <h3 class="text-base font-semibold mb-2">Skill / Technical Support</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Engagement of professional expertise, engineering hours, or specialized consulting.</p>
+                </div>
+                <!-- Tool -->
+                <div class="glass-card p-6 rounded-xl">
+                    <i data-lucide="wrench" class="w-6 h-6 text-gray-700 mb-4"></i>
+                    <h3 class="text-base font-semibold mb-2">Tool / Equipment Support</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Contribution of hardware, machinery, or specialized tools for prototyping and development.</p>
+                </div>
+                <!-- Material -->
+                <div class="glass-card p-6 rounded-xl">
+                    <i data-lucide="box" class="w-6 h-6 text-gray-700 mb-4"></i>
+                    <h3 class="text-base font-semibold mb-2">Material / Item Support</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Provision of physical resources, raw materials, or consumables required for ongoing initiatives.</p>
+                </div>
+                <!-- Digital -->
+                <div class="glass-card p-6 rounded-xl">
+                    <i data-lucide="cloud" class="w-6 h-6 text-gray-700 mb-4"></i>
+                    <h3 class="text-base font-semibold mb-2">Digital / Service Support</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Allocation of software licenses, cloud architecture, or professional digital services.</p>
+                </div>
+                <!-- Project -->
+                <div class="glass-card p-6 rounded-xl">
+                    <i data-lucide="target" class="w-6 h-6 text-gray-700 mb-4"></i>
+                    <h3 class="text-base font-semibold mb-2">Project-Specific Support</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Targeted resources allocated to a distinct, pre-defined research phase or active project.</p>
+                </div>
+                <!-- Financial -->
+                <div class="glass-card p-6 rounded-xl">
+                    <i data-lucide="building-2" class="w-6 h-6 text-gray-700 mb-4"></i>
+                    <h3 class="text-base font-semibold mb-2">Funding Support</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Direct funding to sustain operations, research, and technical infrastructure.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+            <!-- 3. What Support May Help With -->
+            <section class="lg:col-span-7">
+                <h2 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                    <i data-lucide="arrow-up-right" class="w-5 h-5 mr-3 text-gray-400"></i>
+                    Utilization Areas
+                </h2>
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
+                    <p class="text-sm text-gray-500 mb-6 border-b border-gray-100 pb-4">Contributions are strategically routed to facilitate the following domains and operational areas:</p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8">
+                        <li class="flex items-start text-sm text-gray-700 font-medium">
+                            <div class="w-5 h-5 rounded flex items-center justify-center bg-gray-50 border border-gray-200 mr-3 flex-shrink-0 mt-0.5"><i data-lucide="microscope" class="w-3 h-3 text-gray-500"></i></div>
+                            Research and experimentation
+                        </li>
+                        <li class="flex items-start text-sm text-gray-700 font-medium">
+                            <div class="w-5 h-5 rounded flex items-center justify-center bg-gray-50 border border-gray-200 mr-3 flex-shrink-0 mt-0.5"><i data-lucide="book-open" class="w-3 h-3 text-gray-500"></i></div>
+                            Learning access
+                        </li>
+                        <li class="flex items-start text-sm text-gray-700 font-medium">
+                            <div class="w-5 h-5 rounded flex items-center justify-center bg-gray-50 border border-gray-200 mr-3 flex-shrink-0 mt-0.5"><i data-lucide="users" class="w-3 h-3 text-gray-500"></i></div>
+                            Mentorship enablement
+                        </li>
+                        <li class="flex items-start text-sm text-gray-700 font-medium">
+                            <div class="w-5 h-5 rounded flex items-center justify-center bg-gray-50 border border-gray-200 mr-3 flex-shrink-0 mt-0.5"><i data-lucide="lightbulb" class="w-3 h-3 text-gray-500"></i></div>
+                            Project prototyping
+                        </li>
+                        <li class="flex items-start text-sm text-gray-700 font-medium">
+                            <div class="w-5 h-5 rounded flex items-center justify-center bg-gray-50 border border-gray-200 mr-3 flex-shrink-0 mt-0.5"><i data-lucide="server" class="w-3 h-3 text-gray-500"></i></div>
+                            Technical infrastructure
+                        </li>
+                        <li class="flex items-start text-sm text-gray-700 font-medium">
+                            <div class="w-5 h-5 rounded flex items-center justify-center bg-gray-50 border border-gray-200 mr-3 flex-shrink-0 mt-0.5"><i data-lucide="rocket" class="w-3 h-3 text-gray-500"></i></div>
+                            Innovation development
+                        </li>
+                        <li class="flex items-start text-sm text-gray-700 font-medium">
+                            <div class="w-5 h-5 rounded flex items-center justify-center bg-gray-50 border border-gray-200 mr-3 flex-shrink-0 mt-0.5"><i data-lucide="network" class="w-3 h-3 text-gray-500"></i></div>
+                            Community growth support
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 4. Current Support Focus -->
+            <section class="lg:col-span-5">
+                <h2 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                    <i data-lucide="activity" class="w-5 h-5 mr-3 text-gray-400"></i>
+                    Current Focus
+                </h2>
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                            <span class="text-sm font-medium text-gray-700">General Support</span>
+                            <span class="status-badge badge-open">Open</span>
+                        </li>
+                        <li class="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                            <span class="text-sm font-medium text-gray-700">Equipment Support</span>
+                            <span class="status-badge badge-active">Active</span>
+                        </li>
+                        <li class="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                            <span class="text-sm font-medium text-gray-700">Skill-Based Support</span>
+                            <span class="status-badge badge-needed">Needed</span>
+                        </li>
+                        <li class="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                            <span class="text-sm font-medium text-gray-700">Infrastructure Support</span>
+                            <span class="status-badge badge-limited">Limited</span>
+                        </li>
+                        <li class="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                            <span class="text-sm font-medium text-gray-700">Project-Specific</span>
+                            <span class="status-badge badge-review">Upon Review</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- 5. Important Handling Note -->
+        <section class="mb-16">
+            <div class="bg-[#FAFAFA] border-l-[5px] border-gray-800 p-7 rounded-r-xl shadow-sm border-t border-r border-b border-gray-200">
+                <div class="flex items-start">
+                    <div class="bg-white p-2 rounded-lg shadow-sm border border-gray-100 mr-4 flex-shrink-0 mt-0.5">
+                        <i data-lucide="shield-alert" class="w-5 h-5 text-gray-700"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-base font-semibold text-gray-900 mb-2">Policy & Handling Notice</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            All support intents are carefully reviewed. Submission of this form does not guarantee acceptance. Acceptance is determined by relevance, safety parameters, practical usefulness, and current organizational focus. Handling processes and response timelines may vary depending on the specific type of support offered.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Support Intent Form -->
+        <section class="mb-16" id="form-section">
+            <h2 class="text-2xl font-semibold mb-2 text-gray-900">Support Intent Declaration</h2>
+            <p class="text-sm text-gray-500 mb-8 max-w-2xl leading-relaxed">
+                Use this form to declare meaningful support intent. All submissions are reviewed carefully. You may describe funding, material, technical, or project-specific support.
+            </p>
+            
+            <form id="intentForm" class="bg-white border border-gray-200 rounded-xl p-6 md:p-10 shadow-sm">
+                
+                <!-- Dynamic Success State (Hidden by default) -->
+                <div id="successMessage" class="hidden flex-col items-center justify-center py-12 text-center">
+                    <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-6 border border-green-100">
+                        <i data-lucide="check" class="w-8 h-8 text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Intent Logged Successfully</h3>
+                    <p class="text-gray-600 max-w-md mx-auto">Your support intent has been recorded. ESHA Hub operations will review your submission and contact you regarding the next steps.</p>
+                </div>
+
+                <!-- Form Fields -->
+                <div id="formFields">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">Full Name / Organization <span class="text-red-500">*</span></label>
+                            <input type="text" id="fullName" required class="form-input" placeholder="e.g. Jane Doe or ACME Corp">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Official Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" required class="form-input" placeholder="contact@domain.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Contact Number</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div>
+                            <label for="supportType" class="block text-sm font-medium text-gray-700 mb-2">Primary Type of Support <span class="text-red-500">*</span></label>
+                            <select id="supportType" required class="form-input appearance-none bg-white">
+                                <option value="" disabled selected>Select category...</option>
+                                <option value="funding">Funding Support</option>
+                                <option value="material">Material / Item Support</option>
+                                <option value="tool">Tool / Equipment Support</option>
+                                <option value="digital">Digital / Service Support</option>
+                                <option value="skill">Skill / Technical Support</option>
+                                <option value="project">Project-Specific Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Support Description <span class="text-red-500">*</span></label>
+                        <p class="text-xs text-gray-500 mb-2">Briefly detail the exact nature of the support, item, or service being offered.</p>
+                        <textarea id="description" rows="3" required class="form-input resize-none"></textarea>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="purpose" class="block text-sm font-medium text-gray-700 mb-2">Intended Purpose (Optional)</label>
+                        <p class="text-xs text-gray-500 mb-2">If you have a specific project or domain in mind, specify it here.</p>
+                        <input type="text" id="purpose" class="form-input">
+                    </div>
+
+                    <div class="mb-8">
+                        <label for="notes" class="block text-sm font-medium text-gray-700 mb-2">Additional Notes (Optional)</label>
+                        <textarea id="notes" rows="2" class="form-input resize-none"></textarea>
+                    </div>
+
+                    <div class="mb-8 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+                        <label class="flex items-start cursor-pointer">
+                            <input type="checkbox" required class="mt-1 w-4 h-4 text-slate-900 border-gray-300 rounded focus:ring-slate-900 focus:ring-2">
+                            <span class="ml-3 text-sm text-gray-700">
+                                I acknowledge that this form submits an intent to support, subject to review by ESHA Hub. I understand that submission does not guarantee acceptance.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="flex flex-col-reverse sm:flex-row items-center justify-between border-t border-gray-100 mt-4 pt-6 gap-4 sm:gap-0">
+                        <div class="flex items-center text-xs text-gray-500 w-full sm:w-auto justify-center sm:justify-start">
+                            <i data-lucide="lock" class="w-3.5 h-3.5 mr-1.5 text-gray-400"></i>
+                            <span>Reviewed manually by ESHA Hub. No automatic approval.</span>
+                        </div>
+                        <button type="submit" id="submitBtn" class="w-full sm:w-auto bg-gray-900 text-white px-8 py-3 rounded-lg font-medium text-sm hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 flex items-center justify-center">
+                            <span>Submit Support Intent</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- 7. Closing Note -->
+    <footer class="border-t border-gray-200 bg-[#FAFAFA] py-8 mt-auto">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+            <div class="w-8 h-1 bg-gray-200 rounded-full mb-6"></div>
+            <p class="text-sm text-gray-600 font-medium">Meaningful and relevant support matters more than volume.</p>
+            <p class="text-sm text-gray-500 mt-1">ESHA Hub values responsible and targeted contribution.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons and Form Logic -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Form handling logic for professional UX feedback
+        document.getElementById('intentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const formFields = document.getElementById('formFields');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Visual processing state
+            btn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Processing...
+            `;
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            btn.disabled = true;
+
+            // Simulate server request (1.5s delay)
+            setTimeout(() => {
+                formFields.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                successMessage.classList.add('flex');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
