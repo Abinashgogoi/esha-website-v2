@@ -7,74 +7,66 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-WDJWQVWEK1');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESHA – Research Hub</title>
-    
-    <!-- Bootstrap 5.1 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Research Hub | ESHA Hub</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="esha_crow_photo/esha_hub_logo.png">
+    <link rel="shortcut icon" type="image/png" href="esha_crow_photo/esha_hub_logo.png">
 
+    <meta name="description" content="Explore public research records, developing research initiatives and collaboration pathways through the ESHA Hub Research Hub.">
+    <link rel="canonical" href="https://eshahub.com/research_hub.html">
+    <meta property="og:title" content="Research Hub | ESHA Hub">
+    <meta property="og:description" content="Explore public research records, developing research initiatives and collaboration pathways through the ESHA Hub Research Hub.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eshahub.com/research_hub.html">
+    <meta property="og:image" content="https://eshahub.com/esha_crow_photo/esha_hub_logo.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --esha-blue: #284b63;
+            --esha-blue-dark: #1a3244;
             --esha-light: #eaedef;
             --text-dark: #333333;
+            --text-muted: #5f6870;
             --text-light: #ffffff;
+            --border-soft: #dfe5e8;
         }
 
-        /* --- CRITICAL STABILITY FIX --- */
-        html {
-            overflow-x: hidden; /* Hide scrollbar on html level */
-            width: 100%;
-        }
-
+        html { overflow-x: hidden; width: 100%; scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
             background-color: #fff;
             position: relative;
-            width: 100%; /* Force 100% of available space, NOT 100vw */
-            overflow-x: hidden; /* Hide scrollbar on body level */
+            width: 100%;
+            overflow-x: hidden;
             margin: 0;
             padding: 0;
         }
-
-        /* Wrapper to catch any rogue elements */
-        .page-wrapper {
-            width: 100%;
-            overflow-x: hidden;
-            position: relative;
+        .page-wrapper { width: 100%; overflow-x: hidden; position: relative; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; }
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid rgba(40, 75, 99, 0.45);
+            outline-offset: 3px;
         }
-
-        /* Prevent images from breaking layout */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Utility Classes */
         .bg-esha-blue { background-color: var(--esha-blue); color: white; }
         .bg-esha-light { background-color: var(--esha-light); }
         .text-esha-blue { color: var(--esha-blue); }
-        
-        a { text-decoration: none; }
-        
-        /* Navbar */
+
         .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             width: 100%;
-            padding-right: 0 !important; /* Prevent Bootstrap adding padding shift */
+            padding-right: 0 !important;
         }
         .navbar-brand {
             font-weight: 700;
@@ -84,12 +76,12 @@
         .nav-link {
             color: var(--text-dark) !important;
             font-weight: 500;
-            margin: 0 10px;
+            margin: 0 8px;
             transition: color 0.3s;
         }
-        .nav-link:hover {
-            color: var(--esha-blue) !important;
-        }
+        .nav-link:hover, .nav-link.active { color: var(--esha-blue) !important; }
+        .dropdown-menu { border: 1px solid var(--border-soft); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .dropdown-item:active { background-color: var(--esha-blue); }
         .btn-nav {
             background-color: var(--esha-blue);
             color: white;
@@ -103,32 +95,32 @@
             box-shadow: 0 4px 12px rgba(40, 75, 99, 0.3);
         }
 
-        /* Section 1: Hero */
         .hero-section {
             position: relative;
             background-image: url('https://r.mobirisesite.com/1323443/assets/images/photo-1587955415524-bb264e518428.jpeg');
             background-size: cover;
             background-position: center;
-            min-height: 85vh;
+            min-height: 82vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            width: 100%; /* CHANGED from vw to % */
+            width: 100%;
+            padding-top: 84px;
         }
         .hero-overlay {
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(40, 75, 99, 0.85); /* Darkened for better readability of disclaimer */
+            inset: 0;
+            background-color: rgba(40, 75, 99, 0.87);
             z-index: 1;
         }
         .hero-content {
             position: relative;
             z-index: 2;
             color: white;
-            max-width: 800px;
-            padding: 20px;
-            width: 100%; /* Ensure content doesn't push width */
+            max-width: 920px;
+            padding: 35px 20px;
+            width: 100%;
         }
         .hero-logo {
             width: 120px;
@@ -136,27 +128,20 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid rgba(255,255,255,0.3);
-            margin-bottom: 2rem;
+            margin: 0 auto 2rem;
         }
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-        .hero-text {
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            line-height: 1.6;
-        }
+        .hero-title { font-size: 3.4rem; font-weight: 700; margin-bottom: 1.2rem; }
+        .hero-text { font-size: 1.15rem; margin-bottom: 1rem; font-weight: 300; line-height: 1.7; }
+        .hero-support { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.92); margin-bottom: 1.7rem; }
         .disclaimer-box {
-            background-color: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            padding: 16px 18px;
             border-radius: 8px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             font-size: 0.95rem;
             font-weight: 400;
+            line-height: 1.6;
         }
         .btn-hero {
             background-color: white;
@@ -166,101 +151,86 @@
             border-radius: 50px;
             border: none;
             transition: all 0.3s;
-            /* Animation Fixes */
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-        .btn-hero:hover {
-            background-color: #f0f0f0;
-            transform: scale(1.05);
-        }
+        .btn-hero:hover { background-color: #f0f0f0; color: var(--esha-blue); transform: scale(1.04); }
 
-        /* Section 2: Marquee */
-        .marquee-section {
+        .status-legend-section {
             background: white;
-            padding: 15px 0;
-            overflow: hidden;
             border-bottom: 1px solid #eee;
-            width: 100%;
-            /* Contain paint prevents browser from recalculating entire page layout */
-            contain: paint layout; 
+            padding: 22px 0;
         }
-        .marquee-content {
+        .status-legend {
             display: flex;
-            width: max-content;
-            animation: marquee 40s linear infinite; /* Slowed down slightly for readability */
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
-        .marquee-item {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--esha-blue);
-            padding-right: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* Section 3 & 4: Article Splits */
-        .split-section {
-            padding: 80px 0;
-            width: 100%;
-            overflow: hidden; /* Double safety */
-        }
-        .split-img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .split-content {
-            padding: 20px;
-        }
-        .split-header {
+        .status-chip, .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            padding: 6px 11px;
+            border-radius: 999px;
             font-weight: 700;
-            color: var(--esha-blue);
-            margin-bottom: 1rem;
+            letter-spacing: 0.25px;
+            border: 1px solid transparent;
         }
-        .split-subtext {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 1rem;
+        .status-public { background: #e9f7ef; color: #166534; border-color: #b7e4c7; }
+        .status-internal { background: #eef3f8; color: #284b63; border-color: #c8d6df; }
+        .status-concept { background: #fff6e5; color: #8a5a00; border-color: #f1d69a; }
+        .status-prototype { background: #f4edff; color: #68408d; border-color: #d8c2ef; }
+        .status-restricted { background: #fbecec; color: #8b2d2d; border-color: #edc1c1; }
+        .status-review { background: #f1f1f1; color: #555; border-color: #d8d8d8; }
+
+        .section-space { padding: 80px 0; }
+        .section-heading { color: var(--esha-blue); font-weight: 700; margin-bottom: 1rem; }
+        .section-intro { max-width: 850px; margin: 0 auto 2.5rem; color: var(--text-muted); line-height: 1.7; }
+
+        .publication-section { background: #fff; }
+        .publication-card {
+            border: 1px solid var(--border-soft);
+            border-radius: 14px;
+            box-shadow: 0 12px 35px rgba(40, 75, 99, 0.08);
+            overflow: hidden;
+            background: #fff;
         }
-        .status-badge {
-            display: inline-block;
-            background-color: #6c757d;
-            color: white;
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .publication-card-body { padding: 34px; }
+        .publication-kicker { color: var(--esha-blue); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; }
+        .publication-title { font-size: 1.65rem; line-height: 1.35; font-weight: 700; margin: .6rem 0 1rem; color: #213947; overflow-wrap: anywhere; }
+        .publication-meta {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin: 22px 0;
         }
-        .btn-outline-esha {
-            border: 2px solid var(--esha-blue);
-            color: var(--esha-blue);
-            padding: 10px 30px;
+        .meta-item { background: #f7f9fa; border: 1px solid #e8edef; border-radius: 10px; padding: 14px; }
+        .meta-label { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: #6b747a; margin-bottom: 4px; }
+        .meta-value { display: block; font-weight: 600; color: #263d4a; }
+        .publication-summary { color: #555; line-height: 1.75; }
+        .publication-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+        .btn-esha, .btn-outline-esha {
+            padding: 10px 24px;
             border-radius: 50px;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all .25s;
         }
-        .btn-outline-esha:hover {
-            background-color: var(--esha-blue);
-            color: white;
-        }
+        .btn-esha { background: var(--esha-blue); color: white; border: 2px solid var(--esha-blue); }
+        .btn-esha:hover { color: white; background: #1f3d52; border-color: #1f3d52; transform: translateY(-2px); }
+        .btn-outline-esha { border: 2px solid var(--esha-blue); color: var(--esha-blue); background: transparent; }
+        .btn-outline-esha:hover { background-color: var(--esha-blue); color: white; }
 
-        /* Section 5: Features Grid */
-        .features-section {
-            padding: 80px 0;
-            background-color: white;
-            width: 100%;
-        }
+        .split-section { padding: 80px 0; width: 100%; overflow: hidden; }
+        .split-img { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .split-content { padding: 20px; }
+        .split-header { font-weight: 700; color: var(--esha-blue); margin-bottom: 1rem; }
+        .split-subtext { font-size: 1.08rem; color: #555; margin-bottom: 1rem; line-height: 1.75; }
+        .focus-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 24px; }
+        .focus-tag { padding: 6px 10px; border-radius: 999px; background: rgba(40,75,99,.09); color: var(--esha-blue); font-size: .82rem; font-weight: 600; }
+
+        .features-section { padding: 80px 0; background-color: white; width: 100%; }
         .feature-card {
             background: white;
             border: 1px solid #eee;
@@ -269,317 +239,491 @@
             height: 100%;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            /* Prevent jitter on hover */
-            backface-visibility: hidden; 
+            backface-visibility: hidden;
         }
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(40, 75, 99, 0.15);
-        }
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--esha-blue);
-            margin-bottom: 20px;
-        }
-        .feature-title {
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-        .feature-desc {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        .btn-link-esha {
-            color: var(--esha-blue);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-        }
-        .btn-link-esha:hover {
-            text-decoration: underline;
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(40, 75, 99, 0.15); }
+        .feature-icon { font-size: 2.5rem; color: var(--esha-blue); margin-bottom: 20px; }
+        .feature-title { font-weight: 700; margin-bottom: 15px; color: var(--text-dark); }
+        .feature-desc { color: #666; margin-bottom: 20px; line-height: 1.65; }
+        .btn-link-esha { color: var(--esha-blue); font-weight: 600; display: inline-flex; align-items: center; }
+        .btn-link-esha:hover { text-decoration: underline; }
+
+        .faq-section { padding: 80px 0; background-color: var(--esha-light); width: 100%; }
+        .accordion-button:not(.collapsed) { color: var(--esha-blue); background-color: rgba(40, 75, 99, 0.1); }
+        .accordion-button:focus { box-shadow: 0 0 0 0.25rem rgba(40, 75, 99, 0.25); }
+        .accordion-body { line-height: 1.7; color: #4d555a; }
+
+        .responsibility-note {
+            background: white;
+            border-left: 5px solid var(--esha-blue);
+            border-radius: 8px;
+            padding: 28px;
+            box-shadow: 0 10px 25px rgba(40, 75, 99, 0.07);
         }
 
-        /* Section 6: FAQ */
-        .faq-section {
-            padding: 80px 0;
-            background-color: var(--esha-light);
-            width: 100%;
-        }
-        .accordion-button:not(.collapsed) {
-            color: var(--esha-blue);
-            background-color: rgba(40, 75, 99, 0.1);
-        }
-        .accordion-button:focus {
-            box-shadow: 0 0 0 0.25rem rgba(40, 75, 99, 0.25);
-        }
-
-        /* Section 7: Video */
-        .video-section {
-            padding: 80px 0;
-            background-color: var(--esha-blue);
-            color: white;
-            width: 100%;
-        }
+        .video-section { padding: 80px 0; background-color: var(--esha-blue); color: white; width: 100%; }
         .video-container {
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.1);
-            background: #000; /* Fallback color */
+            background: #000;
         }
 
-        /* Section 8: Contact */
-        .contact-section {
-            padding: 80px 0;
-            background-color: white;
-            text-align: center;
-            width: 100%;
-        }
+        .contact-section { padding: 80px 0; background-color: white; text-align: center; width: 100%; }
+        .contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
         .social-icons a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 50px;
             height: 50px;
-            line-height: 50px;
             background: var(--esha-light);
             color: var(--esha-blue);
             border-radius: 50%;
-            margin: 0 10px;
+            margin: 0 7px;
             font-size: 1.2rem;
             transition: all 0.3s;
         }
-        .social-icons a:hover {
-            background: var(--esha-blue);
-            color: white;
-            transform: scale(1.1);
-        }
-        .email-block {
-            margin-top: 30px;
-            font-size: 1.2rem;
-        }
-        .email-link {
-            color: var(--esha-blue);
-            font-weight: 700;
-        }
+        .social-icons a:hover { background: var(--esha-blue); color: white; transform: scale(1.08); }
 
-        /* Section 9: Footer */
-        .footer {
-            background-color: #1a3244;
-            color: rgba(255,255,255,0.7);
-            padding: 40px 0;
-            text-align: center;
-            width: 100%;
-        }
-        .footer h5 {
-            color: white;
-            margin-bottom: 1rem;
-        }
+        .footer { background-color: var(--esha-blue-dark); color: rgba(255,255,255,0.76); padding: 45px 0 30px; text-align: center; width: 100%; }
+        .footer h5 { color: white; margin-bottom: 1rem; }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 22px; margin-bottom: 20px; }
+        .footer-links a { color: rgba(255,255,255,.82); }
+        .footer-links a:hover { color: white; text-decoration: underline; }
 
-        /* Mobile Adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-nav { align-items: stretch !important; padding: 16px 0; }
+            .nav-link { margin: 2px 0; }
+            .dropdown-menu { box-shadow: none; border: 0; padding-left: 14px; }
+            .publication-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .split-section { padding: 40px 0; }
+            .hero-section { min-height: auto; padding: 110px 0 55px; }
+            .hero-title { font-size: 2.45rem; }
+            .hero-text { font-size: 1.05rem; }
+            .split-section, .features-section, .faq-section, .video-section, .contact-section, .section-space { padding: 55px 0; }
             .split-img { height: 250px; margin-bottom: 20px; }
-            .feature-card { margin-bottom: 20px; }
+            .feature-card { margin-bottom: 4px; }
+            .publication-card-body { padding: 24px; }
+            .publication-title { font-size: 1.35rem; }
+        }
+        @media (max-width: 575.98px) {
+            .hero-logo { width: 100px; height: 100px; }
+            .hero-title { font-size: 2.1rem; }
+            .publication-meta { grid-template-columns: 1fr; }
+            .publication-actions, .contact-actions { flex-direction: column; }
+            .publication-actions .btn, .contact-actions .btn { width: 100%; }
+            .status-chip { font-size: .72rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://eshahub.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research Hub",
+          "item": "https://eshahub.com/research_hub.html"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    
-    <!-- WRAPPER: Limits overflow to prevent shaking -->
-    <div class="page-wrapper">
+<div class="page-wrapper">
 
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" aria-label="Primary navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">ESHA Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/research_hub.html">Research Hub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/innovation_zone.html">Innovation Zone</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mentorship_magic.html">Mentorship Magic</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/community_connect.html">Community Connect</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/esha-members-module/executive-members.html" id="membersDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">Members</a>
+                        <ul class="dropdown-menu" aria-labelledby="membersDropdown">
+                            <li><a class="dropdown-item" href="/esha-members-module/executive-members.html">Executive Members</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a class="btn btn-nav" href="/join.html">Join Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA Hub logo" class="hero-logo">
+            <h1 class="hero-title">Research Hub</h1>
+            <p class="hero-text">
+                The ESHA Hub Research Hub supports responsible exploration across theoretical research, language technology,
+                practical innovation and community-relevant problem-solving.
+            </p>
+            <p class="hero-support">
+                Research activities may include public research records, working frameworks, internal development projects,
+                prototypes and restricted datasets, with the status of each item clearly identified.
+            </p>
+            <div class="disclaimer-box">
+                <strong>Research Notice:</strong> ESHA Hub’s research activities may include conceptual work, working papers,
+                public repository records, internal development projects and early-stage experimental initiatives. The status
+                and access conditions of each item are displayed separately. Public availability does not automatically mean
+                that a work has completed formal peer review.
+            </div>
+            <a href="#public-research" class="btn btn-hero">Explore Research</a>
+        </div>
+    </header>
+
+    <section class="status-legend-section" aria-label="Research status legend">
+        <div class="container">
+            <div class="status-legend">
+                <span class="status-chip status-public">Public Research Record</span>
+                <span class="status-chip status-internal">Internal Development</span>
+                <span class="status-chip status-concept">Conceptual Research</span>
+                <span class="status-chip status-prototype">Prototype</span>
+                <span class="status-chip status-restricted">Restricted Data</span>
+                <span class="status-chip status-review">Under Review</span>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="public-research" class="publication-section section-space">
             <div class="container">
-                <a class="navbar-brand" href="index.html">ESHA</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="research_hub.html">Research Hub</a></li>
-                        <li class="nav-item"><a class="nav-link" href="innovation_zone.html">Innovation Zone</a></li>
-                        <li class="nav-item"><a class="nav-link" href="mentorship_magic.html">Mentorship Magic</a></li>
-                        <li class="nav-item"><a class="nav-link" href="community_connect.html">Community Connect</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/esha-members-module/executive-members.html">Member</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                            <a class="btn btn-nav" href="join.html">Join Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- SECTION 1: HERO -->
-        <header class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA Research Logo" class="hero-logo" onerror="this.style.display='index.html'">
-                <h1 class="hero-title">Research Hub</h1>
-                
-                <div class="disclaimer-box">
-                    <strong>Notice:</strong> All research listed here is in pilot, experimental, or review stage. Access to datasets and prototypes is limited and not publicly downloadable. Collaboration is available via approval or invitation only.
+                <div class="text-center">
+                    <h2 class="section-heading">Public Research and Publications</h2>
+                    <p class="section-intro">
+                        Publicly accessible research records and publications connected with ESHA Hub contributors are listed
+                        here with their document type, access link and review status clearly identified.
+                    </p>
                 </div>
 
-                <p class="hero-text">
-                    Welcome to the ESHA Research Hub. We provide a platform for students and thinkers to engage with advanced topics. 
-                </p>
-                <a href="about.html" class="btn btn-hero">Learn More</a>
-            </div>
-        </header>
+                <article class="publication-card">
+                    <div class="publication-card-body">
+                        <div class="d-flex flex-wrap gap-2 mb-2">
+                            <span class="status-chip status-public">Public Repository Record</span>
+                        </div>
+                        <span class="publication-kicker">Research Paper</span>
+                        <h3 class="publication-title">
+                            The Black Hole Fabric Energy Cycle Theory (BFECT): A Covariant Compact-Object-Modulated Scalar Dark-Energy Framework
+                        </h3>
 
-        <!-- SECTION 2: MOVING MARQUEE -->
-        <section class="marquee-section">
-            <div class="marquee-content">
-                <!-- Duplicated text for smooth loop -->
-                <span class="marquee-item">Pilot Stage Initiatives * Experimental Research * Restricted Access Data * Conceptual Frameworks *</span>
-                <span class="marquee-item">Pilot Stage Initiatives * Experimental Research * Restricted Access Data * Conceptual Frameworks *</span>
-                <span class="marquee-item">Pilot Stage Initiatives * Experimental Research * Restricted Access Data * Conceptual Frameworks *</span>
-                <span class="marquee-item">Pilot Stage Initiatives * Experimental Research * Restricted Access Data * Conceptual Frameworks *</span>
+                        <div class="publication-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Author</span>
+                                <span class="meta-value">Abinash Gogoi</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Year</span>
+                                <span class="meta-value">2026</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Document Type</span>
+                                <span class="meta-value">Research Paper</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Review Status</span>
+                                <span class="meta-value">Independently Published / Repository Record</span>
+                            </div>
+                        </div>
+
+                        <p class="publication-summary">
+                            A theoretical framework exploring possible relationships between compact-object processes,
+                            energy dynamics and cosmic expansion through a covariant scalar-field approach.
+                        </p>
+
+                        <div class="publication-actions">
+                            <a class="btn btn-esha"
+                               href="https://zenodo.org/records/20679679"
+                               target="_blank" rel="noopener noreferrer"
+                               aria-label="View the BFECT research record on Zenodo">
+                                <i class="bi bi-box-arrow-up-right me-2"></i>View on Zenodo
+                            </a>
+                            <a class="btn btn-outline-esha"
+                               href="https://www.academia.edu/168642016/The_Black_Hole_Fabric_Energy_Cycle_Theory_BFECT_A_Covariant_Compact_Object_Modulated_Scalar_Dark_Energy_Framework"
+                               target="_blank" rel="noopener noreferrer"
+                               aria-label="View the BFECT research record on Academia.edu">
+                                <i class="bi bi-box-arrow-up-right me-2"></i>View on Academia.edu
+                            </a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <!-- SECTION 3: ARTICLE (Image Left) -->
         <section class="split-section bg-white">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Scientific Research" class="split-img" onerror="this.src='https://via.placeholder.com/600x400?text=Research+Image'">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                             alt="Researchers working in a laboratory setting" class="split-img" loading="lazy">
                     </div>
                     <div class="col-lg-6 split-content">
-                        <h2 class="split-header">Pilot Research Initiatives</h2>
-                        <span class="status-badge">Status: Conceptual / Pilot</span>
-                        <p class="split-subtext">This hub serves as a testing ground for early-stage academic inquiry. Projects listed are currently under conceptual development or initial pilot testing. Data is preliminary and subject to peer review.</p>
-                        <a href="about.html" class="btn btn-outline-esha">Review Methodology</a>
+                        <h2 class="split-header">Research and Development Initiatives</h2>
+                        <p class="split-subtext">
+                            ESHA Hub develops research and project ideas at different stages, including conceptual exploration,
+                            internal development, prototype work and limited pilot activities.
+                        </p>
+                        <div class="mt-4">
+                            <span class="status-chip status-internal">Phased Development</span>
+                            <h3 class="h4 fw-bold mt-3 mb-3">ESHA-Vaani</h3>
+                            <p class="split-subtext">
+                                ESHA-Vaani is a phased language-technology initiative beginning with Assamese,
+                                focused on language data, speech-related research and accessible digital tools.
+                                Additional languages may be explored gradually as the project develops.
+                            </p>
+                            <div class="focus-tags" aria-label="ESHA-Vaani focus areas">
+                                <span class="focus-tag"> Language Technology</span>
+                                <span class="focus-tag">Assamese Initial Phase</span>
+                                <span class="focus-tag">Speech and Language Data</span>
+                                <span class="focus-tag">Accessibile Digital Tools</span>
+                                
+                            </div>
+                        </div>
+                        <a href="/join.html" class="btn btn-outline-esha">Request Research Collaboration</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 4: ARTICLE (Image Right / Reverse) -->
         <section class="split-section bg-esha-light">
             <div class="container">
                 <div class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Bold Ideas and Technology" class="split-img" onerror="this.src='https://via.placeholder.com/600x400?text=Innovation+Image'">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                             alt="Technology and innovation concept" class="split-img" loading="lazy">
                     </div>
                     <div class="col-lg-6 split-content">
-                        <div class="mb-3 text-esha-blue"><i class="bi bi-lightbulb fs-2"></i></div>
+                        <div class="mb-3 text-esha-blue"><i class="bi bi-lightbulb fs-2" aria-hidden="true"></i></div>
                         <h2 class="split-header">Innovation Prototypes</h2>
-                        <span class="status-badge">Status: Prototype / Under Review</span>
-                        <p class="split-subtext">We support the development of experimental prototypes. Please note that these models are not final releases. Access to technical documentation is restricted to approved collaborators.</p>
-                        <a href="join.html" class="btn btn-outline-esha">Request Collaboration</a>
+                        <span class="status-chip status-prototype">Prototype Development</span>
+                        <p class="split-subtext mt-3">
+                            ESHA Hub supports the careful development of early-stage concepts and prototypes connected to
+                            research, technology and practical problem-solving. Prototype status does not indicate commercial
+                            release, certification or field validation.
+                        </p>
+                        <p class="split-subtext">
+                            Technical files, source materials and prototype documentation may remain restricted where they
+                            contain private, sensitive, safety-related or unfinished information.
+                        </p>
+                        <a href="/join.html" class="btn btn-outline-esha">Request Research Collaboration</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 5: FEATURES GRID -->
         <section class="features-section">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="fw-bold text-esha-blue">Research Hub Framework</h2>
                 </div>
                 <div class="row g-4">
-                    <!-- Card 1 -->
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-3">
                         <div class="feature-card text-center">
-                            <div class="feature-icon"><i class="bi bi-globe2"></i></div>
-                            <h4 class="feature-title">Experimental Topics</h4>
-                            <p class="feature-desc">Explore a range of subjects currently in the review phase, from AI ethics to space science. All findings are preliminary.</p>
-                            <a href="about.html" class="btn-link-esha">Read Overview <i class="bi bi-arrow-right ms-1"></i></a>
+                            <div class="feature-icon"><i class="bi bi-search" aria-hidden="true"></i></div>
+                            <h3 class="h4 feature-title">Research Exploration</h3>
+                            <p class="feature-desc">
+                                Explore theoretical, technical and community-relevant questions through documented concepts,
+                                working models and responsible experimentation.
+                            </p>
+                            <a href="#public-research" class="btn-link-esha">View Research <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-3">
                         <div class="feature-card text-center">
-                            <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
-                            <h4 class="feature-title">Invitation-Only Collaboration</h4>
-                            <p class="feature-desc">Work alongside researchers in a controlled environment. Participation is by invitation to ensure focused academic rigor.</p>
-                            <a href="about.html" class="btn-link-esha">Check Eligibility <i class="bi bi-arrow-right ms-1"></i></a>
+                            <div class="feature-icon"><i class="bi bi-people-fill" aria-hidden="true"></i></div>
+                            <h3 class="h4 feature-title">Collaboration Pathways</h3>
+                            <p class="feature-desc">
+                                Researchers, learners and contributors may submit an expression of interest for suitable projects.
+                                Participation depends on relevance, available capacity, review and approval.
+                            </p>
+                            <a href="/join.html" class="btn-link-esha">Request Collaboration <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-3">
                         <div class="feature-card text-center">
-                            <div class="feature-icon"><i class="bi bi-shield-lock-fill"></i></div>
-                            <h4 class="feature-title">Restricted Data Access</h4>
-                            <p class="feature-desc">Datasets and research outcomes are stored securely. Public download is not available; access is granted upon specific approval.</p>
-                            <a href="about.html" class="btn-link-esha">Access Policy <i class="bi bi-arrow-right ms-1"></i></a>
+                            <div class="feature-icon"><i class="bi bi-shield-lock-fill" aria-hidden="true"></i></div>
+                            <h3 class="h4 feature-title">Responsible Data Access</h3>
+                            <p class="feature-desc">
+                                Public publications may be openly accessible, while internal datasets, source materials and
+                                prototype documentation may require specific approval.
+                            </p>
+                            <a href="mailto:info@eshahub.com?subject=Research%20Access%20Request" class="btn-link-esha">
+                                Request Research Access <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card text-center">
+                            <div class="feature-icon"><i class="bi bi-journal-check" aria-hidden="true"></i></div>
+                            <h3 class="h4 feature-title">Review and Documentation</h3>
+                            <p class="feature-desc">
+                                Research outputs may be revised through internal review, technical feedback, repository versioning
+                                or formal peer review, depending on the nature and publication pathway of the work.
+                            </p>
+                            <a href="/code_of_conduct.html" class="btn-link-esha">View Code of Conduct <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <p class="mb-3">
+                        Collaboration is considered through invitation, application or approved project participation, depending
+                        on the research area, contributor suitability and available organisational capacity.
+                    </p>
+                    <a href="/join.html" class="btn btn-esha">Request Research Collaboration</a>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 6: FAQ ACCORDION -->
         <section class="faq-section">
             <div class="container">
                 <h2 class="text-center fw-bold mb-5 text-esha-blue">Frequently Asked Questions</h2>
                 <div class="row justify-content-center">
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="accordion" id="faqAccordion">
-                            <!-- Item 1 -->
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                        Is the research published here final?
+                                <h3 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Is all ESHA Hub research final or peer reviewed?
                                     </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                </h3>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                     aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        No. All research listed is in pilot, experimental, or review stages. Content is subject to change and validation.
+                                        No. Research items may be conceptual, under development, publicly deposited, independently
+                                        published or formally reviewed. The status of each item is displayed separately. A public
+                                        repository record does not automatically indicate peer review.
                                     </div>
                                 </div>
                             </div>
-                            <!-- Item 2 -->
+
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                        Can I download the datasets?
+                                <h3 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Can I access or download ESHA Hub research?
                                     </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                     aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        Access to datasets and prototypes is limited and not publicly downloadable. Access may be granted for collaboration purposes upon approval.
+                                        Public publications may be accessed through the links provided on this page. Internal
+                                        datasets, source materials, prototypes and unfinished documentation may require approval
+                                        or may remain restricted.
                                     </div>
                                 </div>
                             </div>
-                            <!-- Item 3 -->
+
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                        How do I join a project?
+                                <h3 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        How can I join or contribute to a research project?
                                     </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                </h3>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                     aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        Collaboration happens via approval or invitation. Please contact us to discuss potential eligibility for ongoing pilot studies.
+                                        Interested researchers, learners and contributors may submit an expression of interest
+                                        through ESHA Hub’s official application or contact channel. Participation depends on project
+                                        relevance, required skills, available capacity and approval.
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Can I cite an ESHA Hub research record?
+                                    </button>
+                                </h3>
+                                <div id="collapseFour" class="accordion-collapse collapse"
+                                     aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Public research records may be cited using the citation information supplied by the
+                                        repository or publication page. Authors, titles, versions and publication status should
+                                        be represented accurately.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        Does ESHA Hub provide funding for research?
+                                    </button>
+                                </h3>
+                                <div id="collapseFive" class="accordion-collapse collapse"
+                                     aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        ESHA Hub does not guarantee research funding. Depending on current resources and programme
+                                        availability, eligible participants may request access to guidance, tools, collaboration
+                                        pathways or limited support through the appropriate
+                                        <a href="/access-grant.html">Access Grant process</a>.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="responsibility-note mt-5">
+                            <h2 class="h4 fw-bold text-esha-blue">Research Responsibility</h2>
+                            <p class="mb-3">
+                                ESHA Hub encourages accurate attribution, transparent assumptions, responsible experimentation,
+                                privacy protection and clear communication of research limitations. Contributors must not present
+                                preliminary, conceptual or independently published work as formally validated without appropriate evidence.
+                            </p>
+                            <a href="/code_of_conduct.html" class="btn-link-esha">
+                                View Code of Conduct <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 7: VIDEO SECTION -->
         <section class="video-section">
             <div class="container text-center">
                 <h2 class="mb-5">Research Hub Overview</h2>
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
                         <div class="ratio ratio-16x9 video-container">
-                            <iframe 
-                                src="https://www.youtube.com/embed/80ob__zqAoc?rel=0&mute=1&showinfo=0&autoplay=1&loop=1&playlist=80ob__zqAoc" 
-                                title="Research Hub Video" 
-                                allow="autoplay; encrypted-media" 
+                            <iframe
+                                src="https://www.youtube.com/embed/80ob__zqAoc?rel=0&mute=1&showinfo=0"
+                                title="ESHA Hub Research Hub overview video"
+                                loading="lazy"
+                                allow="accelerometer; encrypted-media; picture-in-picture"
                                 allowfullscreen
                                 style="background-image: url('./maxresdefault.jpg'); background-size: cover;">
                             </iframe>
@@ -589,36 +733,48 @@
             </div>
         </section>
 
-        <!-- SECTION 8: CONTACT SECTION -->
         <section class="contact-section">
             <div class="container">
-                <h2 class="fw-bold text-esha-blue mb-4">Contact</h2>
-                <div class="social-icons mb-4">
-                    <a href="#" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-                    <a href="https://www.instagram.com/esha.hub?utm_source=qr&igsh=bGI1Z2tyMG80dHFl" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <h2 class="fw-bold text-esha-blue mb-3">Research Collaboration and Enquiries</h2>
+                <p class="section-intro mb-4">
+                    For publication enquiries, research collaboration, project participation or approved data-access requests,
+                    contact ESHA Hub through its official channels.
+                </p>
+
+                <div class="contact-actions">
+                    <a href="/join.html" class="btn btn-esha">Request Research Collaboration</a>
+                    <a href="mailto:info@eshahub.com" class="btn btn-outline-esha">Email ESHA Hub</a>
                 </div>
-                <div class="email-block">
-                    <span class="d-block mb-2 text-muted">Email Us</span>
-                    <a href="mailto:info@eshahub.com" class="email-link">info@eshahub.com</a>
+
+                <div class="social-icons mt-4" aria-label="ESHA Hub social links">
+                    <a href="https://www.instagram.com/esha.hub" target="_blank" rel="noopener noreferrer" aria-label="ESHA Hub on Instagram">
+                        <i class="bi bi-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.facebook.com/groups/1549215452735348/" target="_blank" rel="noopener noreferrer" aria-label="ESHA Hub Facebook group">
+                        <i class="bi bi-facebook" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </section>
+    </main>
 
-        <!-- SECTION 9: FOOTER -->
-        <footer class="footer">
-            <div class="container">
-                <h5>Stay Connected</h5>
-                <p class="mb-4 small">Join the future of innovation.</p>
-                <a href="about.html" class="btn btn-outline-light btn-sm rounded-pill px-4">Get Involved</a>
-                <hr style="border-color: rgba(255,255,255,0.1); margin: 30px 0;">
-                <p class="mb-0 small">&copy; 2026 ESHA Research Hub. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <h5>Stay Connected</h5>
+            <p class="mb-4 small">Research, innovation and community-focused advancement through responsible collaboration.</p>
+            <div class="footer-links" aria-label="Footer navigation">
+                <a href="/about.html">About</a>
+                <a href="/join.html">Join Us</a>
+                <a href="/access-grant.html">Access Grants</a>
+                <a href="/privacy_protocol.html">Privacy Protocol</a>
+                <a href="/code_of_conduct.html">Code of Conduct</a>
             </div>
-        </footer>
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 28px 0;">
+            <p class="mb-0 small">&copy; 2026 ESHA Hub. All rights reserved.</p>
+        </div>
+    </footer>
+</div>
 
-    </div> <!-- End Page Wrapper -->
-
-    <!-- Bootstrap Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

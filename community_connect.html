@@ -1,568 +1,1727 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-WDJWQVWEK1');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-WDJWQVWEK1");
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESHA – Community Connect</title>
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Connect | ESHA Hub</title>
+    <meta
+      name="description"
+      content="Explore ESHA Hub’s community activities, volunteer opportunities, webinars, awareness programmes and public participation pathways."
+    />
+    <meta property="og:title" content="Community Connect | ESHA Hub" />
+    <meta
+      property="og:description"
+      content="Explore ESHA Hub’s community activities, volunteer opportunities, webinars, awareness programmes and public participation pathways."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://eshahub.com/community_connect.html"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Community Connect | ESHA Hub" />
+    <meta
+      name="twitter:description"
+      content="Explore ESHA Hub’s community activities, volunteer opportunities, webinars, awareness programmes and public participation pathways."
+    />
+
+    <!-- Favicon (verified existing website asset path) -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="esha_crow_photo/esha_hub_logo.png"
+    />
+    <link rel="shortcut icon" href="esha_crow_photo/esha_hub_logo.png" />
+
     <!-- Bootstrap 5.1 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <!-- Google Fonts: Manrope -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        :root {
-            --esha-primary: #284b63;
-            --esha-accent: #3c6e71;
-            --esha-light: #f4f9f9;
-            --esha-dark: #212529;
-        }
+      :root {
+        --esha-primary: #284b63;
+        --esha-accent: #3c6e71;
+        --esha-light: #f4f9f9;
+        --esha-dark: #212529;
+        --esha-muted: #5f6b73;
+      }
 
-        /* --- STABILITY FIXES --- */
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
-            font-family: 'Manrope', sans-serif;
-            color: var(--esha-dark);
-        }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 88px;
+      }
 
-        /* Prevent image layout shifts */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        font-family: "Manrope", sans-serif;
+        color: var(--esha-dark);
+      }
 
-        /* Navbar */
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            padding: 1rem 0;
+      body {
+        padding-top: 76px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible {
+        outline: 3px solid rgba(60, 110, 113, 0.45);
+        outline-offset: 3px;
+      }
+
+      .section-padding {
+        padding: 5rem 0;
+      }
+      .section-light {
+        background-color: var(--esha-light);
+      }
+      .section-title {
+        font-weight: 800;
+        color: var(--esha-primary);
+      }
+      .section-intro {
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        color: var(--esha-muted);
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 1rem 0;
+      }
+      .navbar-brand {
+        font-weight: 800;
+        color: var(--esha-primary) !important;
+        font-size: 1.5rem;
+      }
+      .navbar-brand img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .nav-link {
+        color: var(--esha-dark) !important;
+        font-weight: 600;
+        margin: 0 0.35rem;
+        transition: color 0.3s;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--esha-accent) !important;
+      }
+      .dropdown-item:active {
+        background-color: var(--esha-primary);
+      }
+      .btn-navbar {
+        background-color: var(--esha-primary);
+        color: white;
+        border-radius: 50px;
+        padding: 8px 25px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+      .btn-navbar:hover {
+        background-color: var(--esha-accent);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Hero */
+      .hero-section {
+        background-image: url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        min-height: 82vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        color: white;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 30, 43, 0.68);
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 920px;
+        padding: 32px 20px;
+      }
+      .hero-title {
+        font-size: clamp(2.5rem, 6vw, 4.25rem);
+        font-weight: 800;
+        margin-bottom: 1.25rem;
+      }
+      .hero-support {
+        color: rgba(255, 255, 255, 0.88);
+      }
+      .btn-hero,
+      .btn-outline-hero {
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: 0.3s;
+      }
+      .btn-hero {
+        background-color: white;
+        color: var(--esha-primary);
+        border: 2px solid white;
+      }
+      .btn-outline-hero {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.9);
+      }
+      .btn-hero:hover,
+      .btn-outline-hero:hover {
+        transform: translateY(-2px);
+      }
+      .btn-outline-hero:hover {
+        background: white;
+        color: var(--esha-primary);
+      }
+
+      /* Cards */
+      .feature-card,
+      .path-card,
+      .update-card,
+      .value-card,
+      .channel-card {
+        background: #fff;
+        border: 1px solid rgba(40, 75, 99, 0.12);
+        border-radius: 16px;
+        padding: 2rem;
+        height: 100%;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .feature-card {
+        text-align: center;
+      }
+      .feature-card:hover,
+      .path-card:hover,
+      .update-card:hover,
+      .value-card:hover,
+      .channel-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(40, 75, 99, 0.09);
+      }
+      .feature-icon,
+      .card-icon {
+        font-size: 2.5rem;
+        color: var(--esha-accent);
+        margin-bottom: 1rem;
+      }
+      .status-badge {
+        display: inline-block;
+        padding: 0.45rem 0.8rem;
+        border-radius: 50rem;
+        background: rgba(60, 110, 113, 0.12);
+        color: var(--esha-primary);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+      .info-panel {
+        border-left: 5px solid var(--esha-accent);
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 24px rgba(40, 75, 99, 0.07);
+      }
+      .action-buttons .btn {
+        margin: 0.25rem;
+      }
+      .btn-esha {
+        background: var(--esha-primary);
+        color: #fff;
+        border-radius: 50rem;
+        font-weight: 700;
+        padding: 0.7rem 1.35rem;
+      }
+      .btn-esha:hover {
+        background: var(--esha-accent);
+        color: #fff;
+      }
+      .btn-outline-esha {
+        border: 2px solid var(--esha-primary);
+        color: var(--esha-primary);
+        border-radius: 50rem;
+        font-weight: 700;
+        padding: 0.6rem 1.25rem;
+      }
+      .btn-outline-esha:hover {
+        background: var(--esha-primary);
+        color: #fff;
+      }
+
+      /* Image and article */
+      .image-section img {
+        width: 100%;
+        max-height: 560px;
+        object-fit: cover;
+      }
+      .article-image {
+        width: 100%;
+        min-height: 360px;
+        object-fit: cover;
+      }
+
+      /* Gallery */
+      .gallery-section {
+        padding: 4rem 0;
+      }
+      .gallery-item {
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+      .gallery-item img {
+        transition: 0.3s;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.035);
+      }
+
+      /* FAQ */
+      .accordion-button:not(.collapsed) {
+        color: var(--esha-primary);
+        background-color: rgba(40, 75, 99, 0.1);
+      }
+      .accordion-button {
+        font-weight: 700;
+      }
+
+      /* Contact form */
+      .form-section {
+        padding: 5rem 0;
+        background-color: var(--esha-primary);
+        color: white;
+      }
+      .form-control {
+        border-radius: 50px;
+        padding: 12px 20px;
+        border: none;
+      }
+      textarea.form-control {
+        border-radius: 20px;
+      }
+
+      /* Channels */
+      .coming-soon {
+        display: inline-block;
+        padding: 0.45rem 0.8rem;
+        border-radius: 50rem;
+        background: #e9ecef;
+        color: #495057;
+        font-weight: 700;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--esha-dark);
+        color: rgba(255, 255, 255, 0.75);
+        padding: 4rem 0 2rem;
+      }
+      .footer a {
+        color: white;
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 991.98px) {
+        body {
+          padding-top: 70px;
         }
-        .navbar-brand {
-            font-weight: 800;
-            color: var(--esha-primary) !important;
-            font-size: 1.5rem;
-        }
-        .navbar-brand img {
-            height: 30px;
-            margin-right: 10px;
-            border-radius: 50%;
+        .navbar-nav {
+          align-items: stretch !important;
+          padding-top: 1rem;
         }
         .nav-link {
-            color: var(--esha-dark) !important;
-            font-weight: 600;
-            margin: 0 0.5rem;
-            transition: color 0.3s;
+          margin: 0.2rem 0;
         }
-        .nav-link:hover {
-            color: var(--esha-accent) !important;
-        }
-        .btn-navbar {
-            background-color: var(--esha-primary);
-            color: white;
-            border-radius: 50px;
-            padding: 8px 25px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .btn-navbar:hover {
-            background-color: var(--esha-accent);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
         .hero-section {
-            /* Updated to Unsplash image for Community */
-            background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            text-align: center;
-            color: white;
+          background-attachment: scroll;
+          min-height: 76vh;
         }
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
+      }
+      @media (max-width: 575.98px) {
+        .section-padding {
+          padding: 3.5rem 0;
         }
         .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 20px;
+          padding: 28px 14px;
         }
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
+        .hero-section .btn {
+          width: 100%;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
         }
-        .btn-hero {
-            background-color: white;
-            color: var(--esha-primary);
-            padding: 12px 35px;
-            border-radius: 50px;
-            font-weight: 700;
-            border: none;
-            transition: 0.3s;
-        }
-        .btn-hero:hover {
-            background-color: var(--esha-light);
-            transform: scale(1.05);
-        }
-
-        /* Features Section */
-        .features-section {
-            padding: 5rem 0;
-            background-color: white;
-        }
-        .feature-card {
-            padding: 2rem;
-            text-align: center;
-            transition: 0.3s;
-            height: 100%;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--esha-accent);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Image Section */
-        .image-section {
-            padding: 0;
-            width: 100%;
-        }
-        .image-section img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            max-height: 600px;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: 5rem 0;
-            background-color: var(--esha-light);
-        }
-        .accordion-button:not(.collapsed) {
-            color: var(--esha-primary);
-            background-color: rgba(40, 75, 99, 0.1);
-        }
-
-        /* Testimonials/Mindset Slider */
-        .testimonials-section {
-            padding: 5rem 0;
-            background-color: white;
-            text-align: center;
-        }
-        .testimonial-card {
-            background: var(--esha-light);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 10px;
-            height: 100%;
-            transition: 0.3s;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        /* Article Section */
-        .article-section {
-            padding: 5rem 0;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            padding: 2rem 0;
-        }
-        .gallery-item {
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            border-radius: 8px;
+        .feature-card,
+        .path-card,
+        .update-card,
+        .value-card,
+        .channel-card {
+          padding: 1.5rem;
         }
         .gallery-item img {
-            transition: 0.3s;
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
+          height: 190px;
         }
-        .gallery-item:hover img {
-            transform: scale(1.05);
+        .action-buttons .btn {
+          display: block;
+          width: 100%;
+          margin: 0.4rem 0;
         }
-
-        /* Contact Form */
-        .form-section {
-            padding: 5rem 0;
-            background-color: var(--esha-primary);
-            color: white;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
         }
-        .form-control {
-            border-radius: 50px;
-            padding: 10px 20px;
-            border: none;
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
         }
-
-        /* Footer */
-        .footer {
-            background-color: var(--esha-dark);
-            color: rgba(255,255,255,0.7);
-            padding: 4rem 0 2rem 0;
+        .hero-section {
+          background-attachment: scroll;
         }
-        .footer a { color: white; text-decoration: none; }
-        
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" onerror="this.onerror=null; this.src='https://via.placeholder.com/30/284b63/ffffff?text=E';">
-                ESHA
-            </a>
-            <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            >
-             <span
-             class="navbar-toggler-icon"
-             style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(33,37,41,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E&quot;);"
-            ></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="research_hub.html">Research Hub</a></li>
-                    <li class="nav-item"><a class="nav-link" href="innovation_zone.html">Innovation Zone</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mentorship_magic.html">Mentorship Magic</a></li>
-                    <li class="nav-item"><a class="nav-link" href="community_connect.html">Community Connect</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/esha-members-module/executive-members.html">Member</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                        <a class="btn btn-navbar" href="join.html">Join Us</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="esha_crow_photo/esha_hub_logo.png"
+            alt="ESHA Hub logo"
+            onerror="
+              this.onerror = null;
+              this.src = 'https://via.placeholder.com/30/284b63/ffffff?text=E';
+            "
+          />
+          ESHA Hub
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span
+            class="navbar-toggler-icon"
+            style="
+              background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(33,37,41,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E&quot;);
+            "
+          ></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="research_hub.html">Research Hub</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="innovation_zone.html"
+                >Innovation Zone</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mentorship_magic.html"
+                >Mentorship Magic</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="community_connect.html"
+                >Community Connect</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="/commuesha-members-module/executive-members.html"
+                id="membersDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Members</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="membersDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/commuesha-members-module/executive-members.html"
+                    >Executive Members</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+              <a class="btn btn-navbar" href="join.html">Join Us</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="hero-section">
+    <main>
+      <!-- HERO -->
+      <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content container">
-            <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase">Pilot Operations</span>
-            <h1 class="hero-title">Community Connect</h1>
-            <p class="lead mb-4">A space for observation, discussion, and connection as we build our foundation.</p>
-            <a href="join.html" class="btn btn-hero">Join the Discussion</a>
+          <span
+            class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase"
+            >Developing Community Network</span
+          >
+          <h1 class="hero-title">Community Connect</h1>
+          <p class="lead mb-3">
+            A community space for discussion, participation, learning and
+            responsible connection around ESHA Hub’s projects, activities and
+            public-interest initiatives.
+          </p>
+          <p class="hero-support mb-4">
+            Community participation may include awareness activities,
+            volunteering, events, discussions and approved project-related
+            engagement.
+          </p>
+          <div
+            class="d-flex flex-column flex-sm-row justify-content-center gap-2"
+          >
+            <a href="#ways-to-connect" class="btn btn-hero"
+              >Explore Ways to Connect</a
+            >
+            <a href="#get-involved" class="btn btn-outline-hero"
+              >Join Community Activities</a
+            >
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- FEATURES SECTION -->
-    <section class="features-section">
+      <!-- STATUS NOTICE -->
+      <section
+        class="py-4 section-light"
+        aria-labelledby="network-status-title"
+      >
         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
-                        <h4>Global Observation</h4>
-                        <p class="text-muted">Observe how ideas take shape and connect with others in our open discussion channels.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="bi bi-calendar-event"></i></div>
-                        <h4>Community Events</h4>
-                        <p class="text-muted">Participate in webinars and open meetups designed for knowledge sharing and growth.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="bi bi-lightbulb-fill"></i></div>
-                        <h4>Open Dialogue</h4>
-                        <p class="text-muted">Engage in moderated discussions to share thoughts without formal project commitment.</p>
-                    </div>
-                </div>
-            </div>
+          <div class="info-panel">
+            <h2 id="network-status-title" class="h5 fw-bold mb-2">
+              <i class="bi bi-info-circle-fill text-primary me-2"></i>Developing
+              Community Network
+            </h2>
+            <p class="mb-0 text-muted">
+              ESHA Hub’s community network is developing gradually. Activities,
+              events and participation opportunities may vary according to
+              current programmes, public interest and organisational capacity.
+            </p>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- IMAGE SECTION -->
-    <section class="image-section">
-        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" 
-             alt="Community Collaboration" 
-             onerror="this.style.display='none'">
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section class="faq-section">
+      <!-- TOP COMMUNITY CARDS -->
+      <section
+        class="section-padding bg-white"
+        aria-labelledby="community-overview-title"
+      >
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Community FAQ</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="accordion" id="communityAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                    How can I join the community?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#communityAccordion">
-                                <div class="accordion-body">
-                                    Simply click the "Join Us" button to enter our discussion spaces. Please note that membership is for community interaction and observation.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                    Does joining the community give me access to projects?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#communityAccordion">
-                                <div class="accordion-body">
-                                    <strong>Community presence ≠ project access.</strong> While we value open discussion, access to active research projects and core team resources is handled separately and is not automatic upon joining the community.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                    Are discussions moderated?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#communityAccordion">
-                                <div class="accordion-body">
-                                    Yes. Community interactions are moderated during pilot operations to ensure constructive and relevant dialogue.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <h2 id="community-overview-title" class="visually-hidden">
+            Community overview
+          </h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <article class="feature-card">
+                <div class="feature-icon">
+                  <i class="bi bi-megaphone-fill" aria-hidden="true"></i>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- THE ESHA MINDSET (Replaces Testimonials) -->
-    <section class="testimonials-section">
-        <div class="container">
-            <h2 class="mb-5 fw-bold">The ESHA Mindset</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <i class="bi bi-compass fs-1 text-primary mb-3"></i>
-                        <h5 class="fw-bold">Bold Exploration</h5>
-                        <p class="text-muted mb-0">"We don't just follow trends; we dissect them to understand the core mechanics of innovation. Curiosity is our compass."</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <i class="bi bi-exclude fs-1 text-primary mb-3"></i>
-                        <h5 class="fw-bold">Collective Wisdom</h5>
-                        <p class="text-muted mb-0">"Every perspective adds a pixel to the bigger picture. We believe that your unique view matters in solving complex puzzles."</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <i class="bi bi-graph-up-arrow fs-1 text-primary mb-3"></i>
-                        <h5 class="fw-bold">Resilient Growth</h5>
-                        <p class="text-muted mb-0">"Failure is just data collection. In this pilot phase, we celebrate the attempts as much as the successes."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ARTICLE SECTION -->
-    <section class="article-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="fw-bold mb-4">Building Bridges</h2>
-                    <p class="lead text-muted">We believe that isolation is the enemy of innovation.</p>
-                    <p>By bringing together diverse perspectives from engineering, arts, and sciences, we create a melting pot where revolutionary ideas can form. Our community platform provides the digital infrastructure needed for these connections to flourish.</p>
-                    
-                    <!-- PILOT PHASE NOTICE -->
-                    <div class="alert alert-light border mt-4 p-4 shadow-sm" role="alert" style="border-left: 5px solid var(--esha-accent) !important;">
-                        <h5 class="alert-heading fw-bold"><i class="bi bi-info-circle-fill text-primary me-2"></i>Pilot Operations</h5>
-                        <p class="mb-2">Community interactions are moderated during pilot operations.</p>
-                        <hr>
-                        <p class="mb-0 small text-muted">
-                            To ensure a productive environment:
-                            <ul class="mb-0 mt-2 small text-muted ps-3">
-                                <li><strong>Discussion Only:</strong> Participation in discussions does not imply formal approval or active roles in projects.</li>
-                                <li><strong>Access Limits:</strong> Community presence is distinct from project access. Sensitive data remains restricted.</li>
-                            </ul>
-                        </p>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 mt-4 mt-lg-0">
-                    <img src="https://images.unsplash.com/photo-1517181875630-f72350452109?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                         alt="Teamwork" 
-                         class="rounded-3 shadow"
-                         onerror="this.style.display='none'">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALLERY SECTION -->
-    <section class="gallery-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h3 class="fw-bold">Community Moments</h3>
-                <p class="mt-2 text-muted mb-4">
-                    <span class="fst-italic">Visualizing the vibrant ecosystem we are building together.</span>
+                <h3 class="h4">Community Updates</h3>
+                <p class="text-muted mb-0">
+                  Follow public updates, participation opportunities and
+                  announcements connected to ESHA Hub’s programmes, events and
+                  activities.
                 </p>
-                
-                <!-- NEW DISCLAIMER NOTE -->
-                <div class="mx-auto p-3 bg-light rounded-3 border" style="max-width: 650px; border-style: dashed !important; border-color: #cbd5e0 !important;">
-                    <p class="mb-0 small text-secondary">
-                        <i class="bi bi-camera me-2 text-primary"></i>
-                        <strong>The Frame Awaits You:</strong> These images are illustrative placeholders representing our vision. 
-                        As the Pilot Phase unfolds and members like you start collaborating, 
-                        <span class="text-dark fw-bold">we will replace these with your real stories and successes.</span>
-                        Join us and be the first face of ESHA.
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="feature-card">
+                <div class="feature-icon">
+                  <i class="bi bi-calendar-event" aria-hidden="true"></i>
+                </div>
+                <h3 class="h4">Community Activities</h3>
+                <p class="text-muted mb-0">
+                  Participate in approved online or offline awareness sessions,
+                  discussions, workshops, volunteer activities and community
+                  events when announced.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="feature-card">
+                <div class="feature-icon">
+                  <i class="bi bi-chat-square-text-fill" aria-hidden="true"></i>
+                </div>
+                <h3 class="h4">Open Dialogue</h3>
+                <p class="text-muted mb-0">
+                  Engage in moderated discussions, share perspectives and
+                  explore areas of interest without automatically entering a
+                  formal project or organisational role.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WAYS TO CONNECT -->
+      <section
+        id="ways-to-connect"
+        class="section-padding section-light"
+        aria-labelledby="ways-title"
+      >
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 id="ways-title" class="section-title">Ways to Connect</h2>
+            <p class="section-intro">
+              Choose a pathway that matches your interest. Participation depends
+              on current needs, suitability, availability and organisational
+              approval.
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <article class="path-card">
+                <i
+                  class="bi bi-person-lines-fill card-icon"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="h5 fw-bold">Community Participant</h3>
+                <p class="text-muted mb-0">
+                  Join approved public discussions, updates, awareness
+                  activities and community events.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="path-card">
+                <i
+                  class="bi bi-hand-thumbs-up-fill card-icon"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="h5 fw-bold">Volunteer</h3>
+                <p class="text-muted mb-0">
+                  Support approved awareness activities, documentation,
+                  outreach, event coordination and community-related tasks
+                  according to current needs.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="path-card">
+                <i
+                  class="bi bi-journal-bookmark-fill card-icon"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="h5 fw-bold">Learner or Contributor</h3>
+                <p class="text-muted mb-0">
+                  Explore project-connected learning and contribution pathways
+                  through the Mentorship and Join sections.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="path-card">
+                <i
+                  class="bi bi-diagram-3-fill card-icon"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="h5 fw-bold">Project Participant</h3>
+                <p class="text-muted mb-0">
+                  Express interest in approved research, innovation, development
+                  or community projects with a defined role.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="path-card">
+                <i
+                  class="bi bi-person-workspace card-icon"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="h5 fw-bold">Mentor or Subject Contributor</h3>
+                <p class="text-muted mb-0">
+                  Experienced individuals may support approved guidance,
+                  awareness or community-learning activities according to
+                  relevance and organisational approval.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="path-card">
+                <i
+                  class="bi bi-envelope-check-fill card-icon"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="h5 fw-bold">Direct Expression of Interest</h3>
+                <p class="text-muted mb-3">
+                  Use the Join portal or contact ESHA Hub by email when a
+                  suitable application category is not available.
+                </p>
+                <a
+                  class="btn btn-sm btn-outline-esha"
+                  href="mailto:info@eshahub.com?subject=Community%20Participation%20Expression%20of%20Interest"
+                  >Email Community Interest</a
+                >
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMAL ACCESS -->
+      <section class="section-padding bg-white" aria-labelledby="access-title">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+              <h2 id="access-title" class="section-title">
+                Community Participation and Formal Access
+              </h2>
+              <p class="lead text-muted">
+                Joining a community discussion, public activity or event does
+                not automatically create formal ESHA Hub membership, project
+                access or an organisational role.
+              </p>
+              <p>
+                Restricted projects, internal data, tools, workspaces and
+                organisational responsibilities require separate approval.
+              </p>
+              <div class="info-panel mt-4">
+                <p class="mb-0">
+                  <strong>Important:</strong> Public participation is distinct
+                  from formal membership, employment, internship, project
+                  appointment or access to restricted organisational resources.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <img
+                class="rounded-3 shadow article-image"
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1517181875630-f72350452109?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                alt="Illustrative image of people connecting and sharing ideas"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WEBINARS -->
+      <section
+        class="section-padding section-light"
+        aria-labelledby="webinars-title"
+      >
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 id="webinars-title" class="section-title">
+              Webinars and Community Meetups
+            </h2>
+            <p class="section-intro">
+              ESHA Hub may organise online webinars, community discussions and
+              limited in-person meetups based on participant interest, programme
+              relevance and organisational availability.
+            </p>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+              <div class="path-card">
+                <p>
+                  Dates may be scheduled after expressions of interest or
+                  registrations are received. Confirmed dates and access details
+                  are shared only with registered participants.
+                </p>
+                <p>
+                  <strong>Privacy and access:</strong> Meeting links, IDs and
+                  passwords are not published openly and are provided only after
+                  a session is confirmed.
+                </p>
+                <p class="text-muted">
+                  If the general application form does not provide a suitable
+                  webinar, meetup or community-event option, contact ESHA Hub by
+                  email and clearly mention the activity you are interested in.
+                </p>
+                <div class="action-buttons mt-3">
+                  <a class="btn btn-esha" href="join.html"
+                    >Register Interest for a Webinar</a
+                  >
+                  <a class="btn btn-outline-esha" href="join.html"
+                    >Express Interest in a Community Meetup</a
+                  >
+                  <a
+                    class="btn btn-outline-esha"
+                    href="mailto:info@eshahub.com?subject=Community%20Event%20Expression%20of%20Interest"
+                    >Email Community Event Interest</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VOLUNTEER -->
+      <section
+        class="section-padding bg-white"
+        aria-labelledby="volunteer-title"
+      >
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <span class="status-badge mb-3">Ongoing Opportunity</span>
+              <h2 id="volunteer-title" class="section-title">
+                Volunteer with ESHA Hub
+              </h2>
+              <p class="lead text-muted">
+                Volunteers may support approved awareness activities, community
+                engagement, documentation, outreach, event coordination and
+                project-related tasks according to current requirements.
+              </p>
+              <p>
+                Volunteer roles depend on current activities, suitability,
+                availability and organisational approval. Selection,
+                certificates, recommendations, stipends, fixed duration and
+                permanent roles are not guaranteed.
+              </p>
+              <div class="action-buttons mt-4">
+                <a class="btn btn-esha" href="join.html"
+                  >Apply as a Volunteer</a
+                >
+                <a
+                  class="btn btn-outline-esha"
+                  href="mailto:info@eshahub.com?subject=Volunteer%20Interest"
+                  >Email Volunteer Interest</a
+                >
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="path-card text-center">
+                <i class="bi bi-people-fill card-icon" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">Responsible Participation</h3>
+                <p class="text-muted mb-0">
+                  Volunteer work is assigned only for approved activities with
+                  clear expectations and appropriate coordination.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMUNITY UPDATES -->
+      <section
+        class="section-padding section-light"
+        aria-labelledby="updates-title"
+      >
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 id="updates-title" class="section-title">
+              Community Updates and Participation Opportunities
+            </h2>
+            <p class="section-intro">
+              Current and planned community pathways are presented without fixed
+              schedules or unverified claims.
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <article class="update-card">
+                <span class="status-badge">Planned Community Activity</span>
+                <h3 class="h4 fw-bold mt-3">Agriculture Awareness Programme</h3>
+                <p>
+                  ESHA Hub is preparing a community-oriented agriculture
+                  awareness programme focused on practical knowledge sharing,
+                  local participation and responsible awareness.
+                </p>
+                <p class="text-muted">
+                  The date, format and participation details will be announced
+                  after coordination and interest review.
+                </p>
+                <div class="action-buttons">
+                  <a class="btn btn-esha" href="join.html">Express Interest</a
+                  ><a
+                    class="btn btn-outline-esha"
+                    href="mailto:info@eshahub.com?subject=Agriculture%20Awareness%20Programme%20Interest"
+                    >Email Programme Interest</a
+                  >
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6">
+              <article class="update-card">
+                <span class="status-badge">Interest-Based Activity</span>
+                <h3 class="h4 fw-bold mt-3">
+                  Webinar and Community Discussion Interest
+                </h3>
+                <p>
+                  Expressions of interest may be submitted for future webinars,
+                  discussions and limited meetups.
+                </p>
+                <p class="text-muted">
+                  Sessions are arranged only after relevance, interest and
+                  organisational availability are reviewed.
+                </p>
+                <a
+                  class="btn btn-outline-esha"
+                  href="mailto:info@eshahub.com?subject=Community%20Event%20Expression%20of%20Interest"
+                  >Register Interest</a
+                >
+              </article>
+            </div>
+            <div class="col-md-6">
+              <article class="update-card">
+                <span class="status-badge">Ongoing Opportunity</span>
+                <h3 class="h4 fw-bold mt-3">Volunteer Participation</h3>
+                <p>
+                  Suitable volunteers may support approved awareness, outreach,
+                  documentation and community activities.
+                </p>
+                <p class="text-muted">
+                  Roles are offered only when a current need and suitable
+                  participation pathway exist.
+                </p>
+                <a class="btn btn-outline-esha" href="join.html"
+                  >Open Volunteer Application</a
+                >
+              </article>
+            </div>
+            <div class="col-md-6">
+              <article class="update-card">
+                <span class="status-badge"
+                  >Community Contribution Opportunity</span
+                >
+                <h3 class="h4 fw-bold mt-3">
+                  ESHA-Vaani Community Participation
+                </h3>
+                <p>
+                  Suitable language contributors and volunteers may express
+                  interest in approved ESHA-Vaani community and outreach
+                  activities beginning with Assamese.
+                </p>
+                <p class="text-muted">
+                  Participation may include appropriate awareness,
+                  documentation, language-support and outreach tasks.
+                </p>
+                <a
+                  class="btn btn-outline-esha"
+                  href="mailto:info@eshahub.com?subject=ESHA-Vaani%20Community%20Participation"
+                  >Email ESHA-Vaani Interest</a
+                >
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOCAL OBSERVATION + ESHA VAANI -->
+      <section class="section-padding bg-white">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <article class="path-card">
+                <i class="bi bi-geo-alt-fill card-icon" aria-hidden="true"></i>
+                <h2 class="h3 section-title">
+                  Community Needs and Local Observation
+                </h2>
+                <p>
+                  ESHA Hub may engage with local communities to understand
+                  practical needs related to agriculture, education,
+                  accessibility, technology and public awareness.
+                </p>
+                <p class="text-muted mb-0">
+                  Such engagement may help guide future activities and programme
+                  planning but does not automatically constitute a formal
+                  research study, survey or validated field pilot. Personal and
+                  sensitive community data must not be exposed.
+                </p>
+              </article>
+            </div>
+            <div class="col-lg-6">
+              <article class="path-card">
+                <i class="bi bi-translate card-icon" aria-hidden="true"></i>
+                <h2 class="h3 section-title">
+                  ESHA-Vaani Community Participation
+                </h2>
+                <p>
+                  Community members, volunteers and suitable language
+                  contributors may express interest in approved awareness,
+                  documentation, language-support and outreach activities
+                  connected to ESHA-Vaani.
+                </p>
+                <p class="text-muted">
+                  ESHA-Vaani is a phased language-technology initiative
+                  beginning with Assamese. Additional languages may be explored
+                  gradually as the initiative develops.
+                </p>
+                <div class="action-buttons">
+                  <a class="btn btn-esha" href="join.html">Express Interest</a
+                  ><a
+                    class="btn btn-outline-esha"
+                    href="mailto:info@eshahub.com?subject=ESHA-Vaani%20Community%20Participation"
+                    >Email ESHA-Vaani Interest</a
+                  >
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUILDING MEANINGFUL CONNECTIONS -->
+      <section
+        class="section-padding section-light"
+        aria-labelledby="connections-title"
+      >
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+              <h2 id="connections-title" class="section-title">
+                Building Meaningful Connections
+              </h2>
+              <p class="lead text-muted">
+                ESHA Hub encourages connections among learners, community
+                members, volunteers, researchers, technical contributors and
+                people from different educational and professional backgrounds.
+              </p>
+              <p>
+                These interactions may support awareness, knowledge sharing,
+                practical problem identification and future collaboration.
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <img
+                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                loading="lazy"
+                alt="Illustrative image of a diverse group in discussion"
+                class="rounded-3 shadow article-image"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMUNITY VALUES -->
+      <section class="section-padding bg-white" aria-labelledby="values-title">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 id="values-title" class="section-title">Community Values</h2>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <article class="value-card">
+                <h3 class="h5 fw-bold">Curiosity</h3>
+                <p class="text-muted mb-0">
+                  Ask thoughtful questions and remain open to responsible
+                  learning.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="value-card">
+                <h3 class="h5 fw-bold">Respectful Participation</h3>
+                <p class="text-muted mb-0">
+                  Engage with different perspectives respectfully and
+                  constructively.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="value-card">
+                <h3 class="h5 fw-bold">Community Responsibility</h3>
+                <p class="text-muted mb-0">
+                  Support activities honestly, safely and without
+                  misrepresenting roles, access or achievements.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="value-card">
+                <h3 class="h5 fw-bold">Collaboration</h3>
+                <p class="text-muted mb-0">
+                  Share knowledge and work with others where appropriate.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="value-card">
+                <h3 class="h5 fw-bold">Practical Awareness</h3>
+                <p class="text-muted mb-0">
+                  Connect discussion with real community needs and responsible
+                  action.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="value-card">
+                <h3 class="h5 fw-bold">Accountability</h3>
+                <p class="text-muted mb-0">
+                  Follow approved instructions, respect privacy and complete
+                  agreed responsibilities.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODERATION -->
+      <section
+        class="section-padding section-light"
+        aria-labelledby="moderation-title"
+      >
+        <div class="container">
+          <div class="info-panel">
+            <h2 id="moderation-title" class="h3 section-title">
+              Moderation and Responsible Participation
+            </h2>
+            <p>
+              Community discussions and activities may be moderated by
+              authorised ESHA Hub representatives to support respectful,
+              relevant and safe participation.
+            </p>
+            <p>
+              Participants must not share personal data, confidential project
+              information, internal documents, restricted materials or private
+              meeting details without approval.
+            </p>
+            <p class="mb-0">
+              Participation is subject to ESHA Hub’s
+              <a href="code_of_conduct.html">Code of Conduct</a>,
+              <a href="privacy.html">privacy requirements</a> and applicable
+              activity-specific guidelines.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMUNITY CHANNELS -->
+      <section
+        class="section-padding bg-white"
+        aria-labelledby="channels-title"
+      >
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 id="channels-title" class="section-title">
+              Community Channels
+            </h2>
+            <p class="section-intro">
+              Additional community channels will be introduced gradually.
+            </p>
+          </div>
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+              <article class="channel-card text-center">
+                <i class="bi bi-facebook card-icon" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">Facebook Community</h3>
+                <p class="text-muted">
+                  Follow or join the official public community channel currently
+                  linked by ESHA Hub.
+                </p>
+                <a
+                  class="btn btn-esha"
+                  href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Open Facebook Community</a
+                >
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="channel-card text-center">
+                <i class="bi bi-whatsapp card-icon" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">WhatsApp Community</h3>
+                <span
+                  class="coming-soon"
+                  aria-label="WhatsApp Community coming soon"
+                  >Coming Soon</span
+                >
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="channel-card text-center">
+                <i class="bi bi-discord card-icon" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">Discord Community</h3>
+                <span
+                  class="coming-soon"
+                  aria-label="Discord Community coming soon"
+                  >Coming Soon</span
+                >
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section
+        class="gallery-section section-light"
+        aria-labelledby="gallery-title"
+      >
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 id="gallery-title" class="section-title">Community Moments</h2>
+            <div
+              class="mx-auto p-3 bg-white rounded-3 border mt-3"
+              style="
+                max-width: 820px;
+                border-style: dashed !important;
+                border-color: #cbd5e0 !important;
+              "
+            >
+              <p class="mb-0 small text-secondary">
+                <i class="bi bi-camera me-2 text-primary" aria-hidden="true"></i
+                >The images below are illustrative placeholders representing the
+                types of community engagement ESHA Hub plans to document. They
+                will be replaced with verified activity photographs when
+                suitable public-use images become available.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-md-3">
+              <div class="gallery-item">
+                <img
+                  loading="lazy"
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Illustrative placeholder showing a collaborative discussion"
+                  style="opacity: 0.84"
+                />
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="gallery-item">
+                <img
+                  loading="lazy"
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Illustrative placeholder showing learners working together"
+                  style="opacity: 0.84"
+                />
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="gallery-item">
+                <img
+                  loading="lazy"
+                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Illustrative placeholder showing a community planning session"
+                  style="opacity: 0.84"
+                />
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="gallery-item">
+                <img
+                  loading="lazy"
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Illustrative placeholder showing a facilitated group activity"
+                  style="opacity: 0.84"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section-padding bg-white" aria-labelledby="faq-title">
+        <div class="container">
+          <h2 id="faq-title" class="text-center mb-5 section-title">
+            Community FAQ
+          </h2>
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+              <div class="accordion" id="communityAccordion">
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      What is Community Connect?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#communityAccordion"
+                  >
+                    <div class="accordion-body">
+                      Community Connect is ESHA Hub’s public-facing space for
+                      discussions, awareness activities, volunteering, event
+                      participation and responsible community engagement.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingTwo">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Does joining a community activity make me a formal member?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingTwo"
+                    data-bs-parent="#communityAccordion"
+                  >
+                    <div class="accordion-body">
+                      No. Community participation does not automatically create
+                      formal membership, project access or an organisational
+                      role.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingThree">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      Are webinars held regularly?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingThree"
+                    data-bs-parent="#communityAccordion"
+                  >
+                    <div class="accordion-body">
+                      Webinars and community discussions are organised according
+                      to participant interest, programme relevance and
+                      organisational availability. Dates are shared after a
+                      session is confirmed.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingFour">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFour"
+                      aria-expanded="false"
+                      aria-controls="collapseFour"
+                    >
+                      How will I receive a webinar link?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseFour"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingFour"
+                    data-bs-parent="#communityAccordion"
+                  >
+                    <div class="accordion-body">
+                      Meeting access details are shared only with registered
+                      participants after the session is confirmed.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingFive">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFive"
+                      aria-expanded="false"
+                      aria-controls="collapseFive"
+                    >
+                      Can I volunteer?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseFive"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingFive"
+                    data-bs-parent="#communityAccordion"
+                  >
+                    <div class="accordion-body">
+                      Yes. Suitable volunteers may support approved community,
+                      awareness, outreach, documentation and event-related
+                      activities according to current requirements.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingSix">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseSix"
+                      aria-expanded="false"
+                      aria-controls="collapseSix"
+                    >
+                      Can I participate in ESHA-Vaani?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseSix"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingSix"
+                    data-bs-parent="#communityAccordion"
+                  >
+                    <div class="accordion-body">
+                      Suitable community members, volunteers and language
+                      contributors may express interest in approved ESHA-Vaani
+                      awareness, documentation and outreach activities beginning
+                      with Assamese.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingSeven">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseSeven"
+                      aria-expanded="false"
+                      aria-controls="collapseSeven"
+                    >
+                      How can I express interest if the Join form has no
+                      suitable option?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseSeven"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingSeven"
+                    data-bs-parent="#communityAccordion"
+                  >
+                    <div class="accordion-body">
+                      Use the working contact form or email ESHA Hub and clearly
+                      mention the activity or participation pathway you are
+                      interested in.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingEight">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseEight"
+                      aria-expanded="false"
+                      aria-controls="collapseEight"
+                    >
+                      Can I access internal projects through Community Connect?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseEight"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingEight"
+                    data-bs-parent="#communityAccordion"
+                  >
+                    <div class="accordion-body">
+                      No. Restricted projects, internal data, tools and
+                      organisational responsibilities require separate review
+                      and approval.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GET INVOLVED / CONTACT FORM -->
+      <section
+        id="get-involved"
+        class="form-section"
+        aria-labelledby="get-involved-title"
+      >
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-9 text-center">
+              <h2 id="get-involved-title" class="mb-3 fw-bold">Get Involved</h2>
+              <p class="mb-3">
+                Explore suitable ways to participate in ESHA Hub’s community
+                activities, volunteer opportunities, learning pathways and
+                public-interest programmes.
+              </p>
+              <p class="mb-4 text-white-50">
+                If the general application form does not provide a suitable
+                option, contact ESHA Hub by email and clearly mention your
+                preferred area of participation.
+              </p>
+              <div class="action-buttons mb-5">
+                <a
+                  class="btn btn-light rounded-pill px-4 fw-bold text-primary"
+                  href="join.html"
+                  >Join Community Activities</a
+                >
+                <a
+                  class="btn btn-outline-light rounded-pill px-4 fw-bold"
+                  href="join.html"
+                  >Apply as a Volunteer</a
+                >
+                <a
+                  class="btn btn-outline-light rounded-pill px-4 fw-bold"
+                  href="mentorship_magic.html"
+                  >Explore Mentorship</a
+                >
+                <a
+                  class="btn btn-outline-light rounded-pill px-4 fw-bold"
+                  href="mailto:info@eshahub.com?subject=Community%20Participation%20Expression%20of%20Interest"
+                  >Email Community Interest</a
+                >
+              </div>
+
+              <!-- Existing Web3Forms backend preserved exactly -->
+              <form action="https://api.web3forms.com/submit" method="POST">
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="2f8034d9-d754-460c-9cce-4fdc22fc2ed0"
+                />
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="visually-hidden" for="community-name"
+                      >Name</label
+                    >
+                    <input
+                      id="community-name"
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      placeholder="Name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="visually-hidden" for="community-email"
+                      >Email</label
+                    >
+                    <input
+                      id="community-email"
+                      type="email"
+                      name="email"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+                  <div class="col-12">
+                    <label class="visually-hidden" for="community-message"
+                      >How would you like to participate?</label
+                    >
+                    <textarea
+                      id="community-message"
+                      name="message"
+                      class="form-control"
+                      rows="4"
+                      placeholder="Tell us the community activity, volunteer role, webinar, meetup or programme you are interested in."
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="submit"
+                      class="btn btn-light rounded-pill px-5 fw-bold text-primary"
+                    >
+                      Send Message
+                    </button>
+                    <p class="text-white-50 mt-3 small">
+                      By submitting, you acknowledge that community
+                      participation is moderated and distinct from formal
+                      membership or project access.
                     </p>
+                  </div>
                 </div>
+              </form>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="row mt-4">
-                <div class="col-6 col-md-3">
-                    <div class="gallery-item position-relative">
-                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 1" style="opacity: 0.8;">
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="gallery-item position-relative">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 2" style="opacity: 0.8;">
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="gallery-item position-relative">
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 3" style="opacity: 0.8;">
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="gallery-item position-relative">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Moment 4" style="opacity: 0.8;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT FORM SECTION (Updated with Web3Forms) -->
-    <section class="form-section">
+      <!-- CONTACT DETAILS -->
+      <section class="py-5 bg-white" aria-labelledby="contact-details-title">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="mb-4">Get Involved</h2>
-                    <p class="mb-5">Ready to make an impact? Send us a message.</p>
-                    
-                    <!-- Web3Forms Integration Added Here -->
-                    <form action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="2f8034d9-d754-460c-9cce-4fdc22fc2ed0">
-                        
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" name="email" class="form-control" placeholder="Email" required>
-                            </div>
-                            <div class="col-12">
-                                <textarea name="message" class="form-control" rows="4" placeholder="How would you like to contribute?" style="border-radius: 20px;" required></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-light rounded-pill px-5 fw-bold text-primary">Send Message</button>
-                                <p class="text-white-50 mt-3 small">By submitting, you acknowledge that community presence is moderated and distinct from formal project access.</p>
-                            </div>
-                        </div>
-                    </form>
-                    
-                </div>
+          <h2 id="contact-details-title" class="visually-hidden">
+            Contact details
+          </h2>
+          <div class="row text-center g-4">
+            <div class="col-md-4">
+              <i class="bi bi-geo-alt fs-2 text-primary" aria-hidden="true"></i>
+              <h3 class="h5 mt-3">Address</h3>
+              <p class="text-muted">
+                Biswanath Chariali, Biswanath Ghat Road,<br />near Gogoi
+                Computer Zone, Assam - 784176
+              </p>
             </div>
-        </div>
-    </section>
-    
-    <!-- CONTACTS SECTION -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <i class="bi bi-geo-alt fs-2 text-primary"></i>
-                    <h5 class="mt-3">Address</h5>
-                    <p class="text-muted">Biswanath chariali,Biswanath Ghat Road,<br>near Gogoi Computer Zone,Assam - 784176</p>
-                </div>
-                <div class="col-md-4">
-                    <i class="bi bi-envelope fs-2 text-primary"></i>
-                    <h5 class="mt-3">Email</h5>
-                    <p class="text-muted">info@eshahub.com</p>
-                </div>
-                <div class="col-md-4">
-                    <i class="bi bi-note fs-2 text-primary"></i>
-                    <h5 class="mt-3">Note</h5>
-                    <p class="text-muted"><p>Visits are conducted strictly by prior appointment. Registered members may access the workspace for sessions and project activities through prior coordination only. <br>
-                    <span style="display:block; text-indent : 16px;">This is an early-stage, community-run workspace operating from a registered location in Biswanath, Assam.</span></p>
-                </div>
+            <div class="col-md-4">
+              <i
+                class="bi bi-envelope fs-2 text-primary"
+                aria-hidden="true"
+              ></i>
+              <h3 class="h5 mt-3">Email</h3>
+              <p><a href="mailto:info@eshahub.com">info@eshahub.com</a></p>
             </div>
+            <div class="col-md-4">
+              <i
+                class="bi bi-info-square fs-2 text-primary"
+                aria-hidden="true"
+              ></i>
+              <h3 class="h5 mt-3">Visits</h3>
+              <p class="text-muted">
+                Visits are conducted strictly by prior appointment. Workspace
+                access for approved sessions or project activities requires
+                prior coordination.
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container text-center">
-            <h3 class="fw-bold text-white mb-4">ESHA</h3>
-            <p class="mb-4">Connecting the world's brightest minds to solve tomorrow's challenges.</p>
-            <div class="mb-4 fs-4">
-                <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT" class="mx-2"><i class="bi bi-facebook"></i></a>
-                <a href="https://x.com/EshaHub" class="mx-2"><i class="bi bi-twitter"></i></a>
-                <a href="https://www.instagram.com/esha.hub?utm_source=qr&igsh=bGI1Z2tyMG80dHFl" class="mx-2"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/109435379/admin/dashboard/" class="mx-2"><i class="bi bi-linkedin"></i></a>
-            </div>
-            <p class="small mb-0">&copy; 2026 ESHA Hub. All rights reserved.</p>
+      <div class="container text-center">
+        <h2 class="h3 fw-bold text-white mb-3">ESHA Hub</h2>
+        <p class="mb-4">
+          Responsible community participation, learning and public-interest
+          engagement.
+        </p>
+        <div class="mb-4">
+          <a class="mx-2" href="code_of_conduct.html">Code of Conduct</a>
+          <a class="mx-2" href="privacy.html">Privacy</a>
+          <a class="mx-2" href="access_grant.html">Access Grant</a>
         </div>
+        <div class="mb-4 fs-4" aria-label="ESHA Hub social links">
+          <a
+            href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT"
+            class="mx-2"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="bi bi-facebook"></i
+          ></a>
+          <a
+            href="https://x.com/EshaHub"
+            class="mx-2"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X"
+            ><i class="bi bi-twitter"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/esha.hub?utm_source=qr&igsh=bGI1Z2tyMG80dHFl"
+            class="mx-2"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="bi bi-instagram"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/company/109435379/"
+            class="mx-2"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="bi bi-linkedin"></i
+          ></a>
+        </div>
+        <p class="small mb-0">&copy; 2026 ESHA Hub. All rights reserved.</p>
+      </div>
     </footer>
 
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-WDJWQVWEK1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WDJWQVWEK1');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentorship at ESHA Hub: A Learning Ecosystem</title>
-    <meta name="description" content="Understand how mentorship works at ESHA Hub. A learning-first environment offering group guidance, project-based exposure, and peer collaboration for members.">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="esha_crow_photo/esha_hub_logo.png" type="image/x-icon">
-    
+    <title>Mentorship &amp; Guidance | ESHA Hub</title>
+    <meta name="description"
+        content="Explore ESHA Hub’s hybrid, project-connected mentorship model for learners, contributors and mentors.">
+    <meta property="og:title" content="Mentorship &amp; Guidance | ESHA Hub">
+    <meta property="og:description"
+        content="Explore ESHA Hub’s hybrid, project-connected mentorship model for learners, contributors and mentors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eshahub.com/mentorship_magic.html">
+    <meta property="og:image" content="https://eshahub.com/esha_crow_photo/esha_hub_logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mentorship &amp; Guidance | ESHA Hub">
+    <meta name="twitter:description"
+        content="Explore ESHA Hub’s hybrid, project-connected mentorship model for learners, contributors and mentors.">
+
+    <!-- Verified ESHA Hub favicon path preserved from the existing page -->
+    <link rel="icon" type="image/png" href="esha_crow_photo/esha_hub_logo.png">
+    <link rel="shortcut icon" href="esha_crow_photo/esha_hub_logo.png">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Bootstrap 5.1 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
@@ -32,24 +44,130 @@
         :root {
             --bs-font-sans-serif: 'Manrope', sans-serif;
             --primary-color: #284b63;
+            --primary-dark: #193548;
+            --accent-color: #d7a84b;
+            --soft-bg: #f5f8fa;
+            --text-color: #24313a;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 92px;
+        }
+
         body {
             font-family: 'Manrope', sans-serif;
+            color: var(--text-color);
             overflow-x: hidden;
         }
 
-        /* Helper for Video Backgrounds */
+        a,
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 3px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: -60px;
+            left: 1rem;
+            z-index: 2000;
+            background: #fff;
+            color: #000;
+            padding: .75rem 1rem;
+            border-radius: .4rem;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .1);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--primary-dark) !important;
+        }
+
+        .navbar-brand img {
+            height: 3rem;
+            width: 3rem;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .nav-link {
+            color: #333 !important;
+            font-weight: 700;
+            padding: .65rem .72rem !important;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .dropdown-item {
+            font-weight: 600;
+        }
+
+        .portal-note {
+            display: block;
+            font-size: .67rem;
+            line-height: 1.1;
+            color: #6c757d;
+            text-align: center;
+            margin-top: .2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-kicker {
+            color: var(--primary-color);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-size: .82rem;
+        }
+
+        .section-title {
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .soft-section {
+            background: var(--soft-bg);
+        }
+
+        /* Video background */
+        .fullscreen-section {
+            padding: 0;
+            min-height: 100vh;
+        }
+
         .video-bg-container {
             position: relative;
             overflow: hidden;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #000; /* Fallback */
+            background: #000;
         }
+
         .video-bg-iframe {
             position: absolute;
             top: 50%;
@@ -59,495 +177,1103 @@
             transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 0;
-            opacity: 0.6;
+            opacity: .55;
         }
-        /* Make iframe cover screen while maintaining aspect ratio (CSS trick) */
+
         @media (min-aspect-ratio: 16/9) {
-            .video-bg-iframe { height: 56.25vw; }
+            .video-bg-iframe {
+                height: 56.25vw;
+            }
         }
+
         @media (max-aspect-ratio: 16/9) {
-            .video-bg-iframe { width: 177.78vh; }
+            .video-bg-iframe {
+                width: 177.78vh;
+            }
         }
+
         .bg-overlay {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+            inset: 0;
+            background: linear-gradient(135deg, rgba(8, 25, 36, .8), rgba(0, 0, 0, .55));
             z-index: 1;
         }
+
         .content-overlay {
             position: relative;
             z-index: 2;
         }
 
-        /* Navbar */
-        .navbar {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .nav-link {
-            color: #333 !important;
-            font-weight: 700;
-        }
-        .navbar-brand img {
-            height: 3rem;
-            width: 3rem;
-            object-fit: cover;
-            border-radius: 50%;
+        .hero-copy {
+            max-width: 920px;
+            margin: 0 auto;
         }
 
-        /* Sections */
-        section { padding: 5rem 0; }
-        .fullscreen-section { padding: 0; min-height: 100vh; }
-        
-        /* Parallax Image */
-        .parallax-section {
-            background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); /* Updated to Unsplash */
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-            min-height: 60vh;
+        .hero-support {
+            max-width: 780px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, .88);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .8rem;
+        }
+
+        /* Buttons */
+        .btn {
+            min-height: 44px;
+            font-weight: 700;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 50px;
+            padding: 10px 28px;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 50px;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-light,
+        .btn-light {
+            border-radius: 50px;
+            padding: 10px 28px;
         }
 
         /* Cards */
-        .card { border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
+        .card {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, .1);
+        }
+
+        .feature-icon,
+        .dna-icon {
+            width: 58px;
+            height: 58px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(40, 75, 99, .1);
+            color: var(--primary-color);
+            font-size: 1.6rem;
+        }
+
+        .pathway-card {
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .pathway-list {
+            padding-left: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        .pathway-list li {
+            margin-bottom: .55rem;
+        }
+
+        .steps {
+            counter-reset: pathway;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .steps li {
+            counter-increment: pathway;
+            display: flex;
+            gap: .75rem;
+            align-items: flex-start;
+            margin-bottom: .85rem;
+        }
+
+        .steps li::before {
+            content: counter(pathway);
+            flex: 0 0 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: .85rem;
+        }
+
         .card-img-top {
             height: 200px;
             object-fit: cover;
+        }
+
+        .news-category {
+            color: var(--primary-color);
+            font-size: .78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        /* Parallax */
+        .parallax-section {
+            background-image: linear-gradient(rgba(20, 45, 61, .35), rgba(20, 45, 61, .35)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            min-height: 55vh;
+        }
+
+        /* Ecosystem */
+        .ecosystem-item {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            height: 100%;
+        }
+
+        /* Gallery */
+        .gallery-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform .3s;
+            filter: saturate(.9);
+        }
+
+        .gallery-wrap:hover .gallery-img {
+            transform: scale(1.03);
+        }
+
+        .gallery-label {
+            position: absolute;
+            left: .75rem;
+            bottom: .75rem;
+            right: .75rem;
+            background: rgba(0, 0, 0, .7);
+            color: #fff;
+            padding: .55rem .7rem;
+            border-radius: .35rem;
+            font-size: .78rem;
         }
 
         /* Marquee */
         .marquee {
             overflow: hidden;
             white-space: nowrap;
-            background: #284b63;
-            color: white;
-            padding: 20px 0;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 18px 0;
         }
+
         .marquee-content {
             display: inline-block;
-            animation: marquee 20s linear infinite;
+            animation: marquee 24s linear infinite;
         }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-        /* Buttons */
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            border-radius: 50px;
-            padding: 10px 30px;
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
-        .btn-outline-light {
-             border-radius: 50px;
-             padding: 10px 30px;
+
+        /* Contact */
+        .contact-note {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
         }
-        
-        .gallery-img {
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s;
+
+        address {
+            line-height: 1.7;
         }
-        .gallery-img:hover {
-            transform: scale(1.02);
-            z-index: 2;
+
+        /* Responsive */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
+                padding: 1rem 0;
+            }
+
+            .portal-note {
+                text-align: left;
+                margin-left: .25rem;
+            }
+
+            .hero-actions .btn {
+                width: min(100%, 340px);
+            }
+
+            .parallax-section {
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            section {
+                padding: 4rem 0;
+            }
+
+            .display-1 {
+                font-size: clamp(2.4rem, 13vw, 4rem);
+            }
+
+            .hero-copy .lead {
+                font-size: 1.05rem;
+            }
+
+            .gallery-img {
+                height: 190px;
+            }
+
+            .marquee-content {
+                font-size: 1.6rem !important;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            .video-bg-iframe {
+                display: none;
+            }
+
+            .video-bg-container {
+                background: linear-gradient(135deg, #193548, #284b63);
+            }
         }
     </style>
 </head>
-<body>
 
-    <!-- NAVBAR (menu2) -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Primary navigation">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-                <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" onerror="this.onerror=null; this.src='https://via.placeholder.com/50/284b63/ffffff?text=ESHA';">
-                <span>ESHA</span>
+                <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA Hub logo"
+                    onerror="this.onerror=null; this.src='https://via.placeholder.com/50/284b63/ffffff?text=ESHA';">
+                <span>ESHA Hub</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="research_hub.html">Research Hub</a></li>
                     <li class="nav-item"><a class="nav-link" href="innovation_zone.html">Innovation Zone</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mentorship_magic.html">Mentorship Magic</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                            href="mentorship_magic.html">Mentorship</a></li>
                     <li class="nav-item"><a class="nav-link" href="community_connect.html">Community Connect</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/esha-members-module/executive-members.html">Member</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/esha-members-module/executive-members.html"
+                            id="membersDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Members</a>
+                        <ul class="dropdown-menu" aria-labelledby="membersDropdown">
+                            <li><a class="dropdown-item" href="/esha-members-module/executive-members.html">Executive
+                                    Members</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="join.html">Join Us</a></li>
                 </ul>
-                <div class="ms-lg-3">
+                <div class="ms-lg-3 mt-2 mt-lg-0">
                     <a href="maintenance.html" class="btn btn-primary">Login</a>
+                    <span class="portal-note">Portal Under Development</span>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- SECTION 1: HERO (header18) -->
-    <section class="fullscreen-section video-bg-container text-center text-white" id="header18-1">
-        <iframe class="video-bg-iframe" 
-            src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=1&loop=1&playlist=L_LUpnjgPso&mute=1&playsinline=1&controls=0&showinfo=0&autohide=1&allowfullscreen=true" 
-            frameborder="0" allow="autoplay; encrypted-media"></iframe>
-        <div class="bg-overlay"></div>
-        <div class="container content-overlay">
-            <h1 class="display-1 fw-bold mb-4">Mentorship & Guidance</h1>
-            <p class="lead mb-5">An ecosystem of shared knowledge, peer learning, and project-based growth.</p>
-            <a href="#article4-1" class="btn btn-light btn-lg rounded-pill px-5">How It Works</a>
-        </div>
-    </section>
-
-    <!-- SECTION 2: CALL TO ACTION (features035) -->
-    <section class="bg-light text-center" id="features035-1">
-        <div class="container">
-            <h2 class="mb-3">A Learning-First Approach</h2>
-            <p class="lead text-muted mb-4 fs-6">
-                We believe in guidance through collaboration, not instruction through transaction. Mentorship at ESHA Hub is organic, project-driven, and community-focused.
-            </p>
-        </div>
-    </section>
-
-    <!-- SECTION 3: FULLSCREEN PARALLAX IMAGE (image02) -->
-    <section class="parallax-section" id="image02-1">
-        <!-- Background image handled via CSS class parallax-section -->
-    </section>
-
-    <!-- SECTION 4: ECOSYSTEM REALITY (features10) -->
-    <section id="features10-1">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4 h-100">
-                        <h3 class="h2 fw-bold text-primary">Pilot Phase</h3>
-                        <p class="text-muted">We are currently in an early-stage experimental phase, focusing on quality interactions over quantity.</p>
-                    </div>
+    <main id="main-content">
+        <!-- HERO -->
+        <section class="fullscreen-section video-bg-container text-center text-white" id="hero">
+            <iframe class="video-bg-iframe"
+                src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=1&amp;loop=1&amp;playlist=L_LUpnjgPso&amp;mute=1&amp;playsinline=1&amp;controls=0&amp;showinfo=0&amp;autohide=1"
+                title="Illustrative background video for mentorship and collaboration" frameborder="0"
+                allow="autoplay; encrypted-media" aria-hidden="true" tabindex="-1"></iframe>
+            <div class="bg-overlay"></div>
+            <div class="container content-overlay hero-copy px-3">
+                <p class="section-kicker text-white-50 mb-3">Project-connected guidance</p>
+                <h1 class="display-1 fw-bold mb-4">Mentorship &amp; Guidance</h1>
+                <p class="lead mb-3">A project-connected learning and contribution system supporting learners, members,
+                    interns, contributors and mentors through guidance linked to real organisational work.</p>
+                <p class="hero-support">Guidance is aligned with active projects, research areas, programme needs and
+                    available organisational capacity.</p>
+                <div class="hero-actions">
+                    <a href="#hybrid-model" class="btn btn-light btn-lg">Explore the Mentorship Model</a>
+                    <a href="join.html" class="btn btn-outline-light btn-lg">Join as a Learner or Contributor</a>
+                    <a href="join.html" class="btn btn-outline-light btn-lg">Contribute as a Mentor</a>
+                    <a href="maintenance.html" class="btn btn-outline-light btn-lg">Login</a>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4 h-100">
-                        <h3 class="h2 fw-bold text-primary">Zero Fees</h3>
-                        <p class="text-muted">Mentorship and collaboration within the hub are non-transactional. We value knowledge exchange over revenue.</p>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION -->
+        <section class="soft-section text-center" id="project-connected-learning">
+            <div class="container">
+                <p class="section-kicker">How guidance works</p>
+                <h2 class="section-title mb-3">Project-Connected Learning and Guidance</h2>
+                <p class="lead text-muted fs-6 mx-auto mb-3" style="max-width:900px;">Mentorship at ESHA Hub connects
+                    learning with current projects, research areas, programme activities and practical responsibilities.
+                    Participants receive suitable guidance according to their role, current opportunities and
+                    organisational capacity.</p>
+                <p class="text-muted mx-auto mb-0" style="max-width:900px;">The model supports both people seeking to
+                    learn and contribute, and experienced individuals seeking to guide approved learners or project
+                    teams.</p>
+            </div>
+        </section>
+
+        <!-- PARALLAX IMAGE -->
+        <section class="parallax-section" id="mentorship-visual" aria-label="Illustrative collaboration image">
+        </section>
+
+        <!-- FEATURE CARDS -->
+        <section id="key-features">
+            <div class="container">
+                <div class="row g-4 text-center">
+                    <div class="col-md-4">
+                        <article class="card p-4 h-100">
+                            <div class="feature-icon mx-auto mb-3"><i class="bi bi-diagram-3" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="h4 fw-bold text-primary">Project-Connected Learning</h2>
+                            <p class="text-muted mb-0">Guidance is linked to active research, innovation, development,
+                                prototype and community-oriented projects.</p>
+                        </article>
                     </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4 h-100">
-                        <h3 class="h2 fw-bold text-primary">Community Led</h3>
-                        <p class="text-muted">Growth is driven by member initiative. There is no top-down curriculum; only peer-to-peer support.</p>
+                    <div class="col-md-4">
+                        <article class="card p-4 h-100">
+                            <div class="feature-icon mx-auto mb-3"><i class="bi bi-tools" aria-hidden="true"></i></div>
+                            <h2 class="h4 fw-bold text-primary">Practical Exposure</h2>
+                            <p class="text-muted mb-0">Participants may apply relevant learning through approved
+                                assignments, project tasks, documentation, field activities or organisational
+                                responsibilities.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="card p-4 h-100">
+                            <div class="feature-icon mx-auto mb-3"><i class="bi bi-people" aria-hidden="true"></i></div>
+                            <h2 class="h4 fw-bold text-primary">Collaborative Guidance</h2>
+                            <p class="text-muted mb-0">Learning may involve mentors, experienced members, subject
+                                contributors, project teams and peer interaction according to relevance and
+                                availability.</p>
+                        </article>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECTION 5: FAQ (list1) -->
-    <section class="bg-light" id="list1-1">
-        <div class="container">
-            <h2 class="text-center mb-5">Understanding Our Mentorship</h2>
-            <div class="accordion" id="accordionFAQ">
-                <!-- Item 1 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                            What does "mentorship" mean at ESHA Hub?
-                        </button>
+        <!-- NONPROFIT MODEL -->
+        <section class="soft-section" id="access-oriented-model">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center">
+                        <p class="section-kicker">Access approach</p>
+                        <h2 class="section-title">Nonprofit and Access-Oriented Model</h2>
+                        <p class="lead fs-6 text-muted mb-0">ESHA Hub’s mentorship system is designed for learning,
+                            contribution and public-benefit development rather than commercial coaching. Access
+                            conditions or resource requirements, if any, depend on the specific programme, project,
+                            materials and approved organisational policy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HYBRID MODEL -->
+        <section id="hybrid-model">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <p class="section-kicker">Two connected pathways</p>
+                    <h2 class="section-title">The ESHA Hub Hybrid Mentorship Model</h2>
+                    <p class="text-muted mx-auto" style="max-width:850px;">The mentorship system supports both people
+                        seeking to learn and contribute, and experienced individuals seeking to guide project teams and
+                        participants.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <article class="card pathway-card p-4 p-md-5 h-100">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="feature-icon"><i class="bi bi-mortarboard" aria-hidden="true"></i></div>
+                                <h3 class="h2 fw-bold mb-0">Pathway 1 — Learn and Contribute</h3>
+                            </div>
+                            <p>Participants receive guidance and skill development connected to current projects,
+                                responsibilities and available learning opportunities.</p>
+                            <h4 class="h6 fw-bold text-uppercase mt-3">Suitable for</h4>
+                            <ul class="pathway-list text-muted mb-4">
+                                <li>Learners and students</li>
+                                <li>Interns and volunteers</li>
+                                <li>New members</li>
+                                <li>Temporary and project-based contributors</li>
+                            </ul>
+                            <h4 class="h6 fw-bold text-uppercase">Suggested pathway</h4>
+                            <ol class="steps">
+                                <li>Expression of Interest</li>
+                                <li>Initial Review</li>
+                                <li>Project or Role Alignment</li>
+                                <li>Guidance and Skill Development</li>
+                                <li>Practical Exposure</li>
+                                <li>Contribution Review</li>
+                                <li>Future Role or Next-Step Consideration</li>
+                            </ol>
+                            <a href="join.html" class="btn btn-primary mt-4 align-self-start">Join as a Learner or
+                                Contributor</a>
+                        </article>
+                    </div>
+                    <div class="col-lg-6">
+                        <article class="card pathway-card p-4 p-md-5 h-100">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="feature-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></div>
+                                <h3 class="h2 fw-bold mb-0">Pathway 2 — Guide and Mentor</h3>
+                            </div>
+                            <p>Mentors support approved learning activities, project understanding, skill development
+                                and practical guidance according to organisational needs.</p>
+                            <h4 class="h6 fw-bold text-uppercase mt-3">Suitable for</h4>
+                            <ul class="pathway-list text-muted mb-4">
+                                <li>Subject experts and researchers</li>
+                                <li>Experienced contributors</li>
+                                <li>Technical professionals and educators</li>
+                                <li>External mentors and project advisers</li>
+                            </ul>
+                            <h4 class="h6 fw-bold text-uppercase">Suggested pathway</h4>
+                            <ol class="steps">
+                                <li>Mentor Interest Submission</li>
+                                <li>Expertise and Relevance Review</li>
+                                <li>Approval and Role Definition</li>
+                                <li>Project or Learning Assignment</li>
+                                <li>Guidance and Feedback</li>
+                                <li>Contribution Review</li>
+                            </ol>
+                            <a href="join.html" class="btn btn-primary mt-4 align-self-start">Contribute as a Mentor</a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRACTICAL APPLICATION -->
+        <section class="soft-section" id="learning-through-application">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-4 text-center"><i class="bi bi-clipboard-check display-1 text-primary"
+                            aria-hidden="true"></i></div>
+                    <div class="col-lg-8">
+                        <p class="section-kicker">Core principle</p>
+                        <h2 class="section-title">Learning Through Application</h2>
+                        <p class="lead fs-6 text-muted mb-0">Mentorship at ESHA Hub is connected to practical
+                            application. Participants may be expected to use relevant learning through approved project
+                            tasks, assignments, documentation, field activities or other organisational
+                            responsibilities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <p class="section-kicker">Common questions</p>
+                    <h2 class="section-title">Understanding Our Mentorship</h2>
+                </div>
+                <div class="accordion" id="accordionFAQ">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingOne"><button class="accordion-button" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">What does mentorship mean at ESHA Hub?</button></h3>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">Mentorship is a project-connected process of guidance, skill
+                                development and practical exposure linked to research, innovation, development,
+                                prototype, programme or community activities.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">Is mentorship available to every
+                                applicant?</button></h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">No. Availability depends on current projects, relevance,
+                                available mentors, organisational capacity and approval.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingThree"><button class="accordion-button collapsed"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">Is ESHA Hub a coaching
+                                institute?</button></h3>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">No. ESHA Hub does not operate as a conventional tuition or
+                                examination-coaching institute. Guidance is connected to practical projects, learning
+                                needs and organisational activities.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingFour"><button class="accordion-button collapsed"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                aria-expanded="false" aria-controls="collapseFour">Can learners, interns and
+                                contributors participate?</button></h3>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">Yes. Suitable learners, interns, volunteers, members and project
+                                contributors may be considered according to current opportunities and requirements.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingFive"><button class="accordion-button collapsed"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                aria-expanded="false" aria-controls="collapseFive">Can experienced people join as
+                                mentors?</button></h3>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">Yes. Experienced individuals may express interest in
+                                contributing as mentors, subject guides or project advisers. Participation depends on
+                                relevance, verification and organisational approval.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingSix"><button class="accordion-button collapsed"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix"
+                                aria-expanded="false" aria-controls="collapseSix">Is mentorship free?</button></h3>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">ESHA Hub follows a nonprofit and access-oriented approach.
+                                Conditions may vary according to the programme, project, resources and approved
+                                organisational policy.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXISTING VIDEO VISUAL PRESERVED -->
+        <section class="fullscreen-section video-bg-container" id="mentorship-video-visual"
+            aria-label="Illustrative project collaboration video">
+            <iframe class="video-bg-iframe"
+                src="https://www.youtube.com/embed/80ob__zqAoc?autoplay=1&amp;loop=1&amp;playlist=80ob__zqAoc&amp;mute=1&amp;playsinline=1&amp;controls=0&amp;showinfo=0&amp;autohide=1"
+                title="Illustrative project collaboration background" frameborder="0" allow="autoplay; encrypted-media"
+                aria-hidden="true" tabindex="-1"></iframe>
+            <div class="bg-overlay"></div>
+        </section>
+
+        <!-- MENTORSHIP ECOSYSTEM -->
+        <section id="mentorship-ecosystem">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-5">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+                            class="img-fluid rounded shadow"
+                            alt="Illustrative image of people learning and collaborating around a table" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/800x600?text=Mentorship+Ecosystem'">
+                        <p class="small text-muted mt-2 mb-0">Illustrative image; not presented as a completed ESHA Hub
+                            mentorship activity.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <p class="section-kicker">How participation develops</p>
+                        <h2 class="section-title mb-4">The Mentorship Ecosystem</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="ecosystem-item">
+                                    <h3 class="h5 fw-bold">1. Orientation and Role Alignment</h3>
+                                    <p class="text-muted mb-0">Participants are introduced to the relevant project,
+                                        responsibility, expected conduct and learning requirements.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ecosystem-item">
+                                    <h3 class="h5 fw-bold">2. Group Guidance</h3>
+                                    <p class="text-muted mb-0">Shared sessions allow participants to learn through
+                                        common questions, examples and collaborative discussion.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ecosystem-item">
+                                    <h3 class="h5 fw-bold">3. Project-Based Direction</h3>
+                                    <p class="text-muted mb-0">Guidance focuses on actual project tasks and challenges
+                                        connected to approved activities.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ecosystem-item">
+                                    <h3 class="h5 fw-bold">4. Mentor and Expert Support</h3>
+                                    <p class="text-muted mb-0">Experienced members, subject contributors and approved
+                                        mentors may provide specialised guidance.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ecosystem-item">
+                                    <h3 class="h5 fw-bold">5. Practical Exposure</h3>
+                                    <p class="text-muted mb-0">Participants may apply learning through project work,
+                                        documentation, design, content, field activities, research or technical
+                                        responsibilities.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ecosystem-item">
+                                    <h3 class="h5 fw-bold">6. Review and Next Steps</h3>
+                                    <p class="text-muted mb-0">Contributions may be reviewed to determine future
+                                        responsibilities, additional guidance or suitable next-stage participation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESHA-VAANI -->
+        <section class="soft-section" id="esha-vaani-pathways">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <p class="section-kicker">Beginning with Assamese</p>
+                    <h2 class="section-title">ESHA-Vaani Mentorship Opportunities</h2>
+                    <p class="text-muted mx-auto" style="max-width:850px;">ESHA-Vaani is a phased language-technology
+                        initiative beginning with Assamese and may support approved learning, contribution and
+                        mentor-guidance pathways.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <article class="card p-4 h-100">
+                            <h3 class="h3 fw-bold">ESHA-Vaani Learning and Contribution Pathway</h3>
+                            <p class="text-muted">Learners and contributors may develop relevant skills in language
+                                data, speech-related work, documentation, quality review and accessible digital-tool
+                                development before supporting approved project tasks.</p>
+                            <a href="join.html" class="btn btn-outline-primary align-self-start">Express Interest</a>
+                        </article>
+                    </div>
+                    <div class="col-lg-6">
+                        <article class="card p-4 h-100">
+                            <h3 class="h3 fw-bold">Mentors and Language Contributors for ESHA-Vaani</h3>
+                            <p class="text-muted">Experienced individuals with relevant language, education, speech,
+                                documentation, technology or project-guidance experience may express interest in
+                                supporting approved learning and development activities.</p>
+                            <a href="join.html" class="btn btn-outline-primary align-self-start">Contribute as a
+                                Mentor</a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY: STOCK IMAGES CLEARLY LABELLED -->
+        <section id="gallery">
+            <div class="container-fluid p-0">
+                <div class="text-center px-3 mb-4">
+                    <p class="section-kicker">Illustrative visuals</p>
+                    <h2 class="section-title">Learning, Guidance and Collaboration</h2>
+                    <p class="small text-muted">The images below are illustrative stock photographs and do not claim to
+                        show completed ESHA Hub mentorship activities.</p>
+                </div>
+                <div class="row g-0">
+                    <div class="col-6 col-md-3 gallery-wrap"><img
+                            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                            class="w-100 gallery-img" alt="Illustrative group discussion" loading="lazy"><span
+                            class="gallery-label">Illustrative group discussion</span></div>
+                    <div class="col-6 col-md-3 gallery-wrap"><img
+                            src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80"
+                            class="w-100 gallery-img" alt="Illustrative professional guidance session"
+                            loading="lazy"><span class="gallery-label">Illustrative guidance session</span></div>
+                    <div class="col-6 col-md-3 gallery-wrap"><img
+                            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                            class="w-100 gallery-img" alt="Illustrative collaborative planning" loading="lazy"><span
+                            class="gallery-label">Illustrative collaborative planning</span></div>
+                    <div class="col-6 col-md-3 gallery-wrap"><img
+                            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+                            class="w-100 gallery-img" alt="Illustrative technical learning activity"
+                            loading="lazy"><span class="gallery-label">Illustrative technical learning</span></div>
+                    <div class="col-6 col-md-3 gallery-wrap"><img
+                            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+                            class="w-100 gallery-img" alt="Illustrative project team collaboration" loading="lazy"><span
+                            class="gallery-label">Illustrative project collaboration</span></div>
+                    <div class="col-6 col-md-3 gallery-wrap"><img
+                            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+                            class="w-100 gallery-img" alt="Illustrative student learning environment"
+                            loading="lazy"><span class="gallery-label">Illustrative learning environment</span></div>
+                    <div class="col-6 col-md-3 gallery-wrap"><img
+                            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80"
+                            class="w-100 gallery-img" alt="Illustrative project review meeting" loading="lazy"><span
+                            class="gallery-label">Illustrative project review</span></div>
+                    <div class="col-6 col-md-3 gallery-wrap"><img
+                            src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=800&q=80"
+                            class="w-100 gallery-img" alt="Illustrative team mentoring session" loading="lazy"><span
+                            class="gallery-label">Illustrative team mentoring</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEXT STRIP -->
+        <section class="p-0" aria-label="Mentorship themes">
+            <div class="marquee">
+                <div class="marquee-content display-5 fw-bold">Learn with purpose • Contribute through practice • Guide
+                    with responsibility • Learn with purpose • Contribute through practice • Guide with responsibility •
+                </div>
+            </div>
+        </section>
+
+        <!-- INNOVATOR'S DNA -->
+        <section class="soft-section" id="innovators-dna">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <p class="section-kicker">Mentorship principles</p>
+                    <h2 class="section-title">The Innovator's DNA</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card p-4 h-100 text-center">
+                            <div class="dna-icon mx-auto mb-3"><i class="bi bi-question-circle" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Curiosity</h3>
+                            <p class="text-muted mb-0">A willingness to ask questions, explore and learn responsibly.
+                            </p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card p-4 h-100 text-center">
+                            <div class="dna-icon mx-auto mb-3"><i class="bi bi-tools" aria-hidden="true"></i></div>
+                            <h3 class="h5 fw-bold">Practical Thinking</h3>
+                            <p class="text-muted mb-0">Applying ideas to project and community needs.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card p-4 h-100 text-center">
+                            <div class="dna-icon mx-auto mb-3"><i class="bi bi-shield-check" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Ethical Responsibility</h3>
+                            <p class="text-muted mb-0">Working honestly, safely and with respect for people, data and
+                                organisational rules.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card p-4 h-100 text-center">
+                            <div class="dna-icon mx-auto mb-3"><i class="bi bi-people" aria-hidden="true"></i></div>
+                            <h3 class="h5 fw-bold">Collaborative Spirit</h3>
+                            <p class="text-muted mb-0">Learning with mentors, members and project teams.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card p-4 h-100 text-center">
+                            <div class="dna-icon mx-auto mb-3"><i class="bi bi-puzzle" aria-hidden="true"></i></div>
+                            <h3 class="h5 fw-bold">Problem-Solving</h3>
+                            <p class="text-muted mb-0">Testing ideas, learning from difficulties and improving the
+                                approach.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card p-4 h-100 text-center">
+                            <div class="dna-icon mx-auto mb-3"><i class="bi bi-clipboard-data" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Accountability</h3>
+                            <p class="text-muted mb-0">Completing assigned responsibilities and documenting
+                                contributions.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE-SPECIFIC LATEST NEWS -->
+        <section id="latest-news">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <p class="section-kicker">Mentorship updates</p>
+                    <h2 class="section-title">Latest News</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <article class="card h-100"><img
+                                src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="Illustrative audio and language contribution work"
+                                loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="news-category">Current Mentorship Opportunity</p>
+                                <h3 class="h5 fw-bold">ESHA-Vaani Learner and Contributor Pathway</h3>
+                                <p class="card-text text-muted">Expressions of interest may be considered from suitable
+                                    learners and contributors seeking project-connected skill development and practical
+                                    participation in ESHA-Vaani.</p><a href="join.html"
+                                    class="btn btn-outline-primary mt-auto">Express Interest</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <article class="card h-100"><img
+                                src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="Illustrative mentor discussion" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="news-category">Mentor Opportunity</p>
+                                <h3 class="h5 fw-bold">Mentor Contributions for ESHA-Vaani</h3>
+                                <p class="card-text text-muted">Experienced language, education, speech, documentation
+                                    and technology contributors may express interest in supporting approved mentorship
+                                    and project-guidance activities.</p><a href="join.html"
+                                    class="btn btn-outline-primary mt-auto">Contribute as a Mentor</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <article class="card h-100"><img
+                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="Illustrative project-based guidance" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="news-category">Learning Model</p>
+                                <h3 class="h5 fw-bold">Project-Based Mentorship</h3>
+                                <p class="card-text text-muted">Guidance is connected to current organisational
+                                    projects, practical responsibilities and available learning opportunities.</p><a
+                                    href="#mentorship-ecosystem" class="btn btn-outline-primary mt-auto">Explore the
+                                    Model</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <article class="card h-100"><img
+                                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="Illustrative hybrid learning and mentoring pathways"
+                                loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="news-category">Participation Model</p>
+                                <h3 class="h5 fw-bold">Hybrid Mentorship Pathways</h3>
+                                <p class="card-text text-muted">ESHA Hub supports both people seeking to learn and
+                                    contribute and experienced individuals seeking to guide approved participants.</p><a
+                                    href="#hybrid-model" class="btn btn-outline-primary mt-auto">View Pathways</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIONS -->
+        <section class="soft-section text-center" id="participation-actions">
+            <div class="container">
+                <p class="section-kicker">Take the next step</p>
+                <h2 class="section-title mb-3">Participate According to Current Opportunities</h2>
+                <p class="text-muted mx-auto mb-4" style="max-width:800px;">Applications and expressions of interest are
+                    reviewed according to relevance, current project needs, available capacity and organisational
+                    approval.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="join.html" class="btn btn-primary">Join as a Learner or Contributor</a>
+                    <a href="join.html" class="btn btn-outline-primary">Contribute as a Mentor</a>
+                    <a href="join.html" class="btn btn-outline-primary">Request Project Participation</a>
+                    <a href="maintenance.html" class="btn btn-outline-primary">Login</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Mentorship Application Guidance -->
+        <section class="mentorship-contact-guidance py-5" aria-labelledby="mentorship-guidance-title">
+            <div class="container">
+                <div class="mentorship-guidance-card text-center">
+                    <span class="guidance-label">Application Guidance</span>
+
+                    <h2 id="mentorship-guidance-title" class="h3 fw-bold mt-3 mb-3">
+                        Choose Your Mentorship Pathway
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            Mentorship here is defined as <strong>guidance within a learning ecosystem</strong>. It is not a formal class or a 1-on-1 coaching service. It is the support you receive from the community, senior collaborators, and experts as you navigate your own projects.
-                        </div>
+
+                    <p class="guidance-text mx-auto mb-4">
+                        Mentorship-specific application options are currently being prepared.
+                        Until they are added to the main application portal, interested learners,
+                        contributors and mentors may contact ESHA Hub directly and clearly mention
+                        the pathway they wish to join.
+                    </p>
+
+                    <div class="guidance-actions d-flex flex-column flex-sm-row justify-content-center gap-3">
+                        <a href="mailto:info@eshahub.com?subject=Mentorship%20Interest%20-%20Learner%20or%20Contributor"
+                            class="btn btn-primary rounded-pill px-4"
+                            aria-label="Contact ESHA Hub as a learner or contributor">
+                            Join as a Learner or Contributor
+                        </a>
+
+                        <a href="mailto:info@eshahub.com?subject=Mentor%20Contribution%20Interest"
+                            class="btn btn-outline-primary rounded-pill px-4"
+                            aria-label="Contact ESHA Hub to contribute as a mentor">
+                            Contribute as a Mentor
+                        </a>
                     </div>
+
+                    <p class="small text-muted mt-4 mb-0">
+                        For general membership, research collaboration or other participation
+                        enquiries, use the main ESHA Hub application portal.
+                    </p>
+
+                    <a href="/join.html" class="d-inline-block mt-2 fw-semibold">
+                        Open General Application Portal
+                    </a>
                 </div>
-                <!-- Item 2 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                            Is mentorship guaranteed for all members?
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            No. Mentorship is not an entitlement or a guaranteed product. It is a resource that evolves based on availability, the specific phase of your project, and your demonstrated intent to learn and collaborate.
+            </div>
+        </section>
+
+        <style>
+            .mentorship-contact-guidance {
+                background: rgba(13, 110, 253, 0.04);
+            }
+
+            .mentorship-guidance-card {
+                max-width: 860px;
+                margin: 0 auto;
+                padding: 2rem;
+                background: #ffffff;
+                border: 1px solid rgba(13, 110, 253, 0.14);
+                border-radius: 1.25rem;
+                box-shadow: 0 12px 32px rgba(15, 23, 42, 0.07);
+            }
+
+            .guidance-label {
+                display: inline-block;
+                padding: 0.4rem 0.85rem;
+                border-radius: 999px;
+                background: rgba(13, 110, 253, 0.1);
+                color: #0d6efd;
+                font-size: 0.78rem;
+                font-weight: 700;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+            }
+
+            .guidance-text {
+                max-width: 720px;
+                color: #5f6b7a;
+                line-height: 1.75;
+            }
+
+            .guidance-actions .btn {
+                min-height: 48px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            @media (max-width: 575.98px) {
+                .mentorship-guidance-card {
+                    padding: 1.5rem 1rem;
+                    border-radius: 1rem;
+                }
+
+                .guidance-actions .btn {
+                    width: 100%;
+                }
+            }
+        </style>
+        ```
+
+
+        <!-- SOCIAL -->
+        <section class="text-center" id="social">
+            <div class="container">
+                <h2 class="section-title mb-4">Connect With Us</h2>
+                <div class="d-flex justify-content-center gap-4 fs-2">
+                    <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&amp;mibextid=NSMWBT"
+                        target="_blank" rel="noopener noreferrer" class="text-dark" aria-label="ESHA Hub on Facebook"><i
+                            class="bi bi-facebook"></i></a>
+                    <a href="https://x.com/EshaHub" target="_blank" rel="noopener noreferrer" class="text-dark"
+                        aria-label="ESHA Hub on X"><i class="bi bi-twitter"></i></a>
+                    <a href="https://www.instagram.com/esha.hub?utm_source=qr&amp;igsh=bGI1Z2tyMG80dHFl" target="_blank"
+                        rel="noopener noreferrer" class="text-dark" aria-label="ESHA Hub on Instagram"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/esha-hub-assam/" target="_blank" rel="noopener noreferrer"
+                        class="text-dark" aria-label="ESHA Hub on LinkedIn"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTS + MAP -->
+        <section id="contact" class="soft-section">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <p class="section-kicker">Contact and visits</p>
+                        <h2 class="section-title mb-4">Contact Information</h2>
+                        <div class="contact-note mb-4">
+                            <p class="mb-2"><strong>Visits and in-person sessions are available only through prior
+                                    appointment during the stated hours.</strong></p>
+                            <p class="mb-0">The registered location is not an unrestricted public walk-in facility.</p>
                         </div>
+                        <p class="mb-3"><strong>Email:</strong> <a href="mailto:info@eshahub.com">info@eshahub.com</a>
+                        </p>
+                        <address class="mb-3"><strong>Address:</strong><br>Biswanath Chariali<br>Biswanath Ghat
+                            Road<br>Near Gogoi Computer Zone<br>Biswanath, Assam – 784176<br>India</address>
+                        <p class="mb-0"><strong>Office hours:</strong> Monday–Friday, 9:00 AM–5:00 PM</p>
                     </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                            Is this 1-on-1 coaching?
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            Rarely. We focus on <strong>group dynamics and project-based learning</strong>. While individual feedback happens, the primary mode of learning is through shared discussions, observing others, and working on actual problems together.
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 4 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-                            How do I get guidance?
-                        </button>
-                    </h2>
-                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            By being active and curious. Mentorship is a natural outcome of collaboration. Start a project, ask thoughtful questions in the community, and engage with others. Guidance naturally flows to those who are moving forward.
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 5 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFive">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
-                            Is this a coaching institute?
-                        </button>
-                    </h2>
-                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            No. We are a collaborative workspace and research hub. We do not offer syllabus-based tuition or exam preparation. We offer an environment where self-driven learners can find the direction they need.
+                    <div class="col-lg-6">
+                        <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                            <!-- Replace this iframe source only after ESHA Hub's verified Google Maps/Business Profile URL is confirmed. -->
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.1794414613942!2d93.16082369430468!3d26.676458986035595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37445f37256ba6f1%3A0x893c34485ae804b9!2sGogoi%20Computer%20Zone!5e1!3m2!1sen!2sus!4v1770108142621!5m2!1sen!2sus"
+                                title="Map near the registered ESHA Hub location" style="border:0;" allowfullscreen
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- SECTION 6: VIDEO BACKGROUND (header18) -->
-    <section class="fullscreen-section video-bg-container text-center text-white" id="header18-2">
-         <iframe class="video-bg-iframe" 
-            src="https://www.youtube.com/embed/80ob__zqAoc?autoplay=1&loop=1&playlist=80ob__zqAoc&mute=1&playsinline=1&controls=0&showinfo=0&autohide=1&allowfullscreen=true" 
-            frameborder="0" allow="autoplay; encrypted-media"></iframe>
-        <div class="bg-overlay"></div>
-    </section>
-
-    <!-- SECTION 7: ABOUT / ARTICLE (article4) -->
-    <section id="article4-1">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow" alt="Mentorship Path" onerror="this.src='https://via.placeholder.com/600x400?text=ESHA+Path'">
-                </div>
-                <div class="col-lg-6">
-                    <h2 class="mb-4">The Mentorship Ecosystem</h2>
-                    <p>At ESHA Hub, we define mentorship differently. It isn't a transactional service or a fixed curriculum. It is a <strong>shared journey of discovery</strong> that happens in three distinct formats:</p>
-                    
-                    <h5 class="fw-bold mt-4">1. Group Guidance</h5>
-                    <p class="text-muted">Learning happens best in community. Most guidance is provided in group settings (online or offline) where questions from one member help everyone learn.</p>
-
-                    <h5 class="fw-bold mt-3">2. Project-Based Direction</h5>
-                    <p class="text-muted">You learn by doing. Guidance is often specific to the hurdles you face in your actual projects, making it practical and immediately applicable.</p>
-
-                    <h5 class="fw-bold mt-3">3. Exposure</h5>
-                    <p class="text-muted">Sometimes, mentorship is simply having the opportunity to watch experienced people work, listen to their discussions, and understand how they solve problems.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 8: GALLERY SCROLL (gallery4) -->
-    <section id="gallery4-1">
-        <div class="container-fluid p-0">
-            <div class="row g-0">
-                <div class="col-6 col-md-3">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 1">
-                </div>
-                <div class="col-6 col-md-3">
-                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 2">
-                </div>
-                <div class="col-6 col-md-3">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 3">
-                </div>
-                <div class="col-6 col-md-3">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 4">
-                </div>
-                <div class="col-6 col-md-3">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 5">
-                </div>
-                <div class="col-6 col-md-3">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 6">
-                </div>
-                <div class="col-6 col-md-3">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 7">
-                </div>
-                <div class="col-6 col-md-3">
-                    <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-100 gallery-img" alt="Gallery 8">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 9: LOOP TEXT STRIP (gallery10) -->
-    <section class="p-0" id="gallery10-1">
-        <div class="marquee">
-            <div class="marquee-content display-4 fw-bold">
-                ESHA Hub: Innovate Together * Apply Today, Shape Tomorrow * ESHA Hub: Innovate Together * Apply Today, Shape Tomorrow * ESHA Hub: Innovate Together * Apply Today, Shape Tomorrow *
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 10: THE INNOVATOR'S DNA (Replaces Raves) -->
-    <section id="people02-1" class="bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">The Innovator's DNA</h2>
-            <div class="row">
-                <!-- Card 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4 h-100 text-center border-0 shadow-sm">
-                        <div class="fs-1 text-primary mb-3"><i class="bi bi-lightbulb"></i></div>
-                        <h5 class="fw-bold">Visionary Thinking</h5>
-                        <p class="text-muted">Seeing beyond the horizon to what's possible, not just what's probable.</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4 h-100 text-center border-0 shadow-sm">
-                        <div class="fs-1 text-primary mb-3"><i class="bi bi-heart"></i></div>
-                        <h5 class="fw-bold">Ethical Core</h5>
-                        <p class="text-muted">Innovation with a conscience. We prioritize humanity in every breakthrough.</p>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4 h-100 text-center border-0 shadow-sm">
-                        <div class="fs-1 text-primary mb-3"><i class="bi bi-people"></i></div>
-                        <h5 class="fw-bold">Collaborative Spirit</h5>
-                        <p class="text-muted">Building bridges, not silos. We believe the best ideas are shared.</p>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4 h-100 text-center border-0 shadow-sm">
-                        <div class="fs-1 text-primary mb-3"><i class="bi bi-graph-up-arrow"></i></div>
-                        <h5 class="fw-bold">Relentless Pursuit</h5>
-                        <p class="text-muted">Failure is just data. We iterate, adapt, and overcome until it works.</p>
-                    </div>
-                </div>
-                <!-- Card 5 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4 h-100 text-center border-0 shadow-sm">
-                        <div class="fs-1 text-primary mb-3"><i class="bi bi-globe"></i></div>
-                        <h5 class="fw-bold">Global Perspective</h5>
-                        <p class="text-muted">Local roots, global reach. Designing solutions that scale across borders.</p>
-                    </div>
-                </div>
-                <!-- Card 6 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4 h-100 text-center border-0 shadow-sm">
-                        <div class="fs-1 text-primary mb-3"><i class="bi bi-gear-wide-connected"></i></div>
-                        <h5 class="fw-bold">Systems Thinking</h5>
-                        <p class="text-muted">Understanding how the pieces fit to engineer sustainable change.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 11: LATEST NEWS (features03) -->
-    <section id="features03-1">
-        <div class="container">
-            <h2 class="text-center mb-5">Latest News</h2>
-            <div class="row">
-                <!-- News 1: AI Grant -->
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="AI Research" onerror="this.src='https://via.placeholder.com/400x300?text=AI+Grant'">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">AI Grant Alert</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">June 19, 2025</h6>
-                            <p class="card-text">New AI research grants available. Apply now!</p>
-                            <a href="" class="btn btn-outline-primary rounded-pill">Join</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- News 2: BFECT Theory -->
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Space Theory" onerror="this.src='https://via.placeholder.com/400x300?text=BFECT+Theory'">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">BFECT Theory Update</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">June 12, 2025</h6>
-                            <p class="card-text">Black Hole Fabric Energy Cycle Theory (BFECT): a collapse-force geometric framework exploring energy cycles through spacetime fabric behavior.</p>
-                            <a href="" class="btn btn-outline-primary rounded-pill">Join</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- News 3: Mentorship -->
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Mentorship Launch" onerror="this.src='https://via.placeholder.com/400x300?text=Mentorship'">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Mentorship Insights</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">June 05, 2025</h6>
-                            <p class="card-text">Learn how our ecosystem supports peer-learning and project-based growth.</p>
-                            <a href="#article4-1" class="btn btn-outline-primary rounded-pill">Info</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- News 4: Voice Tech -->
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Voice Recording" onerror="this.src='https://via.placeholder.com/400x300?text=Voice+Tech'">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Assamese Voice Contributors Needed</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">May 29, 2025</h6>
-                            <p class="card-text">We are seeking Assamese speakers to contribute voice recordings for a multi-language AI system.</p>
-                            <a href="" class="btn btn-outline-primary rounded-pill">Join</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 12: FOLLOW US (social05) -->
-    <section class="bg-light text-center" id="social05-1">
-        <div class="container">
-            <h2 class="mb-4">Connect With Us</h2>
-            <div class="d-flex justify-content-center gap-4 fs-2">
-                <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT" target="_blank" class="text-dark"><i class="bi bi-facebook"></i></a>
-                <a href="https://x.com/EshaHub" target="_blank" class="text-dark"><i class="bi bi-twitter"></i></a>
-                <a href="https://www.instagram.com/esha.hub?utm_source=qr&igsh=bGI1Z2tyMG80dHFl" target="_blank" class="text-dark"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/esha-hub-assam/" target="_blank" class="text-dark"><i class="bi bi-linkedin"></i></a>
-                <a href="#" target="_blank" class="text-dark"><i class="bi bi-youtube"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 14: CONTACTS + MAP (contacts03) -->
-    <section id="contacts03-1" class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <h2 class="mb-4">Contact Info</h2>
-                    <p class="mb-2"><strong>Note:</strong><p>Visits are conducted strictly by prior appointment. Registered members may access the workspace for sessions and project activities through prior coordination only. <br>
-                    <span style="display:block; text-indent : 16px;">This is an early-stage, community-run workspace operating from a registered location in Biswanath, Assam.</span></p>
-                    <p class="mb-2"><strong>Email:</strong> info@eshahub.com</p>
-                    <p class="mb-2"><strong>Address:</strong> Biswanath chariali,Biswanath Ghat Road,<br>near Gogoi Computer Zone,Assam - 784176</p>
-                    <p class="mb-0"><strong>Hours:</strong> Mon-Fri, 9am-5pm</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.1794414613942!2d93.16082369430468!3d26.676458986035595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37445f37256ba6f1%3A0x893c34485ae804b9!2sGogoi%20Computer%20Zone!5e1!3m2!1sen!2sus!4v1770108142621!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 15: FOOTER (footer3) -->
-    <footer class="bg-dark text-white text-center py-4" id="footer3-1">
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-4" id="footer">
         <div class="container">
             <ul class="nav justify-content-center mb-3">
-                <li class="nav-item"><a href="#" class="nav-link text-white px-3">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white px-3">Terms</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white px-3">Privacy</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white px-3">Contact</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link text-white px-3">About</a></li>
+                <li class="nav-item"><a href="mentorship_magic.html" class="nav-link text-white px-3">Mentorship</a>
+                </li>
+                <li class="nav-item"><a href="join.html" class="nav-link text-white px-3">Join Us</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link text-white px-3">Contact</a></li>
             </ul>
             <div class="d-flex justify-content-center gap-3 mb-3">
-                <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT" target="_blank" class="text-white"><i class="bi bi-facebook"></i></a>
-                <a href="https://x.com/EshaHub" target="_blank" class="text-white"><i class="bi bi-twitter"></i></a>
-                <a href="https://www.instagram.com/esha.hub?utm_source=qr&igsh=bGI1Z2tyMG80dHFl" target="_blank" class="text-white"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/esha-hub-assam/" target="_blank" class="text-white"><i class="bi bi-linkedin"></i></a>
-                <a href="#" target="_blank" class="text-white"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&amp;mibextid=NSMWBT"
+                    target="_blank" rel="noopener noreferrer" class="text-white" aria-label="ESHA Hub on Facebook"><i
+                        class="bi bi-facebook"></i></a>
+                <a href="https://x.com/EshaHub" target="_blank" rel="noopener noreferrer" class="text-white"
+                    aria-label="ESHA Hub on X"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.instagram.com/esha.hub?utm_source=qr&amp;igsh=bGI1Z2tyMG80dHFl" target="_blank"
+                    rel="noopener noreferrer" class="text-white" aria-label="ESHA Hub on Instagram"><i
+                        class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/esha-hub-assam/" target="_blank" rel="noopener noreferrer"
+                    class="text-white" aria-label="ESHA Hub on LinkedIn"><i class="bi bi-linkedin"></i></a>
             </div>
             <p class="mb-0">© 2026 ESHA Hub. All rights reserved.</p>
         </div>
@@ -555,6 +1281,6 @@
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
+
 </html>

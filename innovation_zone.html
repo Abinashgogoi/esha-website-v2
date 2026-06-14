@@ -1,515 +1,1433 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-WDJWQVWEK1');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-WDJWQVWEK1");
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESHA – Innovation Zone</title>
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore ESHA Hub’s phased innovation initiatives, conceptual focus areas, early design activities and project-participation pathways."
+    />
+    <meta property="og:title" content="Innovation Zone | ESHA Hub" />
+    <meta
+      property="og:description"
+      content="Explore ESHA Hub’s phased innovation initiatives, conceptual focus areas, early design activities and project-participation pathways."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://eshahub.com/innovation_zone.html"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Innovation Zone | ESHA Hub" />
+    <meta
+      name="twitter:description"
+      content="Explore ESHA Hub’s phased innovation initiatives, conceptual focus areas, early design activities and project-participation pathways."
+    />
+    <title>Innovation Zone | ESHA Hub</title>
+
+    <!-- Favicon (verified existing website asset path) -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="esha_crow_photo/esha_hub_logo.png"
+    />
+    <link rel="shortcut icon" href="esha_crow_photo/esha_hub_logo.png" />
+
     <!-- Bootstrap 5.1 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        :root {
-            --esha-yellow: #eeb902;
-            --esha-cream: #fdf8e6;
-            --esha-dark: #212529;
-            --esha-text: #4a4a4a;
-        }
+      :root {
+        --esha-yellow: #eeb902;
+        --esha-cream: #fdf8e6;
+        --esha-dark: #212529;
+        --esha-text: #4a4a4a;
+        --esha-border: #e9e9e9;
+      }
 
-        /* --- STABILITY FIXES --- */
-        html, body {
-            width: 100%;
-            overflow-x: hidden; /* Prevent horizontal scroll jitter */
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            color: var(--esha-text);
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        /* Prevent image layout shifts and handle errors */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+        color: var(--esha-text);
+      }
 
-        /* Navbar */
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-        .navbar-brand {
-            font-weight: 800;
-            color: var(--esha-dark) !important;
-            font-size: 1.5rem;
-            letter-spacing: -0.5px;
-        }
+      body {
+        padding-top: 82px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid rgba(238, 185, 2, 0.55);
+        outline-offset: 3px;
+      }
+
+      .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        color: var(--esha-dark) !important;
+        font-size: 1.5rem;
+        letter-spacing: -0.5px;
+      }
+
+      .nav-link {
+        color: var(--esha-dark) !important;
+        font-weight: 600;
+        margin: 0 0.4rem;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: #b98f00 !important;
+      }
+
+      .dropdown-menu {
+        border: 1px solid var(--esha-border);
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .dropdown-item {
+        font-weight: 600;
+        padding: 0.7rem 1rem;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        background-color: var(--esha-cream);
+        color: var(--esha-dark);
+      }
+
+      .btn-cta,
+      .btn-outline-cta,
+      .btn-hero {
+        font-weight: 700;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-cta {
+        background-color: var(--esha-yellow);
+        color: var(--esha-dark);
+        padding: 0.55rem 1.5rem;
+        border: 2px solid var(--esha-yellow);
+      }
+
+      .btn-cta:hover {
+        background-color: transparent;
+        color: var(--esha-dark);
+      }
+
+      .btn-outline-cta {
+        background-color: transparent;
+        color: var(--esha-dark);
+        padding: 0.7rem 1.5rem;
+        border: 2px solid var(--esha-dark);
+      }
+
+      .btn-outline-cta:hover {
+        background-color: var(--esha-dark);
+        color: #fff;
+      }
+
+      .hero-section {
+        background-color: var(--esha-yellow);
+        padding: 5rem 0;
+        min-height: calc(80vh - 82px);
+        display: flex;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 0.8rem;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #4b3b00;
+      }
+
+      .hero-title {
+        font-weight: 800;
+        font-size: 3.5rem;
+        color: var(--esha-dark);
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-text {
+        font-size: 1.15rem;
+        color: #212529;
+        margin-bottom: 1.5rem;
+        max-width: 95%;
+        line-height: 1.7;
+      }
+
+      .stage-notice {
+        background: rgba(255, 255, 255, 0.72);
+        border-left: 5px solid var(--esha-dark);
+        border-radius: 8px;
+        padding: 1rem 1.1rem;
+        margin: 1.5rem 0 2rem;
+        color: var(--esha-dark);
+        line-height: 1.6;
+      }
+
+      .img-container {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+
+      .img-caption {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: #5e5e5e;
+        margin-top: 0.75rem;
+      }
+
+      .btn-hero {
+        background-color: var(--esha-dark);
+        color: #fff;
+        padding: 12px 30px;
+        border: 2px solid var(--esha-dark);
+      }
+
+      .btn-hero:hover {
+        background-color: transparent;
+        color: var(--esha-dark);
+      }
+
+      .section-block {
+        padding: 5rem 0;
+      }
+
+      .section-white {
+        background-color: #fff;
+      }
+
+      .section-cream {
+        background-color: var(--esha-cream);
+      }
+
+      .section-title {
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: var(--esha-dark);
+        margin-bottom: 1rem;
+      }
+
+      .section-lead {
+        font-size: 1.08rem;
+        line-height: 1.7;
+        max-width: 850px;
+      }
+
+      .process-card,
+      .initiative-card,
+      .focus-card,
+      .guideline-card,
+      .proposal-card {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--esha-border);
+        height: 100%;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .process-card:hover,
+      .initiative-card:hover,
+      .focus-card:hover,
+      .guideline-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        border-color: var(--esha-yellow);
+      }
+
+      .process-icon,
+      .card-icon {
+        font-size: 2.2rem;
+        color: #c99b00;
+        margin-bottom: 1.1rem;
+        display: inline-block;
+      }
+
+      .process-title,
+      .card-title {
+        font-weight: 700;
+        margin-bottom: 0.85rem;
+        color: var(--esha-dark);
+      }
+
+      .stage-number {
+        display: inline-flex;
+        width: 36px;
+        height: 36px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--esha-yellow);
+        color: var(--esha-dark);
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .status-badge,
+      .tag {
+        display: inline-block;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      .status-badge {
+        background-color: var(--esha-cream);
+        color: #5a4600;
+        border: 1px solid rgba(238, 185, 2, 0.5);
+        padding: 0.4rem 0.75rem;
+        font-size: 0.83rem;
+        margin-bottom: 1rem;
+      }
+
+      .tag {
+        background: #f2f2f2;
+        color: #333;
+        padding: 0.38rem 0.7rem;
+        margin: 0.2rem 0.2rem 0.2rem 0;
+        font-size: 0.8rem;
+      }
+
+      .feature-list,
+      .proposal-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .feature-list li,
+      .proposal-list li {
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .feature-list i,
+      .proposal-list i {
+        color: #c99b00;
+        margin-right: 10px;
+        margin-top: 3px;
+        font-size: 1.05rem;
+      }
+
+      .proposal-card {
+        background: var(--esha-dark);
+        color: #fff;
+        border: none;
+      }
+
+      .proposal-card h2,
+      .proposal-card h3 {
+        color: #fff;
+      }
+
+      .proposal-card .proposal-list i {
+        color: var(--esha-yellow);
+      }
+
+      .proposal-note {
+        border-left: 4px solid var(--esha-yellow);
+        background: rgba(255, 255, 255, 0.08);
+        padding: 1rem;
+        border-radius: 6px;
+        line-height: 1.6;
+      }
+
+      .accordion-item {
+        border: none;
+        border-bottom: 1px solid var(--esha-border);
+        margin-bottom: 10px;
+      }
+
+      .accordion-button {
+        font-weight: 600;
+        color: var(--esha-dark);
+        background-color: transparent;
+        box-shadow: none !important;
+        padding: 1.5rem 1rem;
+        font-size: 1.05rem;
+      }
+
+      .accordion-button:not(.collapsed) {
+        color: #9b7900;
+        background-color: transparent;
+      }
+
+      .accordion-body {
+        color: var(--esha-text);
+        padding-bottom: 2rem;
+        line-height: 1.7;
+      }
+
+      .footer {
+        background-color: var(--esha-dark);
+        color: #fff;
+        padding: 4rem 0 2rem;
+        text-align: center;
+      }
+
+      .footer h2 {
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+      }
+
+      .store-btn {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        border-radius: 8px;
+        margin: 0 5px 15px;
+        display: inline-flex;
+        align-items: center;
+        transition: 0.3s;
+        text-decoration: none;
+      }
+
+      .store-btn:hover {
+        background-color: var(--esha-yellow);
+        color: var(--esha-dark);
+        border-color: var(--esha-yellow);
+      }
+
+      .footer-logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 2rem auto 1rem;
+        border: 3px solid rgba(255, 255, 255, 0.1);
+        object-fit: cover;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        margin: 0 0.5rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--esha-yellow);
+      }
+
+      .copyright {
+        font-size: 0.9rem;
+        opacity: 0.65;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 1.5rem;
+      }
+
+      @media (max-width: 1199px) {
         .nav-link {
-            color: var(--esha-dark) !important;
-            font-weight: 600;
-            margin: 0 0.5rem;
-            transition: color 0.3s ease;
+          margin: 0 0.15rem;
+          font-size: 0.92rem;
         }
-        .nav-link:hover {
-            color: var(--esha-yellow) !important;
-        }
-        .btn-cta {
-            background-color: var(--esha-yellow);
-            color: var(--esha-dark);
-            font-weight: 700;
-            border-radius: 50px;
-            padding: 0.5rem 1.5rem;
-            border: 2px solid var(--esha-yellow);
-            transition: all 0.3s ease;
-        }
-        .btn-cta:hover {
-            background-color: transparent;
-            color: var(--esha-dark);
+      }
+
+      @media (max-width: 991px) {
+        body {
+          padding-top: 76px;
         }
 
-        /* Hero Section */
-        .hero-section {
-            background-color: var(--esha-yellow);
-            padding: 5rem 0;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-        }
         .hero-title {
-            font-weight: 800;
-            font-size: 3.5rem;
-            color: var(--esha-dark);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+          font-size: 2.7rem;
         }
+
+        .hero-section {
+          text-align: center;
+          min-height: auto;
+          padding: 4rem 0;
+        }
+
         .hero-text {
-            font-size: 1.25rem;
-            color: #212529;
-            margin-bottom: 2rem;
-            max-width: 90%;
-            line-height: 1.6;
+          margin-left: auto;
+          margin-right: auto;
         }
+
+        .stage-notice {
+          text-align: left;
+        }
+
         .img-container {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        .btn-hero {
-            background-color: var(--esha-dark);
-            color: #fff;
-            padding: 12px 35px;
-            border-radius: 50px;
-            font-weight: 600;
-            border: 2px solid var(--esha-dark);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .btn-hero:hover {
-            background-color: transparent;
-            color: var(--esha-dark);
+          margin-top: 2.5rem;
         }
 
-        /* Process/Pillars Section (New) */
-        .process-section {
-            padding: 5rem 0;
-            background-color: #ffffff;
-        }
-        .process-card {
-            background: #fff;
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            border: 1px solid #eee;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            text-align: center;
-        }
-        .process-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-color: var(--esha-yellow);
-        }
-        .process-icon {
-            font-size: 2.5rem;
-            color: var(--esha-yellow);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-        .process-title {
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--esha-dark);
+        .navbar-nav {
+          align-items: stretch !important;
+          padding-top: 1rem;
         }
 
-        /* Second Split Section */
-        .highlight-section {
-            background-color: var(--esha-cream);
-            padding: 5rem 0;
+        .nav-link {
+          margin: 0;
+          padding: 0.7rem 0.25rem !important;
         }
+
+        .dropdown-menu {
+          box-shadow: none;
+          border-radius: 8px;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .section-block {
+          padding: 3.75rem 0;
+        }
+
+        .hero-title {
+          font-size: 2.25rem;
+        }
+
+        .hero-text {
+          font-size: 1rem;
+          max-width: 100%;
+        }
+
         .section-title {
-            font-weight: 700;
-            font-size: 2.5rem;
-            color: var(--esha-dark);
-            margin-bottom: 1rem;
-        }
-        .section-text {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 2rem;
-        }
-        .feature-list li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: start;
-        }
-        .feature-list i {
-            color: var(--esha-yellow);
-            margin-right: 10px;
-            margin-top: 4px;
-            font-size: 1.2rem;
+          font-size: 2rem;
         }
 
-        /* FAQ Section */
-        .faq-section {
-            background-color: #fff;
-            padding: 5rem 0;
-        }
-        .accordion-item {
-            border: none;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 10px;
-        }
-        .accordion-button {
-            font-weight: 600;
-            color: var(--esha-dark);
-            background-color: transparent;
-            box-shadow: none !important;
-            padding: 1.5rem 1rem;
-            font-size: 1.1rem;
-        }
-        .accordion-button:not(.collapsed) {
-            color: #cfa002;
-            background-color: transparent;
-        }
-        .accordion-body {
-            color: var(--esha-text);
-            padding-bottom: 2rem;
-            line-height: 1.6;
+        .process-card,
+        .initiative-card,
+        .focus-card,
+        .guideline-card,
+        .proposal-card {
+          padding: 1.5rem;
         }
 
-        /* Footer */
-        .footer {
-            background-color: var(--esha-dark);
-            color: #fff;
-            padding: 4rem 0 2rem 0;
-            text-align: center;
-        }
-        .footer h3 {
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-        .store-btn {
-            background-color: rgba(255,255,255,0.1);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 10px 25px;
-            border-radius: 8px;
-            margin: 0 5px 15px 5px;
-            display: inline-flex;
-            align-items: center;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-        .store-btn:hover {
-            background-color: var(--esha-yellow);
-            color: var(--esha-dark);
-            border-color: var(--esha-yellow);
-        }
-        .footer-logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 2rem auto;
-            border: 3px solid rgba(255,255,255,0.1);
-            object-fit: cover;
-        }
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.6;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1.5rem;
+        .btn-group-responsive {
+          display: grid !important;
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
         }
 
-        /* Mobile tweaks */
-        @media (max-width: 991px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-section { text-align: center; }
-            .hero-text { margin-left: auto; margin-right: auto; }
-            .img-container { margin-top: 3rem; }
-            .order-mobile-first { order: -1; margin-bottom: 2rem; }
+        .btn-group-responsive .btn,
+        .btn-group-responsive a {
+          width: 100%;
+          margin: 0 !important;
         }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Home</a>
-            <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            >
-             <span
-             class="navbar-toggler-icon"
-             style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(33,37,41,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E&quot;);"
-            ></span>
-            </button>
+    <nav
+      class="navbar navbar-expand-lg fixed-top"
+      aria-label="Primary navigation"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index.html">ESHA Hub</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span
+            class="navbar-toggler-icon"
+            style="
+              background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(33,37,41,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E&quot;);
+            "
+          >
+          </span>
+        </button>
 
-        
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="research_hub.html">Research Hub</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="innovation_zone.html">Innovation Zone</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mentorship_magic.html">Mentorship Magic</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="community_connect.html">Community Connect</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/esha-members-module/executive-members.html">Member</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                        <a class="btn btn-cta" href="join.html">Join Us</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="research_hub.html">Research Hub</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="innovation_zone.html"
+                >Innovation Zone</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mentorship_magic.html"
+                >Mentorship Magic</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="community_connect.html"
+                >Community Connect</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="membersDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Members
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="membersDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/esha-members-module/executive-members.html"
+                    >Executive Members</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+              <a class="btn btn-cta" href="join.html">Join Us</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
-    <!-- HERO SECTION (Split) -->
-    <section class="hero-section">
+    <main>
+      <!-- HERO SECTION -->
+      <section class="hero-section" aria-labelledby="hero-title">
         <div class="container">
-            <div class="row align-items-center">
-                <!-- Text Column -->
-                <div class="col-lg-6">
-                    <h1 class="hero-title">The Innovation Crucible</h1>
-                    <p class="hero-text">
-                        <strong>Note: Projects listed here are part of ESHA Hub's pilot innovation cycle.</strong><br><br>
-                        Accelerating the transition from theoretical concepts to controlled prototypes. 
-                        The ESHA Innovation Zone provides the framework for rapid ideation, collaborative prototyping, and early-stage internal validation.
-                    </p>
-                    <a href="about.html" class="btn btn-hero">Pilot Methodology</a>
-                </div>
-                <!-- Image Column -->
-                <div class="col-lg-6">
-                    <div class="img-container">
-                        <img src="./photo-1517181875630-f72350452109.jpeg" 
-                             alt="Innovation Prototype Lab" 
-                             class="img-fluid w-100" 
-                             onerror="this.style.display='none'">
-                    </div>
-                </div>
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <span class="eyebrow">The Innovation Crucible</span>
+              <h1 class="hero-title" id="hero-title">Innovation Zone</h1>
+              <p class="hero-text">
+                The ESHA Hub Innovation Zone supports the gradual development of
+                ideas through structured exploration, collaborative design,
+                early-stage prototyping and responsible internal review.
+              </p>
+              <p class="hero-text">
+                Activities depend on project relevance, available resources,
+                technical feasibility and organisational capacity.
+              </p>
+              <div class="stage-notice">
+                <strong>Current-stage notice:</strong> Projects and focus areas
+                presented here may be at different stages, including conceptual
+                exploration, planning, phased development, early design work,
+                internal prototyping and limited ground-level activity. The
+                current stage of each item is identified separately.
+              </div>
+              <div
+                class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start btn-group-responsive"
+              >
+                <a href="join.html" class="btn btn-hero"
+                  >Propose an Innovation Project</a
+                >
+                <a
+                  href="mailto:info@eshahub.com?subject=Innovation%20Project%20Expression%20of%20Interest"
+                  class="btn btn-outline-cta"
+                  aria-label="Email ESHA Hub about an innovation project proposal"
+                  >Email Project Proposal</a
+                >
+              </div>
             </div>
+            <div class="col-lg-6">
+              <figure class="mb-0">
+                <div class="img-container">
+                  <img
+                    src="./photo-1517181875630-f72350452109.jpeg"
+                    alt="Illustrative flexible workspace with tools for early-stage innovation activities"
+                    class="img-fluid w-100"
+                    onerror="this.closest('figure').style.display = 'none'"
+                  />
+                </div>
+                <figcaption class="img-caption">
+                  Illustrative view of a flexible workspace for early-stage
+                  project and prototype activities.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- PROCESS PILLARS SECTION (New Content) -->
-    <section class="process-section">
+      <!-- DEVELOPMENT PATHWAY -->
+      <section
+        class="section-block section-white"
+        aria-labelledby="pathway-title"
+      >
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">The Incubation Pathway</h2>
-                <p class="text-muted w-75 mx-auto">Our structured approach to pilot execution and testing.</p>
+          <div class="text-center mb-5">
+            <h2 class="section-title" id="pathway-title">
+              Innovation Development Pathway
+            </h2>
+            <p class="section-lead text-muted mx-auto">
+              A practical, non-guaranteed pathway for moving suitable ideas from
+              initial identification toward review, testing and further
+              development decisions.
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <article class="process-card">
+                <span class="stage-number" aria-hidden="true">1</span>
+                <h3 class="process-title h5">
+                  Idea and Problem Identification
+                </h3>
+                <p>
+                  Members, learners, contributors and project teams may identify
+                  practical, technical, research-related or community-relevant
+                  problems through observation, discussion and preliminary
+                  study.
+                </p>
+              </article>
             </div>
-            <div class="row g-4">
-                <!-- Card 1 -->
-                <div class="col-md-4">
-                    <div class="process-card">
-                        <i class="bi bi-lightbulb process-icon"></i>
-                        <h3 class="process-title">Ideation & Discovery</h3>
-                        <p>We foster a culture of curiosity where students and researchers identify real-world problems. Through brainstorming sessions, we refine abstract concepts into initial project proposals.</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="col-md-4">
-                    <div class="process-card">
-                        <i class="bi bi-tools process-icon"></i>
-                        <h3 class="process-title">Prototyping & Build</h3>
-                        <p>Access to essential tools allows teams to build Minimum Viable Products (MVPs). This phase focuses on internal testing—iterating designs in a controlled lab environment.</p>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col-md-4">
-                    <div class="process-card">
-                        <i class="bi bi-rocket-takeoff process-icon"></i>
-                        <h3 class="process-title">Validation & Field Pilot</h3>
-                        <p>Projects undergo rigorous internal review. We facilitate mentorship feedback loops and limited field pilots (controlled environments) to validate solutions before any wider consideration.</p>
-                    </div>
-                </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="process-card">
+                <span class="stage-number" aria-hidden="true">2</span>
+                <h3 class="process-title h5">Concept Development</h3>
+                <p>
+                  Suitable ideas may be organised into clear concept proposals
+                  defining the problem, intended users, possible approach,
+                  limitations and required resources.
+                </p>
+              </article>
             </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="process-card">
+                <span class="stage-number" aria-hidden="true">3</span>
+                <h3 class="process-title h5">Design and Feasibility Review</h3>
+                <p>
+                  Concepts may undergo basic design exploration, technical
+                  discussion and feasibility review according to available
+                  knowledge, tools and organisational capacity.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="process-card">
+                <span class="stage-number" aria-hidden="true">4</span>
+                <h3 class="process-title h5">
+                  Early Model or Prototype Development
+                </h3>
+                <p>
+                  Approved concepts may progress into design structures, digital
+                  tools, experimental systems, physical models or early
+                  functional prototypes where resources and technical conditions
+                  permit.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="process-card">
+                <span class="stage-number" aria-hidden="true">5</span>
+                <h3 class="process-title h5">
+                  Review, Testing and Limited Application
+                </h3>
+                <p>
+                  Suitable models or prototypes may undergo internal review,
+                  controlled testing or limited practical application where
+                  appropriate. Observations and feedback are used to identify
+                  limitations and guide further development.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="process-card">
+                <span class="stage-number" aria-hidden="true">6</span>
+                <h3 class="process-title h5">Further Development Decision</h3>
+                <p>
+                  Based on feasibility, contribution, results, safety, relevance
+                  and available capacity, a project may proceed, remain under
+                  development, pause, be revised or be archived.
+                </p>
+              </article>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- SECOND SPLIT SECTION (Highlight) -->
-    <section class="highlight-section">
+      <!-- CURRENT INITIATIVE -->
+      <section
+        class="section-block section-cream"
+        aria-labelledby="initiative-title"
+      >
         <div class="container">
-            <div class="row align-items-center">
-                <!-- Image Column (Left on Desktop, Top on Mobile) -->
-                <div class="col-lg-6 order-mobile-first">
-                    <div class="img-container">
-                        <img src="./photo-1488229297570-58520851e868.jpeg" 
-                             alt="Collaborative Engineering" 
-                             class="img-fluid w-100" 
-                             onerror="this.style.display='none'">
-                    </div>
-                </div>
-                <!-- Text Column -->
-                <div class="col-lg-6 ps-lg-5">
-                    <h2 class="section-title">Strategic Focus Areas</h2>
-                    <p class="section-text">
-                        The Innovation Zone aligns its resources with forward-looking domains currently in the exploration or pilot phase.
-                    </p>
-                    
-                    <ul class="feature-list">
-                        <li>
-                            <i class="bi bi-check-circle-fill"></i>
-                            <span><strong>Digital Transformation:</strong> Software solutions and AI applications. <br><em class="text-muted small">Current Stage: Idea</em></span>
-                        </li>
-                        <li>
-                            <i class="bi bi-check-circle-fill"></i>
-                            <span><strong>Sustainable Engineering:</strong> Eco-friendly system design. <br><em class="text-muted small">Current Stage: Prototype</em></span>
-                        </li>
-                        <li>
-                            <i class="bi bi-check-circle-fill"></i>
-                            <span><strong>Social Innovation:</strong> Technology for community challenges. <br><em class="text-muted small">Current Stage: Field Pilot (Limited)</em></span>
-                        </li>
-                    </ul>
-
-                    <a href="join.html" class="btn btn-cta" style="background-color: var(--esha-dark); color: white; border-color: var(--esha-dark);">Express Interest in Residency</a>
-                </div>
+          <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+              <span class="eyebrow">Current Development Initiative</span>
+              <h2 class="section-title" id="initiative-title">ESHA-Vaani</h2>
+              <p class="section-lead">
+                ESHA-Vaani is the principal initiative currently presented
+                within the Innovation Zone.
+              </p>
             </div>
+            <div class="col-lg-7">
+              <article class="initiative-card">
+                <i
+                  class="bi bi-chat-square-text card-icon"
+                  aria-hidden="true"
+                ></i>
+                <div>
+                  <span class="status-badge">Status: Phased Development</span>
+                  <p class="mb-2">
+                    <strong>Category:</strong> Language Technology
+                  </p>
+                  <p>
+                    ESHA-Vaani is a phased language-technology initiative
+                    beginning with Assamese, focused on language data,
+                    speech-related research and accessible digital tools.
+                    Additional languages may be explored gradually as the
+                    project develops.
+                  </p>
+                  <div aria-label="ESHA-Vaani project tags">
+                    <span class="tag">Language Technology</span>
+                    <span class="tag">Assamese — Initial Phase</span>
+                    <span class="tag">Speech and Language Data</span>
+                    <span class="tag">Accessible Digital Tools</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- FAQ SECTION -->
-    <section class="faq-section">
+      <!-- INNOVATION FOCUS AREAS -->
+      <section
+        class="section-block section-white"
+        aria-labelledby="focus-title"
+      >
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Operational Guidelines</h2>
-                <p class="text-muted">Common questions about the pilot ecosystem.</p>
+          <div class="text-center mb-5">
+            <h2 class="section-title" id="focus-title">
+              Innovation Focus Areas
+            </h2>
+            <p class="section-lead text-muted mx-auto">
+              These are broad areas of exploration. They should not be
+              interpreted as completed, validated or market-ready projects.
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <article class="focus-card">
+                <i class="bi bi-cpu card-icon" aria-hidden="true"></i>
+                <h3 class="card-title h4">Digital Transformation</h3>
+                <span class="status-badge">Conceptual Exploration</span>
+                <p>
+                  Early-stage exploration of digital tools and assistive
+                  technologies intended to support agriculture, accessibility,
+                  communication and other practical community needs.
+                </p>
+              </article>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="accordion" id="faqAccordion">
-                        <!-- Q1 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                    What resources does the Zone provide?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Members gain access to shared workspaces and technical mentorship for pilot development. As we grow, we are expanding our inventory of tools for internal testing.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Q2 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                    Who owns the projects developed here?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    ESHA Hub supports open innovation. Creators generally retain IP for their early-stage concepts. We facilitate the pilot environment but do not guarantee commercial launch or funding.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Q3 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                    How can I propose a pilot project?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    We review concept notes on a rolling basis. You can express interest as an individual or group. Visit the "Join Us" page to submit your initial interest for review.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="focus-card">
+                <i
+                  class="bi bi-gear-wide-connected card-icon"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="card-title h4">Sustainable Engineering</h3>
+                <span class="status-badge">Concept and Design Exploration</span>
+                <p>
+                  Practical engineering concepts focused on affordability,
+                  resource efficiency, repairability and locally relevant
+                  design. Current work remains at the conceptual and early
+                  design stage.
+                </p>
+              </article>
             </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="focus-card">
+                <i class="bi bi-people card-icon" aria-hidden="true"></i>
+                <h3 class="card-title h4">Social Innovation</h3>
+                <span class="status-badge"
+                  >Limited Ground-Level Exploration</span
+                >
+                <p>
+                  Community-oriented ideas and small-scale practical
+                  observations intended to understand local needs and guide
+                  future programme development.
+                </p>
+              </article>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- FOOTER -->
+      <!-- PORTABLE WORKSPACE -->
+      <section
+        class="section-block section-cream"
+        aria-labelledby="workspace-title"
+      >
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <figure class="mb-0">
+                <div class="img-container mt-0">
+                  <img
+                    src="./photo-1488229297570-58520851e868.jpeg"
+                    alt="Illustrative collaborative workspace for design, documentation and early testing"
+                    class="img-fluid w-100"
+                    loading="lazy"
+                    onerror="this.closest('figure').style.display = 'none'"
+                  />
+                </div>
+                <figcaption class="img-caption">
+                  Illustrative collaborative workspace; it does not represent a
+                  certified or advanced laboratory facility.
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-lg-6">
+              <span class="eyebrow">Flexible Project Support</span>
+              <h2 class="section-title" id="workspace-title">
+                Portable Innovation Workspace
+              </h2>
+              <p class="section-lead">
+                ESHA Hub uses a flexible, small-scale workspace model in which
+                available tools, materials and project resources may be arranged
+                across approved working locations according to project
+                requirements.
+              </p>
+              <p>
+                The workspace supports early design, testing, documentation,
+                model-building and project preparation according to available
+                capacity.
+              </p>
+              <p class="mb-0">
+                <strong>Resource access:</strong> Approved members and project
+                participants may receive access to available workspace, tools,
+                materials and technical guidance according to project
+                requirements, organisational capacity and prior coordination.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROPOSAL GUIDANCE -->
+      <section
+        class="section-block section-white"
+        aria-labelledby="proposal-title"
+      >
+        <div class="container">
+          <div class="proposal-card">
+            <div class="row g-4 align-items-start">
+              <div class="col-lg-7">
+                <h2 class="section-title mb-3" id="proposal-title">
+                  Propose an Innovation Project
+                </h2>
+                <p>
+                  Individuals or small teams may submit an initial expression of
+                  interest for a practical, technical, research-related or
+                  community-oriented idea aligned with ESHA Hub’s objectives.
+                </p>
+                <p>
+                  Proposals are reviewed according to relevance, feasibility,
+                  expected contribution, safety, available resources and
+                  organisational capacity.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mt-4 btn-group-responsive">
+                  <a href="join.html" class="btn btn-cta"
+                    >Propose an Innovation Project</a
+                  >
+                  <a
+                    href="mailto:info@eshahub.com?subject=Innovation%20Project%20Expression%20of%20Interest"
+                    class="store-btn m-0"
+                    aria-label="Email an innovation project proposal to ESHA Hub"
+                  >
+                    <i class="bi bi-envelope me-2" aria-hidden="true"></i>Email
+                    Project Proposal
+                  </a>
+                </div>
+                <p class="proposal-note mt-4 mb-0">
+                  If the general application portal does not provide a suitable
+                  option for your proposal, contact ESHA Hub by email using the
+                  subject “Innovation Project Expression of Interest”.
+                </p>
+              </div>
+              <div class="col-lg-5">
+                <h3 class="h5 mb-3">Suggested proposal details</h3>
+                <ul class="proposal-list">
+                  <li>
+                    <i class="bi bi-check-circle-fill" aria-hidden="true"></i
+                    ><span>Problem or need</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill" aria-hidden="true"></i
+                    ><span>Proposed idea</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill" aria-hidden="true"></i
+                    ><span>Intended users or beneficiaries</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill" aria-hidden="true"></i
+                    ><span>Current stage</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill" aria-hidden="true"></i
+                    ><span>Skills or support required</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill" aria-hidden="true"></i
+                    ><span>Expected contribution</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill" aria-hidden="true"></i
+                    ><span>Known limitations</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill" aria-hidden="true"></i
+                    ><span>Contact details</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPERATIONAL GUIDELINES -->
+      <section
+        class="section-block section-cream"
+        aria-labelledby="guidelines-title"
+      >
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 class="section-title" id="guidelines-title">
+              Operational Guidelines
+            </h2>
+            <p class="section-lead text-muted mx-auto">
+              Participation and project support are subject to review,
+              documented responsibilities and responsible development
+              requirements.
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <article class="guideline-card">
+                <h3 class="h5 card-title">Project Review</h3>
+                <p class="mb-0">
+                  Ideas are reviewed according to relevance, feasibility,
+                  safety, available capacity and alignment with ESHA Hub’s
+                  objectives.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="guideline-card">
+                <h3 class="h5 card-title">Participation</h3>
+                <p class="mb-0">
+                  Participation depends on approved roles, expected
+                  contribution, conduct and current project requirements.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="guideline-card">
+                <h3 class="h5 card-title">Resource Access</h3>
+                <p class="mb-0">
+                  Workspace, tools, materials and technical guidance are
+                  provided only where available and approved.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="guideline-card">
+                <h3 class="h5 card-title">Documentation</h3>
+                <p class="mb-0">
+                  Contributors may be required to document ideas, tasks,
+                  changes, observations and project contributions.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="guideline-card">
+                <h3 class="h5 card-title">
+                  Safety and Responsible Development
+                </h3>
+                <p class="mb-0">
+                  Projects must follow appropriate safety, privacy, ethical and
+                  organisational requirements.
+                </p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="guideline-card">
+                <h3 class="h5 card-title">Confidentiality</h3>
+                <p class="mb-0">
+                  Internal concepts, source materials, datasets, designs and
+                  unfinished work must not be publicly disclosed without
+                  approval.
+                </p>
+              </article>
+            </div>
+            <div class="col-12">
+              <article class="guideline-card">
+                <h3 class="h5 card-title">Intellectual Property</h3>
+                <p>
+                  Intellectual-property ownership, attribution and permitted use
+                  will be determined according to documented contributions,
+                  project-specific written agreements and applicable ESHA Hub
+                  policy. Contributors should not assume ownership, licensing or
+                  commercial rights without written confirmation.
+                </p>
+                <p class="mb-0">
+                  ESHA Hub does not guarantee funding, commercialisation,
+                  licensing, certification, production or market launch for
+                  submitted ideas, models or prototypes.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section-block section-white" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 class="section-title" id="faq-title">
+              Frequently Asked Questions
+            </h2>
+            <p class="section-lead text-muted mx-auto">
+              Common questions about ideas, participation, resources, project
+              stages and ownership.
+            </p>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+              <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      What kinds of ideas may be considered?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      ESHA Hub may consider practical tools, digital systems,
+                      engineering concepts, educational or assistive solutions,
+                      programme models and community-oriented ideas aligned with
+                      its objectives.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingTwo">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Does ESHA Hub fund every project?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingTwo"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      No. Submission or approval does not guarantee funding,
+                      materials, workspace, mentorship or commercial support.
+                      Available assistance depends on project requirements and
+                      organisational capacity.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingThree">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      Can I submit a commercial product idea?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingThree"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Commercial potential is not required. Ideas may be
+                      considered for their practical, research, educational,
+                      technical or public-benefit value.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingFour">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFour"
+                      aria-expanded="false"
+                      aria-controls="collapseFour"
+                    >
+                      Are current prototypes market-ready?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseFour"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingFour"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Not necessarily. A concept, model, internal test or
+                      prototype represents a development stage and does not
+                      automatically indicate certification, field validation,
+                      regulatory approval or commercial readiness.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingFive">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFive"
+                      aria-expanded="false"
+                      aria-controls="collapseFive"
+                    >
+                      Can individuals and teams participate?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseFive"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingFive"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Individuals and small teams may express interest.
+                      Participation depends on project suitability, defined
+                      roles, expected contribution and approval.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingSix">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseSix"
+                      aria-expanded="false"
+                      aria-controls="collapseSix"
+                    >
+                      Who owns a submitted idea or project?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseSix"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingSix"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Ownership, attribution and permitted use depend on
+                      documented contributions, project-specific written
+                      agreements and applicable ESHA Hub policy.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingSeven">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseSeven"
+                      aria-expanded="false"
+                      aria-controls="collapseSeven"
+                    >
+                      How can I submit an idea?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseSeven"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingSeven"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Use the official application portal. If the available form
+                      options do not match the proposal, contact ESHA Hub by
+                      email using the subject “Innovation Project Expression of
+                      Interest”.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER / CONTACT CTA -->
     <footer class="footer">
-        <div class="container">
-            <h3>Connect with ESHA Hub</h3>
-            <p class="mb-4" style="max-width: 600px; margin: 0 auto; opacity: 0.8; font-weight: 300;">
-                We are currently expanding our research ecosystem. Reach out to learn more about early-stage collaborations and upcoming pilot opportunities.
-            </p>
-            <div class="mb-4">
-                <a href="mailto:info@eshahub.com" class="store-btn">
-                    <i class="bi bi-envelope fs-5 me-2"></i> Contact Us
-                </a>
-                <a href="https://www.linkedin.com/company/esha-hub-assam/" class="store-btn">
-                    <i class="bi bi-linkedin fs-5 me-2"></i> Follow Updates
-                </a>
-            </div>
-            
-            <!-- Note: Ensure the path is forward slashes for web compatibility -->
-            <img src="esha_crow_photo/esha_hub_logo.png" 
-                 alt="ESHA Logo" 
-                 class="footer-logo" 
-                 onerror="this.style.display='none'">
-
-            <p class="copyright">
-                © 2026 ESHA Innovation Zone. All rights reserved.
-            </p>
+      <div class="container">
+        <h2>Innovation Projects and Participation</h2>
+        <p
+          class="mb-4 mx-auto"
+          style="
+            max-width: 760px;
+            opacity: 0.82;
+            font-weight: 300;
+            line-height: 1.7;
+          "
+        >
+          ESHA Hub is gradually developing its innovation and project-support
+          ecosystem. Individuals and small teams may contact the organisation to
+          discuss suitable early-stage ideas, design activities or project
+          participation.
+        </p>
+        <div
+          class="mb-3 btn-group-responsive d-flex flex-wrap justify-content-center"
+        >
+          <a href="join.html" class="store-btn">
+            <i class="bi bi-lightbulb fs-5 me-2" aria-hidden="true"></i>Propose
+            an Innovation Project
+          </a>
+          <a
+            href="mailto:info@eshahub.com?subject=Innovation%20Project%20Expression%20of%20Interest"
+            class="store-btn"
+          >
+            <i class="bi bi-envelope fs-5 me-2" aria-hidden="true"></i>Email
+            Project Proposal
+          </a>
+          <a
+            href="https://www.linkedin.com/company/esha-hub-assam/"
+            class="store-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bi bi-linkedin fs-5 me-2" aria-hidden="true"></i>Follow
+            ESHA Hub Updates
+          </a>
         </div>
+
+        <div class="footer-links" aria-label="Footer links">
+          <a href="access_grant.html">Access Grants</a>
+          <a href="privacy.html">Privacy Protocol</a>
+          <a href="code_of_conduct.html">Code of Conduct</a>
+        </div>
+
+        <img
+          src="esha_crow_photo/esha_hub_logo.png"
+          alt="ESHA Hub logo"
+          class="footer-logo"
+          loading="lazy"
+          onerror="this.style.display = 'none'"
+        />
+
+        <p class="copyright">© 2026 ESHA Hub. All rights reserved.</p>
+      </div>
     </footer>
 
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>
