@@ -1,540 +1,1478 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WDJWQVWEK1"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WDJWQVWEK1');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-WDJWQVWEK1");
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ESHA Hub | Research, Innovation and Community Development</title>
-    <meta name="description" content="ESHA Hub is a registered nonprofit society based in Assam, working across research, innovation, technology and community-oriented development.">
+    <meta
+      name="description"
+      content="ESHA Hub is a registered nonprofit society based in Assam, working across research, innovation, technology and community-oriented development."
+    />
+    <link rel="canonical" href="https://eshahub.com/" />
+    <meta name="robots" content="index, follow" />
 
     <!-- Favicon (Using URL) -->
-    <link rel="shortcut icon" href="esha_crow_photo/esha_hub_logo.png" type="image/x-icon">
-    
+    <link
+      rel="shortcut icon"
+      href="esha_crow_photo/esha_hub_logo.png"
+      type="image/x-icon"
+    />
+
     <!-- Bootstrap 5.1 CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        /* --- THEME VARIABLES --- */
-        :root {
-            --bg-dark: #050a08;
-            --text-light: #e0fbfc;
-            --border-color: #2a4a4d;
-            --accent: #bcfe1e; /* Neon Green */
-            --accent-glow: rgba(188, 254, 30, 0.4);
-            --card-bg: rgba(10, 30, 20, 0.6);
-            --void-black: #000000;
-        }
+      /* --- THEME VARIABLES --- */
+      :root {
+        --bg-dark: #050a08;
+        --text-light: #e0fbfc;
+        --border-color: #2a4a4d;
+        --accent: #bcfe1e; /* Neon Green */
+        --accent-glow: rgba(188, 254, 30, 0.4);
+        --card-bg: rgba(10, 30, 20, 0.6);
+        --void-black: #000000;
+      }
 
-        /* --- GENSHIN-STYLE LIGHT WARP TRANSITION --- */
-        #portal-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: #fff;
-            z-index: 9999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            pointer-events: none;
-            perspective: 1000px;
-            isolation: isolate;
-        }
+      /* --- GENSHIN-STYLE LIGHT WARP TRANSITION --- */
+      #portal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        pointer-events: none;
+        perspective: 1000px;
+        isolation: isolate;
+      }
 
-        #portal-overlay::after {
-            content: "";
-            position: absolute; inset: 0;
-            background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(188,254,30,0.1) 50%, rgba(255,255,255,1) 90%);
-            opacity: 0;
-            z-index: 4;
-            pointer-events: none;
-        }
-        
-        #portal-overlay.portal-active::after {
-            animation: lightDepth 1.8s ease-out forwards;
-        }
+      #portal-overlay::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(188, 254, 30, 0.1) 50%,
+          rgba(255, 255, 255, 1) 90%
+        );
+        opacity: 0;
+        z-index: 4;
+        pointer-events: none;
+      }
 
-        .portal-tunnel {
-            position: absolute;
-            width: 200vw;
-            height: 200vh;
-            left: -50vw; top: -50vh;
-            background: radial-gradient(circle at 50% 50%, 
-                rgba(255,255,255,0) 0%, 
-                rgba(255,255,255,0.8) 20%, 
-                var(--accent) 100%);
-            opacity: 0;
-            transform: scale(0.1);
-            z-index: 1;
+      #portal-overlay.portal-active::after {
+        animation: lightDepth 1.8s ease-out forwards;
+      }
+
+      .portal-tunnel {
+        position: absolute;
+        width: 200vw;
+        height: 200vh;
+        left: -50vw;
+        top: -50vh;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.8) 20%,
+          var(--accent) 100%
+        );
+        opacity: 0;
+        transform: scale(0.1);
+        z-index: 1;
+      }
+
+      .portal-active .portal-tunnel {
+        animation: warp-tunnel-light 1.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+      }
+
+      .portal-active {
+        display: flex !important;
+        pointer-events: auto;
+      }
+
+      .cyber-debris {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        color: #333;
+        font-family: "Orbitron", sans-serif;
+        font-weight: 900;
+        white-space: nowrap;
+        text-shadow: 0 0 10px rgba(188, 254, 30, 0.8);
+        pointer-events: none;
+        z-index: 5;
+        letter-spacing: 2px;
+      }
+
+      .cyber-debris img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-shadow: 0 0 30px rgba(188, 254, 30, 0.6);
+      }
+
+      .portal-active .cyber-debris {
+        animation: energy-fly 1.4s cubic-bezier(0.1, 0.7, 0.1, 1) forwards;
+      }
+
+      @keyframes warp-tunnel-light {
+        0% {
+          opacity: 0;
+          transform: scale(0.1);
         }
-
-        .portal-active .portal-tunnel {
-            animation: warp-tunnel-light 1.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+        10% {
+          opacity: 1;
         }
-
-        .portal-active {
-            display: flex !important;
-            pointer-events: auto;
+        50% {
+          opacity: 1;
         }
-
-        .cyber-debris {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 0;
-            color: #333;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            white-space: nowrap;
-            text-shadow: 0 0 10px rgba(188, 254, 30, 0.8);
-            pointer-events: none;
-            z-index: 5;
-            letter-spacing: 2px;
+        100% {
+          opacity: 1;
+          transform: scale(4);
+          background: #fff;
         }
-        
-        .cyber-debris img { 
-            width: 100px; height: 100px; 
-            border-radius: 50%; 
-            border: 3px solid #fff; 
-            box-shadow: 0 0 30px rgba(188, 254, 30, 0.6); 
+      }
+
+      @keyframes energy-fly {
+        0% {
+          transform: translate(-50%, -50%) scale(0) rotate(0deg);
+          opacity: 0;
+          filter: blur(0px);
         }
-
-        .portal-active .cyber-debris {
-            animation: energy-fly 1.4s cubic-bezier(0.1, 0.7, 0.1, 1) forwards;
+        15% {
+          opacity: 1;
+          filter: blur(2px);
         }
-
-        @keyframes warp-tunnel-light {
-            0% { opacity: 0; transform: scale(0.1); }
-            10% { opacity: 1; }
-            50% { opacity: 1; }
-            100% { opacity: 1; transform: scale(4); background: #fff; }
+        100% {
+          transform: translate(var(--tx), var(--ty)) scale(5) rotate(var(--rot));
+          opacity: 0;
+          filter: blur(10px);
         }
+      }
 
-        @keyframes energy-fly {
-            0% { 
-                transform: translate(-50%, -50%) scale(0) rotate(0deg); 
-                opacity: 0; 
-                filter: blur(0px); 
-            }
-            15% { 
-                opacity: 1; 
-                filter: blur(2px);
-            }
-            100% { 
-                transform: translate(var(--tx), var(--ty)) scale(5) rotate(var(--rot)); 
-                opacity: 0; 
-                filter: blur(10px); 
-            }
+      @keyframes lightDepth {
+        0% {
+          opacity: 0;
         }
-
-        @keyframes lightDepth {
-            0% { opacity: 0; }
-            30% { opacity: 1; }
-            100% { opacity: 1; }
+        30% {
+          opacity: 1;
         }
-
-        /* --- EXISTING SITE ANIMATIONS --- */
-        @keyframes float-y { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-        @keyframes scan-line { 0% { left: -100%; } 50%, 100% { left: 100%; } }
-        @keyframes pulse-ring { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(188, 254, 30, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(188, 254, 30, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(188, 254, 30, 0); } }
-        @keyframes glitch-skew { 0% { transform: skew(0deg); } 20% { transform: skew(-2deg); } 40% { transform: skew(2deg); } 60% { transform: skew(-1deg); } 80% { transform: skew(1deg); } 100% { transform: skew(0deg); } }
-        @keyframes sound-wave { 0%, 100% { height: 10px; opacity: 0.5; } 50% { height: 25px; opacity: 1; } }
-        @keyframes black-hole-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes heartbeat { 0% { transform: scale(1); } 15% { transform: scale(1.15); } 30% { transform: scale(1); } 45% { transform: scale(1.15); } 60% { transform: scale(1); } 100% { transform: scale(1); } }
-
-        /* --- GLOBAL STYLES --- */
-        body {
-            background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at 15% 50%, rgba(188, 254, 30, 0.03) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(188, 254, 30, 0.03) 0%, transparent 25%), radial-gradient(circle at 50% 50%, #0d1f16 0%, #000000 100%);
-            color: var(--text-light);
-            font-family: 'Rajdhani', sans-serif;
-            overflow-x: hidden;
-            font-size: 1.1rem;
-            cursor: default;
+        100% {
+          opacity: 1;
         }
-        h1, h2, h3, h4, h5, h6, .navbar-brand, .stat-number { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
-        a { text-decoration: none; color: var(--text-light); transition: 0.3s; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+      }
 
-        /* --- BUTTONS --- */
-        .btn-custom-primary { background-color: var(--accent); color: #000; border: none; padding: 14px 35px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 0 15px var(--accent-glow); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; z-index: 1; clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%); }
-        .btn-custom-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent); transform: skewX(-25deg); transition: 0.5s; z-index: -1; }
-        .btn-custom-primary:hover::before { animation: scan-line 0.7s forwards; left: 150%; }
-        .btn-custom-primary:hover { background-color: #fff; color: #000; box-shadow: 0 0 40px var(--accent); transform: translateY(-3px) scale(1.02); }
-        .btn-custom-secondary { background: rgba(0,0,0,0.3); border: 1px solid var(--accent); color: var(--accent); padding: 14px 35px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; position: relative; overflow: hidden; transition: 0.3s; clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 80%); }
-        .btn-custom-secondary:hover { background-color: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); }
-
-        /* --- NAVBAR --- */
-        .navbar { background-color: rgba(0, 5, 2, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(188, 254, 30, 0.1); padding: 20px 0; transition: 0.4s; }
-        .navbar-brand img { height: 50px; margin-right: 15px; border-radius: 50%; border: 2px solid var(--accent); box-shadow: 0 0 15px var(--accent-glow); animation: pulse-ring 3s infinite; }
-        .nav-link { color: #b0c4b1 !important; margin: 0 12px; position: relative; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; font-weight: 500; transition: 0.3s; }
-        .nav-link:hover { color: var(--accent) !important; text-shadow: 0 0 10px var(--accent-glow); transform: translateY(-2px); }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; background-color: var(--accent); transition: 0.3s; transform: translateX(-50%); }
-        .nav-link:hover::after { width: 100%; }
-        .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(188, 254, 30, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
-
-        /* --- HERO --- */
-        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #000; }
-        .hero-bg { position: absolute; top: -5%; left: -5%; width: 110%; height: 110%; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; z-index: 0; transition: transform 0.1s linear; }
-        .hero-grid { content: ''; position: absolute; top: 0; left: 0; width: 200%; height: 200%; background-image: linear-gradient(rgba(188, 254, 30, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(188, 254, 30, 0.03) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: float-y 10s ease-in-out infinite alternate; z-index: 1; pointer-events: none; }
-        .hero-content { position: relative; z-index: 5; }
-        .hero-title { font-size: 5rem; font-weight: 900; margin-bottom: 1.5rem; text-transform: uppercase; color: #fff; text-shadow: 0 0 20px rgba(188, 254, 30, 0.3); position: relative; display: inline-block; }
-        .hero-title:hover { animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; color: var(--accent); }
-        .hero-text { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2.5rem auto; color: #d0d0d0; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; border-left: 3px solid var(--accent); backdrop-filter: blur(5px); }
-
-        /* --- CARDS --- */
-        .card-container { perspective: 1000px; height: 100%; }
-        .sector-card { background: rgba(13, 26, 20, 0.4); backdrop-filter: blur(15px); border: 1px solid rgba(188, 254, 30, 0.15); border-radius: 16px; padding: 2.5rem 2rem; height: 100%; position: relative; overflow: hidden; transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease; transform-style: preserve-3d; }
-        .sector-card:hover { background: rgba(13, 26, 20, 0.8); border-color: var(--accent); box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(188, 254, 30, 0.15); }
-        .sector-card::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(188, 254, 30, 0.05), transparent); transform: skewX(-20deg); transition: 0.5s; pointer-events: none; }
-        .sector-card:hover::after { animation: scan-line 1.5s infinite linear; }
-        .card-content { transform: translateZ(20px); }
-        .sector-icon-wrapper { height: 80px; display: flex; align-items: center; justify-content: flex-start; margin-bottom: 1.5rem; transform: translateZ(30px); }
-        .sector-title { color: #fff; font-weight: 700; margin-bottom: 10px; }
-        .sector-meta { font-size: 0.8rem; color: var(--accent); font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
-
-        /* --- ICONS --- */
-        .voice-bar { width: 6px; background: var(--accent); margin: 0 4px; border-radius: 10px; animation: sound-wave 1s infinite ease-in-out; box-shadow: 0 0 10px var(--accent); }
-        .v1 { animation-delay: 0.1s; height: 15px; } .v2 { animation-delay: 0.2s; height: 25px; } .v3 { animation-delay: 0.3s; height: 10px; } .v4 { animation-delay: 0.4s; height: 20px; }
-        .black-hole-svg { animation: black-hole-spin 8s linear infinite; transform-origin: center; filter: drop-shadow(0 0 8px var(--accent)); }
-        .med-icon { animation: heartbeat 2s infinite ease-in-out; transform-origin: center; filter: drop-shadow(0 0 5px #ff4444); }
-
-        /* --- STATS & FOOTER --- */
-        .stat-box { 
-            border-right: 1px solid rgba(255,255,255,0.05); 
-            padding: 40px 5px; 
-            transition: 0.3s; 
-            position: relative; 
-            overflow: hidden; 
+      /* --- EXISTING SITE ANIMATIONS --- */
+      @keyframes float-y {
+        0%,
+        100% {
+          transform: translateY(0px);
         }
-        .stat-box:hover { background: rgba(188, 254, 30, 0.05); }
-        
-        .stat-number { 
-            color: var(--accent); 
-            font-size: clamp(0.9rem, 1.5vw, 1.8rem); 
-            text-shadow: 0 0 10px var(--accent-glow); 
-            animation: float-y 3s ease-in-out infinite; 
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            word-wrap: break-word;
-            line-height: 1.2;
+        50% {
+          transform: translateY(-10px);
         }
-        
-        .stat-box:hover .stat-number { transform: scale(1.1); animation: none; }
-        .video-wrapper { border: 1px solid var(--accent); box-shadow: 0 0 30px rgba(188, 254, 30, 0.1); transition: 0.5s; overflow: hidden; border-radius: 8px; }
-        .video-wrapper:hover { box-shadow: 0 0 60px rgba(188, 254, 30, 0.3); transform: scale(1.02); border-color: #fff; }
-        .footer-advanced { background: linear-gradient(180deg, #020202 0%, #0a1510 100%); border-top: 1px solid rgba(188, 254, 30, 0.1); position: relative; padding-top: 80px; overflow: hidden; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; }
-        .footer-col h5 { color: #fff; margin-bottom: 25px; font-size: 1.1rem; position: relative; display: inline-block; }
-        .footer-col h5::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 30px; height: 2px; background: var(--accent); }
-        .footer-links li { list-style: none; margin-bottom: 12px; }
-        .footer-links a { color: #889; font-size: 0.95rem; transition: 0.3s; display: inline-flex; align-items: center; }
-        .footer-links a:hover { color: var(--accent); transform: translateX(5px); text-shadow: 0 0 8px rgba(188, 254, 30, 0.3); }
-        .footer-links a::before { content: '>'; margin-right: 8px; color: var(--accent); opacity: 0; transition: 0.3s; font-family: monospace; }
-        .footer-links a:hover::before { opacity: 1; }
-        .newsletter-form { position: relative; margin-top: 20px; }
-        .newsletter-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid #333; padding: 12px 15px; color: #fff; border-radius: 4px; transition: 0.3s; }
-        .newsletter-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 15px rgba(188, 254, 30, 0.2); background: rgba(0,0,0,0.4); }
-        .newsletter-btn { position: absolute; right: 5px; top: 5px; background: var(--accent); border: none; width: 38px; height: 38px; border-radius: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .newsletter-btn:hover { background: #fff; transform: scale(1.05); }
-        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-        .social-icon { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; color: #aaa; }
-        .social-icon:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(188, 254, 30, 0.3); transform: translateY(-3px); }
-        .copyright-bar { border-top: 1px solid rgba(255,255,255,0.05); padding: 30px 0; text-align: center; font-size: 0.85rem; color: #555; background: #000; }
-        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: rgba(188, 254, 30, 0.1); border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: 0.4s; z-index: 999; backdrop-filter: blur(5px); }
-        .back-to-top.show { opacity: 1; visibility: visible; }
-        .back-to-top:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); transform: translateY(-5px); }
-        
-        a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #ffffff; outline-offset: 3px; }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      }
+      @keyframes scan-line {
+        0% {
+          left: -100%;
         }
-        @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; }
-            .hero-text { font-size: 1.05rem; padding: 18px 15px; }
-            .hero-content .d-flex { flex-wrap: wrap; }
-            .btn-custom-primary, .btn-custom-secondary { width: 100%; max-width: 320px; text-align: center; }
-            .sector-card { margin-bottom: 20px; }
-            .stat-box { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        50%,
+        100% {
+          left: 100%;
         }
+      }
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(188, 254, 30, 0.7);
+        }
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 10px rgba(188, 254, 30, 0);
+        }
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(188, 254, 30, 0);
+        }
+      }
+      @keyframes glitch-skew {
+        0% {
+          transform: skew(0deg);
+        }
+        20% {
+          transform: skew(-2deg);
+        }
+        40% {
+          transform: skew(2deg);
+        }
+        60% {
+          transform: skew(-1deg);
+        }
+        80% {
+          transform: skew(1deg);
+        }
+        100% {
+          transform: skew(0deg);
+        }
+      }
+      @keyframes sound-wave {
+        0%,
+        100% {
+          height: 10px;
+          opacity: 0.5;
+        }
+        50% {
+          height: 25px;
+          opacity: 1;
+        }
+      }
+      @keyframes black-hole-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes heartbeat {
+        0% {
+          transform: scale(1);
+        }
+        15% {
+          transform: scale(1.15);
+        }
+        30% {
+          transform: scale(1);
+        }
+        45% {
+          transform: scale(1.15);
+        }
+        60% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* --- GLOBAL STYLES --- */
+      body {
+        background-color: var(--bg-dark);
+        background-image:
+          radial-gradient(
+            circle at 15% 50%,
+            rgba(188, 254, 30, 0.03) 0%,
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 85% 30%,
+            rgba(188, 254, 30, 0.03) 0%,
+            transparent 25%
+          ),
+          radial-gradient(circle at 50% 50%, #0d1f16 0%, #000000 100%);
+        color: var(--text-light);
+        font-family: "Rajdhani", sans-serif;
+        overflow-x: hidden;
+        font-size: 1.1rem;
+        cursor: default;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .navbar-brand,
+      .stat-number {
+        font-family: "Orbitron", sans-serif;
+        letter-spacing: 2px;
+      }
+      a {
+        text-decoration: none;
+        color: var(--text-light);
+        transition: 0.3s;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- BUTTONS --- */
+      .btn-custom-primary {
+        background-color: var(--accent);
+        color: #000;
+        border: none;
+        padding: 14px 35px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        box-shadow: 0 0 15px var(--accent-glow);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+      }
+      .btn-custom-primary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.9),
+          transparent
+        );
+        transform: skewX(-25deg);
+        transition: 0.5s;
+        z-index: -1;
+      }
+      .btn-custom-primary:hover::before {
+        animation: scan-line 0.7s forwards;
+        left: 150%;
+      }
+      .btn-custom-primary:hover {
+        background-color: #fff;
+        color: #000;
+        box-shadow: 0 0 40px var(--accent);
+        transform: translateY(-3px) scale(1.02);
+      }
+      .btn-custom-secondary {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        padding: 14px 35px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 80%);
+      }
+      .btn-custom-secondary:hover {
+        background-color: var(--accent);
+        color: #000;
+        box-shadow: 0 0 20px var(--accent-glow);
+      }
+
+      /* --- NAVBAR --- */
+      .navbar {
+        background-color: rgba(0, 5, 2, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(188, 254, 30, 0.1);
+        padding: 20px 0;
+        transition: 0.4s;
+      }
+      .navbar-brand img {
+        height: 50px;
+        margin-right: 15px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        box-shadow: 0 0 15px var(--accent-glow);
+        animation: pulse-ring 3s infinite;
+      }
+      .nav-link {
+        color: #b0c4b1 !important;
+        margin: 0 12px;
+        position: relative;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+      .nav-link:hover {
+        color: var(--accent) !important;
+        text-shadow: 0 0 10px var(--accent-glow);
+        transform: translateY(-2px);
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 50%;
+        background-color: var(--accent);
+        transition: 0.3s;
+        transform: translateX(-50%);
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(188, 254, 30, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      /* --- HERO --- */
+      .hero-section {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        background: #000;
+      }
+      .hero-bg {
+        position: absolute;
+        top: -5%;
+        left: -5%;
+        width: 110%;
+        height: 110%;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+          url("https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+        transition: transform 0.1s linear;
+      }
+      .hero-grid {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        background-image:
+          linear-gradient(rgba(188, 254, 30, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(188, 254, 30, 0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        transform: perspective(500px) rotateX(60deg) translateY(-100px)
+          translateZ(-200px);
+        animation: float-y 10s ease-in-out infinite alternate;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 5;
+      }
+      .hero-title {
+        font-size: 5rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow: 0 0 20px rgba(188, 254, 30, 0.3);
+        position: relative;
+        display: inline-block;
+      }
+      .hero-title:hover {
+        animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
+          infinite;
+        color: var(--accent);
+      }
+      .hero-text {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto 2.5rem auto;
+        color: #d0d0d0;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        border-left: 3px solid var(--accent);
+        backdrop-filter: blur(5px);
+      }
+
+      /* --- CARDS --- */
+      .card-container {
+        perspective: 1000px;
+        height: 100%;
+      }
+      .sector-card {
+        background: rgba(13, 26, 20, 0.4);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(188, 254, 30, 0.15);
+        border-radius: 16px;
+        padding: 2.5rem 2rem;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.1s ease-out,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        transform-style: preserve-3d;
+      }
+      .sector-card:hover {
+        background: rgba(13, 26, 20, 0.8);
+        border-color: var(--accent);
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.8),
+          0 0 30px rgba(188, 254, 30, 0.15);
+      }
+      .sector-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(188, 254, 30, 0.05),
+          transparent
+        );
+        transform: skewX(-20deg);
+        transition: 0.5s;
+        pointer-events: none;
+      }
+      .sector-card:hover::after {
+        animation: scan-line 1.5s infinite linear;
+      }
+      .card-content {
+        transform: translateZ(20px);
+      }
+      .sector-icon-wrapper {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 1.5rem;
+        transform: translateZ(30px);
+      }
+      .sector-title {
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .sector-meta {
+        font-size: 0.8rem;
+        color: var(--accent);
+        font-family: "Orbitron", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      /* --- ICONS --- */
+      .voice-bar {
+        width: 6px;
+        background: var(--accent);
+        margin: 0 4px;
+        border-radius: 10px;
+        animation: sound-wave 1s infinite ease-in-out;
+        box-shadow: 0 0 10px var(--accent);
+      }
+      .v1 {
+        animation-delay: 0.1s;
+        height: 15px;
+      }
+      .v2 {
+        animation-delay: 0.2s;
+        height: 25px;
+      }
+      .v3 {
+        animation-delay: 0.3s;
+        height: 10px;
+      }
+      .v4 {
+        animation-delay: 0.4s;
+        height: 20px;
+      }
+      .black-hole-svg {
+        animation: black-hole-spin 8s linear infinite;
+        transform-origin: center;
+        filter: drop-shadow(0 0 8px var(--accent));
+      }
+      .med-icon {
+        animation: heartbeat 2s infinite ease-in-out;
+        transform-origin: center;
+        filter: drop-shadow(0 0 5px #ff4444);
+      }
+
+      /* --- STATS & FOOTER --- */
+      .stat-box {
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 40px 5px;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .stat-box:hover {
+        background: rgba(188, 254, 30, 0.05);
+      }
+
+      .stat-number {
+        color: var(--accent);
+        font-size: clamp(0.9rem, 1.5vw, 1.8rem);
+        text-shadow: 0 0 10px var(--accent-glow);
+        animation: float-y 3s ease-in-out infinite;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        word-wrap: break-word;
+        line-height: 1.2;
+      }
+
+      .stat-box:hover .stat-number {
+        transform: scale(1.1);
+        animation: none;
+      }
+      .video-wrapper {
+        border: 1px solid var(--accent);
+        box-shadow: 0 0 30px rgba(188, 254, 30, 0.1);
+        transition: 0.5s;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .video-wrapper:hover {
+        box-shadow: 0 0 60px rgba(188, 254, 30, 0.3);
+        transform: scale(1.02);
+        border-color: #fff;
+      }
+      .footer-advanced {
+        background: linear-gradient(180deg, #020202 0%, #0a1510 100%);
+        border-top: 1px solid rgba(188, 254, 30, 0.1);
+        position: relative;
+        padding-top: 80px;
+        overflow: hidden;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+      .footer-col h5 {
+        color: #fff;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+        position: relative;
+        display: inline-block;
+      }
+      .footer-col h5::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 30px;
+        height: 2px;
+        background: var(--accent);
+      }
+      .footer-links li {
+        list-style: none;
+        margin-bottom: 12px;
+      }
+      .footer-links a {
+        color: #889;
+        font-size: 0.95rem;
+        transition: 0.3s;
+        display: inline-flex;
+        align-items: center;
+      }
+      .footer-links a:hover {
+        color: var(--accent);
+        transform: translateX(5px);
+        text-shadow: 0 0 8px rgba(188, 254, 30, 0.3);
+      }
+      .footer-links a::before {
+        content: ">";
+        margin-right: 8px;
+        color: var(--accent);
+        opacity: 0;
+        transition: 0.3s;
+        font-family: monospace;
+      }
+      .footer-links a:hover::before {
+        opacity: 1;
+      }
+      .newsletter-form {
+        position: relative;
+        margin-top: 20px;
+      }
+      .newsletter-input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #333;
+        padding: 12px 15px;
+        color: #fff;
+        border-radius: 4px;
+        transition: 0.3s;
+      }
+      .newsletter-input:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 15px rgba(188, 254, 30, 0.2);
+        background: rgba(0, 0, 0, 0.4);
+      }
+      .newsletter-btn {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background: var(--accent);
+        border: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 2px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+      }
+      .newsletter-btn:hover {
+        background: #fff;
+        transform: scale(1.05);
+      }
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+        color: #aaa;
+      }
+      .social-icon:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        box-shadow: 0 0 15px rgba(188, 254, 30, 0.3);
+        transform: translateY(-3px);
+      }
+      .copyright-bar {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 30px 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #555;
+        background: #000;
+      }
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: rgba(188, 254, 30, 0.1);
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s;
+        z-index: 999;
+        backdrop-filter: blur(5px);
+      }
+      .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      .back-to-top:hover {
+        background: var(--accent);
+        color: #000;
+        box-shadow: 0 0 20px var(--accent-glow);
+        transform: translateY(-5px);
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible {
+        outline: 3px solid #ffffff;
+        outline-offset: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 3rem;
+        }
+        .hero-text {
+          font-size: 1.05rem;
+          padding: 18px 15px;
+        }
+        .hero-content .d-flex {
+          flex-wrap: wrap;
+        }
+        .btn-custom-primary,
+        .btn-custom-secondary {
+          width: 100%;
+          max-width: 320px;
+          text-align: center;
+        }
+        .sector-card {
+          margin-bottom: 20px;
+        }
+        .stat-box {
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- PORTAL OVERLAY CONTAINER -->
     <div id="portal-overlay">
-        <div class="portal-tunnel"></div>
+      <div class="portal-tunnel"></div>
     </div>
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center portal-link" href="index.html">
-                <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" onerror="this.onerror=null; this.src='https://via.placeholder.com/50/bcfe1e/000000?text=E';">
-                <span style="color: #fff; font-weight: bold;">ESHA <span style="color: var(--accent);">HUB</span></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link portal-link" href="research_hub.html">Research Hub</a></li>
-                    <li class="nav-item"><a class="nav-link portal-link" href="innovation_zone.html">Innovation Zone</a></li>
-                    <li class="nav-item"><a class="nav-link portal-link" href="mentorship_magic.html">Mentorship Magic</a></li>
-                    <li class="nav-item"><a class="nav-link portal-link" href="community_connect.html">Community Connect</a></li>
-                    <li class="nav-item"><a class="nav-link portal-link" href="/esha-members-module/executive-members.html">Members</a></li>
-                    <li class="nav-item"><a class="nav-link portal-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-custom-secondary portal-link" style="color: var(--accent) !important;" href="join.html">REQUEST ACCESS</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center portal-link" href="/">
+          <img
+            src="esha_crow_photo/esha_hub_logo.png"
+            alt="ESHA"
+            onerror="
+              this.onerror = null;
+              this.src = 'https://via.placeholder.com/50/bcfe1e/000000?text=E';
+            "
+          />
+          <span style="color: #fff; font-weight: bold"
+            >ESHA <span style="color: var(--accent)">HUB</span></span
+          >
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link portal-link" href="research_hub.html"
+                >Research Hub</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link portal-link" href="innovation_zone.html"
+                >Innovation Zone</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link portal-link" href="mentorship_magic.html"
+                >Mentorship Magic</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link portal-link" href="community_connect.html"
+                >Community Connect</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link portal-link"
+                href="/esha-members-module/executive-members.html"
+                >Members</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link portal-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-custom-secondary portal-link"
+                style="color: var(--accent) !important"
+                href="join.html"
+                >REQUEST ACCESS</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- HERO SECTION -->
     <section class="hero-section" id="hero">
-        <div class="hero-bg" id="hero-bg"></div>
-        <div class="hero-grid"></div>
-        <div class="container hero-content">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <h1 class="hero-title">Engineering The Future</h1>
-                    <div class="hero-text reveal">
-                        ESHA Hub is a registered nonprofit organisation based in Assam, working across research, innovation, technology and community-oriented development. We explore ideas, develop early-stage projects and support practical solutions connected to local and wider social needs.
-                        <br><br>
-                        <span style="color: #d8e6dc; font-size: 0.96em;">Current areas include language technology, theoretical research, low-cost innovation, community awareness and practical prototyping.</span>
-                        <br><br>
-                        <strong style="color: var(--accent); font-size: 0.9em; letter-spacing: 1px;">Registered Nonprofit Society · Assam, India · NGO DARPAN Registered</strong>
-                        <br>
-                        <span style="display:inline-block; margin-top:10px; font-size:0.85em; color:#b7c5bb;">Organisation Status: Registered · Programme Status: Early-Stage Development and Pilot Activities</span>
-                    </div>
-                    <div class="d-flex justify-content-center gap-4 mt-5 reveal">
-                        <a href="research_hub.html" class="btn btn-custom-primary portal-link">Explore Research</a>
-                        <a href="#research-vectors" class="btn btn-custom-secondary">View Current Initiatives</a>
-                    </div>
-                </div>
+      <div class="hero-bg" id="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <div class="container hero-content">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <h1 class="hero-title">Engineering The Future</h1>
+            <div class="hero-text reveal">
+              ESHA Hub is a registered nonprofit organisation based in Assam,
+              working across research, innovation, technology and
+              community-oriented development. We explore ideas, develop
+              early-stage projects and support practical solutions connected to
+              local and wider social needs.
+              <br /><br />
+              <span style="color: #d8e6dc; font-size: 0.96em"
+                >Current areas include language technology, theoretical
+                research, low-cost innovation, community awareness and practical
+                prototyping.</span
+              >
+              <br /><br />
+              <strong
+                style="
+                  color: var(--accent);
+                  font-size: 0.9em;
+                  letter-spacing: 1px;
+                "
+                >Registered Nonprofit Society · Assam, India · NGO DARPAN
+                Registered</strong
+              >
+              <br />
+              <span
+                style="
+                  display: inline-block;
+                  margin-top: 10px;
+                  font-size: 0.85em;
+                  color: #b7c5bb;
+                "
+                >Organisation Status: Registered · Programme Status: Early-Stage
+                Development and Pilot Activities</span
+              >
             </div>
+            <div class="d-flex justify-content-center gap-4 mt-5 reveal">
+              <a
+                href="research_hub.html"
+                class="btn btn-custom-primary portal-link"
+                >Explore Research</a
+              >
+              <a href="#research-vectors" class="btn btn-custom-secondary"
+                >View Current Initiatives</a
+              >
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- INNOVATION LIFECYCLE -->
-    <section class="py-5" style="background: rgba(0,0,0,0.5); border-bottom: 1px solid var(--border-color); position: relative; z-index: 2;">
-        <div class="container">
-            <div class="row text-center align-items-center justify-content-center">
-                <div class="col-6 col-md-3 stat-box reveal">
-                    <div class="stat-number">INCUBATE</div>
-                    <div class="text-muted text-uppercase small mt-2">Concept to Core</div>
-                </div>
-                <div class="col-6 col-md-3 stat-box reveal">
-                    <div class="stat-number">COLLABORATE</div>
-                    <div class="text-muted text-uppercase small mt-2">Neural Networking</div>
-                </div>
-                <div class="col-6 col-md-3 stat-box reveal">
-                    <div class="stat-number">ACCELERATE</div>
-                    <div class="text-muted text-uppercase small mt-2">Rapid Prototyping</div>
-                </div>
-                <div class="col-6 col-md-3 stat-box reveal">
-                    <div class="stat-number">ELEVATE</div>
-                    <div class="text-muted text-uppercase small mt-2">Assam to Cosmos</div>
-                </div>
+    <section
+      class="py-5"
+      style="
+        background: rgba(0, 0, 0, 0.5);
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        z-index: 2;
+      "
+    >
+      <div class="container">
+        <div class="row text-center align-items-center justify-content-center">
+          <div class="col-6 col-md-3 stat-box reveal">
+            <div class="stat-number">INCUBATE</div>
+            <div class="text-muted text-uppercase small mt-2">
+              Concept to Core
             </div>
+          </div>
+          <div class="col-6 col-md-3 stat-box reveal">
+            <div class="stat-number">COLLABORATE</div>
+            <div class="text-muted text-uppercase small mt-2">
+              Neural Networking
+            </div>
+          </div>
+          <div class="col-6 col-md-3 stat-box reveal">
+            <div class="stat-number">ACCELERATE</div>
+            <div class="text-muted text-uppercase small mt-2">
+              Rapid Prototyping
+            </div>
+          </div>
+          <div class="col-6 col-md-3 stat-box reveal">
+            <div class="stat-number">ELEVATE</div>
+            <div class="text-muted text-uppercase small mt-2">
+              Assam to Cosmos
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- RESEARCH CARDS -->
-    <section class="py-5" id="research-vectors" style="position: relative; z-index: 2;">
-        <div class="container py-5">
-            <div class="text-center mb-5 reveal">
-                <h2 style="color: var(--accent); font-size: 2.5rem;">Active Research Frontiers</h2>
-                <p class="text-muted mx-auto" style="max-width: 600px;">
-                    Current research and project areas. Status: <span style="color: var(--accent); text-shadow: 0 0 10px var(--accent);">EARLY-STAGE DEVELOPMENT · CONTROLLED COLLABORATION</span>
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 card-container reveal">
-                    <div class="sector-card">
-                        <div class="card-content">
-                            <div class="sector-icon-wrapper">
-                                <div class="d-flex align-items-center h-100">
-                                    <div class="voice-bar v1"></div><div class="voice-bar v2"></div><div class="voice-bar v3"></div>
-                                    <div class="voice-bar v4"></div><div class="voice-bar v2"></div><div class="voice-bar v1"></div>
-                                </div>
-                            </div>
-                            <span class="sector-meta">Language Technology · Internal Development</span>
-                            <h4 class="sector-title">ESHA-Vaani</h4>
-                            <p class="text-muted mb-4 small">
-                                An ESHA Hub initiative exploring Assamese-language data, speech and accessible language-technology development through gradual internal research and testing.
-                            </p>
-                            <a href="research_hub.html" class="btn-custom-secondary btn-sm text-decoration-none portal-link" style="font-size: 0.75rem;">Explore Research</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 card-container reveal">
-                    <div class="sector-card">
-                        <div class="card-content">
-                            <div class="sector-icon-wrapper">
-                                <svg class="med-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#bcfe1e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                                    <rect x="2" y="6" width="20" height="12" rx="2" stroke-opacity="0.3" />
-                                </svg>
-                            </div>
-                            <span class="sector-meta">Assistive Technology · Concept Development</span>
-                            <h4 class="sector-title">VitalSync Guardian</h4>
-                            <p class="text-muted mb-4 small">
-                                A developing concept for medicine organisation, reminders and responsible support features intended to explore practical medication-adherence assistance.
-                            </p>
-                            <a href="research_hub.html" class="btn-custom-secondary btn-sm text-decoration-none portal-link" style="font-size: 0.75rem;">View Project Concept</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 card-container reveal">
-                    <div class="sector-card">
-                        <div class="card-content">
-                            <div class="sector-icon-wrapper">
-                                <svg class="black-hole-svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#bcfe1e" stroke-width="1.5">
-                                    <circle cx="12" cy="12" r="10" stroke-opacity="0.2" stroke-dasharray="4 4"/>
-                                    <path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="0.5"/>
-                                    <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                                    <path d="M12 12 m-6 0 a6 6 0 0 1 12 0" opacity="0.5" stroke-dasharray="2 4"/>
-                                </svg>
-                            </div>
-                            <span class="sector-meta">Theoretical Research · Public Record Available</span>
-                            <h4 class="sector-title">BFECT Research Framework</h4>
-                            <p class="text-muted mb-4 small">
-                                A theoretical framework exploring possible relationships between compact-object processes, energy dynamics and cosmic expansion.
-                            </p>
-                            <div class="d-flex flex-wrap gap-2">
-                                <a href="https://zenodo.org/records/20679679" class="btn-custom-secondary btn-sm text-decoration-none" style="font-size: 0.72rem;" target="_blank" rel="noopener noreferrer">View on Zenodo</a>
-                                <a href="https://www.academia.edu/168642016/The_Black_Hole_Fabric_Energy_Cycle_Theory_BFECT_A_Covariant_Compact_Object_Modulated_Scalar_Dark_Energy_Framework" class="btn-custom-secondary btn-sm text-decoration-none" style="font-size: 0.72rem;" target="_blank" rel="noopener noreferrer">View on Academia.edu</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section
+      class="py-5"
+      id="research-vectors"
+      style="position: relative; z-index: 2"
+    >
+      <div class="container py-5">
+        <div class="text-center mb-5 reveal">
+          <h2 style="color: var(--accent); font-size: 2.5rem">
+            Active Research Frontiers
+          </h2>
+          <p class="text-muted mx-auto" style="max-width: 600px">
+            Current research and project areas. Status:
+            <span
+              style="color: var(--accent); text-shadow: 0 0 10px var(--accent)"
+              >EARLY-STAGE DEVELOPMENT · CONTROLLED COLLABORATION</span
+            >
+          </p>
         </div>
+        <div class="row g-4">
+          <div class="col-lg-4 card-container reveal">
+            <div class="sector-card">
+              <div class="card-content">
+                <div class="sector-icon-wrapper">
+                  <div class="d-flex align-items-center h-100">
+                    <div class="voice-bar v1"></div>
+                    <div class="voice-bar v2"></div>
+                    <div class="voice-bar v3"></div>
+                    <div class="voice-bar v4"></div>
+                    <div class="voice-bar v2"></div>
+                    <div class="voice-bar v1"></div>
+                  </div>
+                </div>
+                <span class="sector-meta"
+                  >Language Technology · Internal Development</span
+                >
+                <h4 class="sector-title">ESHA-Vaani</h4>
+                <p class="text-muted mb-4 small">
+                  An ESHA Hub initiative exploring Assamese-language data,
+                  speech and accessible language-technology development through
+                  gradual internal research and testing.
+                </p>
+                <a
+                  href="research_hub.html"
+                  class="btn-custom-secondary btn-sm text-decoration-none portal-link"
+                  style="font-size: 0.75rem"
+                  >Explore Research</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 card-container reveal">
+            <div class="sector-card">
+              <div class="card-content">
+                <div class="sector-icon-wrapper">
+                  <svg
+                    class="med-icon"
+                    width="60"
+                    height="60"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#bcfe1e"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                    <rect
+                      x="2"
+                      y="6"
+                      width="20"
+                      height="12"
+                      rx="2"
+                      stroke-opacity="0.3"
+                    />
+                  </svg>
+                </div>
+                <span class="sector-meta"
+                  >Assistive Technology · Concept Development</span
+                >
+                <h4 class="sector-title">VitalSync Guardian</h4>
+                <p class="text-muted mb-4 small">
+                  A developing concept for medicine organisation, reminders and
+                  responsible support features intended to explore practical
+                  medication-adherence assistance.
+                </p>
+                <a
+                  href="research_hub.html"
+                  class="btn-custom-secondary btn-sm text-decoration-none portal-link"
+                  style="font-size: 0.75rem"
+                  >View Project Concept</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 card-container reveal">
+            <div class="sector-card">
+              <div class="card-content">
+                <div class="sector-icon-wrapper">
+                  <svg
+                    class="black-hole-svg"
+                    width="60"
+                    height="60"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#bcfe1e"
+                    stroke-width="1.5"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke-opacity="0.2"
+                      stroke-dasharray="4 4"
+                    />
+                    <path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="0.5" />
+                    <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                    <path
+                      d="M12 12 m-6 0 a6 6 0 0 1 12 0"
+                      opacity="0.5"
+                      stroke-dasharray="2 4"
+                    />
+                  </svg>
+                </div>
+                <span class="sector-meta"
+                  >Theoretical Research · Public Record Available</span
+                >
+                <h4 class="sector-title">BFECT Research Framework</h4>
+                <p class="text-muted mb-4 small">
+                  A theoretical framework exploring possible relationships
+                  between compact-object processes, energy dynamics and cosmic
+                  expansion.
+                </p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a
+                    href="https://zenodo.org/records/20679679"
+                    class="btn-custom-secondary btn-sm text-decoration-none"
+                    style="font-size: 0.72rem"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View on Zenodo</a
+                  >
+                  <a
+                    href="https://www.academia.edu/168642016/The_Black_Hole_Fabric_Energy_Cycle_Theory_BFECT_A_Covariant_Compact_Object_Modulated_Scalar_Dark_Energy_Framework"
+                    class="btn-custom-secondary btn-sm text-decoration-none"
+                    style="font-size: 0.72rem"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View on Academia.edu</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- VIDEO SECTION -->
-    <section class="py-5 text-center" style="background: linear-gradient(0deg, #000 0%, rgba(13,26,20,0.8) 100%); position: relative; z-index: 2;">
-        <div class="container py-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 reveal">
-                    <h2 class="mb-4">Explore ESHA Hub’s Current Work</h2>
-                    <div class="ratio ratio-16x9 mb-4 video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=0&mute=1&loop=1&playlist=L_LUpnjgPso" title="ESHA Hub introductory video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border:0; filter: contrast(1.1);"></iframe>
-                    </div>
-                    <p class="text-muted mb-4">Learn about our developing research, project concepts, public records and participation pathways.</p>
-                    <div class="d-flex flex-wrap justify-content-center gap-3">
-                        <a href="research_hub.html" class="btn btn-custom-primary portal-link">Explore Research</a>
-                        <a href="join.html" class="btn btn-custom-secondary portal-link">Request Access</a>
-                    </div>
-                </div>
+    <section
+      class="py-5 text-center"
+      style="
+        background: linear-gradient(0deg, #000 0%, rgba(13, 26, 20, 0.8) 100%);
+        position: relative;
+        z-index: 2;
+      "
+    >
+      <div class="container py-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 reveal">
+            <h2 class="mb-4">Explore ESHA Hub’s Current Work</h2>
+            <div class="ratio ratio-16x9 mb-4 video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=0&mute=1&loop=1&playlist=L_LUpnjgPso"
+                title="ESHA Hub introductory video"
+                loading="lazy"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                allowfullscreen
+                style="border: 0; filter: contrast(1.1)"
+              ></iframe>
             </div>
+            <p class="text-muted mb-4">
+              Learn about our developing research, project concepts, public
+              records and participation pathways.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a
+                href="research_hub.html"
+                class="btn btn-custom-primary portal-link"
+                >Explore Research</a
+              >
+              <a href="join.html" class="btn btn-custom-secondary portal-link"
+                >Request Access</a
+              >
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- ADVANCED FOOTER -->
     <footer class="footer-advanced">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col reveal">
+            <a
+              class="navbar-brand d-flex align-items-center mb-4 portal-link"
+              href="/"
+            >
+              <img
+                src="esha_crow_photo/esha_hub_logo.png"
+                alt="ESHA"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://via.placeholder.com/50/bcfe1e/000000?text=E';
+                "
+                style="
+                  height: 40px;
+                  border-radius: 50%;
+                  border: 1px solid var(--accent);
+                "
+              />
+              <span
+                style="
+                  color: #fff;
+                  font-weight: bold;
+                  font-family: &quot;Orbitron&quot;;
+                "
+                >ESHA <span style="color: var(--accent)">HUB</span></span
+              >
+            </a>
+            <p class="text-muted small" style="line-height: 1.8">
+              ESHA Hub is a registered nonprofit society based in Assam, working
+              across research, innovation, technology, community development and
+              practical project exploration.
+            </p>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT"
+                class="social-icon"
+                title="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9
+                              1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.3 0-1.7.8-1.7 1.6V12H17l-.4 3h-2.4v7A10 10 0 0 0 22 12z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://x.com/EshaHub"
+                class="social-icon"
+                title="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col reveal">
+            <h5>Protocol Links</h5>
+            <ul class="footer-links ps-0">
+              <li>
+                <a href="/" class="portal-link">Main Terminal</a>
+              </li>
+              <li>
+                <a href="research_hub.html" class="portal-link"
+                  >Research Database</a
+                >
+              </li>
+              <li>
+                <a href="innovation_zone.html" class="portal-link"
+                  >Live Projects</a
+                >
+              </li>
+              <li>
+                <a href="mentorship_magic.html" class="portal-link"
+                  >Mentorship Program</a
+                >
+              </li>
+              <li>
+                <a href="access-grant.html" class="portal-link"
+                  >Access Grants</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col reveal">
+            <h5>Documentation</h5>
+            <ul class="footer-links ps-0">
+              <li>
+                <a href="Whitepaper_v2.0.html" class="portal-link"
+                  >Whitepaper v2.0</a
+                >
+              </li>
+              <li>
+                <a href="privacy_protocol.html" class="portal-link"
+                  >Privacy Protocol</a
+                >
+              </li>
+              <li>
+                <a href="code_of_conduct.html" class="portal-link"
+                  >Code of Conduct</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- ✅ UPDATED: Web3Forms Newsletter Form -->
+          <div class="footer-col reveal">
+            <h5>Stay Synced</h5>
+            <p class="text-muted small">Subscribe for weekly updates.</p>
+
+            <form
+              class="newsletter-form"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="access_key"
+                value="2f8034d9-d754-460c-9cce-4fdc22fc2ed0"
+              />
+              <input
+                type="hidden"
+                name="subject"
+                value="ESHA Hub Newsletter Subscription"
+              />
+              <input type="hidden" name="from_name" value="ESHA Hub Website" />
+
+              <input
+                type="email"
+                class="newsletter-input"
+                name="email"
+                placeholder="Enter your email..."
+                required
+              />
+
+              <button
+                type="submit"
+                class="newsletter-btn"
+                aria-label="Subscribe"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright-bar">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col reveal">
-                    <a class="navbar-brand d-flex align-items-center mb-4 portal-link" href="index.html">
-                        <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA" onerror="this.onerror=null; this.src='https://via.placeholder.com/50/bcfe1e/000000?text=E';" style="height: 40px; border-radius: 50%; border: 1px solid var(--accent);">
-                        <span style="color: #fff; font-weight: bold; font-family: 'Orbitron';">ESHA <span style="color: var(--accent);">HUB</span></span>
-                    </a>
-                    <p class="text-muted small" style="line-height: 1.8;">
-                        ESHA Hub is a registered nonprofit society based in Assam, working across research, innovation, technology, community development and practical project exploration.
-                    </p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/groups/1549215452735348/?ref=share&mibextid=NSMWBT" class="social-icon" title="Facebook" target="_blank" rel="noopener noreferrer">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9
-                              1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.3 0-1.7.8-1.7 1.6V12H17l-.4 3h-2.4v7A10 10 0 0 0 22 12z"/>
-                          </svg>
-                        </a>
-
-                        <a href="https://x.com/EshaHub" class="social-icon" title="Twitter" target="_blank" rel="noopener noreferrer">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                          </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer-col reveal">
-                    <h5>Protocol Links</h5>
-                    <ul class="footer-links ps-0">
-                        <li><a href="index.html" class="portal-link">Main Terminal</a></li>
-                        <li><a href="research_hub.html" class="portal-link">Research Database</a></li>
-                        <li><a href="innovation_zone.html" class="portal-link">Live Projects</a></li>
-                        <li><a href="mentorship_magic.html" class="portal-link">Mentorship Program</a></li>
-                        <li><a href="access-grant.html" class="portal-link">Access Grants</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col reveal">
-                    <h5>Documentation</h5>
-                    <ul class="footer-links ps-0">
-                        <li><a href="Whitepaper_v2.0.html" class="portal-link">Whitepaper v2.0</a></li>
-                        <li><a href="privacy_protocol.html" class="portal-link">Privacy Protocol</a></li>
-                        <li><a href="code_of_conduct.html" class="portal-link">Code of Conduct</a></li>
-                    </ul>
-                </div>
-
-                <!-- ✅ UPDATED: Web3Forms Newsletter Form -->
-                <div class="footer-col reveal">
-                    <h5>Stay Synced</h5>
-                    <p class="text-muted small">Subscribe for weekly updates.</p>
-
-                    <form class="newsletter-form" action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="2f8034d9-d754-460c-9cce-4fdc22fc2ed0">
-                        <input type="hidden" name="subject" value="ESHA Hub Newsletter Subscription">
-                        <input type="hidden" name="from_name" value="ESHA Hub Website">
-
-                        <input
-                            type="email"
-                            class="newsletter-input"
-                            name="email"
-                            placeholder="Enter your email..."
-                            required
-                        >
-
-                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-
+          <div class="row">
+            <div class="col-md-6 text-md-start mb-2 mb-md-0">
+              &copy; 2026 ESHA Hub. Built with
+              <span style="color: #f00">&hearts;</span> in India.
             </div>
-        </div>
-
-        <div class="copyright-bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-md-start mb-2 mb-md-0">&copy; 2026 ESHA Hub. Built with <span style="color: #f00;">&hearts;</span> in India.</div>
-                    <div class="col-md-6 text-md-end"><span style="opacity: 0.5;">Status:</span> <span style="color: #0f0;">Organisation: Registered · Programmes: Early-Stage Development</span></div>
-                </div>
+            <div class="col-md-6 text-md-end">
+              <span style="opacity: 0.5">Status:</span>
+              <span style="color: #0f0"
+                >Organisation: Registered · Programmes: Early-Stage
+                Development</span
+              >
             </div>
+          </div>
         </div>
+      </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    <button
+      class="back-to-top"
+      id="backToTop"
+      type="button"
+      aria-label="Back to top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
     </button>
 
     <!-- Bootstrap 5.1 JS -->
@@ -542,167 +1480,194 @@
 
     <!-- Deep Animations & Portal Script -->
     <script>
-        const portalOverlay = document.getElementById('portal-overlay');
-        const portalLinks = document.querySelectorAll('.portal-link');
-        let portalLock = false; 
+      const portalOverlay = document.getElementById("portal-overlay");
+      const portalLinks = document.querySelectorAll(".portal-link");
+      let portalLock = false;
 
-        const keywords = ["ESHA HUB", "INNOVATION", "RESEARCH", "TECHNOLOGY", "ASSAM", "FUTURE"];
+      const keywords = [
+        "ESHA HUB",
+        "INNOVATION",
+        "RESEARCH",
+        "TECHNOLOGY",
+        "ASSAM",
+        "FUTURE",
+      ];
 
-        function playWarpSound() {
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            if (!AudioContext) return; 
-            const ctx = new AudioContext();
-            ctx.resume?.();
+      function playWarpSound() {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        ctx.resume?.();
 
-            const bufferSize = ctx.sampleRate * 2; 
-            const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-            const data = buffer.getChannelData(0);
-            for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+        const bufferSize = ctx.sampleRate * 2;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
 
-            const noise = ctx.createBufferSource();
-            noise.buffer = buffer;
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
 
-            const noiseFilter = ctx.createBiquadFilter();
-            noiseFilter.type = 'lowpass';
-            noiseFilter.frequency.setValueAtTime(100, ctx.currentTime);
-            noiseFilter.frequency.exponentialRampToValueAtTime(5000, ctx.currentTime + 1.2);
+        const noiseFilter = ctx.createBiquadFilter();
+        noiseFilter.type = "lowpass";
+        noiseFilter.frequency.setValueAtTime(100, ctx.currentTime);
+        noiseFilter.frequency.exponentialRampToValueAtTime(
+          5000,
+          ctx.currentTime + 1.2,
+        );
 
-            const noiseGain = ctx.createGain();
-            noiseGain.gain.setValueAtTime(0, ctx.currentTime);
-            noiseGain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.1);
-            noiseGain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1.2);
+        const noiseGain = ctx.createGain();
+        noiseGain.gain.setValueAtTime(0, ctx.currentTime);
+        noiseGain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.1);
+        noiseGain.gain.exponentialRampToValueAtTime(
+          0.01,
+          ctx.currentTime + 1.2,
+        );
 
-            noise.connect(noiseFilter);
-            noiseFilter.connect(noiseGain);
-            noiseGain.connect(ctx.destination);
-            noise.start();
+        noise.connect(noiseFilter);
+        noiseFilter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+        noise.start();
 
-            const osc = ctx.createOscillator();
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(200, ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(2000, ctx.currentTime + 1.5);
+        const osc = ctx.createOscillator();
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(200, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(2000, ctx.currentTime + 1.5);
 
-            const oscGain = ctx.createGain();
-            oscGain.gain.setValueAtTime(0, ctx.currentTime);
-            oscGain.gain.linearRampToValueAtTime(0.1, ctx.currentTime + 0.2);
-            oscGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.5);
+        const oscGain = ctx.createGain();
+        oscGain.gain.setValueAtTime(0, ctx.currentTime);
+        oscGain.gain.linearRampToValueAtTime(0.1, ctx.currentTime + 0.2);
+        oscGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.5);
 
-            osc.connect(oscGain);
-            oscGain.connect(ctx.destination);
-            osc.start();
+        osc.connect(oscGain);
+        oscGain.connect(ctx.destination);
+        osc.start();
 
-            setTimeout(() => { if (ctx.state !== 'closed') ctx.close(); }, 2000);
+        setTimeout(() => {
+          if (ctx.state !== "closed") ctx.close();
+        }, 2000);
+      }
+
+      function createCyberDebris() {
+        portalOverlay.innerHTML = `<div class="portal-tunnel"></div>`;
+        const isMobile = window.innerWidth < 768;
+        const debrisCount = isMobile ? 12 : 25;
+
+        for (let i = 0; i < debrisCount; i++) {
+          const item = document.createElement("div");
+          item.className = "cyber-debris";
+
+          if (Math.random() > 0.8) {
+            const img = document.createElement("img");
+            img.src = "esha_crow_photo/esha_hub_logo.png";
+            img.onerror = function () {
+              this.src = "https://via.placeholder.com/100/bcfe1e/000000?text=E";
+            };
+            item.appendChild(img);
+          } else {
+            const text = keywords[Math.floor(Math.random() * keywords.length)];
+            item.innerText = text;
+            item.style.fontSize = Math.random() * 2 + 1.5 + "rem";
+            item.style.opacity = Math.random() * 0.5 + 0.5;
+          }
+
+          const angle = Math.random() * Math.PI * 2;
+          const distance = 1000 + Math.random() * 500;
+          const tx = Math.cos(angle) * distance + "px";
+          const ty = Math.sin(angle) * distance + "px";
+          const rotation = Math.random() * 60 - 30 + "deg";
+
+          item.style.setProperty("--tx", tx);
+          item.style.setProperty("--ty", ty);
+          item.style.setProperty("--rot", rotation);
+          item.style.animationDelay = Math.random() * 0.5 + "s";
+
+          portalOverlay.appendChild(item);
         }
+      }
 
-        function createCyberDebris() {
-            portalOverlay.innerHTML = `<div class="portal-tunnel"></div>`;
-            const isMobile = window.innerWidth < 768;
-            const debrisCount = isMobile ? 12 : 25; 
+      portalLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          if (portalLock) return;
+          const targetUrl = this.getAttribute("href");
+          if (targetUrl.startsWith("#") || targetUrl === "#") return;
+          if (
+            targetUrl.startsWith("http") ||
+            targetUrl.startsWith("mailto:") ||
+            targetUrl.startsWith("tel:")
+          )
+            return;
 
-            for(let i=0; i<debrisCount; i++) {
-                const item = document.createElement('div');
-                item.className = 'cyber-debris';
+          e.preventDefault();
+          portalLock = true;
 
-                if (Math.random() > 0.8) {
-                    const img = document.createElement('img');
-                    img.src = 'esha_crow_photo/esha_hub_logo.png';
-                    img.onerror = function() { this.src='https://via.placeholder.com/100/bcfe1e/000000?text=E'; };
-                    item.appendChild(img);
-                } else {
-                    const text = keywords[Math.floor(Math.random() * keywords.length)];
-                    item.innerText = text;
-                    item.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
-                    item.style.opacity = Math.random() * 0.5 + 0.5;
-                }
+          playWarpSound();
+          createCyberDebris();
+          portalOverlay.classList.add("portal-active");
 
-                const angle = Math.random() * Math.PI * 2;
-                const distance = 1000 + Math.random() * 500; 
-                const tx = Math.cos(angle) * distance + 'px';
-                const ty = Math.sin(angle) * distance + 'px';
-                const rotation = (Math.random() * 60 - 30) + 'deg';
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 1700);
+          setTimeout(() => {
+            portalOverlay.classList.remove("portal-active");
+            portalLock = false;
+          }, 3500);
+        });
+      });
 
-                item.style.setProperty('--tx', tx);
-                item.style.setProperty('--ty', ty);
-                item.style.setProperty('--rot', rotation);
-                item.style.animationDelay = (Math.random() * 0.5) + 's';
+      const revealElements = document.querySelectorAll(".reveal");
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const elementVisible = 150;
+        revealElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          if (elementTop < windowHeight - elementVisible)
+            element.classList.add("active");
+        });
+      };
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll();
 
-                portalOverlay.appendChild(item);
-            }
+      const heroBg = document.getElementById("hero-bg");
+      document.addEventListener("mousemove", (e) => {
+        const x = (window.innerWidth - e.pageX) / 90;
+        const y = (window.innerHeight - e.pageY) / 90;
+        if (heroBg)
+          heroBg.style.transform = `translateX(${x}px) translateY(${y}px) scale(1.1)`;
+      });
+
+      const cards = document.querySelectorAll(".sector-card");
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -10;
+          const rotateY = ((x - centerX) / centerX) * 10;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
+        });
+      });
+
+      const backToTopBtn = document.getElementById("backToTop");
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          nav.style.boxShadow = "0 4px 20px rgba(188, 254, 30, 0.15)";
+          nav.style.background = "rgba(0, 5, 2, 0.95)";
+          nav.style.padding = "10px 0";
+        } else {
+          nav.style.boxShadow = "none";
+          nav.style.background = "rgba(0, 5, 2, 0.8)";
+          nav.style.padding = "20px 0";
         }
-
-        portalLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (portalLock) return;
-                const targetUrl = this.getAttribute('href');
-                if(targetUrl.startsWith('#') || targetUrl === '#') return;
-                if (targetUrl.startsWith('http') || targetUrl.startsWith('mailto:') || targetUrl.startsWith('tel:')) return;
-
-                e.preventDefault();
-                portalLock = true;
-
-                playWarpSound();
-                createCyberDebris();
-                portalOverlay.classList.add('portal-active');
-
-                setTimeout(() => { window.location.href = targetUrl; }, 1700);
-                setTimeout(() => {
-                    portalOverlay.classList.remove('portal-active');
-                    portalLock = false;
-                }, 3500);
-            });
-        });
-
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            const elementVisible = 150;
-            revealElements.forEach((element) => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) element.classList.add('active');
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        const heroBg = document.getElementById('hero-bg');
-        document.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth - e.pageX) / 90;
-            const y = (window.innerHeight - e.pageY) / 90;
-            if(heroBg) heroBg.style.transform = `translateX(${x}px) translateY(${y}px) scale(1.1)`;
-        });
-
-        const cards = document.querySelectorAll('.sector-card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -10;
-                const rotateY = ((x - centerX) / centerX) * 10;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-            });
-        });
-
-        const backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 4px 20px rgba(188, 254, 30, 0.15)';
-                nav.style.background = 'rgba(0, 5, 2, 0.95)';
-                nav.style.padding = '10px 0';
-            } else {
-                nav.style.boxShadow = 'none';
-                nav.style.background = 'rgba(0, 5, 2, 0.8)';
-                nav.style.padding = '20px 0';
-            }
-            if (window.scrollY > 300) backToTopBtn.classList.add('show');
-            else backToTopBtn.classList.remove('show');
-        });
+        if (window.scrollY > 300) backToTopBtn.classList.add("show");
+        else backToTopBtn.classList.remove("show");
+      });
     </script>
-</body>
+  </body>
 </html>
