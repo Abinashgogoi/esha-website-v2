@@ -33,7 +33,22 @@ const members = [
     projects: [],
 
     // Add verified publications using the documented object structure below.
-    publications: [],
+    publications: [
+  {
+    title: "The Black Hole Fabric Energy Cycle Theory (BFECT): A Covariant Compact-Object-Modulated Scalar Dark-Energy Framework",
+    authors: "Abinash Gogoi",
+    year: "2026",
+    type: "Research Paper",
+    abstract: "",
+    doi: "",
+    repositoryUrl: "https://zenodo.org/records/20679679",
+    paperUrl: "https://www.academia.edu/168642016/The_Black_Hole_Fabric_Energy_Cycle_Theory_BFECT_A_Covariant_Compact_Object_Modulated_Scalar_Dark_Energy_Framework",
+    pdfUrl: "",
+    citation: "",
+    version: "",
+    reviewStatus: "Repository Record"
+  }
+],
 
     // Add verified achievements using the documented object structure below.
     achievements: [],
