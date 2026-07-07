@@ -42,6 +42,7 @@
       name="twitter:description"
       content="Support practical research, innovation, mentorship and community science work from Assam."
     />
+
     <style>
       :root {
         --bg: #f7f8f4;
@@ -50,19 +51,21 @@
         --muted: #5d6b62;
         --brand: #1f6f4a;
         --brand-dark: #155438;
-        --gold: #c89538;
         --line: #dfe6dc;
         --soft: #edf5ee;
         --warn: #fff7e6;
         --shadow: 0 18px 45px rgba(23, 33, 27, 0.11);
         --radius: 8px;
       }
+
       * {
         box-sizing: border-box;
       }
+
       html {
         scroll-behavior: smooth;
       }
+
       body {
         margin: 0;
         font-family:
@@ -77,13 +80,16 @@
         background: var(--bg);
         line-height: 1.6;
       }
+
       a {
         color: inherit;
       }
+
       .container {
         width: min(1120px, calc(100% - 32px));
         margin: 0 auto;
       }
+
       .skip-link {
         position: absolute;
         left: -999px;
@@ -93,9 +99,11 @@
         padding: 10px 14px;
         z-index: 10;
       }
+
       .skip-link:focus {
         left: 10px;
       }
+
       .site-header {
         position: sticky;
         top: 0;
@@ -104,6 +112,7 @@
         border-bottom: 1px solid var(--line);
         backdrop-filter: blur(14px);
       }
+
       .nav {
         display: flex;
         align-items: center;
@@ -111,23 +120,26 @@
         gap: 20px;
         min-height: 72px;
       }
+
       .brand {
         display: inline-flex;
         align-items: center;
         gap: 10px;
         text-decoration: none;
         font-weight: 800;
-        letter-spacing: 0.01em;
       }
+
       .brand img {
         width: 42px;
         height: 42px;
         object-fit: contain;
         border-radius: 50%;
       }
+
       .nav-toggle {
         display: none;
       }
+
       .nav-menu {
         display: flex;
         align-items: center;
@@ -136,6 +148,7 @@
         padding: 0;
         list-style: none;
       }
+
       .nav-menu a {
         display: inline-flex;
         padding: 10px 11px;
@@ -145,14 +158,17 @@
         font-size: 0.94rem;
         font-weight: 650;
       }
+
       .nav-menu a:hover,
       .nav-menu a[aria-current="page"] {
         background: var(--soft);
         color: var(--brand-dark);
       }
+
       main {
         overflow: hidden;
       }
+
       .hero {
         padding: 76px 0 44px;
         background:
@@ -164,12 +180,14 @@
           linear-gradient(135deg, #ffffff 0%, #f2f7ef 62%, #e7f0e8 100%);
         border-bottom: 1px solid var(--line);
       }
+
       .hero-grid {
         display: grid;
         grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
         gap: 34px;
         align-items: center;
       }
+
       .eyebrow {
         color: var(--brand-dark);
         font-weight: 800;
@@ -177,37 +195,45 @@
         letter-spacing: 0.12em;
         font-size: 0.78rem;
       }
+
       h1,
       h2,
       h3 {
         line-height: 1.15;
         margin: 0 0 14px;
       }
+
       h1 {
         font-size: clamp(2.2rem, 4.6vw, 4.75rem);
         max-width: 930px;
         letter-spacing: -0.02em;
       }
+
       h2 {
         font-size: clamp(1.65rem, 2.5vw, 2.55rem);
       }
+
       h3 {
         font-size: 1.08rem;
       }
+
       p {
         margin: 0 0 16px;
         color: var(--muted);
       }
+
       .lead {
         font-size: clamp(1.04rem, 1.7vw, 1.25rem);
         max-width: 780px;
       }
+
       .actions {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
         margin-top: 26px;
       }
+
       .btn {
         display: inline-flex;
         align-items: center;
@@ -220,25 +246,30 @@
         text-decoration: none;
         cursor: pointer;
       }
+
       .btn-primary {
         background: var(--brand);
         color: #fff;
         box-shadow: 0 12px 24px rgba(31, 111, 74, 0.22);
       }
+
       .btn-primary:hover {
         background: var(--brand-dark);
       }
+
       .btn-secondary {
         background: #fff;
         border-color: var(--line);
         color: var(--ink);
       }
+
       .trust-strip {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
         margin-top: 32px;
       }
+
       .trust-strip span {
         background: rgba(255, 255, 255, 0.72);
         border: 1px solid var(--line);
@@ -247,13 +278,17 @@
         font-weight: 750;
         color: #2d3b32;
       }
-      .hero-panel {
+
+      .hero-panel,
+      .card,
+      .notice {
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        box-shadow: var(--shadow);
         padding: 24px;
+        box-shadow: var(--shadow);
       }
+
       .hero-panel img {
         width: 70px;
         height: 70px;
@@ -261,68 +296,88 @@
         border-radius: 50%;
         margin-bottom: 18px;
       }
+
       .section {
         padding: 64px 0;
       }
+
       .section-head {
         max-width: 760px;
         margin-bottom: 28px;
       }
+
       .donation-layout {
         display: grid;
         grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
         gap: 26px;
         align-items: start;
       }
-      .card,
-      .notice {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 24px;
-        box-shadow: 0 10px 30px rgba(23, 33, 27, 0.06);
-      }
+
       .amount-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
         margin: 20px 0;
       }
+
       .amount {
         border: 1px solid var(--line);
         border-radius: var(--radius);
         padding: 18px;
         background: #fbfcfa;
       }
+
       .amount strong {
         display: block;
         font-size: 1.35rem;
         color: var(--brand-dark);
       }
+
       .razorpay-box {
-        border: 1px dashed #b8cbbd;
+        border: 1px solid rgba(31, 111, 74, 0.16);
         background: #f8fbf7;
         border-radius: var(--radius);
-        padding: 18px;
+        padding: 24px;
         margin: 18px 0;
+        text-align: center;
       }
-      .placeholder-note {
-        font-size: 0.92rem;
-        color: var(--muted);
-        margin-bottom: 0;
+
+      .donate-main-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 380px;
+        min-height: 56px;
+        border-radius: 999px;
+        background: var(--brand);
+        color: #ffffff;
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 14px 30px rgba(31, 111, 74, 0.22);
       }
+
+      .donate-main-btn:hover,
+      .donate-main-btn:focus {
+        background: var(--brand-dark);
+        color: #ffffff;
+      }
+
       .secure-note {
         font-size: 0.94rem;
         color: #405047;
       }
+
       .grid-3 {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
       }
+
       .use-card {
         min-height: 178px;
       }
+
       .icon {
         width: 42px;
         height: 42px;
@@ -334,6 +389,7 @@
         font-weight: 900;
         margin-bottom: 14px;
       }
+
       .policy-list {
         display: grid;
         gap: 12px;
@@ -341,11 +397,13 @@
         margin: 20px 0 0;
         list-style: none;
       }
+
       .policy-list li {
         padding-left: 30px;
         position: relative;
         color: var(--muted);
       }
+
       .policy-list li::before {
         content: "✓";
         position: absolute;
@@ -354,48 +412,58 @@
         color: var(--brand);
         font-weight: 900;
       }
+
       .notice {
         background: var(--warn);
         border-color: #ecd7aa;
       }
+
       .details {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
         margin-top: 20px;
       }
+
       .detail {
         background: #fbfcfa;
         border: 1px solid var(--line);
         border-radius: var(--radius);
         padding: 14px;
       }
+
       .detail span {
         display: block;
         color: var(--muted);
         font-size: 0.86rem;
       }
+
       .detail strong {
         display: block;
         overflow-wrap: anywhere;
       }
+
       .faq {
         display: grid;
         gap: 12px;
       }
+
       details {
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: var(--radius);
         padding: 16px 18px;
       }
+
       summary {
         cursor: pointer;
         font-weight: 800;
       }
+
       details p {
         margin: 12px 0 0;
       }
+
       .cta {
         background: var(--brand-dark);
         color: #fff;
@@ -406,41 +474,49 @@
         gap: 24px;
         align-items: center;
       }
+
       .cta p {
         color: rgba(255, 255, 255, 0.78);
         margin-bottom: 0;
       }
+
       .cta .btn-secondary {
         background: transparent;
         color: #fff;
         border-color: rgba(255, 255, 255, 0.35);
       }
+
       .site-footer {
         padding: 34px 0;
         background: #101812;
         color: #fff;
       }
+
       .footer-grid {
         display: flex;
         justify-content: space-between;
         gap: 24px;
         flex-wrap: wrap;
       }
+
       .footer-links {
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
       }
+
       .footer-links a,
       .site-footer p {
         color: rgba(255, 255, 255, 0.74);
         text-decoration: none;
       }
+
       @media (max-width: 900px) {
         .nav {
           align-items: flex-start;
           padding: 14px 0;
         }
+
         .nav-toggle {
           display: inline-flex;
           width: 44px;
@@ -451,6 +527,7 @@
           border-radius: var(--radius);
           background: #fff;
         }
+
         .nav-toggle span,
         .nav-toggle span::before,
         .nav-toggle span::after {
@@ -461,14 +538,17 @@
           content: "";
           position: relative;
         }
+
         .nav-toggle span::before {
           position: absolute;
           top: -7px;
         }
+
         .nav-toggle span::after {
           position: absolute;
           top: 7px;
         }
+
         .nav-menu {
           display: none;
           position: absolute;
@@ -483,55 +563,65 @@
           flex-direction: column;
           align-items: stretch;
         }
+
         .nav-menu.is-open {
           display: flex;
         }
+
         .hero-grid,
         .donation-layout,
         .grid-3,
         .details {
           grid-template-columns: 1fr;
         }
+
         .trust-strip {
           grid-template-columns: repeat(2, 1fr);
         }
+
         .cta {
           flex-direction: column;
           align-items: flex-start;
         }
       }
+
       @media (max-width: 560px) {
         .container {
           width: min(100% - 24px, 1120px);
         }
+
         .hero {
           padding-top: 50px;
         }
+
         .section {
           padding: 48px 0;
         }
+
         .amount-grid,
         .trust-strip {
           grid-template-columns: 1fr;
         }
+
         .actions,
-        .cta .actions {
-          width: 100%;
-        }
+        .cta .actions,
         .btn {
           width: 100%;
         }
       }
     </style>
   </head>
+
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+
     <header class="site-header">
       <nav class="container nav" aria-label="Primary navigation">
         <a class="brand" href="index.html" aria-label="ESHA Hub home">
           <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA Hub logo" />
           <span>ESHA Hub</span>
         </a>
+
         <button
           class="nav-toggle"
           type="button"
@@ -541,6 +631,7 @@
         >
           <span aria-hidden="true"></span>
         </button>
+
         <ul class="nav-menu" id="primary-menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="research_hub.html">Research Hub</a></li>
@@ -568,12 +659,14 @@
               technology, science awareness and responsible community-focused
               innovation.
             </p>
+
             <div class="actions">
               <a class="btn btn-primary" href="#donate">Donate via Razorpay</a>
               <a class="btn btn-secondary" href="#how-donations-help"
                 >How donations are used</a
               >
             </div>
+
             <div class="trust-strip" aria-label="ESHA Hub trust information">
               <span>Registered Nonprofit Society</span>
               <span>Assam, India</span>
@@ -581,6 +674,7 @@
               <span>Early-Stage Programmes</span>
             </div>
           </div>
+
           <aside class="hero-panel" aria-label="Donation summary">
             <img src="esha_crow_photo/esha_hub_logo.png" alt="ESHA Hub logo" />
             <h2>Careful support for practical work</h2>
@@ -592,7 +686,8 @@
             </p>
             <p class="secure-note">
               Payment processing must happen only through Razorpay’s official
-              Payment Button or hosted Payment Page.
+              hosted Payment Page. Do not share card, UPI PIN, OTP or banking
+              details outside Razorpay's secure payment flow.
             </p>
           </aside>
         </div>
@@ -608,6 +703,7 @@
               for the actual payment amount, receipt details and secure
               transaction processing.
             </p>
+
             <div class="amount-grid" aria-label="Suggested donation amounts">
               <div class="amount">
                 <strong>₹101</strong><span>Starter support</span>
@@ -622,35 +718,42 @@
                 <strong>₹2,501</strong><span>Tools and activity support</span>
               </div>
             </div>
+
             <p class="secure-note">
               Custom amount can be selected only if the live Razorpay Payment
-              Button or Payment Page supports it.
+              Page supports it.
             </p>
           </div>
+
           <div class="card">
             <h2>Donate Securely via Razorpay</h2>
             <p>
-              Online donation through Razorpay is being enabled after payment
-              gateway verification.
+              Use the official Razorpay hosted payment page below to make a
+              voluntary donation to ESHA Hub.
             </p>
+
             <div class="razorpay-box" aria-label="Razorpay donation area">
-              <p class="placeholder-note">
-                Online donation through Razorpay is being enabled after payment
-                gateway verification. ESHA Hub has received provisional
-                registration and approval under Form 106.
+              <a
+                class="donate-main-btn"
+                href="https://rzp.io/rzp/DJvXbMRt"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Donate Securely via Razorpay
+              </a>
+              <p class="secure-note" style="margin: 14px 0 0">
+                Payments are processed securely through Razorpay. ESHA Hub does
+                not collect card, UPI, net banking or other sensitive payment
+                credentials on this website.
               </p>
             </div>
-            <a
-              class="btn btn-primary"
-              href="mailto:info@eshahub.com?subject=Donation%20Support%20Query%20-%20ESHA%20Hub"
-              rel="noopener"
-              >Contact for Donation Support</a
-            >
+
             <p class="secure-note" style="margin-top: 16px">
               Please donate only from your own lawful funds. ESHA Hub may
               contact donors for additional details if required for records,
               compliance, receipt generation, or payment verification.
             </p>
+
             <p class="secure-note">
               Donation is separate from access approval. For learning support,
               mentorship availability or resource-access pathways, visit
@@ -672,6 +775,7 @@
               programme priorities and compliance needs.
             </p>
           </div>
+
           <div class="grid-3">
             <article class="card use-card">
               <div class="icon">01</div>
@@ -681,6 +785,7 @@
                 required for practical prototype exploration where applicable.
               </p>
             </article>
+
             <article class="card use-card">
               <div class="icon">02</div>
               <h3>Science Awareness and Field Activities</h3>
@@ -690,6 +795,7 @@
                 documentation.
               </p>
             </article>
+
             <article class="card use-card">
               <div class="icon">03</div>
               <h3>Assamese Language Technology</h3>
@@ -699,6 +805,7 @@
                 experiments.
               </p>
             </article>
+
             <article class="card use-card">
               <div class="icon">04</div>
               <h3>Mentorship and Skill Development</h3>
@@ -708,6 +815,7 @@
                 access.
               </p>
             </article>
+
             <article class="card use-card">
               <div class="icon">05</div>
               <h3>Documentation and Research Records</h3>
@@ -716,6 +824,7 @@
                 responsible documentation for nonprofit transparency.
               </p>
             </article>
+
             <article class="card use-card">
               <div class="icon">06</div>
               <h3>Operational and Compliance Support</h3>
@@ -739,6 +848,7 @@
               work. It is not a purchase, service fee, membership fee or
               project-entry fee.
             </p>
+
             <ul class="policy-list">
               <li>
                 Donation does not guarantee mentorship, membership, internship,
@@ -758,26 +868,29 @@
               </li>
             </ul>
           </div>
+
           <div class="notice">
             <p class="eyebrow">Tax and Legal Notice</p>
             <h2>Important donor notice</h2>
             <p>
-              <strong
-                >ESHA Hub has received provisional registration and provisional
-                approval under Form 106. Eligible Indian donors may receive
-                donation receipts as per applicable Income Tax rules after
-                successful payment confirmation and required donor
-                details.</strong
-              >
+              <strong>
+                ESHA Hub has received Form No. 106 orders for provisional
+                registration u/s 332 and provisional approval u/s 354. Eligible
+                Indian donors may receive donation receipts as per applicable
+                Income Tax rules after successful payment confirmation and
+                required donor details.
+              </strong>
             </p>
+
             <p>
-              <strong
-                >Foreign contributions are not accepted unless ESHA Hub has the
+              <strong>
+                Foreign contributions are not accepted unless ESHA Hub has the
                 required legal approval. Please do not donate from foreign bank
                 accounts, foreign cards, or on behalf of foreign sources unless
-                ESHA Hub officially confirms acceptance.</strong
-              >
+                ESHA Hub officially confirms acceptance.
+              </strong>
             </p>
+
             <p>
               ESHA Hub currently accepts donations only from eligible Indian
               donors through approved Indian payment channels.
@@ -798,34 +911,49 @@
               development.
             </p>
           </div>
+
           <div class="details">
             <div class="detail">
-              <span>Legal Name</span
-              ><strong>ESHANTVA STRATEGIC HUB FOR ADVANCEMENT</strong>
+              <span>Legal Name</span>
+              <strong>ESHANTVA STRATEGIC HUB FOR ADVANCEMENT</strong>
             </div>
+
             <div class="detail">
-              <span>Public Name</span><strong>ESHA Hub</strong>
+              <span>Public Name</span>
+              <strong>ESHA Hub</strong>
             </div>
+
             <div class="detail">
-              <span>Registration No.</span
-              ><strong>RS/BCH/268/RFS- Regn of soc/202601591</strong>
+              <span>Registration No.</span>
+              <strong>RS/BCH/268/RFS- Regn of soc/202601591</strong>
             </div>
+
             <div class="detail">
-              <span>Registered Office</span
-              ><strong
+              <span>Registered Office</span>
+              <strong
                 >4th Part, Biswanath Chariali, Bam Gaon, Assam - 784176,
                 India</strong
               >
             </div>
+
             <div class="detail">
-              <span>Email</span
-              ><strong
+              <span>Email</span>
+              <strong
                 ><a href="mailto:info@eshahub.com">info@eshahub.com</a></strong
               >
             </div>
+
             <div class="detail">
-              <span>Registered Under</span
-              ><strong>Societies Registration Act, XXI of 1860</strong>
+              <span>Registered Under</span>
+              <strong>Societies Registration Act, XXI of 1860</strong>
+            </div>
+
+            <div class="detail">
+              <span>Income Tax Status</span>
+              <strong
+                >Provisional Registration u/s 332 and Provisional Approval u/s
+                354 Received</strong
+              >
             </div>
           </div>
         </div>
@@ -837,6 +965,7 @@
             <p class="eyebrow">FAQ</p>
             <h2>Donation questions</h2>
           </div>
+
           <div class="faq">
             <details>
               <summary>
@@ -847,6 +976,7 @@
                 participation decisions.
               </p>
             </details>
+
             <details>
               <summary>
                 Will donation guarantee mentorship, membership, internship or
@@ -858,15 +988,17 @@
                 rights.
               </p>
             </details>
+
             <details>
-              <summary>Can I get 80G tax benefit?</summary>
+              <summary>Can I get tax benefit for my donation?</summary>
               <p>
-                ESHA Hub has received provisional approval under Form 106. Tax
-                benefit, if applicable, depends on valid donor details, eligible
-                payment mode, proper receipt generation and applicable Income
-                Tax rules.
+                ESHA Hub has received Form No. 106 order for provisional
+                approval u/s 354. Tax benefit, if applicable, depends on valid
+                donor details, eligible payment mode, proper receipt generation
+                and applicable Income Tax rules.
               </p>
             </details>
+
             <details>
               <summary>Can foreign donors contribute?</summary>
               <p>
@@ -876,6 +1008,7 @@
                 acceptance.
               </p>
             </details>
+
             <details>
               <summary>Can I donate materials instead of money?</summary>
               <p>
@@ -884,6 +1017,7 @@
                 <a href="mailto:info@eshahub.com">info@eshahub.com</a>.
               </p>
             </details>
+
             <details>
               <summary>How can I contact ESHA Hub about a donation?</summary>
               <p>
@@ -907,6 +1041,7 @@
                 from Assam, one careful step at a time.
               </p>
             </div>
+
             <div class="actions">
               <a class="btn btn-primary" href="#donate">Donate via Razorpay</a>
               <a class="btn btn-secondary" href="mailto:info@eshahub.com"
@@ -925,6 +1060,7 @@
           <p>Copyright 2026 ESHA Hub. All rights reserved.</p>
           <p><a href="mailto:info@eshahub.com">info@eshahub.com</a></p>
         </div>
+
         <div class="footer-links" aria-label="Footer links">
           <a href="about.html">About</a>
           <a href="research_hub.html">Research Hub</a>
@@ -938,6 +1074,7 @@
     <script>
       const navToggle = document.querySelector(".nav-toggle");
       const navMenu = document.querySelector("#primary-menu");
+
       navToggle.addEventListener("click", () => {
         const isOpen = navMenu.classList.toggle("is-open");
         navToggle.setAttribute("aria-expanded", String(isOpen));
